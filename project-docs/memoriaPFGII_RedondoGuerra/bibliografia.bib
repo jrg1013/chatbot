@@ -1,4 +1,4 @@
-@inproceedings{Lewis2023,
+@inproceedings{Lewis2020,
  author = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K\"{u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt\"{a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
  booktitle = {Advances in Neural Information Processing Systems},
  editor = {H. Larochelle and M. Ranzato and R. Hadsell and M.F. Balcan and H. Lin},
@@ -27,5 +27,141 @@ volume={2},
 pages={5--12},
 year={2010}
 }
+
+@article{Mikolov2013Word2Vec,
+  added-at = {2013-10-23T23:02:12.000+0200},
+  author = {Mikolov, Tomas and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+  biburl = {https://www.bibsonomy.org/bibtex/29665b85e8756834ac29fcbd2c6ad0837/wool},
+  ee = {http://arxiv.org/abs/1301.3781},
+  interhash = {e92df552b17e9f952226a893b84ad739},
+  intrahash = {9665b85e8756834ac29fcbd2c6ad0837},
+  journal = {CoRR},
+  keywords = {nlp},
+  timestamp = {2013-10-23T23:02:12.000+0200},
+  title = {Efficient Estimation of Word Representations in Vector Space},
+  url = {http://dblp.uni-trier.de/db/journals/corr/corr1301.html#abs-1301-3781},
+  volume = {abs/1301.3781},
+  year = 2013
+}
+
+@misc{zhao2023survey,
+  abstract = {Language is essentially a complex, intricate system of human expressions
+governed by grammatical rules. It poses a significant challenge to develop
+capable AI algorithms for comprehending and grasping a language. As a major
+approach, language modeling has been widely studied for language understanding
+and generation in the past two decades, evolving from statistical language
+models to neural language models. Recently, pre-trained language models (PLMs)
+have been proposed by pre-training Transformer models over large-scale corpora,
+showing strong capabilities in solving various NLP tasks. Since researchers
+have found that model scaling can lead to performance improvement, they further
+study the scaling effect by increasing the model size to an even larger size.
+Interestingly, when the parameter scale exceeds a certain level, these enlarged
+language models not only achieve a significant performance improvement but also
+show some special abilities that are not present in small-scale language
+models. To discriminate the difference in parameter scale, the research
+community has coined the term large language models (LLM) for the PLMs of
+significant size. Recently, the research on LLMs has been largely advanced by
+both academia and industry, and a remarkable progress is the launch of ChatGPT,
+which has attracted widespread attention from society. The technical evolution
+of LLMs has been making an important impact on the entire AI community, which
+would revolutionize the way how we develop and use AI algorithms. In this
+survey, we review the recent advances of LLMs by introducing the background,
+key findings, and mainstream techniques. In particular, we focus on four major
+aspects of LLMs, namely pre-training, adaptation tuning, utilization, and
+capacity evaluation. Besides, we also summarize the available resources for
+developing LLMs and discuss the remaining issues for future directions.},
+  added-at = {2023-07-17T05:22:59.000+0200},
+  author = {Zhao, Wayne Xin and Zhou, Kun and Li, Junyi and Tang, Tianyi and Wang, Xiaolei and Hou, Yupeng and Min, Yingqian and Zhang, Beichen and Zhang, Junjie and Dong, Zican and Du, Yifan and Yang, Chen and Chen, Yushuo and Chen, Zhipeng and Jiang, Jinhao and Ren, Ruiyang and Li, Yifan and Tang, Xinyu and Liu, Zikang and Liu, Peiyu and Nie, Jian-Yun and Wen, Ji-Rong},
+  biburl = {https://www.bibsonomy.org/bibtex/2e99e12e8ea5ae0f885fa255373e25761/desplode},
+  description = {A Survey of Large Language Models},
+  interhash = {68ff0196340f5c8c03b2a348436a41f3},
+  intrahash = {e99e12e8ea5ae0f885fa255373e25761},
+  keywords = {llm},
+  note = {cite arxiv:2303.18223Comment: ongoing work; 85 pages, 610 citations},
+  timestamp = {2023-07-23T10:57:33.000+0200},
+  title = {A Survey of Large Language Models},
+  url = {http://arxiv.org/abs/2303.18223},
+  year = 2023
+}
+
+@online{scribbleData,
+    author = "scribbleData",
+    title = "Large Language Models 101: History, Evolution and Future",
+    url  = "https://www.scribbledata.io/large-language-models-history-evolutions-and-future/",
+    addendum = "(accessed: 26.10.2023)",
+    keywords = "LLM,history"
+}
+
+@online{Tolaka,
+    author = "Toloka Team",
+    title = "The history, timeline, and future of LLMs",
+    url  = "https://toloka.ai/blog/history-of-llms",
+    addendum = "(accessed: 26.10.2023)",
+    keywords = "LLM,history"
+}
+
+@inproceedings{chen-etal-2017-reading,
+    title = "Reading {W}ikipedia to Answer Open-Domain Questions",
+    author = "Chen, Danqi  and
+      Fisch, Adam  and
+      Weston, Jason  and
+      Bordes, Antoine",
+    booktitle = "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2017",
+    address = "Vancouver, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P17-1171",
+    doi = "10.18653/v1/P17-1171",
+    pages = "1870--1879",
+    abstract = "This paper proposes to tackle open-domain question answering using Wikipedia as the unique knowledge source: the answer to any factoid question is a text span in a Wikipedia article. This task of machine reading at scale combines the challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer spans from those articles). Our approach combines a search component based on bigram hashing and TF-IDF matching with a multi-layer recurrent neural network model trained to detect answers in Wikipedia paragraphs. Our experiments on multiple existing QA datasets indicate that (1) both modules are highly competitive with respect to existing counterparts and (2) multitask learning using distant supervision on their combination is an effective complete system on this challenging task.",
+}
+
+@inproceedings{fan-etal-2019-eli5,
+    title = "{ELI}5: Long Form Question Answering",
+    author = "Fan, Angela  and
+      Jernite, Yacine  and
+      Perez, Ethan  and
+      Grangier, David  and
+      Weston, Jason  and
+      Auli, Michael",
+    booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2019",
+    address = "Florence, Italy",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P19-1346",
+    doi = "10.18653/v1/P19-1346",
+    pages = "3558--3567",
+    abstract = "We introduce the first large-scale corpus for long form question answering, a task requiring elaborate and in-depth answers to open-ended questions. The dataset comprises 270K threads from the Reddit forum {``}Explain Like I{'}m Five{''} (ELI5) where an online community provides answers to questions which are comprehensible by five year olds. Compared to existing datasets, ELI5 comprises diverse questions requiring multi-sentence answers. We provide a large set of web documents to help answer the question. Automatic and human evaluations show that an abstractive model trained with a multi-task objective outperforms conventional Seq2Seq, language modeling, as well as a strong extractive baseline. However, our best model is still far from human performance since raters prefer gold responses in over 86{\%} of cases, leaving ample opportunity for future improvement.",
+}
+
+@inproceedings{hossain-etal-2020-simple,
+    title = "Simple and Effective Retrieve-Edit-Rerank Text Generation",
+    author = "Hossain, Nabil  and
+      Ghazvininejad, Marjan  and
+      Zettlemoyer, Luke",
+    booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.acl-main.228",
+    doi = "10.18653/v1/2020.acl-main.228",
+    pages = "2532--2538",
+    abstract = "Retrieve-and-edit seq2seq methods typically retrieve an output from the training set and learn a model to edit it to produce the final output. We propose to extend this framework with a simple and effective post-generation ranking approach. Our framework (i) retrieves several potentially relevant outputs for each input, (ii) edits each candidate independently, and (iii) re-ranks the edited candidates to select the final output. We use a standard editing model with simple task-specific re-ranking approaches, and we show empirically that this approach outperforms existing, significantly more complex methodologies. Experiments on two machine translation (MT) datasets show new state-of-art results. We also achieve near state-of-art performance on the Gigaword summarization dataset, where our analyses show that there is significant room for performance improvement with better candidate output selection in future work.",
+}
+
+@online{Chollet,
+    author = "Francois Chollet",
+    title = "How I think about LLM prompt engineering",
+    url  = "https://fchollet.substack.com/p/how-i-think-about-llm-prompt-engineering",
+    addendum = "(accessed: 23.10.2023)",
+    keywords = "LLM,prompt,Embeddings,VectorDB"
+}
+
+
+
+
 
 
