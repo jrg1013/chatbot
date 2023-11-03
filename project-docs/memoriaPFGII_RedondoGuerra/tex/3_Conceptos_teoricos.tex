@@ -72,7 +72,7 @@ Es importante destacar que la evolución de los LLM ha sido impulsada en gran me
 
 Word2Vec fue un algoritmo revolucionario en el procesamiento de lenguaje natural (PLN) que se emplea para aprender representaciones vectoriales densas de palabras a partir de grandes cantidades de texto. Desarrollado por un equipo de investigadores de Google en 2013\cite{Mikolov2013Word2Vec}, este enfoque no supervisado ha tenido un impacto significativo en el campo del PLN. Construyeron un modelo para incrustar palabras en un espacio vectorial, un problema que ya contaba con una larga historia académica en aquel momento, que comenzaba en la década de 1980. Su modelo utilizaba un objetivo de optimización diseñado para convertir las relaciones de correlación entre palabras en relaciones de distancia en el espacio de incrustación: se asociaba un vector a cada palabra de un vocabulario, y los vectores se optimizaban para que el producto punto (proximidad del coseno) entre vectores que representaban palabras que coincidían con frecuencia estuviera más cerca de 1, mientras que el producto punto entre vectores que representaban palabras que rara vez coincidían estuviera más cerca de 0. Descubrieron que el espacio de incrustación resultante era un espacio vectorial. 
 
-El espacio de incrustación resultante hacía mucho más que captar la similitud semántica. Presentaba alguna forma de aprendizaje emergente: era capaz de realizar ``aritmética de palabras'', algo para lo que no había sido entrenado. Existía un vector en el espacio que podía añadirse a cualquier sustantivo masculino para obtener un punto cercano a su equivalente femenino. Por ejemplo, V(rey) - V(hombre) + V(mujer) = V(reina). Un ``vector de género". Esta capacidad de realizar operaciones matemáticas en el espacio de incrustación reveló una comprensión subyacente de las relaciones semánticas. Parecía haber docenas de vectores mágicos de este tipo: un vector plural, un vector para pasar de nombres de animales salvajes a su equivalente más cercano en mascotas, y muchos otros. Estos descubrimientos abrieron nuevas perspectivas en el campo del procesamiento de lenguaje natural y subrayaron la potencia de Word2Vec en la representación de palabras.
+El espacio de incrustación resultante hacía mucho más que captar la similitud semántica. Presentaba alguna forma de aprendizaje emergente: era capaz de realizar ``aritmética de palabras'', algo para lo que no había sido entrenado. Existía un vector en el espacio que podía añadirse a cualquier sustantivo masculino para obtener un punto cercano a su equivalente femenino. Por ejemplo, V(rey) - V(hombre) + V(mujer) = V(reina). Un ``vector de género". Esta capacidad de realizar operaciones matemáticas en el espacio de incrustación reveló una comprensión subyacente de las relaciones semánticas. Parecía haber docenas de vectores mágicos de este tipo: un vector plural, un vector para pasar de nombres de animales salvajes a su equivalente más cercano en mascotas, y muchos otros. Estos descubrimientos abrieron nuevas perspectivas en el campo del procesamiento de lenguaje natural y subrayaron la potencia de Word2Vec en la representación de palabras\cite{Chollet}.
 
 \imagen{Word2Vec}{Ilustración de un espacio de incrustación 2D tal que el vector que une ``lobo'' con ``perro'' es el mismo que el vector que une ``tigre'' con ``gato''.}{0.5}
 
@@ -99,7 +99,7 @@ En un sistema de RAG, el proceso se divide en dos etapas:
     
 \end{enumerate}
 
-La combinación de estas dos etapas permite que la técnica RAG proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}., sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
+La combinación de estas dos etapas permite que la técnica RAG proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
 
 RAG se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
 
@@ -117,13 +117,22 @@ Aspectos a considerar: Precio, tamaño, funciones.
 
 \subsection{LLaMa}
 
+\cite{Murtuza}
+
 \imagen{LLaMa}{Gráfico de la evolución de los modelos LLaMa}{1}
 
 \subsection{Bard}
 
+\subsection{Mistral}
+
+\cite{Zhong2023AGIEvalAH}
+\imagen{Mistral_Comparacion}{Resultados en MMLU, Razonamiento de sentido común, Conocimiento del mundo y Comprensión lectora para Mistral 7B y Llama 2 (7B/13/70B).}{1}
+
 \subsection{Otros LLM}
 
 MiniLLMs
+
+\section{Prompt Engineering}
 
 \section{Tablas}
 
