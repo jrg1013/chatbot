@@ -9,6 +9,18 @@
 \usepackage{microtype}
 \usepackage{placeins}
 
+% Acrónimos
+\usepackage[acronym]{glossaries}
+\makenoidxglossaries
+
+% Acrónimos
+\newacronym{tfg}{TFG}{Trabajo de ``Fin de Grado''}
+\newacronym{llm}{LLM}{``\textit{Large Language Models}''}
+\newacronym{rag}{RAG}{``\textit{Retrieval-augmented Generation}''}
+\newacronym{ia}{IA}{Inteligencia Artificial}
+\newacronym{ubu}{UBU}{Universidad de Burgos}
+
+
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
 \RequirePackage{xtab}
@@ -401,6 +413,7 @@
 \include{./tex/E_Manual_usuario}
 \include{./tex/F_ODS}
 
+\printnoidxglossary[type=\acronymtype]
 
 \bibliographystyle{plain}
 \bibliography{bibliografiaAnexos}
