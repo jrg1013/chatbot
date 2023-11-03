@@ -12,7 +12,7 @@ En el núcleo de los \acrshort{llm} y las técnicas de \acrshort{rag}, se encuen
 
 \section{¿Que es un ``\textit{Large Language Models}''?}
 
-En esencia, un modelo lingüístico de gran escala es un tipo de modelo de aprendizaje automático que puede comprender y generar lenguaje humano mediante redes neuronales profundas (\acrlong{dnn}). La principal tarea de un modelo lingüístico es calcular la probabilidad de que una palabra siga a una entrada dada en una frase: por ejemplo, ``El cielo es ....'', siendo la respuesta más probable ``azul''. El modelo es capaz de predecir la siguiente palabra de una frase tras recibir un amplio conjunto de datos de texto (o corpus). Básicamente, aprende a reconocer distintos patrones en las palabras. De este proceso se obtiene un modelo lingüístico preentrenado.
+En esencia, un modelo lingüístico de gran escala es un tipo de modelo de aprendizaje automático que puede comprender y generar lenguaje humano mediante redes neuronales profundas (\acrlong{dnn}). La principal tarea de un modelo lingüístico es calcular la probabilidad de que una palabra siga a una entrada dada en una frase: por ejemplo, ``El cielo es ....'', siendo la respuesta más probable ``azul''. El modelo es capaz de predecir la siguiente palabra de una frase tras recibir un amplio conjunto de datos de texto (o \textit{corpus}). Básicamente, aprende a reconocer distintos patrones en las palabras. De este proceso se obtiene un modelo lingüístico preentrenado.
 
 Si se ajustan un poco, estos modelos pueden tener diversos usos prácticos, como la traducción o la adquisición de conocimientos especializados en un campo concreto, como el Derecho o la Medicina. Este proceso se conoce como aprendizaje por transferencia, que permite a un modelo aplicar los conocimientos adquiridos de una tarea a otra.
 
@@ -60,13 +60,9 @@ Y lo que es más, el último avance es la \textit{steerability} (direccionabilid
 
 Es importante destacar que la evolución de los \acrshort{llm} ha sido impulsada en gran medida por el aumento en la disponibilidad de datos de entrenamiento, el desarrollo de arquitecturas de redes neuronales más avanzadas y la mejora en el hardware de cómputo. Estos avances han permitido a los \acrshort{llm} alcanzar un nivel de comprensión y generación de texto que antes era impensable.
 
-\section{Como funciona un LLM}
-
-
-
 \subsection{Word2Vec}
 
-Word2Vec fue un algoritmo revolucionario en el \acrfull{pln} que se emplea para aprender representaciones vectoriales densas de palabras a partir de grandes cantidades de texto. Desarrollado por un equipo de investigadores de Google en 2013\cite{Mikolov2013Word2Vec}, este enfoque no supervisado ha tenido un impacto significativo en el campo del \acrshort{pln}. Construyeron un modelo para incrustar palabras en un espacio vectorial, un problema que ya contaba con una larga historia académica en aquel momento, que comenzaba en la década de 1980. Su modelo utilizaba un objetivo de optimización diseñado para convertir las relaciones de correlación entre palabras en relaciones de distancia en el espacio de incrustación: se asociaba un vector a cada palabra de un vocabulario, y los vectores se optimizaban para que el producto punto (proximidad del coseno) entre vectores que representaban palabras que coincidían con frecuencia estuviera más cerca de 1, mientras que el producto punto entre vectores que representaban palabras que rara vez coincidían estuviera más cerca de 0. Descubrieron que el espacio de incrustación resultante era un espacio vectorial. 
+Un precursor de los actuales \acrlong{llm} que merece la pena destacar es Word2Vec. Word2Vec fue un algoritmo revolucionario en el \acrfull{pln} que se emplea para aprender representaciones vectoriales densas de palabras a partir de grandes cantidades de texto. Desarrollado por un equipo de investigadores de Google en 2013\cite{Mikolov2013Word2Vec}, este enfoque no supervisado ha tenido un impacto significativo en el campo del \acrshort{pln}. Construyeron un modelo para incrustar palabras en un espacio vectorial, un problema que ya contaba con una larga historia académica en aquel momento, que comenzaba en la década de 1980. Su modelo utilizaba un objetivo de optimización diseñado para convertir las relaciones de correlación entre palabras en relaciones de distancia en el espacio de incrustación: se asociaba un vector a cada palabra de un vocabulario, y los vectores se optimizaban para que el producto punto (proximidad del coseno) entre vectores que representaban palabras que coincidían con frecuencia estuviera más cerca de 1, mientras que el producto punto entre vectores que representaban palabras que rara vez coincidían estuviera más cerca de 0. Descubrieron que el espacio de incrustación resultante era un espacio vectorial. 
 
 El espacio de incrustación resultante hacía mucho más que captar la similitud semántica. Presentaba alguna forma de aprendizaje emergente: era capaz de realizar ``aritmética de palabras'', algo para lo que no había sido entrenado. Existía un vector en el espacio que podía añadirse a cualquier sustantivo masculino para obtener un punto cercano a su equivalente femenino. Por ejemplo, V(rey) - V(hombre) + V(mujer) = V(reina). Un ``vector de género". Esta capacidad de realizar operaciones matemáticas en el espacio de incrustación reveló una comprensión subyacente de las relaciones semánticas. Parecía haber docenas de vectores mágicos de este tipo: un vector plural, un vector para pasar de nombres de animales salvajes a su equivalente más cercano en mascotas, y muchos otros. Estos descubrimientos abrieron nuevas perspectivas en el campo del procesamiento de lenguaje natural y subrayaron la potencia de Word2Vec en la representación de palabras\cite{Chollet}.
 
@@ -74,35 +70,80 @@ El espacio de incrustación resultante hacía mucho más que captar la similitud
 
 Word2Vec se implementa en dos arquitecturas principales: \acrfull{cbow} y \textit{Skip-gram}. El modelo \acrshort{cbow} se utiliza para predecir una palabra objetivo basada en un contexto circundante, mientras que el modelo \textit{Skip-gram} realiza predicciones inversas, es decir, predice palabras de contexto a partir de una palabra dada. Estas arquitecturas han demostrado ser altamente efectivas en la generación de representaciones vectoriales de palabras que capturan significados y relaciones con precisión.
 
-Las representaciones de palabras aprendidas con Word2Vec se han convertido en una pieza fundamental en tareas de transferencia de conocimiento en \acrshoert
-pln, lo que ha impulsado su amplia adopción en la comunidad de investigación y desarrollo. A través de su capacidad para reducir la dimensionalidad y su habilidad para mejorar el rendimiento en tareas de procesamiento de lenguaje, Word2Vec ha dejado una huella perdurable en la forma en que las computadoras comprenden y utilizan el lenguaje natural en una variedad de aplicaciones.
+Las representaciones de palabras aprendidas con Word2Vec se han convertido en una pieza fundamental en tareas de transferencia de conocimiento en \acrshoert{pln}, lo que ha impulsado su amplia adopción en la comunidad de investigación y desarrollo. A través de su capacidad para reducir la dimensionalidad y su habilidad para mejorar el rendimiento en tareas de procesamiento de lenguaje, Word2Vec ha dejado una huella perdurable en la forma en que las computadoras comprenden y utilizan el lenguaje natural en una variedad de aplicaciones.
+
+
+
+\section{Como funciona un LLM}
+
+Un \acrfull{llm} es un tipo de modelo lingüístico que destaca por su capacidad de comprensión y generación de lenguaje de propósito general. Los \acrshort{llm} adquieren estas capacidades utilizando cantidades masivas de datos, llamados \textit{corpus}, para aprender miles de millones de parámetros durante el entrenamiento y consumiendo grandes recursos computacionales durante su formación y funcionamiento\cite{radford_language_2019}. Los \acrshort{llm} son redes neuronales artificiales,principalmente \textit{transformers}\cite{Nvidia_Transformers}, y se preentrenan utilizando aprendizaje autosupervisado y aprendizaje semisupervisado.
+
+Como modelos autorregresivos del lenguaje, funcionan tomando un texto de entrada y prediciendo repetidamente el siguiente token o palabra\cite{bowman2023eight}. Hasta 2020, el \textit{fine-tuning} era la única forma de adaptar un modelo para que pudiera realizar tareas específicas. Sin embargo, los modelos de mayor tamaño, como el GPT-3, pueden diseñarse con \textit{prompt-engineering} para lograr resultados similares. Se cree que adquieren conocimientos incorporados sobre sintaxis, semántica y "ontología" inherentes a los del lenguaje humano, pero también imprecisiones y sesgos presentes en los en el mismo.
+
+\subsection{\textit{Transformers}}
+
+Los \textit{Transformers} son una arquitectura de \acrfull{dnn} que ha revolucionado el campo del \acrfull{pln} y ha impulsado el desarrollo de los \acrfull{llm}. Estas arquitecturas se destacan por su capacidad para modelar relaciones y dependencias de largo alcance en datos secuenciales, como texto, de manera altamente eficiente\cite{Nvidia_Transformers}.
+
+La clave de los \textit{Transformers} radica en su estructura de atención, que permite que el modelo procese secuencias de entrada de manera paralela y capture relaciones entre palabras en diferentes posiciones de la secuencia\cite{Techtarget_LLM}. A continuación, se describe cómo funcionan los \textit{Transformers} aplicados a los \acrshort{LLM}:
+
+\begin{enumerate}
+    
+\item \textbf{Codificación de entrada}: La secuencia de entrada (por ejemplo, una oración o un párrafo) se descompone en una serie de vectores de palabras o tokens. Cada palabra se representa como un vector de números reales.
+
+\item \textbf{Capas de atención}: El corazón de la arquitectura de los \textit{Transformer} es la capa de atención. Esta capa calcula la atención entre todas las palabras en la secuencia de entrada. La atención es una medida de cuánta importancia se le asigna a cada palabra en función de su relación con otras palabras en la secuencia. Esta atención se calcula a través de una función de similitud, que pondera las conexiones entre las palabras.
+
+\item \textbf{Codificación posicional}: Aunque las capas de atención capturan relaciones entre palabras, los \textit{Transformers} también necesitan información sobre la posición de las palabras en la secuencia. Para lograr esto, se agrega información de codificación posicional a los vectores de palabras.
+
+\item \textbf{Apilamiento de capas}: Los \textit{Transformers} constan de múltiples capas de atención. Cada capa refina las representaciones de las palabras y las relaciones entre ellas. Esto se hace de manera repetitiva para capturar relaciones cada vez más complejas y contextos más amplios.
+
+\item \textbf{Decodificación}: Una vez que la entrada se ha procesado a través de las capas de atención, el modelo puede generar una salida. En el caso de los \acrshort{llm}, esta salida es una secuencia de palabras que forman una respuesta coherente a una pregunta o una generación de texto.
+
+\item \textbf{Entrenamiento}: Los \textit{Transformers} se entrenan utilizando grandes conjuntos de datos que contienen pares de entrada y salida. El modelo ajusta sus parámetros para minimizar la diferencia entre las respuestas generadas y las respuestas esperadas en el conjunto de datos de entrenamiento.
+
+\end{enumerate}
+
+\imagen{transformer_model_architecture-f}{Arqitectura de los modelos de redes neuronales 
+ profundas \textit{Transformers}.}{1}
+
+\subsection{Procesamiento de datos de entrenamiento - tokenización}
+
+Los \acrlong{llm} procesan el texto utilizando tokens, que son secuencias comunes de caracteres que se encuentran en un conjunto de texto. Los modelos aprenden a entender las relaciones estadísticas entre estos tokens y destacan a la hora de producir el siguiente token en una secuencia de tokens\cite{OpenAI_Tokenizer}.
+
+\imagen{OpenAI_Tokenizer}{Muestra de un texto y su equivalente en tokens usando el tokenizador de OpenAI para GPT-3.5 y GPT-4.}{1}
+
+Existen dos conceptos que están en la base de la tokenización de los \acrshort{llm}: y los N-grama y la Codificación de pares de bytes.
+
+N-grama es una serie de n letras adyacentes (incluidos los signos de puntuación y los espacios en blanco), sílabas o, rara vez, palabras enteras que se encuentran en un conjunto de datos lingüísticos; o fonemas adyacentes extraídos de un conjunto de datos de grabación del habla, o pares de bases adyacentes extraídos de un genoma. Se recogen de un \textit{corpus} de texto o de habla. Si se utilizan prefijos numéricos latinos, el n-grama de tamaño 1 se denomina ``unigrama'', el de tamaño 2 ``bigrama'', etc. Si, en lugar de los latinos, se utilizan además los números cardinales ingleses, entonces se denominan ``four-gram'', ``five-gram'', etc. 
+
+La codificación de pares de bytes(también conocida como codificación de digramas) es un algoritmo, descrito por primera vez en 1994 por Philip Gage\cite{Gage_Compresion}. Su modificación destaca por ser el tokenizador de modelos de lenguaje de gran tamaño con capacidad para combinar tanto tokens que codifican caracteres únicos (incluidos dígitos únicos o signos de puntuación únicos) como aquellos que codifican palabras completas (incluso las palabras compuestas más largas). Esta modificación, en el primer paso, supone que todos los caracteres únicos son un conjunto inicial de n-gramas de 1 carácter de longitud (es decir, ``tokens'' iniciales). A continuación, el par más frecuente de caracteres adyacentes se fusiona sucesivamente en un nuevo n-grama de 2 caracteres de longitud y todas las instancias del par se sustituyen por este nuevo token. Esto se repite hasta obtener un vocabulario del tamaño prescrito. Tenga en cuenta que siempre se pueden construir palabras nuevas a partir de los tokens del vocabulario final y de los caracteres del conjunto inicial.
+
+Todos los tokens únicos encontrados en un \textit{corpus} se enumeran en un vocabulario de tokens cuyo tamaño, en el caso de GPT-3, es de 50257.
+
+La diferencia entre el algoritmo modificado y el original es que el algoritmo original no fusiona el par más frecuente de bytes de datos, sino que los sustituye por un nuevo byte que no estaba contenido en el conjunto de datos inicial. Para reconstruir el conjunto de datos inicial se necesita una tabla de búsqueda de las sustituciones. El algoritmo es eficaz para la tokenización porque no requiere grandes gastos de cálculo y sigue siendo coherente y fiable.
+
+\imagen{Byte-pair_Encoding}{Ejemplo de codificación de pares de bytes aplicado a una secuencia de caracteres.}{0.75}
+
+Un vocabulario de tokens basado en las frecuencias extraídas principalmente del ingles, utiliza el menor número posible de tokens para una palabra media en ingles. Sin embargo, una palabra media en otro idioma codificada por un tokenizador optimizado para el inglés se divide en una cantidad subóptima de tokens. Como regla general, un token suele corresponder a unos 4 caracteres de texto en inglés común. Esto equivale aproximadamente a tres cuartas partes de una palabra (por tanto, 100 tokens ~= 75 palabras).
+
+Adicionalmente a la tokenización, el procesamiento de datos intentar crear datos de entrenamiento de alta calidad. La eliminación de pasajes tóxicos del conjunto de datos, el descarte de datos de baja calidad y la desduplicación son ejemplos de limpieza de conjuntos de datos de entrenamiento. Los conjuntos de datos limpios (de alta calidad) resultantes contenían hasta 17 billones de palabras en 2022, frente a los 985 millones de palabras utilizados en 2018 para GPT-1 y los 3.300 millones de palabras utilizados para BERT. No obstante, se espera que los datos futuros estén cada vez más ``contaminados'' por los propios contenidos generados por \acrshort{llm}.
 
 \section{Tipos de LLM}
 
+Los \acrlong{llm} pueden clasificarse a grandes rasgos en tres tipos: modelos de preentrenamiento, modelos de \textit{Fine-tuning} y modelos multimodales\cite{scribbleData}.
+
+\begin{description}
+
+\item[Los modelos de preentrenamiento], como GPT-3/GPT-3.5, T5 y XLNet, se entrenan con grandes cantidades de datos, lo que les permite aprender una amplia gama de patrones y estructuras lingüísticas. Estos modelos destacan en la generación de textos coherentes y gramaticalmente correctos sobre una gran variedad de temas. Se utilizan como punto de partida para seguir entrenándolos y perfeccionándolos para tareas específicas.
+
+\item[Los modelos de \textit{Fine-tuning}], como BERT, RoBERTa y ALBERT, se entrenan previamente en un gran conjunto de datos y luego se ajustan en un conjunto de datos más pequeño para una tarea específica. Estos modelos son muy eficaces para tareas como el análisis de sentimientos, la respuesta a preguntas y la clasificación de textos. Suelen utilizarse en aplicaciones industriales que requieren modelos lingüísticos específicos para cada tarea.
+
+\item[Los modelos multimodales] como CLIP y DALL-E combinan texto con otras modalidades como imágenes o vídeo para crear modelos lingüísticos más robustos. Estos modelos pueden entender las relaciones entre imágenes y texto, lo que les permite generar descripciones textuales de imágenes o incluso generar imágenes a partir de descripciones textuales.
+
+\end{description}
+
+Cada tipo de \acrshort{llm} tiene sus puntos fuertes y débiles, y la elección de cuál utilizar depende del caso de uso específico.
+
 \imagen{TiposLLM}{Clasificación de los LLM en tres categorias}{1}
-
-\section{¿Que es un \textit{Retrieval-augmented Generation}?}
-
-Los LLM han demostrado su capacidad para comprender el contexto y ofrecer respuestas precisas a diversas tareas de procesamiento de lenguaje natural (PLN), como la síntesis o las preguntas y respuestas, cuando se les solicita. Aunque son capaces de ofrecer muy buenas respuestas a preguntas sobre información con la que fueron entrenados, tienden a ``alucinar'' cuando el tema trata sobre información que desconocen, es decir, que no estaba incluida en sus datos de entrenamiento.
-
-``\textit{Retrieval-augmented Generation}'' (RAG) es una técnica avanzada en el campo del PNL que combina dos enfoques clave: recuperación y generación de texto. Esta técnica se utiliza para mejorar la generación de texto automática y garantizar que las respuestas generadas sean precisas, relevantes y contextualmente adecuadas\cite{Lewis2020}.
-
-En un sistema de RAG, el proceso se divide en dos etapas:
-
-\begin{enumerate}
-    \item Recuperación (\textit{Retrieval}): En esta etapa, el sistema busca información relevante en grandes conjuntos de datos o bases de conocimiento. Utiliza métodos de recuperación de información para encontrar documentos o fragmentos de texto que contienen información relacionada con la consulta o el contexto actual.
-
-    \item Generación (\textit{Generation}): Una vez que se ha recuperado la información relevante, el sistema de generación de texto (a menudo basado en un LLM, como GPT) utiliza esta información para generar respuestas coherentes y contextualmente apropiadas.
-    
-\end{enumerate}
-
-La combinación de estas dos etapas permite que la técnica RAG proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
-
-RAG se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
-
-\section{Embeddings}
-
-\section{Bases de datos Vectoriales}
 
 \section{Selección de un LLM}
 
@@ -130,6 +171,29 @@ Aspectos a considerar: Precio, tamaño, funciones.
 MiniLLMs
 
 \section{Prompt Engineering}
+
+\section{¿Que es un \textit{Retrieval-augmented Generation}?}
+
+Los LLM han demostrado su capacidad para comprender el contexto y ofrecer respuestas precisas a diversas tareas de procesamiento de lenguaje natural (PLN), como la síntesis o las preguntas y respuestas, cuando se les solicita. Aunque son capaces de ofrecer muy buenas respuestas a preguntas sobre información con la que fueron entrenados, tienden a ``alucinar'' cuando el tema trata sobre información que desconocen, es decir, que no estaba incluida en sus datos de entrenamiento.
+
+``\textit{Retrieval-augmented Generation}'' (RAG) es una técnica avanzada en el campo del PNL que combina dos enfoques clave: recuperación y generación de texto. Esta técnica se utiliza para mejorar la generación de texto automática y garantizar que las respuestas generadas sean precisas, relevantes y contextualmente adecuadas\cite{Lewis2020}.
+
+En un sistema de RAG, el proceso se divide en dos etapas:
+
+\begin{enumerate}
+    \item Recuperación (\textit{Retrieval}): En esta etapa, el sistema busca información relevante en grandes conjuntos de datos o bases de conocimiento. Utiliza métodos de recuperación de información para encontrar documentos o fragmentos de texto que contienen información relacionada con la consulta o el contexto actual.
+
+    \item Generación (\textit{Generation}): Una vez que se ha recuperado la información relevante, el sistema de generación de texto (a menudo basado en un LLM, como GPT) utiliza esta información para generar respuestas coherentes y contextualmente apropiadas.
+    
+\end{enumerate}
+
+La combinación de estas dos etapas permite que la técnica RAG proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
+
+RAG se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
+
+\section{Embeddings}
+
+\section{Bases de datos Vectoriales}
 
 \section{Tablas}
 
