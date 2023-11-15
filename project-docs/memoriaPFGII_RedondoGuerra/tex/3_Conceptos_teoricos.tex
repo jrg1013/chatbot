@@ -70,9 +70,7 @@ El espacio de incrustación resultante hacía mucho más que captar la similitud
 
 Word2Vec se implementa en dos arquitecturas principales: \acrfull{cbow} y \textit{Skip-gram}. El modelo \acrshort{cbow} se utiliza para predecir una palabra objetivo basada en un contexto circundante, mientras que el modelo \textit{Skip-gram} realiza predicciones inversas, es decir, predice palabras de contexto a partir de una palabra dada. Estas arquitecturas han demostrado ser altamente efectivas en la generación de representaciones vectoriales de palabras que capturan significados y relaciones con precisión.
 
-Las representaciones de palabras aprendidas con Word2Vec se han convertido en una pieza fundamental en tareas de transferencia de conocimiento en \acrshoert{pln}, lo que ha impulsado su amplia adopción en la comunidad de investigación y desarrollo. A través de su capacidad para reducir la dimensionalidad y su habilidad para mejorar el rendimiento en tareas de procesamiento de lenguaje, Word2Vec ha dejado una huella perdurable en la forma en que las computadoras comprenden y utilizan el lenguaje natural en una variedad de aplicaciones.
-
-
+Las representaciones de palabras aprendidas con Word2Vec se han convertido en una pieza fundamental en tareas de transferencia de conocimiento en \acrshort{pln}, lo que ha impulsado su amplia adopción en la comunidad de investigación y desarrollo. A través de su capacidad para reducir la dimensionalidad y su habilidad para mejorar el rendimiento en tareas de procesamiento de lenguaje, Word2Vec ha dejado una huella perdurable en la forma en que las computadoras comprenden y utilizan el lenguaje natural en una variedad de aplicaciones.
 
 \section{Como funciona un LLM}
 
@@ -82,9 +80,9 @@ Como modelos autorregresivos del lenguaje, funcionan tomando un texto de entrada
 
 \subsection{\textit{Transformers}}
 
-Los \textit{Transformers} son una arquitectura de \acrfull{dnn} que ha revolucionado el campo del \acrfull{pln} y ha impulsado el desarrollo de los \acrfull{llm}. Estas arquitecturas se destacan por su capacidad para modelar relaciones y dependencias de largo alcance en datos secuenciales, como texto, de manera altamente eficiente\cite{Nvidia_Transformers}.
+Los \textit{Transformers} son una arquitectura de \acrfull{dnn} que ha revolucionado el campo del \acrfull{pln} y ha impulsado el desarrollo de los \acrfull{llm}. Estas arquitecturas se destacan por su capacidad para modelar relaciones y dependencias de largo alcance en datos secuenciales, como texto, de manera altamente eficiente\cite{Nvidia_Transformers, turner2023introduction}.
 
-La clave de los \textit{Transformers} radica en su estructura de atención, que permite que el modelo procese secuencias de entrada de manera paralela y capture relaciones entre palabras en diferentes posiciones de la secuencia\cite{Techtarget_LLM}. A continuación, se describe cómo funcionan los \textit{Transformers} aplicados a los \acrshort{LLM}:
+La clave de los \textit{Transformers} radica en su estructura de auto-atención, que permite que el modelo procese secuencias de entrada de manera paralela y capture relaciones entre palabras en diferentes posiciones de la secuencia\cite{Techtarget_LLM}. A continuación, se describe cómo funcionan los \textit{Transformers} aplicados a los \acrshort{llm}:
 
 \begin{enumerate}
     
@@ -115,7 +113,7 @@ Existen dos conceptos que están en la base de la tokenización de los \acrshort
 
 N-grama es una serie de n letras adyacentes (incluidos los signos de puntuación y los espacios en blanco), sílabas o, rara vez, palabras enteras que se encuentran en un conjunto de datos lingüísticos; o fonemas adyacentes extraídos de un conjunto de datos de grabación del habla, o pares de bases adyacentes extraídos de un genoma. Se recogen de un \textit{corpus} de texto o de habla. Si se utilizan prefijos numéricos latinos, el n-grama de tamaño 1 se denomina ``unigrama'', el de tamaño 2 ``bigrama'', etc. Si, en lugar de los latinos, se utilizan además los números cardinales ingleses, entonces se denominan ``four-gram'', ``five-gram'', etc. 
 
-La codificación de pares de bytes(también conocida como codificación de digramas) es un algoritmo, descrito por primera vez en 1994 por Philip Gage\cite{Gage_Compresion}. Su modificación destaca por ser el tokenizador de modelos de lenguaje de gran tamaño con capacidad para combinar tanto tokens que codifican caracteres únicos (incluidos dígitos únicos o signos de puntuación únicos) como aquellos que codifican palabras completas (incluso las palabras compuestas más largas). Esta modificación, en el primer paso, supone que todos los caracteres únicos son un conjunto inicial de n-gramas de 1 carácter de longitud (es decir, ``tokens'' iniciales). A continuación, el par más frecuente de caracteres adyacentes se fusiona sucesivamente en un nuevo n-grama de 2 caracteres de longitud y todas las instancias del par se sustituyen por este nuevo token. Esto se repite hasta obtener un vocabulario del tamaño prescrito. Tenga en cuenta que siempre se pueden construir palabras nuevas a partir de los tokens del vocabulario final y de los caracteres del conjunto inicial.
+La codificación de pares de bytes(también conocida como codificación de digramas) es un algoritmo, descrito por primera vez en 1994 por Philip Gage\cite{Gage_Compresion}. Su modificación destaca por ser el tokenizador de modelos de lenguaje de gran tamaño con capacidad para combinar tanto tokens que codifican caracteres únicos (incluidos dígitos únicos o signos de puntuación únicos) como aquellos que codifican palabras completas (incluso las palabras compuestas más largas). Esta modificación, en el primer paso, supone que todos los caracteres únicos son un conjunto inicial de n-gramas de 1 carácter de longitud (es decir, tokens iniciales). A continuación, el par más frecuente de caracteres adyacentes se fusiona sucesivamente en un nuevo n-grama de 2 caracteres de longitud y todas las instancias del par se sustituyen por este nuevo token. Esto se repite hasta obtener un vocabulario del tamaño prescrito. Tenga en cuenta que siempre se pueden construir palabras nuevas a partir de los tokens del vocabulario final y de los caracteres del conjunto inicial.
 
 Todos los tokens únicos encontrados en un \textit{corpus} se enumeran en un vocabulario de tokens cuyo tamaño, en el caso de GPT-3, es de 50257.
 
@@ -126,6 +124,36 @@ La diferencia entre el algoritmo modificado y el original es que el algoritmo or
 Un vocabulario de tokens basado en las frecuencias extraídas principalmente del ingles, utiliza el menor número posible de tokens para una palabra media en ingles. Sin embargo, una palabra media en otro idioma codificada por un tokenizador optimizado para el inglés se divide en una cantidad subóptima de tokens. Como regla general, un token suele corresponder a unos 4 caracteres de texto en inglés común. Esto equivale aproximadamente a tres cuartas partes de una palabra (por tanto, 100 tokens ~= 75 palabras).
 
 Adicionalmente a la tokenización, el procesamiento de datos intentar crear datos de entrenamiento de alta calidad. La eliminación de pasajes tóxicos del conjunto de datos, el descarte de datos de baja calidad y la desduplicación son ejemplos de limpieza de conjuntos de datos de entrenamiento. Los conjuntos de datos limpios (de alta calidad) resultantes contenían hasta 17 billones de palabras en 2022, frente a los 985 millones de palabras utilizados en 2018 para GPT-1 y los 3.300 millones de palabras utilizados para BERT. No obstante, se espera que los datos futuros estén cada vez más ``contaminados'' por los propios contenidos generados por \acrshort{llm}.
+
+\subsection{\textit{Self-Attention}}
+
+En el contexto de la memoria del proyecto, es relevante abordar la aparente contradicción entre los \acrfull{llm}, que son modelos autorregresivos entrenados para predecir la siguiente palabra en función de la secuencia de palabras anteriores, y el objetivo de Word2Vec de maximizar el producto punto entre tokens co-ocurrentes.
+
+La conexión entre estos dos enfoques se establece a través del componente fundamental de la arquitectura \textit{Transformer}: la autoatención(\textit{self-attention}). La autoatención es un mecanismo clave para aprender un nuevo espacio de incrustación de tokens. Funciona mediante la recombinación lineal de incrustaciones de tokens del espacio anterior, dando mayor peso a los tokens que están más cerca en términos de su producto punto, es decir, aquellos que están más correlacionados.
+
+Con el tiempo, este proceso conduce a la creación de un espacio en el cual las relaciones de correlación entre los tokens se convierten en relaciones de proximidad de incrustación, medida en términos de distancia coseno. Los Transformers, al aprender una serie de espacios de incrustación cada vez más refinados, logran dos propiedades cruciales:
+
+\begin{description}
+
+\item \textbf{Continuidad Semántica}: Los espacios de incrustación son semánticamente continuos, lo que significa que un pequeño cambio en el espacio de incrustación apenas afecta el significado humano de los tokens correspondientes. Esta propiedad también se verifica en el espacio de Word2Vec.
+
+\item \textbf{Interpolación Semántica}: Los espacios de incrustación son semánticamente interpolativos. Tomar el punto intermedio entre dos puntos de un espacio de incrustación da como resultado un punto que representa el ``significado intermedio'' entre los tokens correspondientes. Esto se logra al construir cada nuevo espacio de incrustación interpolando entre vectores del espacio anterior.
+
+\end{description}
+
+Esta dinámica no difiere mucho del proceso de aprendizaje en el cerebro, donde las relaciones de correlación entre eventos de disparo neuronal se convierten en relaciones de proximidad en la red cerebral, siguiendo el principio clave del aprendizaje Hebbiano:``neuronas que disparan juntas, conectan junta''. Tanto \textit{Transformers} como Word2Vec son, de alguna manera, mapas de un espacio de información, buscando representar de manera eficiente y semánticamente significativa las relaciones entre los elementos del lenguaje.
+
+\imagen{self-attention}{Cómo funciona self-attention: se calculan las puntuaciones de atención entre ``estación'' y cualquier otra palabra de la secuencia, y luego se utilizan para ponderar una suma de vectores de palabras que se convierte en el nuevo vector ``estación''.}{1}
+
+\subsection{Los \acrshort{llm} como bases de datos de programas}
+
+Se puede conceptualizar un \acrfull{llm} como algo análogo a una base de datos: almacena información que puedes recuperar mediante solicitudes. Sin embargo, existen dos diferencias fundamentales entre los \acrshort{llm} y las bases de datos convencionales.
+
+La primera diferencia radica en que un \acrshort{llm} representa un tipo de base de datos continua e interpolativa. En lugar de almacenar datos como un conjunto discreto de entradas, la información se guarda como un espacio vectorial, es decir, una curva. La semántica de esta curva es continua, permitiéndote desplazarte a lo largo de ella para explorar puntos cercanos y relacionados. Además, se puede interpolar en la curva entre distintos puntos de datos para encontrar puntos intermedios. Esto implica que se puede recuperar de la base de datos más información de la que originalmente se introdujo, aunque no todo será necesariamente preciso ni significativo. La interpolación puede conducir a la generalización, pero también a posibles alucinaciones.
+
+La segunda diferencia es que un \acrshort{llm} no solo contiene datos en el sentido tradicional. Aunque ciertamente almacena una amplia gama de datos, como hechos, lugares, personas, fechas y relaciones, es, quizás principalmente, una base de datos de programas.
+
+Estos programas en un \acrshort{llm} no se asemejan exactamente a los programas deterministas que se pueden encontrar en lenguajes de programación como Python, compuestos por secuencias de instrucciones simbólicas que procesan datos paso a paso. En cambio, los programas en un \acrshort{llm} son funciones altamente no lineales que mapean el espacio de incrustación latente en sí mismo. Son análogos a los vectores de Word2Vec, pero considerablemente más complejos en su naturaleza y capacidad.
 
 \section{Tipos de LLM}
 
@@ -143,83 +171,125 @@ Los \acrlong{llm} pueden clasificarse a grandes rasgos en tres tipos: modelos de
 
 Cada tipo de \acrshort{llm} tiene sus puntos fuertes y débiles, y la elección de cuál utilizar depende del caso de uso específico.
 
-\imagen{TiposLLM}{Clasificación de los LLM en tres categorias}{1}
+\imagen{TiposLLM}{Clasificación de los LLM en tres categorías}{1}
 
-\section{Selección de un LLM}
+\section{LLM más extendidos}
 
-Aspectos a considerar: Precio, tamaño, funciones.
+\subsection{OpenAI - ChatGPT}
 
-\subsection{OpenAI}
+OpenAI es pionera en el campo de la \acrlong{ia}, es una de las empresas mas influyentes en el avance de los límites del procesamiento del lenguaje similar al humano. OpenAI ha lanzado numerosos modelos lingüísticos, incluida toda la familia \acrshort{gpt}, como GPT-3 y GPT-4, que impulsan su producto ChatGPT, y que han revolucionado la forma de trabajar de desarrolladores, investigadores y entusiastas de todo el mundo. En el area de los grandes modelos lingüísticos, es imposible pasar por alto el significativo impacto y el espíritu pionero de OpenAI, que sigue a día de hoy marcando el futuro de la inteligencia artificial.
 
-\imagen{OpenAI}{Evolución tecnológica de los modelos GPT}{1}
+Los modelos OpenAI han acaparado una gran atención por sus impresionantes características y su rendimiento de vanguardia. Estos modelos poseen notables capacidades de comprensión y generación de lenguaje natural. Destacan en una amplia gama de tareas relacionadas con el lenguaje, como completar textos, traducir o responder preguntas, entre otras.
 
-\subsection{LLaMa}
+La familia de modelos \acrshort{gpt}, incluidos gpt-4 y gpt-3.5-turbo, se ha entrenado con datos de Internet, códigos, instrucciones y comentarios humanos, con más de cien mil millones de parámetros, lo que garantiza la calidad de los modelos. Los modelos de OpenAI están diseñados para ser versátiles y atender a una amplia gama de casos de uso, incluida la generación de imágenes. Se puede acceder a ellos a través de una \acrshort{api}, lo que permite a los desarrolladores integrar los modelos en sus aplicaciones. OpenAI ofrece distintas opciones de uso, entre ellas el ajuste fino, que permite a los usuarios adaptar los modelos a tareas o dominios específicos aportando datos de entrenamiento personalizados.
 
-\cite{Murtuza}
+\imagen{OpenAI}{Evolución tecnológica de los modelos GPT a lo largo de los años.}{1}
+
+OpenAI ha estado a la vanguardia del avance de los modelos de \acrfull{pln}, siendo pionera en el desarrollo del \acrfull{rlhf} como una poderosa técnica para moldear el comportamiento de sus modelos en contextos de chat. El \acrshort{rlhf} consiste en entrenar los modelos de \acrshort{ia} combinando la retroalimentación generada por humanos con métodos de aprendizaje por refuerzo. De este modo, los modelos de OpenAI aprenden de las interacciones con los humanos para mejorar sus respuestas. Gracias al \acrshort{rlhf}, OpenAI ha logrado avances significativos en la mejora de la fiabilidad, utilidad y seguridad de sus modelos, proporcionando en última instancia a los usuarios respuestas más precisas y adecuadas al contexto.
+
+\subsection{Meta - LLaMa}
+
+Meta AI avanza significativamente en la promoción de la ciencia abierta con el lanzamiento de LLaMA (\textit{Large Language Model Meta AI}). Este modelo de lenguaje grande de última generación está diseñado para facilitar el progreso de los investigadores en el campo de la \acrshort{ia}.
+
+Los modelos más pequeños pero de alto rendimiento de LLaMA ofrecen accesibilidad a la comunidad de investigación, permitiendo a los investigadores sin recursos extensos explorar y estudiar estos modelos, democratizando así el acceso en este campo de rápido desarrollo. Estos modelos base, entrenados con grandes cantidades de datos no etiquetados, requieren menos potencia informática y recursos, lo que los hace ideales para el ajuste fino y la experimentación en diversas tareas.
+
+LLaMA es una colección de modelos de lenguaje grandes que abarcan un amplio rango de parámetros, desde 7B hasta 65B. A través de un entrenamiento meticuloso con trillones de tokens extraídos exclusivamente de conjuntos de datos públicamente disponibles, los desarrolladores de LLaMA demuestran la posibilidad de lograr un rendimiento de vanguardia sin necesidad de fuentes de datos propietarias o inaccesibles. Especialmente, LLaMA-13B muestra un rendimiento superior en comparación con el renombrado GPT-3 (175B) en varios puntos de referencia, mientras que LLaMA-65B compite de manera impresionante con modelos de primer nivel como PaLM-540B\cite{Murtuza}.
 
 \imagen{LLaMa}{Gráfico de la evolución de los modelos LLaMa}{1}
 
-\subsection{Bard}
+Los modelos LLaMA aprovechan la arquitectura de \textit{transformers}, que se ha convertido en el estándar de la industria para la modelización del lenguaje desde 2018. En lugar de aumentar únicamente el número de parámetros, los desarrolladores de LLaMA priorizaron escalar el rendimiento del modelo al expandir significativamente el volumen de datos de entrenamiento. Su razonamiento se basa en la comprensión de que el costo principal de los grandes modelos de lenguaje radica en la inferencia durante el uso del modelo, más que en los gastos computacionales de entrenamiento. En consecuencia, LLaMA se entrenó con impresionantes 1.4 billones de tokens, obtenidos minuciosamente de datos públicamente disponibles. Este extenso conjunto de datos de entrenamiento capacita a LLaMA para destacar en la comprensión de patrones de lenguaje complejos y generar respuestas contextualmente apropiadas.
+
+\subsection{Google - Bard}
+
+Google AI presentó BARD, un avanzado \acrfull{llm} en forma de chatbot, desarrollado y entrenado con un extenso conjunto de datos de texto y código. BARD exhibe su destreza en la generación de texto, la traducción multilingüe, la creación de código, la diversificación de contenido y al proporcionar respuestas informativas a preguntas.
+
+Lo que diferencia a BARD es su capacidad para acceder a datos del mundo real a través de Google Search, lo que amplía sus capacidades de comprensión y respuesta. Google, a la vanguardia de la investigación en \acrshort{llm}, ha introducido modelos innovadores como BERT, T5 y PaLM. Estos modelos aprovechan arquitecturas basadas en \textit{transformers}, lo que permite una comprensión contextual profunda del lenguaje y su aplicación versátil en tareas de \acrlong{pln}.
+
+BERT, un hito temprano, utiliza \textit{transformers} bidireccionales para la comprensión contextual del texto, preentrenado en vastos datos no etiquetados y ajustado para tareas específicas. T5, adoptando un enfoque de aprendizaje por transferencia de texto a texto, demuestra su versatilidad en diversas tareas de \acrlong{pln} sin necesidad de entrenamiento específico para cada tarea. PaLM se centra en capturar estructuras sintácticas y semánticas en las oraciones, utilizando características lingüísticas como árboles de análisis para relaciones sintácticas y etiquetado semántico de roles para identificación de funciones. Con la capacidad de escalar hasta 540 mil millones de parámetros, PaLM logra un rendimiento innovador.
+
+Los modelos de lenguaje de Google han demostrado de manera consistente capacidades avanzadas y un rendimiento excepcional al abordar diversos desafíos en el \acrshort{pln}. El camino de Google en la investigación de \acrshort{llm}, comenzando con la arquitectura \textit{Transformer}, ha allanado el camino para modelos cada vez más sofisticados, estableciendo estándares en la comprensión y generación de lenguaje.
+
+\subsection{Anthropic - Claude}
+
+Anthropic es una organización que busca abordar algunos de los desafíos más profundos en \acrlong{ia} y dar forma al desarrollo de sistemas de \acrshort{ia} avanzados. Con un enfoque en la robustez, la seguridad y la alineación de valores, Anthropic tiene como objetivo abordar consideraciones éticas y sociales críticas en torno a la \acrshort{ia}.
+
+Claude, el producto estrella de Anthropic, es un \acrlong{llm} de vanguardia que se encuentra en la vanguardia de la investigación en \acrlong{pln}. Este modelo, nombrado en honor al legendario matemático Claude Shannon, representa un avance significativo en las capacidades del lenguaje de la \acrshort{ia}. 
+
+El modelo Claude de Anthropic es un potente \acrshort{llm} diseñado para procesar grandes volúmenes de texto y realizar una amplia gama de tareas. Con Claude, los usuarios pueden gestionar fácilmente diversas formas de datos textuales, como documentos, correos electrónicos, preguntas frecuentes, transcripciones de chat y registros. El modelo ofrece una multitud de capacidades, como edición, reescritura, resumen, clasificación, extracción de datos estructurados y servicios de preguntas y respuestas basados en el contenido.
+
+La familia de modelos de Anthropic, que incluye a Claude y Claude-instant, ha sido entrenada con datos de Internet, códigos, instrucciones y retroalimentación humana, lo que garantiza la calidad de los modelos.
+
+Además del procesamiento de texto, Claude puede participar en conversaciones naturales, asumiendo diversos roles en un diálogo. Al especificar el rol y proporcionar una sección de preguntas frecuentes, los usuarios pueden tener interacciones fluidas y contextualmente relevantes con Claude. Ya sea un diálogo en busca de información o un escenario de juego de roles, Claude puede adaptarse y responder de manera naturalista.
+
+Anthropic destaca algunas de las características sobresalientes de Claude, como "un extenso conocimiento general perfeccionado a partir de su vasto corpus de entrenamiento, con antecedentes detallados en conocimientos técnicos, científicos y culturales. Claude puede hablar una variedad de idiomas comunes, así como lenguajes de programación"\cite{Anthropic}.
+
+Además, Claude ofrece capacidades de automatización, lo que permite a los usuarios optimizar sus flujos de trabajo. El modelo puede ejecutar varias instrucciones y escenarios lógicos, incluido el formateo de salidas según requisitos específicos, siguiendo instrucciones condicionales y realizando una serie de evaluaciones lógicas. Esto permite a los usuarios automatizar tareas repetitivas y aprovechar la eficiencia de Claude para mejorar la productividad. Recientemente, se introdujo una nueva versión de Claude, que ofrece un impresionante límite de 100,000 tokens de contexto. Con esta capacidad ampliada, ahora se pueden incorporar sin esfuerzo libros completos o documentos extensos, abriendo emocionantes posibilidades para usuarios que buscan información integral o detalladas sugerencias creativas.
+
+El modelo Claude de Anthropic introduce una función conocida como ``inteligencia artificial constitucional'', que implica un proceso de dos fases: aprendizaje supervisado y aprendizaje por refuerzo. Aborda los posibles riesgos y daños asociados con sistemas de \acrlong{ia} que utilizan retroalimentación. Al incorporar los principios del aprendizaje constitucional, tiene como objetivo controlar el comportamiento de la \acrshort{ia} de manera más precisa.
 
 \subsection{Mistral}
 
-\cite{Zhong2023AGIEvalAH}
+Mistral AI, con sede en París y cofundada por extrabajadores de Google DeepMind y Meta, anunció su primer modelo de lenguaje grande, Mistral 7B, recientemente. Esta startup logró asegurar una financiación inicial récord incluso antes de lanzar un producto. El primer modelo de Mistral AI con 7 mil millones de parámetros supera el rendimiento de Llama 2 13B en todas las pruebas y supera a Llama 1 34B en muchos aspectos métricos\cite{Zhong2023AGIEvalAH}.
+
 \imagen{Mistral_Comparacion}{Resultados en MMLU, Razonamiento de sentido común, Conocimiento del mundo y Comprensión lectora para Mistral 7B y Llama 2 (7B/13/70B).}{1}
+
+En comparación con otros modelos como Llama 2, Mistral 7B ofrece capacidades similares o mejores pero con menos carga computacional. Mientras que modelos fundacionales como GPT-4 pueden lograr más, pero teniendo un costo más alto.
+
+En lo que respecta a las tareas de codificación, Mistral 7B compite eficazmente con CodeLlama 7B. Además, es lo suficientemente compacto, con 13.4 GB, como para ejecutarse en máquinas estándar.
+
+Además, Mistral 7B Instruct, ajustado específicamente para conjuntos de datos instructivos en Hugging Face, ha mostrado un gran rendimiento. Supera a otros modelos de 7B en MT-Bench y se destaca junto a los modelos de chat de 13B.
+
+El nacimiento de \acrlong{llm} de código abierto como Mistral 7B señala un cambio fundamental en la industria de la \acrlong{ia}, haciendo que modelos de lenguaje de alta calidad sean accesibles para un público más amplio. Enfoques innovadores como el de Mistral AI, como \textit{Grouped-query attention} y \textit{Sliding Window Attention}, prometen un rendimiento eficiente sin comprometer la calidad\cite{MiitaMistral}.
+
+Aunque la naturaleza descentralizada de Mistral presenta ciertos desafíos, su flexibilidad y licencia de código abierto subrayan el potencial de democratizar la \acrlong{ia}. A medida que el panorama evoluciona, el enfoque inevitablemente se centrará en equilibrar el poder de estos modelos con consideraciones éticas y mecanismos de seguridad.
+
+El equipo de Mistral tiene como objetivo lanzar modelos aún más grandes próximamente. Si estos nuevos modelos igualan el rendimiento del 7B, Mistral podría ascender rápidamente como y jugar un papel destacado en la industria.
 
 \subsection{Otros LLM}
 
-MiniLLMs
+Existe un gran número de \acrshort{llm} y no dejan de salir nuevos modelos casi a diario. A mayores de los anteriormente comentados caben destacar también los siguientes.
 
-\section{Prompt Engineering}
+Salesforce ha desarrollado el modelo \textit{Conditional Transformer Language Model} (CTRL), un logro destacado en el procesamiento del lenguaje natural con 1.6 mil millones de parámetros. CTRL permite un control preciso sobre la generación de texto, con la capacidad de atribuir fuentes al texto generado, facilitando la comprensión de las influencias en la salida del modelo. Su entrenamiento con más de 50 códigos de control proporciona a los usuarios un manejo detallado del contenido y estilo del texto generado, mejorando la interacción humano-IA y mostrando potencial para mejorar otras aplicaciones de \acrlong{pln}.
 
-\section{¿Que es un \textit{Retrieval-augmented Generation}?}
+Dolly, desarrollado por Databricks, es un impresionante \acrfull{llm} diseñado para uso comercial y basado en el modelo pythia-12b. Dolly 2.0, una versión de código abierto, destaca por su capacidad de seguir instrucciones con precisión y ofrece interactividad similar a ChatGPT. Basado en un conjunto de datos de alta calidad, Dolly 2.0 es completamente accesible a la personalización, lo que lo hace que se pueda usar comercialmente sin necesidad de \acrshort{api}, marcando un enfoque flexible y transparente. Además, Dolly no busca competir con modelos generativos de vanguardia, y Databricks proporciona el conjunto de datos de entrenamiento para permitir su uso y expansión por parte de la comunidad.
 
-Los LLM han demostrado su capacidad para comprender el contexto y ofrecer respuestas precisas a diversas tareas de procesamiento de lenguaje natural (PLN), como la síntesis o las preguntas y respuestas, cuando se les solicita. Aunque son capaces de ofrecer muy buenas respuestas a preguntas sobre información con la que fueron entrenados, tienden a ``alucinar'' cuando el tema trata sobre información que desconocen, es decir, que no estaba incluida en sus datos de entrenamiento.
+Cohere es un modelo de lenguaje grande desarrollado por una startup canadiense del mismo nombre. Este \acrshort{llm}  de código abierto se entrena con un conjunto de datos diverso e inclusivo, lo que lo convierte en un experto en el manejo de numerosos idiomas y acentos. Además, los modelos de Cohere se entrenan con un corpus de texto grande y diverso, lo que los hace más eficaces para manejar una amplia gama de tareas.
 
-``\textit{Retrieval-augmented Generation}'' (RAG) es una técnica avanzada en el campo del PNL que combina dos enfoques clave: recuperación y generación de texto. Esta técnica se utiliza para mejorar la generación de texto automática y garantizar que las respuestas generadas sean precisas, relevantes y contextualmente adecuadas\cite{Lewis2020}.
+\section{Limitaciones de los LLM}
 
-En un sistema de RAG, el proceso se divide en dos etapas:
+Junto con los increíbles avances en \acrlong{ia}, modelos de aprendizaje automático y, en general, modelos de lenguaje, todavía existen numerosos desafíos por superar. La desinformación, el \textit{malware}, el contenido discriminatorio, el plagio y la información simplemente falsa pueden conducir a resultados no deseados o peligrosos; esto ponen en cuestión como de confiables son estos modelos.
 
-\begin{enumerate}
-    \item Recuperación (\textit{Retrieval}): En esta etapa, el sistema busca información relevante en grandes conjuntos de datos o bases de conocimiento. Utiliza métodos de recuperación de información para encontrar documentos o fragmentos de texto que contienen información relacionada con la consulta o el contexto actual.
+Además, cuando se introducen inadvertidamente sesgos en productos basados en \acrshort{llm}, como GPT-4, pueden dar la impresión de estar ``seguros pero incorrectos'' en algunos temas. Es un poco como escuchar hablar a alguien sobre algo que no sabe. Superar estas limitaciones es clave para construir la confianza pública en esta nueva tecnología. Aquí es donde entra en juego \acrshort{rlhf}, del que se hablará mas adelante, para ayudar a controlar o dirigir sistemas de \acrlong{ia} a gran escala.
 
-    \item Generación (\textit{Generation}): Una vez que se ha recuperado la información relevante, el sistema de generación de texto (a menudo basado en un LLM, como GPT) utiliza esta información para generar respuestas coherentes y contextualmente apropiadas.
-    
-\end{enumerate}
+Los principales problemas que deben abordarse son:
 
-La combinación de estas dos etapas permite que la técnica RAG proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
+\begin{description}  
 
-RAG se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
+\item \textbf{Preocupaciones éticas y de privacidad}: Actualmente, no existen muchas leyes o salvaguardas que regulen el uso de \acrshort{llm} y, dado que los grandes conjuntos de datos contienen mucha información confidencial o sensible (robo de datos personales, infracciones de derechos de autor y propiedad intelectual, entre otros), esto plantea la cuestión de problemas éticos, de privacidad e incluso psicológicos entre los usuarios que buscan respuestas en foros generados por \acrlong{ia}.
 
-\section{Embeddings}
+\item \textbf{Sesgo y prejuicio}: Dado que los \acrshort{llm} se entrenan en diferentes fuentes, pueden devolver inconscientemente el sesgo presente en esas fuentes. Los sesgos, incluidos los culturales, raciales, de género, y otros, están presentes en los datos de entrenamiento. Estos prejuicios pueden tener consecuencias reales, como decisiones de contratación de personal, atención médica o resultados financieros.
 
-\section{Bases de datos Vectoriales}
+\item \textbf{Costos ambientales y computacionales}: Entrenar un \acrlong{llm} requiere una enorme cantidad de calculo informático, lo que afecta el consumo de energía y las emisiones de carbono. Además, es costoso. Muchas empresas, especialmente las más pequeñas, simplemente no pueden permitírselo.
+\end{description}
 
-\section{Tablas}
+Para contrarrestar estos efectos potencialmente dañinos, los investigadores se centran en diseñar \acrshort{llm} en torno a tres pilares principales: utilidad, veracidad e inocuidad. Si un \acrshort{llm} puede mantener los tres principios, se considera ``alineado'' (\textit{aligned}), un término que tiene elementos de subjetividad.
 
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+\section{\textit{Reinforcement Learning from Human Feedback}}
 
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+\acrfull{rlhf} puede hacer frente a de los retos mencionados anteriormente, lo que  lleva a preguntarse: ¿puede una máquina aprender valores humanos?
+
+En el fondo, \acrshort{rlhf} implementa la opinión humana para generar un conjunto de datos de preferencias humanas que determina la función de recompensa para un resultado deseado. La opinión humana puede obtenerse de varias maneras\cite{Tolaka}:
+
+\begin{description}    
+
+\item \textbf{Orden de preferencia}: Las personas clasifican los productos por orden de preferencia.
+
+\item \textbf{Demostraciones}: Los seres humanos escriben las respuestas preferidas a las indicaciones.
+
+\item \textbf{Correcciones}: Los humanos editan la salida de un modelo para corregir comportamientos desfavorables.
+
+\item \textbf{Entradas en lenguaje natural}: Los humanos proporcionan descripciones o críticas de los resultados en lenguaje. Una vez creado un modelo de recompensa, se utiliza para entrenar un modelo de referencia con la ayuda del aprendizaje por refuerzo, que aprovecha el modelo de recompensa para construir una política de valores humanos que el \acrlong{llm} utiliza a continuación para producir respuestas. ChatGPT es un buen ejemplo de cómo un gran modelo lingüístico utiliza \acrshort{rlhf} para producir respuestas mejores, más seguras y más atractivas.
+
+\end{description}
+
+\acrshort{rlhf} constituye un gran avance en el ámbito de los modelos lingüísticos, ya que proporciona una experiencia de usuario más controlada y fiable. Pero hay una contrapartida: \acrshort{rlhf} introduce los sesgos de quienes han contribuido al conjunto de datos de preferencias utilizados para entrenar el modelo de recompensa. Así, aunque ChatGPT está orientado hacia respuestas útiles, honestas y seguras, sigue estando sujeto a las interpretaciones de los anotadores de estas respuestas. Aunque \acrshort{rlhf} mejora la coherencia (lo que es estupendo para el uso de \acrshort{llm} en los motores de búsqueda), lo hace a expensas de la creatividad y la diversidad de ideas.

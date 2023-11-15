@@ -3,5 +3,78 @@
 Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto, comentados por los autores del mismo.
 Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
 Se busca que no sea una mera operación de copiar y pegar diagramas y extractos del código fuente, sino que realmente se justifiquen los caminos de solución que se han tomado, especialmente aquellos que no sean triviales.
-Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
+Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW.
 Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
+
+\section{Selección de un LLM}
+
+Los \acrfull{llm} evolucionan con rapidez y continuamente aparecen nuevos modelos. Esto supone un reto: ¿Cómo seleccionar el \acrshort{llm} más adecuado para este proyecto? En este apartado se analizan las consideraciones prácticas que han guiado el proceso de toma de decisiones.
+
+\subsection{Licencias y uso comercial}
+Una consideración crucial a la hora de elegir un \acrshort{llm} es la concesión de licencias. Posiblemente el mas conocido y evolucionado es el \acrshort{gpt} de OpenAI, pero es un modelo que puede tener un coste considerable. En cada \textit{query} se ha de pagar una pequeña cantidad  por token. Para el objeto de este proyecto es mas adecuado el uso de un \acrshort{llm} de \textit{open-source} o por lo menos con una licencia comunitaria para investigación y educación.
+
+Aunque muchos modelos abiertos tienen restricciones de uso comercial, existen modelos disponibles para aplicaciones comerciales. Por ejemplo, la familia de modelos MPT de MosaicML se publica bajo licencias que permiten su uso comercial. Se puede obtener más información sobre las distintas licencias en la Open Source Initiative y a traves de la plataforma HugginFace.
+
+\subsection{Factores prácticos para la velocidad de inferencia y la precisión}
+Los factores prácticos desempeñan un papel crucial a la hora de determinar la idoneidad de un \acrshort{llm} para el proyecto. Evaluar la velocidad de inferencia (el tiempo que tarda un \acrshort{llm} en procesar y generar resultados) es esencial, sobre todo cuando se trata de grandes cantidades de datos no estructurados. Una inferencia lenta puede dificultar la extracción de información de nuestro chatbot. Optar por modelos optimizados para una inferencia más rápida o capaces de manejar volúmenes de entrada sustanciales puede resultar ventajoso peor también será un modelo mas pesado. Además, si se requiere una gran precisión en el análisis de sentimientos, la selección de un \acrshort{llm} con precisión y análisis de grano fino resulta crucial, y la velocidad de inferencia pasa a ser una consideración secundaria.
+
+
+\subsection{El impacto de la longitud del contexto y el tamaño del modelo}
+Tener en cuenta la longitud del contexto y el tamaño del modelo es crucial a la hora de evaluar los \acrshort{llm}. Mientras que muchos \acrshort{llm} tienen limitaciones en la longitud de entrada, los modelos abiertos más recientes como Salesforce X-Gen admiten longitudes de contexto más largas, lo que permite entradas más completas y resultados deseados. El tamaño del modelo también influye en los requisitos de infraestructura, ya que los modelos más pequeños (menos de siete mil millones de parámetros) son más fáciles de implementar en hardware básico, lo que agiliza la implementación práctica. Por el contrario, algunos \acrshort{llm} ofrecen flexibilidad en el procesamiento de entradas más cortas, pero compensan con parámetros más grandes, atendiendo a casos de uso en los que la precisión dentro de un contexto restringido es primordial. Los \acrshort{llm} con contextos más largos y modelos de mayor tamaño tienden a ser más potentes, pero también tienen mayores exigencias computacionales.
+
+\subsection{Específicos para una tarea o de uso general}
+Cuando se trata de \acrfull{llm}, a menudo está la disyuntiva de elegir entre \acrshort{llm} específicos para una tarea o \acrshort{llm} multitarea de propósito general que utilizan \textit{prompts}. Mientras que estos últimos ofrecen versatilidad, los \acrshort{llm} para tareas específicas suelen ser más prácticos y eficientes para caso concretos de uso. Estos modelos especializados se entrenan y ajustan específicamente para una tarea concreta, lo que mejora el rendimiento y la precisión. 
+
+\subsection{Pruebas y evaluación}
+Las pruebas y evaluaciones exhaustivas son cruciales para determinar la fiabilidad de los \acrshort{llm}. Un método eficaz consiste en crear un conjunto de pruebas con ejemplos etiquetados manualmente. Una anotación fiable garantiza mediciones precisas. La comparación de los resultados de los modelos \acrshort{llm} con las referencias etiquetadas ayuda a calcular las métricas de precisión. 
+
+\subsection{La revolución de los modelos abiertos}
+Recientemente, la adopción de modelos abiertos ha ido en aumento debido a factores como la preocupación por la privacidad de los datos y la rentabilidad. Los modelos abiertos, formados a partir de datos públicos, resuelven los problemas de privacidad asociados a los modelos cerrados. Además, a menudo ofrecen opciones más asequibles. Puede explorar recursos de \acrshort{llm} abiertos en Huggingface y consultar la tabla de clasificación de \acrshort{llm} de \textit{LlamaIndex}\cite{LlamaIndex}.
+
+\subsection{Consideraciones sobre los costes de implementación}
+Al seleccionar un \acrshort{llm}, el coste de implementación es también importante, no solo el coste por uso. El tamaño del modelo, los requisitos informáticos y la configuración de la infraestructura influyen en el coste total. Para la escalabilidad, se pueden considerar técnicas de optimización de modelos como la cuantificación(\textit{quantification}), la aceleración de hardware o los servicios cloud para reducir costes. Lograr un equilibrio entre el rendimiento y la asequibilidad de la plataforma es esencial.
+
+\subsection{La necesidad de adaptarse al rápido ritmo del cambio}
+Casi cada semana se producen cambios en los \acrshort{llm}. Es un momento apasionante pero igualmente supone un reto para desarrollar versiones estables del chatbot. Se seleccionará un \acrshort{llm} que se adapte al caso de uso, y se usarán interfaces de acceso como LangChain que permitan reemplazar el \acrshort{llm} en caso de ser necesario, sin tener que rehacer el chatbot completamente.
+
+\subsection{Comparativa de LLM}
+
+\cite{Hostinger}
+
+\cite{MindsDB}
+
+\cite{LlamaIndex}
+
+
+\subsection{\textit{Document Loaders}}
+
+\imagen{DocumentLoaders}{Matriz de representación de los multiples \textit{Document Loaders} disponibles en LangChain.}{1}
+
+\section{Tablas}
+
+Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+
+\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
+{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
+HTML5 & X & & &\\
+CSS3 & X & & &\\
+BOOTSTRAP & X & & &\\
+JavaScript & X & & &\\
+AngularJS & X & & &\\
+Bower & X & & &\\
+PHP & & X & &\\
+Karma + Jasmine & X & & &\\
+Slim framework & & X & &\\
+Idiorm & & X & &\\
+Composer & & X & &\\
+JSON & X & X & &\\
+PhpStorm & X & X & &\\
+MySQL & & & X &\\
+PhpMyAdmin & & & X &\\
+Git + BitBucket & X & X & X & X\\
+Mik\TeX{} & & & & X\\
+\TeX{}Maker & & & & X\\
+Astah & & & & X\\
+Balsamiq Mockups & X & & &\\
+VersionOne & X & X & X & X\\
+} 
