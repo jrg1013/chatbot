@@ -1,17 +1,99 @@
 \capitulo{4}{Técnicas y herramientas}
 
-Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
-No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
+En esta sección de la memoria, se presentan las técnicas y las herramientas de desarrollo que han sido empleadas en la ejecución de este proyecto. La elección de la metodología y las herramientas adecuadas desempeña un papel fundamental en el éxito y eficiencia de cualquier proyecto. En consecuencia, se llevará a cabo un análisis de diferentes alternativas, considerando aspectos clave como la metodología de desarrollo, las herramientas de implementación y las bibliotecas utilizadas.
 
+\section{\textit{Retrieval-augmented Generation}}
 
-\section{Retrieval-augmented Generation}
+Los \acrshort{llm} han demostrado su capacidad para comprender el contexto y ofrecer respuestas precisas a diversas tareas de \acrlong{pln}, como la síntesis o las preguntas y respuestas, cuando se les solicita. Aunque son capaces de ofrecer muy buenas respuestas a preguntas sobre información con la que fueron entrenados, tienden a ``alucinar'' cuando el tema trata sobre información que desconocen, es decir, que no estaba incluida en sus datos de entrenamiento.
 
-\section{Conversational Retrieval}
+\acrlong{rag} es una técnica avanzada en el campo del \acrshort{pln} que combina dos enfoques clave: recuperación y generación de texto. Esta técnica se utiliza para mejorar la generación de texto automática y garantizar que las respuestas generadas sean precisas, relevantes y contextualmente adecuadas\cite{Lewis2020}.
 
-\section{Embeddings}
+En un sistema de \acrshort{rag}, el proceso se divide en dos etapas:
+
+\begin{enumerate}
+    \item Recuperación (\textit{Retrieval}): En esta etapa, el sistema busca información relevante en grandes conjuntos de datos o bases de conocimiento. Utiliza métodos de recuperación de información para encontrar documentos o fragmentos de texto que contienen información relacionada con la consulta o el contexto actual.
+
+    \item Generación (\textit{Generation}): Una vez que se ha recuperado la información relevante, el sistema de generación de texto (a menudo basado en un \acrshort{llm}, como \acrshort{gpt}) utiliza esta información para generar respuestas coherentes y contextualmente apropiadas.
+    
+\end{enumerate}
+
+\imagen{EsquemaRAG}{Secuencia para la creación de un \textit{Retrieval-augmented Generation}.}{1}
+
+La combinación de estas dos etapas permite que la técnica \acrshort{rag} proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
+
+\imagen{rag}{Esquema del funcionamiento de un \textit{Retrieval-augmented Generation}.}{1}
+
+\acrshort{rag} se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
+
+\section{\textit{Embeddings}}
+
+En el \acrfull{pln}, un embedding de palabra es una representación de una palabra que se utiliza en el análisis de texto. Normalmente, la representación es un vector de valores reales que codifica el significado de la palabra de tal manera que se espera que las palabras que están más cercanas en el espacio vectorial sean similares en significado. Los embeddings de palabra se obtienen utilizando técnicas de modelado del lenguaje y aprendizaje de características, donde las palabras o frases del vocabulario se asignan a vectores de números reales.
+
+Existen diversos métodos para generar este mapeo, que incluyen redes neuronales, reducción de dimensionalidad en la matriz de co-ocurrencia de palabras, modelos probabilísticos, métodos basados en bases de conocimiento explicables y representación explícita en términos del contexto en el que aparecen las palabras\cite{mikolov2013distributed}.
+
+Estos embeddings de palabra y frase, cuando se utilizan como representación de entrada subyacente, han demostrado mejorar el rendimiento en tareas de \acrshort{pln} como el análisis sintáctico y el análisis de sentimientos. El desarrollo histórico de este enfoque se remonta a la década de 1950, con la idea de que ``una palabra se caracteriza por la compañía que mantiene''. A lo largo del tiempo, se han desarrollado modelos de espacio semántico para representar el conocimiento basado en la distribución de propiedades en grandes conjuntos de datos lingüísticos.
+
+La popularidad de los embeddings de palabra creció significativamente con los avances en modelos neuronales en la década de 2010, y herramientas como word2vec de Google de la que ya se ha hablado, desempeñaron un papel crucial al acelerar el entrenamiento de modelos de espacio vectorial. A medida que la tecnología y el hardware mejoraron, se realizaron avances teóricos y prácticos, lo que llevó a la aplicación práctica de los embeddings de palabra en diversas áreas de la investigación y la aplicación práctica.
+
+\section{Bases de datos Vectoriales}
+
+Una base de datos vectorial es un tipo de base de datos que almacena datos como vectores de alta dimensionalidad, que son representaciones matemáticas de características o atributos. Cada vector tiene un número específico de dimensiones, que pueden variar desde decenas hasta miles, dependiendo de la complejidad y la granularidad de los datos. Los vectores suelen generarse aplicando algún tipo de función de transformación o incrustación a los datos sin procesar, como texto, imágenes, audio, video y otros. La función de incrustación puede basarse en diversos métodos, como modelos de aprendizaje automático, incrustaciones de palabras o algoritmos de extracción de características\cite{MicrosoftVectorDatabase}.
+
+La principal ventaja de una base de datos vectorial es que permite realizar búsquedas y recuperación de datos rápida y precisa basada en la distancia o similitud de sus vectores. Esto significa que, en lugar de utilizar métodos tradicionales para consultar bases de datos basadas en coincidencias exactas o criterios predefinidos, se puede utilizar una base de datos vectorial para encontrar los datos más similares o relevantes según su significado semántico o contextual.
+
+Por ejemplo, se puede utilizar una base de datos vectorial para:
+
+Encontrar imágenes similares a una imagen dada según su contenido visual y estilo.
+Encontrar documentos similares a un documento dado según su tema y sentimiento.
+Encontrar productos similares a un producto dado según sus características y calificaciones.
+
+Para realizar búsquedas y recuperación de similitudes en una base de datos vectorial, debes utilizar un vector de consulta que represente la información o criterios deseados. El vector de consulta puede derivarse del mismo tipo de datos que los vectores almacenados (por ejemplo, usar una imagen como consulta para una base de datos de imágenes) o de diferentes tipos de datos (por ejemplo, usar texto como consulta para una base de datos de imágenes). Luego, se debe utilizar una medida de similitud que calcule qué tan cercanos o distantes están dos vectores en el espacio vectorial. La medida de similitud puede basarse en diversas métricas, como similitud del coseno, distancia euclidiana, distancia de Hamming, índice de Jaccard.
+
+\imagen{VectorDatabase}{Esquema del funcionamiento de creación de bases de datos vectoriales con Embeddings.}{1}
+
+El resultado de la búsqueda y recuperación de similitudes suele ser una lista clasificada de vectores que tienen las puntuaciones de similitud más altas con el vector de consulta. Luego se puede acceder a los datos sin tratar correspondientes a cada vector desde la fuente u origen original.
+
+Las bases de datos vectoriales tienen muchos casos de uso en diferentes dominios y aplicaciones que involucran \acrlong{pln}, visión por computadora, sistemas de recomendación y otras áreas que requieren comprensión semántica y coincidencia de datos.
+
+Un caso de uso para almacenar información en una base de datos vectorial es potenciar a los \acrlong{llm} para generar texto más relevante y coherente basado en un complemento de \acrlong{ia}. Sin embargo, los \acrshort{llm} a menudo enfrentan desafíos como generar información inexacta o irrelevante, carecer de consistencia o sentido común, repetirse o contradecirse, ser sesgados u ofensivos. Para superar estos desafíos, se puede utilizar una base de datos vectorial para almacenar información sobre diferentes temas, palabras clave, hechos, opiniones y/o fuentes relacionadas con tu dominio o género deseado. Luego, se puede usar un \acrlong{llm} y pasar información desde la base de datos vectorial con tu complemento de \acrlong{ia} para generar contenido más informativo y atractivo que se ajuste a la intención y estilo.
+
+\section{\textit{Conversational Retrieval}}
+
+\section{\textit{Querry Transformation}}
+
+\section{\textit{Prompt Engineering}}
+
+Para obtener información de un \acrshort{llm}, hay que hace una pregunta. Si un \acrshort{llm} es como una base de datos de millones de programas vectoriales, entonces un \textit{prompt} es como una consulta de búsqueda en esa base de datos. Una parte de la consulta puede interpretarse como una ``clave de programa'', el índice del programa que se desea recuperar, y otra como una entrada de programa.
+
+Esta ``base de datos de programas'' es continua e interpolativa, no es un conjunto discreto de programas. Esto significa que una instrucción ligeramente diferente, como ``Reformula este texto en el estilo de x'', aún habría apuntado a una ubicación muy similar en el espacio de programas, dando como resultado un programa que se comportaría de manera bastante cercana pero no idéntica.
+
+Hay miles de variaciones que se podrían haber utilizado, cada una dando como resultado un programa similar pero ligeramente diferente. Y es por eso que se necesita el \textit{Prompt Engineering}. No hay una razón a priori por la cual una primera instrucción, ingenua, daría como resultado el programa óptimo para la tarea. El \acrshort{llm} no va a entender lo que se quiso decir y luego realizarlo de la mejor manera posible, simplemente recuperará el programa al que apunta la instrucción, entre muchas ubicaciones posibles en las que podrías haber aterrizado.
+
+El \textit{Prompt Engineering} es el proceso de buscar en el espacio de programas para encontrar el programa que empíricamente parece funcionar mejor para una tarea objetivo. No es diferente de probar diferentes palabras clave al hacer una búsqueda en Google de un software.
+
+Si los \acrshort{llm} realmente entendieran lo que se les dice, no habría necesidad de este proceso de búsqueda, ya que la cantidad de información transmitida sobre la tarea objetivo no cambiaría, independientemente de que se use por ejemplo la instrucción con la palabra ``reescribe'' en lugar de ``reformula''. Nunca se debe asumir que el \acrshort{llm} ``lo entiende'' desde el principio. Se debe de tener en cuenta que la instrucción es solo una dirección en un mundo casi infinito de programas, todo capturado como un subproducto de organizar tokens en un espacio vectorial a través de un objetivo de optimización autoregresivo.
+
+\subsection{Chain-of-thought}
+
+Existen multitud de técnicas de \textit{Prompt Engineering} pero una de las mas conocidas es \acrfull{cot}. La técnica de \acrlong{cot} \textit{prompting} es una estrategia que permite a los \acrshort{llm} abordar un problema como una serie de pasos intermedios antes de proporcionar una respuesta final. Mejora la capacidad de razonamiento al inducir al modelo a responder un problema de múltiples pasos con pasos de razonamiento que imitan una cadena de pensamiento. Esta técnica permite a los \acrshort{llm} superar dificultades en tareas de razonamiento que requieren pensamiento lógico y múltiples pasos para resolver, como preguntas de aritmética o razonamiento del sentido común.
+
+Por ejemplo, ante la pregunta ``Q: La cafetería tenía 23 manzanas. Si usaron 20 para hacer el almuerzo y compraron 6 más, ¿cuántas manzanas tienen?'', un \textit{prompt} \acrshort{cot} podría inducir al \acrshort{llm} a responder ``A: La cafetería tenía originalmente 23 manzanas. Usaron 20 para hacer el almuerzo. Así que tenían 23 - 20 = 3. Compraron 6 manzanas más, así que tienen 3 + 6 = 9. La respuesta es 9''\cite{wei2023chainofthought}.
+
+\begin{verbatim}
+Q: {question}
+A: Let’s think step by step.
+\end{verbatim}
+
+Inicialmente, cada \textit{prompt} \acrshort{cot} incluía algunos ejemplos de preguntas y respuestas (Q\&A). Esto lo convertía en una técnica de \textit{prompting ``few-shot''}. Sin embargo, se ha demostrado que simplemente agregar las palabras ``Pensemos paso a paso'' también es efectivo, lo que convierte a \acrshort{cot} en una técnica de \textit{prompting ``zero-shot''}. Esto permite una mejor escalabilidad, ya que el usuario ya no necesita formular muchos ejemplos de preguntas y respuestas específicos de \acrshort{cot}.
 
 \section{Kaagle}
+
+\section{LangChain}
 
 \section{Huggingface}
 
 But the Hugging Face platform has the goal of exposing models, datasets, and docs about all ML models to maintain the ecosystem as open-source as possible, with the philosophy that the ML can evolve only with shared and open knowledge. The economic profits are huge, and products like chatGPT+, Bing (with a modified chatGPT), or Google Search (with Bard) don’t share the model to have advantages over the competitors.
+
+\section{FastAPI}
+
+\section{Streamlit}
