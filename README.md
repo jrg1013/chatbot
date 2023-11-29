@@ -16,3 +16,13 @@ https://proceedings.neurips.cc/paper/2020/hash/6b493230205f780e1bc26945df7481e5-
 https://github.com/aav0038/UBU-CHATBOT
 https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/
 https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/
+
+## Instalación entorno
+
+sh setup_env.sh
+
+## Run de la APP
+
+pathon learn.py
+
+streamlit run app.py
