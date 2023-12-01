@@ -1,76 +1,61 @@
 # app.py
-from typing import List, Union
-
-import cfg
-import tokens
 import utils
+import os
+import streamlit as st
+from streaming import StreamHandler
+
+from typing import List, Union
 
 from dotenv import load_dotenv, find_dotenv
 from langchain.schema import (SystemMessage, HumanMessage, AIMessage)
-from langchain.llms import LlamaCpp
-from langchain.callbacks.manager import CallbackManager
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
-import os
-import glob
-import textwrap
-import time
+st.set_page_config(page_title="Chatbot-TFG-UBU", page_icon="💬")
+st.header('💬 Resuelve tus dudas sobre el TFG')
+st.write('Resulve tus dudas para la realización del TFG del Grado de Ingeniería Informática de la Universidad de Burgos.')
+st.sidebar.image(
+    "https://www.ubu.es/sites/all/themes/ubu_theme/images/UBUEscudo-1910.png?tok=Tq7E9hnJ", use_column_width=True)
 
-import langchain
 
-# loaders
-from langchain import document_loaders
+class CustomDataChatbot:
 
-# splits
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+    def __init__(self):
+        self.llm = utils.get_llm
+        st.session_state["llm"] = utils.get_llm
 
-# prompts
-from langchain.prompts import PromptTemplate
+    def setup_qa_chain(self):
+        # Import vectordb
+        vectordb = utils.import_vectordb()
 
-# chain
-from langchain.chains import LLMChain
+        # Get our customized prompt
+        prompt = utils.get_prompt()
 
-# vector stores
-from langchain.vectorstores import FAISS
+        # Get omemory for conversational retrieval
+        memory = utils.get_memory(self.llm)
 
-# models
-from langchain.llms import HuggingFacePipeline
-from InstructorEmbedding import INSTRUCTOR
-from langchain.embeddings import HuggingFaceInstructEmbeddings
-from langchain.llms import HuggingFaceHub
+        # Generate a question and asnwer based on our RAG
+        qa_chain = utils.get_qa_chain(self.llm, prompt, vectordb, memory)
 
-# retrievers
-from langchain.chains import RetrievalQA
+        return qa_chain
 
-# evaluation
-from langchain.evaluation.qa import QAGenerateChain
+    @utils.enable_chat_history
+    def main(self):
 
-import torch
+        # User Inputs
+        user_query = st.chat_input(placeholder="¿Como puedo ayudarte?")
 
-import streamlit as st
+        if user_query:
+            qa_chain = self.setup_qa_chain()
 
-import subprocess
-from typing import List
+            utils.display_msg(user_query, 'user')
 
-# Acceso al llm
-llm = utils.get_llm()
+            with st.chat_message("assistant"):
+                st_cb = StreamHandler(st.empty())
+                response = qa_chain.run(user_query, callbacks=[st_cb])
+                st.session_state.messages.append(
+                    {"role": "assistant", "content": response})
 
-# Import vectordb
-embeddings, vectordb = utils.import_vectordb()
 
-# Get our customized prompt
-prompt = utils.get_prompt()
-
-# Get omemory for conversational retrieval
-memory = utils.get_memory(llm)
-
-# Generate a question and asnwer based on our RAG
-qa = utils.get_qa(llm, prompt, vectordb, memory)
-
-question = "Mi nombre es Jose. Acuerdate de mi nombre."
-result = qa({"question": question})
-print(result["answer"])
-
-question = "Como me llamo?"
-result = qa({"question": question})
-print(result["answer"])
+# streamlit run app.py
+if __name__ == "__main__":
+    obj = CustomDataChatbot()
+    obj.main()
