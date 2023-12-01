@@ -2,7 +2,7 @@
 import utils
 import os
 import streamlit as st
-from streaming import StreamHandler
+
 
 from typing import List, Union
 
@@ -34,17 +34,25 @@ class CustomDataChatbot:
     def main(self):
 
         # User Inputs
-        user_input = st.chat_input(placeholder="¿Como puedo ayudarte?")
+        user_input = st.chat_input(placeholder="Escribe aqui tus dudas")
 
         if user_input:
+            st.session_state.messages.append(
+                {"role": "user", "content": user_input})
+
+            # render the user's new message
+            with st.chat_message("user"):
+                st.markdown(user_input)
+
             qa_chain = self.setup_qa_chain()
-            utils.display_msg(user_input, 'user')
 
             with st.chat_message("assistant"):
-                st_cb = StreamHandler(st.empty())
-                response = qa_chain.run(user_input, callbacks=[st_cb])
-                st.session_state.messages.append(
-                    {"role": "assistant", "content": response})
+                with st.spinner("El Chatbot está escribiendo..."):
+
+                    response = qa_chain.run(user_input)
+                    st.markdown(response)
+                    st.session_state.messages.append(
+                        {"role": "assistant", "content": response})
 
 
 # streamlit run app.py

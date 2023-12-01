@@ -41,7 +41,7 @@ langchain==0.0.342
 langchain-core==0.0.7
 langsmith==0.0.67
 llm==0.12
-llm-gpt4all==0.2
+llama-index
 markdown-it-py==3.0.0
 MarkupSafe==2.1.3
 marshmallow==3.20.1
