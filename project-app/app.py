@@ -53,45 +53,24 @@ import subprocess
 from typing import List
 
 # Acceso al llm
-huggingfacehub_api_token = tokens.huggingfacehub_api_token
-
 llm = utils.get_llm()
 
-# Local embedding model
-model_name = cfg.embeddings_model_repo
-model_kwargs = {'device': 'cpu'}
-encode_kwargs = {'normalize_embeddings': True}
+# Import vectordb
+embeddings, vectordb = utils.import_vectordb()
 
-embeddings = HuggingFaceInstructEmbeddings(
-    model_name=model_name,
-    model_kwargs=model_kwargs,
-    encode_kwargs=encode_kwargs
-)
+# Get our customized prompt
+prompt = utils.get_prompt()
 
-vectordb = FAISS.load_local(
-    cfg.Embeddings_path,
-    embeddings
-)
+# Get omemory for conversational retrieval
+memory = utils.get_memory(llm)
 
-print(vectordb.similarity_search('videos'))
+# Generate a question and asnwer based on our RAG
+qa = utils.get_qa(llm, prompt, vectordb, memory)
 
-question = "Give me 5 examples of magic potions and explain what they do? "
+question = "Mi nombre es Jose. Acuerdate de mi nombre."
+result = qa({"question": question})
+print(result["answer"])
 
-template = """<s>[INST] You are given the context after <<CONTEXT>> and a question after <<QUESTION>>.
-
-Answer the question by ONLY using the information in <<CONTEXT>>. Only base your answer on the information in the <<CONTEXT>>.
-
-Answer in the same language as the <<QUESTION>>. Responde en el mismo idioma que la pregunta.
-
-<<QUESTION>>{question}\n
-<<CONTEXT>>{context} 
-
-[/INST]
-
-"""
-
-prompt = PromptTemplate(template=template, input_variables=[
-                        "question", "context"])
-
-llm_chain = LLMChain(prompt=prompt, llm=llm)
-print(llm_chain.run(question=question, context=""))
+question = "Como me llamo?"
+result = qa({"question": question})
+print(result["answer"])

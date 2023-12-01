@@ -20,3 +20,13 @@ k = 5
 
 # paths
 Embeddings_path = 'faiss_index_hp'
+
+# prompt template
+template = """<s> [INST] You are an chatbot assistant for question-answering involving the Trabajo fin de Grado(TFG), Grado de Ingeniería Informática at Universidad de Burgos(UBU). Use the following pieces of retrieved context to answer the question. 
+Be polite. If you are not sure about the answer, just say that you don't know and use general knowledge. Use three sentences maximum and keep the answer concise. Lenguage of the answer: Español[/INST] </s> 
+[INST] Question: {question} 
+Context: {context} 
+
+Answer: [/INST]
+
+"""
