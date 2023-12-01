@@ -18,10 +18,6 @@ st.sidebar.image(
 
 class CustomDataChatbot:
 
-    def __init__(self):
-        self.llm = utils.get_llm
-        st.session_state["llm"] = utils.get_llm
-
     def setup_qa_chain(self):
         # Import vectordb
         vectordb = utils.import_vectordb()
@@ -29,11 +25,8 @@ class CustomDataChatbot:
         # Get our customized prompt
         prompt = utils.get_prompt()
 
-        # Get omemory for conversational retrieval
-        memory = utils.get_memory(self.llm)
-
         # Generate a question and asnwer based on our RAG
-        qa_chain = utils.get_qa_chain(self.llm, prompt, vectordb, memory)
+        qa_chain = utils.get_qa_chain(prompt, vectordb)
 
         return qa_chain
 
@@ -41,16 +34,15 @@ class CustomDataChatbot:
     def main(self):
 
         # User Inputs
-        user_query = st.chat_input(placeholder="¿Como puedo ayudarte?")
+        user_input = st.chat_input(placeholder="¿Como puedo ayudarte?")
 
-        if user_query:
+        if user_input:
             qa_chain = self.setup_qa_chain()
-
-            utils.display_msg(user_query, 'user')
+            utils.display_msg(user_input, 'user')
 
             with st.chat_message("assistant"):
                 st_cb = StreamHandler(st.empty())
-                response = qa_chain.run(user_query, callbacks=[st_cb])
+                response = qa_chain.run(user_input, callbacks=[st_cb])
                 st.session_state.messages.append(
                     {"role": "assistant", "content": response})
 
