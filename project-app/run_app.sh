@@ -1,2 +1,1 @@
-#pipenv run streamlit run app.py
-streamlit run app.py
+python -m streamlit run app.py

@@ -1,14 +1,8 @@
 #Install Packages
-pip install langchain
-pip install faiss-cpu
-pip install streamlit
-pip install transformers
-pip install InstructorEmbedding
-pip install torch
-pip install sentence_transformers
+python -m pip install -r requirements.txt
 
+#Install llama-cpp-python
+python -m pip uninstall llama-cpp-python -y
+CMAKE_ARGS="-DLLAMA_METAL=on" pip install -U llama-cpp-python --no-cache-dir
+python -m pip install 'llama-cpp-python[server]'
 
-# Install gpt4all and llm
-pip install llm
-llm install llm-gpt4all
-llm -m mistral-7b-openorca "What is Large Language Model?"

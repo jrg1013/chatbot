@@ -1,27 +1,64 @@
-from langchain.vectorstores import Epsilla
-from sentence_transformers import SentenceTransformer
-from langchain.embeddings import HuggingFaceInstructEmbeddings
+# app.py
+from typing import List, Union
+
+import cfg
+import tokens
+import utils
+
+from dotenv import load_dotenv, find_dotenv
+from langchain.schema import (SystemMessage, HumanMessage, AIMessage)
+from langchain.llms import LlamaCpp
+from langchain.callbacks.manager import CallbackManager
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+
+import os
+import glob
+import textwrap
+import time
+
+import langchain
+
+# loaders
+from langchain import document_loaders
+
+# splits
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# prompts
+from langchain.prompts import PromptTemplate
+
+# chain
+from langchain.chains import LLMChain
+
+# vector stores
 from langchain.vectorstores import FAISS
+
+# models
+from langchain.llms import HuggingFacePipeline
+from InstructorEmbedding import INSTRUCTOR
+from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain.llms import HuggingFaceHub
+
+# retrievers
+from langchain.chains import RetrievalQA
+
+# evaluation
+from langchain.evaluation.qa import QAGenerateChain
+
+import torch
+
 import streamlit as st
 
 import subprocess
 from typing import List
 
-# Customize the layout
-st.set_page_config(page_title="Chatbot-UBU-TFG", layout="wide", )
+# Acceso al llm
+huggingfacehub_api_token = tokens.huggingfacehub_api_token
 
-# The 1st welcome message
-st.title("💬 Resuelve tus dudas sobre el TFG")
-if "messages" not in st.session_state:
-    st.session_state["messages"] = [
-        {"role": "asistente", "content": "¿Como puedo ayudarte?"}]
-
-# A fixture of chat history
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+llm = utils.get_llm()
 
 # Local embedding model
-model_name = 'sentence-transformers/all-MiniLM-L6-v2'
+model_name = cfg.embeddings_model_repo
 model_kwargs = {'device': 'cpu'}
 encode_kwargs = {'normalize_embeddings': True}
 
@@ -31,54 +68,30 @@ embeddings = HuggingFaceInstructEmbeddings(
     encode_kwargs=encode_kwargs
 )
 
-db_path = "./faiss_index_hp"
-
 vectordb = FAISS.load_local(
-    db_path,
+    cfg.Embeddings_path,
     embeddings
 )
 
-# Answer user question upon receiving
-if question := st.chat_input():
-    st.session_state.messages.append({"role": "usuario", "content": question})
+print(vectordb.similarity_search('videos'))
 
-    context = '\n'.join(map(lambda doc: doc.page_content,
-                        vectordb.similarity_search(question)))
+question = "Give me 5 examples of magic potions and explain what they do? "
 
-    st.chat_message("usuario").write(question)
+template = """<s>[INST] You are given the context after <<CONTEXT>> and a question after <<QUESTION>>.
 
-    # Here we use prompt engineering to ingest the most relevant pieces of chunks from knowledge into the prompt.
-    prompt = f'''
-    Answer the Question based on the given Context. Try to understand the Context and rephrase them.
-    Please don't make things up or say things not mentioned in the Context. Ask for more information when needed. 
-    Responde en el mismo idioma en el que se te pregunta. Eres un Chatbot para la resolución de dudas del Trabajo fin de Grado
-    del Grado de Ingeniería Informática de la Universidad de Burgos
+Answer the question by ONLY using the information in <<CONTEXT>>. Only base your answer on the information in the <<CONTEXT>>.
 
-    Context:
-    {context}
+Answer in the same language as the <<QUESTION>>. Responde en el mismo idioma que la pregunta.
 
-    Question:
-    {question}
+<<QUESTION>>{question}\n
+<<CONTEXT>>{context} 
 
-    Answer:
-    '''
-    print(prompt)
+[/INST]
 
-    # Call the local LLM and wait for the generation to finish. This is just a quick demo and we can improve it
-    # with better ways in the future.
-    command = ['llm', '-m', 'mistral-7b-openorca', prompt]
-    process = subprocess.Popen(
-        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    content = ''
-    while True:
-        output = process.stdout.readline()
-        if output:
-            content = content + output
-        return_code = process.poll()
-        if return_code is not None:
-            break
+"""
 
-    # Append the response
-    msg = {'role': 'asistente', 'content': content}
-    st.session_state.messages.append(msg)
-    st.chat_message("asistente").write(msg['content'])
+prompt = PromptTemplate(template=template, input_variables=[
+                        "question", "context"])
+
+llm_chain = LLMChain(prompt=prompt, llm=llm)
+print(llm_chain.run(question=question, context=""))

@@ -23,6 +23,16 @@ sh setup_env.sh
 
 ## Run de la APP
 
-pathon learn.py
-
+python learn.py
 streamlit run app.py
+
+## Run de la APP
+
+# Install
+
+source venv/bin/activate
+pip install -r path/to/requirements.txt
+
+# Export
+
+pip freeze > requirements.txt

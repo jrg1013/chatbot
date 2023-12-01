@@ -1,0 +1,185 @@
+﻿Intent;Ejemplo mensaje usuario;Respuesta
+adios;Adiós;Espero haber sido de utilidad. Un saludo :)
+adjuntar_videos;¿Se pueden adjuntar videos en el depósito del TFG??;No se pueden adjuntar videos en el depósito. Se subirá un documento con los enlaces a dichos vídeos que deberán estar colgados en YouTube.
+ayuda_profesor;¿Me ayudará algún profesor?;El principal apoyo para ayudarte con tu TFG será tu tutor o tutora. En caso de que haya algún problema concreto que necesite la consulta a otros profesores él o ella te lo indicará.
+cambiar;¿Puedo cambiar de tutor o tema?;El estudiante que quiera realizar un cambio de tutor y/o tema deberá solicitarlo al Tribunal por escrito, de manera motivada, en el plazo máximo de un mes desde la fecha de la publicación de la asignación. El Tribunal estará obligado a contestar al alumno por escrito en un plazo máximo de siete días hábiles. En dicho escrito se motivará la resolución del TFG/TFM a la petición del alumno.
+Como_defensa;¿Cómo se hace la defensa del TFG?;La defensa se realiza oralmente, apoyándose en medios audiovisuales y demostraciones prácticas, durante un periodo de tiempo de 10 a 15 minutos. Posteriormente se realiza un turno de preguntas por parte del tribunal a responder por el alumnado.
+como_elijo_trabajo;¿Cómo elijo un tema?;•Antes de comenzar la convocatoria los tutores/estudiantes/empresas (consulta modalidades A, B, C de ofertas de TFG) recogen las propuestas de TFG
+;;•El tribunal publica la lista con la oferta de trabajos en las primeras semanas del semestre
+;;•Los alumnos sin TFG de ese semestre se ponen en contacto con los tutores de los TFG de su interés.
+;;•El tutor confirma a un alumno que le asigna un trabajo
+;;•El alumno notifica la asignación en el foro
+;;•El tribunal publica la asignación
+;;•Si pasado un mes del inicio del semestre un alumno no ha notificado la asignación, se le asignará uno de los trabajos disponibles
+como_elijo_tutor;¿Cómo elijo tutor?;En la modalidad C de oferta de TFG por el alumno una buena opción es identificar los conceptos teóricos principales que se necesitan en el TFG y buscar a los profesores de las guías docentes de las asignaturas del Grado que te los enseñaron.
+comodin;*PREGUNTA AMBIGUA *;No he entendido, ¿puedes precisar más la pregunta?
+componentes_trabajo;¿De que consta el trabajo?;Para la entrega se habilitan en UBUVirtual, en la convocatoria correspondientes las subidas de ficheros correspondientes (memoria, anexos, fuentes y otros enlaces de interés).
+Consejo;Dame un consejo;Realiza una elección de TFG relacionado con asignaturas que te hayan gustado del Grado para estar motivado. Autofórmate y busca bibliografía específicas para resolver los problemas del TFG. Consulta TFG de cursos anteriores, tanto desarrollos en Github, como la memoria descriptiva. Planifícate bien el tiempo de tu TFG. El tiempo para realizar un TFG depende de muchos factores y ahora tú gestionas tu propio proceso de aprendizaje.
+Convalidar;¿Se puede convalidar el TFG?; No, el TFG no se puede reconocer.
+conversacion_ofensiva;*CUALQUIER INSULTO*;Siento si no te he sido de utilidad. Dame otra oportunidad, estoy aquí para aprender y ayudarte.
+convocatorias_curso;¿Cuántas convocatorias tengo por curso?;Cada curso el estudiante que se matricula del TFG tiene derecho a dos convocatorias de evaluación.
+Covid;¿Hay algo a tener en cuenta a raíz del Covid?;Dado el carácter online de la asignatura no hay que tener en cuenta aspectos relacionados con el Covid. Si surgiera alguna cuestión adicional por causas sobrevenidas, se comunicarán en el tablón de la asignatura con antelación suficiente.
+criterios_evaluacion;¿Cuáles son los criterios de evaluación?;La calificación se establece por consenso entre los miembros del tribunal. Todos los TFG tienen como tutor o cotutor a un miembro del tribunal. Además, el tribunal se basa una guía de evaluación detallada de tres dimensiones publicada en la plataforma virtual.
+;;La evaluación de un TFG puede ser vista desde tres perspectivas distintas: ¿qué documentación genera el estudiante? ¿Cómo ha generado esa documentación aplicando libremente conocimientos adquiridos en el Grado? ¿Cómo presenta su producto y resuelve dudas a una audiencia externa?
+cuando_convocatorias;¿Cuándo son las convocatorias?;Por defecto la asignatura TFG está asignada al segundo cuatrimestre y las convocatorias de evaluación son en mayo y junio. Aunque también se puede adelantar a septiembre, enero o febrero.
+cuando_decidir_tema;¿Cuándo tengo que decidir el tema?;El tema se decide el primer mes de cada semestre: septiembre y febrero.
+cuando_matricula;¿Cuándo se hace la matricula?;El Trabajo Fin de Grado se podrá matricular en el plazo oficial o en el plazo establecido por el Centro al principio del segundo semestre.
+cuando_nota;¿Cuándo se publican las notas?;Depende del número de defensas pero como norma no suele superar las 48 horas después de la última defensa de TFG de la convocatoria.
+cuando_toca_exponer;¿Cuándo me toca exponer?;Finalizada la entrega en UBUVirtual, se publica en los días posteriores el calendario y orden de defensas, dentro los días habilitados para la misma según el calendario de la EPS.
+;;https://www.ubu.es/escuela-politecnica-superior/informacion-academica/calendario-academico-eps
+cuantos_creditos;¿Cuántos créditos otorga el TFG?;El TFG supone un total de 12 créditos ECTS.
+Curso;¿En qué curso se hace el TFG?;El TFG se realiza en el 4º curso del Grado.
+Default Fallback  Intent;**MENSAJE NO ENTENDIDO**;Perdona, no he entendido, dame más detalles sobre tu pregunta. Sigue las siguientes recomendaciones:
+;;- Escribe una única pregunta por mensaje.
+;;- Tu frase debe contener la pregunta completa.
+;;- Si no he conseguido responder tu pregunta, intenta formularla de otra manera.
+;;- Solo respondo dudas generales de los estudiantes sobre la asignatura Trabajo Fin de Grado.
+Default Welcome ;Hola;¡Hola! Soy el chatbot para la asignatura de Trabajo de Fin de Grado  . ¿Cómo te puedo ayudar?
+Deposito;¿Dónde se deposita el TFG?;Se habilita en UBUVirtual, en la convocatoria correspondiente, una tarea con la subida de ficheros: memoria, anexos, códigos fuente y enlaces.
+desde_cuando_ entrega;¿A partir de qué fecha lo puedo entregar?;Se puede entregar desde el momento que las tareas estén abiertas en UBUVirtual, en la convocatoria correspondiente. El tribunal anunciará con varios días de antelación a la fecha límite de entrega la apertura del plazo.
+Documentación;¿Qué documentación tengo que entregar?;Debes entregar:
+;;·2 copias de memoria.pdf y anexos.pdf
+;;·3 copias en el curso de UBUVirtual (y otras 2 optativas).
+;;https://clopezno.github.io/tfg_gii_online//
+donde_nota;¿Dónde se publican las notas?;Las calificaciones del TFG se publican en SIGMA.
+Duración _presentacion;¿Cuánto dura la presentación?;La defensa se estructura en dos secciones de 10-15 minutos cada una:
+;;1.Exposición del TFG por el estudiante. El estudiante compartirá en su equipo los recursos preparados, tanto para la presentación de su TFG como para la demostración de su aplicación software y las expondrán en directo al tribunal.
+;;2.Defensa del TFG. Los estudiantes responderán a las preguntas formuladas por los miembros del tribunal.
+Entregar_fuera_plazo;¿Puedo entregar si ha acabado el plazo?;No se puede entregar fuera de plazo.
+Eres_robot;¿Eres un robot?;Soy un robot, y estoy aquí para ayudarte :)
+Extension_memoria;¿Qué extensión debe tener la memoria?;La memoria no tiene un límite establecido de páginas, pero se recomienda estar en un intervalo de 35 a 75 páginas. En caso de ser necesario extender la documentación, se pueden agregar anexos.
+Fechas_entrega;¿Cuál es la fecha de entrega?;Las fechas de entrega del TFG se aprueban en la Junta de Escuela Politécnica cada curso y se publican en la página oficial del Grado
+;;En el siguiente enlace podrás ver el calendario de entrega de los dos cuatrimestres ordinarios y la convocatoria extraordinaria aprobado por Junta de Escuela Politécnica Superior.
+;;https://www.ubu.es/grado-oficial-online-en-ingenieria-informatica/informacion-basica/trabajo-fin-de-grado
+hacerlo_compañero;¿Lo puedo hacer con un compañero?; No. La normativa ministerial obliga a que sean individuales (más información en https://www.boe.es/diario_boe/txt.php?id=BOE-A-2009-12977)
+herramientas_ presentación;¿Qué herramientas puedo utilizar en la presentación?;En la presentación puedes utilizar cualquier medio audiovisual (presentación tipo Power Point o Impress, documento pdf, etc.), y demostraciones en vivo del funcionamiento correcto del desarrollo software del TFG.
+;;Necesitarás un micrófono y una Webcam.
+Horas_trabajo;¿Cuántas horas cuesta hacerlo?;Al corresponderse con 12 créditos de la titulación, la carga de trabajo estimada es de 300 horas. El tiempo real depende mucho de los conocimientos del concretos del TFG y de las habilidades del estudiante para relacionarlos.
+instanciaDirector;¿Dónde esta el enlace de la instancia al director?;En el siguiente enlace encontrarás la instancia que deberás enviar al director
+;;https://www.ubu.es/escuela-politecnica-superior/informacion-general/impresos-solicitudes-peticiones/modelos-de-solicitudes-para-dirigirse-organos-de-gobierno-de-la-eps-y-de-la-ubu/
+ir_a_burgos;¿Tengo que ir a hacer la presentación a Burgos?;Al estudiar online debes hacer la presentación desde casa. Puedes acceder a la lista de distribución de Youtube para ver como lo hicieron otros compañeros
+;;https://www.youtube.com/channel/UC5S_DwX8JJWV86NNLVQI1dw/playlists
+Matricula_honor;¿Cómo se asigna la matrícula de honor?;El tribunal seguirá lo estipulado en el Reglamento de Evaluación de la UBU en cuanto a la asignación de la calificación de Matrícula de Honor:
+;;https://www.ubu.es/servicio-de-gestion-academica-0/normativa-en-gestion-academica/normativa-con-caracter-general/reglamento-de-evaluacion-de-la-universidad-de-burgos
+Matricularme- cuando_quiera;¿Me puedo matricular cuando quiera?;Ponte en contacto con administración de estudiante de EPS Edf Vena
+;;https://www.ubu.es/escuela-politecnica-superior/
+medidas_sanitarias;¿Hay alguna medida sanitaria a tener en cuenta?;Al ser una presentación online, cada asistente tendrá que guardar las reglas sanitarias correspondientes en función de las condiciones particulares de la ubicación en la que se encuentre.
+miembros_tribunal;¿Quiénes forman el tribunal?;Presidente: Dr. D. Carlos López Nozal
+;;Secretario: Dr. D. Alejandro Merino Gómez
+;;Vocal: Dr. D. José Ignacio Santos Martín
+;;Vocal: Dr. D. Raúl Marticorena Sánchez
+;;Vocal: D. Pedro Renedo Fernández
+Modalidades;¿Qué modalidades de TFG existen?;Existen tres modalidades:
+;;Modalidad A: propuestas de TFG concretas que publiquen los tutores
+;;Modalidad B: propuestas de TFG que ofertan empresas previo acuerdo con un tutor de la asignatura
+;;Modalidad C: propuestas de TFG que ofertan los alumnos, siempre que se adecúen al perfil de conocimientos de los tutores online y estén correctamente descritas y justificadas con trabajos y asignaturas relacionadas. En función de que se cumplan o no estos requisitos las propuestas pueden ser aceptadas o rechazadas por el tribunal. Las propuesta deberán ser enviadas y resueltas por el tribunal durante el primer mes del cuatrimestre.
+modificar_entrega_ memoria;¿Puedo modificar la entrega de mi memoria?;Hasta el cierre de la tarea en UBUVirtual puede subirse una nueva versión.
+Movilidad_ cuatrimestre;Quiero adelantar/retrasar la convocatoria.;Puedes consultar cómo funciona la movilidad de cuatrimestre en el siguiente enlace:
+;Quiero hacerlo en septiembre.;https://www.ubu.es/grado-oficial-online-en-ingenieria-informatica/informacion-basica/trabajo-fin-de-grado/
+;;
+no_presentacion;¿Qué pasa si no hago presentación?;Si no se hace presentación se calificará como No Presentado.
+numero_ convocatorias;¿Cuántas convocatorias hay en total?;La EPS ha programado cinco convocatorias de evaluación de los trabajos finales de grado. Cada curso el estudiante que se matricula del TFG tiene derecho a dos convocatorias de evaluación que tienen que realizarse en el mismo cuatrimestre.
+otras_presentaciones;¿Dónde puedo ver presentaciones de años anteriores?;Puedes ver las presentaciones de años anteriores en el siguiente enlace:
+;;https://www.youtube.com/channel/UC5S_DwX8JJWV86NNLVQI1dw/playlists
+otro_idioma;¿Puedo hacerlo en otro idioma?;Solo lo puedes hacer en inglés si eres estudiante Erasmus
+otros_temas;*PREGUNTAS SOBRE TFM/OTRAS ASIGNATURAS/ETC*;No se responden cuestiones generales que no sean relativas al TFG.
+plantilla_memoria;¿Existe alguna plantilla para la memoria?;Existe un modelo de plantilla en LaTeX a seguir lo más fielmente posible en el siguiente enlace:
+;;https://github.com/ubutfgm/plantillaLatex
+puedo_elegir_tutor;¿Puedo elegir tutor?;Puedes elegir tutor dependiendo de la modalidad de proyecto.
+;;En la modalidad C el estudiante tiene que acordar previamente su propuesta con un tutor que acepte su temática.
+;;Modalidad A: propuestas de TFG concretas que publiquen los tutores
+;;Modalidad B: propuestas de TFG que ofertan empresas previo acuerdo con un tutor de la asignatura
+;;Modalidad C: propuestas de TFG que ofertan los alumnos, siempre que se adecúen al perfil de conocimientos de los tutores online y estén correctamente descritas y justificadas con trabajos y asignaturas relacionadas. En función de que se cumplan o no estos requisitos las propuestas pueden ser aceptadas o rechazadas por el tribunal. Las propuesta deberán ser enviadas y resueltas por el tribunal durante el primer mes del cuatrimestre.
+puedo_empresa;¿Puedo hacerlo con una empresa?;Hay varias modalidades de oferta de TFG. La modalidad B admite propuestas de TFG que ofertan empresas previo acuerdo con un tutor del Grado
+puedo_presencial;¿Puedo hacer la exposición de manera presencial  ?;No puedes hacerla de manera presencial. Al ser estudiante online debes hacerla de manera online.
+que_cuatrimestre;¿En qué cuatrimestre se hace el TFG?;Por defecto la asignatura TFG está asignada al segundo cuatrimestre y las convocatorias de evaluación son en mayo y junio.
+que_cuatrimestre-adelantarASeptiembre;¿Puedo adelantar la convocatoria a septiembre?;Si quieres adelantar la convocatoria de enero a septiembre, habiendo elegido previamente la movilidad al primer cuatrimestre, tienes que presentar una instancia al director  en la Secretaría Administrativa del Campus Vena de la EPS.
+que_cuatrimestre-cambiarAPrimero;¿Lo puedo hacer en el primer cuatrimestre?;Puedes cambiarlo al primer cuatrimestre, para ello debes presentar una instancia solicitando la movilidad de cuatrimestre en la Secretaría Administrativa del Campus Vena de EPS. Puedes consultar más información aquí:
+;;https://www.ubu.es/grado-oficial-online-en-ingenieria-informatica/informacion-basica/trabajo-fin-de-grado
+que_es_la_memoria;¿Qué es la memoria?;La memoria es un documento explicativo de las características generales del TFG a definir por consenso con el tutor/a. Se recomienda seguir la estructura disponible en el siguiente enlace:
+;;https://github.com/ubutfgm/plantillaLatex
+que_es_tfg;¿Qué es el TFG?;Un TFG es aplicación autónoma e integral de algunos conceptos aprendidos en las distintas asignaturas del Grado. El estudiante actúa como gestor del proceso de para resolver los problemas planteados en TFG. Todo TFG tiene un tutor o tutora del Grado asignado.
+que_es_un_anexo;¿Qué es un anexo?;Un anexo es un documento explicativo de las características técnicas del TFG a definir por consenso con el tutor/a. Se recomienda seguir la estructura disponible en el siguiente enlace:
+;;https://github.com/ubutfgm/plantillaLatex
+quienes_estaran_ exposicion;¿Quiénes estarán en la exposición?;La presentación/exposición de los TFG es un acto social y público donde exponer los trabajos a los asistentes que se lo soliciten al tribunal.
+;;La defensa, es la parte de la presentación de los trabajos a los miembros del tribunal. Se hará conforme al orden mostrado en un listado generado después de la fecha de entrega. Los estudiantes defenderán sus TFG en una sesión pública por MS Teams con sus identidades de estudiante en la Universidad de Burgos.
+quienes_evaluan;¿Quiénes evalúan?;La calificación se establece por consenso entre los miembros del tribunal. 
+;;Todos los TFG tienen como tutor o cotutor a un miembro del tribunal. Además, el tribunal se basa una guía de evaluación detallada de tres dimensiones publicada en la plataforma virtual.
+;;La evaluación de un TFG puede ser vista desde tres perspectivas distintas: ¿qué documentación genera el estudiante? ¿Cómo ha generado esa documentación aplicando libremente conocimientos adquiridos en el Grado? ¿Cómo presenta su producto y resuelve dudas a una audiencia externa?
+Reclamar;¿Cómo se puede reclamar?;El proceso de reclamación está definido en el Artículo 10 del reglamento de TFG de la EPS:
+;;https://www.ubu.es/escuela-politecnica-superior/estructura-del-centro/normativa-y-reglamentos/reglamento-sobre-trabajo-fin-de-grado-y-trabajo-fin-de-master
+retrasarJunio ASeptiembre;¿Puedo retrasarlo de junio a septiembre?;En septiembre empieza el curso académico. Si no te dio tiempo a terminar en la convocatoria de junio tendrás que matricularte de nuevo.
+superar_creditos;¿Puedo superar el máximo de créditos?;Ponte en contacto con la Secretaría Administrativa del Campus Vena. https://www.ubu.es/escuela-politecnica-superior/escuela-politecnica-superior/escuela-politecnica-superior-campus-rio-vena/escuela-politecnica-superior-campus-rio-vena-secretaria-administrativa
+;;
+Tasas;¿Cuáles son las tasas del TFG?;Las tasas son las habituales en función del número de créditos del TFG. La información está disponible en el siguiente enlace:
+;;https://www.ubu.es/acceso-admision-y-matricula/matricula/matricula-de-grado/precios-publicos/escuela-politecnica-superior/grado-en-ingenieria-informatica
+tema_que_quiera;¿Puedo hacerlo del tema que quiera?;Hay varias modalidades de oferta de TFG. La modalidad C acepta propuestas de TFG que ofertan los alumnos, siempre que se adecúen al perfil de conocimientos de los tutores online y estén correctamente descritas y justificadas con trabajos y asignaturas relacionadas. En función de que se cumplan o no estos requisitos las propuestas pueden ser aceptadas o rechazadas por el tribunal.  Las propuesta deberán ser enviadas y resueltas por el tribunal durante el primer mes del cuatrimestre.
+tema_si_suspendo;¿Puedo repetir el tema si suspendo?;La asignación de un tema es válida exclusivamente para la matrícula del curso académico que corresponda. Posteriores matrículas implicarán, en principio, nuevas asignaciones, salvo que excepcionalmente el Tribunal correspondiente autorizase una prórroga por una sola vez.
+temas_posibles;¿De que temas lo puedo hacer?;El tribunal publica la lista con la oferta de trabajos en las primeras semanas del semestre. Está lista será actualizada públicamente con las nuevas oferta.
+tengo_duda;Tengo una pregunta;Pregúntame, estoy aquí para ayudarte :)
+Cuando_asigna;¿Cuándo se asigna el TFG?;El TFG se asigna al principio de cada semestre durante el primer mes.
+Foros;*Información sobre foros*;*Respuesta genérica   acerca del funcionamiento/utilidad de los foros*
+;;Cada foro activo en la asignatura tiene su respectiva finalidad, indicada en la portada del mismo.
+Donde_empezar;¿Por dónde empiezo ?;
+Donde_asigna;¿Dónde se asigna el TFG ?;
+FinOfensivo;**Después de 2 insultos**;Las faltas de respeto no están permitidas. Prueba a utilizar el Chatbot en otro momento.
+Referencias;Referencias bibliográficas;Las referencias tienen que tener el siguiente formato:
+;;https://www.ubu.es/aprendizaje-e-investigacion/recursos-aprendizaje-investigacion/referencias-bibliograficas-y-las-citas
+;;Formato de las referencias
+;;Puedes utilizar las siguientes herramientas:
+;;link
+;;EndNote
+;;link
+;;Mendeley
+;;link
+;;Zotero
+;;link
+;;JabRef
+Avisar_no_presentar;¿Tengo que avisar si no me presento a la primera convocatoria?;Deberías informar a tu tutor o tutora asignado. No es necesario informar al tribunal, puesto que al igual que en cualquier otra asignatura en la que no te presentas a una prueba , se calificará como “No presentado”.
+Condiciones septiembre;¿Qué condiciones tengo que cumplir para presentarme en septiembre?;Para presentarte en septiembre debes tenerener superado todo el resto de asignaturas.
+Título_ memoria;Nombre pdf de la memoria;El título debe describir clara y brevemente el objetivo del TFG. Junto con una frase descriptiva, se puede añadir un nombre comercial del producto desarrollado. Esto es de elección libre a consensuar entre el tutor/a y el alumno/a.
+Sin tutor;¿Puedo realizar TFG sin tutor?;No, no se puede realizar el TFG sin tutor.
+Repositorio;¿Cómo usar el repositorio?;El uso de repositorios de software y gestores de tareas se explican en la asignatura de gestión de proyectos. Puedes consultar algunos los vídeos de la asignatura en la siguiente lista de reproducción https://www.youtube.com/playlist?list=PLZ9ew3yS01RTLJvA3Ym85ePswWBhNWzNr  
+Copia impresa si no vivo en Burgos;¿Cómo envío la copia impresa de la memoria a la secretaria si vivo fuera de Burgos?;En la modalidad online no se entrega copia impresa.
+Ejemplo TFG;Quiero ver un ejemplo de TFG;Puedes consultar algunos buenos ejemplos de TFG en: https://github.com/davidmigloz/go-bees,  https://github.com/EduardoRisco/SurveyingPointCode, https://github.com/MarioBartolome/GII_0_17.02_SNSI 
+;;https://github.com/dsr0018/olivia 
+ejemplo_memoria;Quiero ver una memoria de ejemplo;En los siguientes repositorios tienes algunos buenos ejemplos de memorias:  https://github.com/davidmigloz/go-bees,  https://github.com/EduardoRisco/SurveyingPointCode, https://github.com/MarioBartolome/GII_0_17.02_SNSI
+;;https://github.com/dsr0018/olivia
+Historico_trabajos;Histórico trabajos;Puedes consultar el histórico de trabajos presentados en: https://clopezno.github.io/tfg_gii_online/HistoricoSist.html 
+Revisor ;Quien revisa el TFG?;El tribunal del TFG en el curso actual. Se puede ver su composición en la portada de la asignatura en UBUVirtual.
+;¿Puedo hacer el TFG con cualquier profesor?;El TFG se realizará bajo la supervisión de uno o más tutores académicos, donde, al menos uno de ellos, será docente de alguna de las asignaturas de la rama común de grado o de tecnologías específicas. En el caso de los títulos en modalidad On-Line, además al menos uno de los tutores deberá haber impartido docencia on-line en alguna asignatura del título. Es aconsejable que haya un tutor que pertenezca al tribunal para ayudar a gestionar las particularidades del proceso de la modalidad online.
+Cualquier_profesor;;
+Dificultad;¿Es difícil aprobar?;La asignatura tiene una alta tasa de aprobados sobre presentados, pero también existe una alta tasa de no presentados, al no llegar a completarse en plazos todos los requisitos necesarios en la entrega. Consulta con alumnos egresados sobre su opinión personal sobre la dificultad o no de la asignatura. Se puede consultar un histórico de las calificaciones medias nes medias por cursos en https://clopezno.github.io/tfg_gii_online/HistoricoSist.html
+tasa segunda matricula;¿Cuánto cuesta la segunda matrícula?;Los créditos de TFG tienen el mismo precio que los créditos del resto de asignaturas en segunda matrícula. Puede consultarse el precio actual en: https://www.ubu.es/acceso-admision-y-matricula/matricula/matricula-de-grado/precios-publicos/escuela-politecnica-superior/grado-en-ingenieria-informatica
+numero_tutores;¿Cuántos tutores puedo tener?;Normalmente uno o dos tutores, salvo proyectos cotutorizados con empresas, en el que el número puede ser mayor.
+TFG empresas remunerado;¿El TFG en empresas es remunerado?;No. Aquellos TFG que se realizan por convenios con alguna empresa, se realizan sin remuneración. 
+TFG empresa practicas;¿Hacer el TFG en empresa cuenta como hacer prácticas?;No, el TFG y las prácticas en empresa son dos asignaturas diferentes.
+Formato;¿En qué formato tengo que entregarlo?;En el siguiente enlace tienes indicado el formato de la entrega a realizar: https://clopezno.github.io/tfg_gii_online/
+Título memoria;¿Cómo debo titular el TFG?;El título debe describir clara y brevemente el objetivo del TFG. Junto con una frase descriptiva, se puede añadir un nombre comercial del producto desarrollado. Esto es de libre elección a consensuar entre el tutor/a y el alumno/a.
+;;
+Sigma;¿Qué es Sigma?;Es el sistema de gestión de la información  de la Universidad de Burgos
+Requisitos matricula;¿Cuáles son los requisitos para matricularme?;Para matricularse del Trabajo Fin de Grado es necesario haber superado un mínimo de 156 créditos y tener matriculados los créditos que restan para completar el plan de estudios.
+Problemas conexión;¿Qué ocurre si tengo problemas de conexión durante la presentación?;Por parte del tribunal se intentará ser lo más comprensible con este tipo de problemas técnicos, pudiendo modificar el orden de presentación hasta la resolución de los problemas.
+;¿Qué ocurre si hago una presentación demasiado corta o larga?;El tribunal evaluará la gestión de tiempo realizada ajustada a los tiempos establecidos.
+gestion_tiempo_presentacion;;
+Programa defensa ;¿Con qué programa se realiza la defensa?;Con el software de videoconferencia recomendado por la Universidad de Burgos, en el curso actual.
+Grabación defensa;¿Se graba la defensa?;Sí.
+Plagio;¿Qué ocurre si me acusan de plagio?;Si estuviese probado el plagio, se aplicará lo indicando en el Reglamento de Evaluación, calificando ambas convocatorias con cero. 
+Plagio;**COMENTARIOS GENERALES SOBRE PLAGIO**;¿? ESTO NO TIENE SENTIDO COMO PREGUNTA… LLEVAR A FALLBACK o redirigir a la pregunta de acusación de plagio.
+Impugnar;¿Puedo impugnar la nota?;El reglamento de Trabajo Fin de Grado en su Artículo 10 recoge el proceso de reclamación (https://www.ubu.es/escuela-politecnica-superior/estructura-del-centro/normativa-y-reglamentos/reglamento-sobre-trabajo-fin-de-grado-y-trabajo-fin-de-master).
+Cambiar fecha;¿Puedo cambiar la fecha de la presentación?;No, no se puede cambiar la fecha de la presentación. 
+Porcentaje nota ;¿Qué porcentaje de la nota es la memoria y cuál el trabajo y presentación?;Consulta la guía docente de la asignatura.
+Rúbrica;Rúbrica;No existe una rúbrica como tal, dada la diversidad de TFGs, sino un procedimiento de evaluación general indicado en la guía docente de la asignatura.
+Comunidad_tfgs;¿Dónde está la comunidad de tfgs?;La comunidad de TFG se encuentra en el listado de asignaturas disponibles en UBUVirtual (solo visible para el coordinador del grado y los alumnos matriculados en la asignatura)
+Portada_CD;¿Dónde puedo encontrar la portada de los CDs??;Existe un fichero disponible en la asignatura de TFG con nombre caratulaCD.
+;;
+ ¿Puede ser conveniente dar contexto al usuario? Aunque ha entrado en la asignatura, podría entenderse que el bot es generalista para todo UBUVirtual cuando solo va a contestar cosas concretas de esta asignatura.;;
+ Me parece correcto. Actualizado.;;
+ Aclarar esta pregunta. ¿Qué es lo que se quiere hacer presencial?;;
+ Aclarada. Se refiere a la exposición.;;
+ Debemos dar una respuesta general acerca del funcionamiento de los foros: utilidad, modo de uso, etc;;
+ Sí un mensaje general como el que pongo.;;
+ Me parece ambigua: ¿empezar con la asignación? Creo que se contesta en otras. ¿empezar una vez asignado? El tutor/a asignado debería guiarte.;;
+ Redigir a la pregunta ya existente “como_elijo_trabajo””;;
+ Este tipo de preguntas yo creo que no proceden en este foro. Las materias ya vistas en el plan de estudios no deberían ser objeto de consulta… ;;
+ Esta pregunta no veo que tenga relación con el TFG.;;
