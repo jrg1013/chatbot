@@ -21,18 +21,26 @@ https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/
 
 sh setup_env.sh
 
-## Run de la APP
+## Setup envioroment
 
-python learn.py
-streamlit run app.py
+# Activate venev
 
-## Run de la APP
+source venv/bin/activate
 
 # Install
 
-source venv/bin/activate
 pip install -r path/to/requirements.txt
 
 # Export
 
 pip freeze > requirements.txt
+
+## Run de la APP
+
+# Vectorización de información
+
+python learn.py
+
+# Chatbot
+
+streamlit run app.py

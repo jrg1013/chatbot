@@ -44,7 +44,7 @@ def import_vectordb():
 
 def get_prompt():
     # Get Prompt based in the context and template in config
-    template = cfg.template
+    template = cfg.template2
     prompt = PromptTemplate(template=template, input_variables=[
                             "context", "question"])
     return prompt
