@@ -25,7 +25,7 @@ loaders = [
         csv_args={
             "delimiter": ";",
             "quotechar": '"',
-            "fieldnames": ["Intent", "Ejemplo mensaje usuario", "Respuesta"],
+            "fieldnames": ["Intencion", "Ejemplo mensaje usuario", "Respuesta"],
         }),
     document_loaders.CSVLoader(
         file_path="./documents/TFGHistorico.csv",
