@@ -2,23 +2,48 @@
 
 import cfg
 
+# Documents loaders
 from langchain import document_loaders
+
+# Splitters and embeddings
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import HuggingFaceInstructEmbeddings
+
+# Vector DB
 from langchain.vectorstores import FAISS
+
+# Sentence Transformers
 from sentence_transformers import SentenceTransformer
+
 
 # Local embedding model
 embeddings_model_repo = SentenceTransformer('all-MiniLM-L6-v2')
 
-loader = document_loaders.CSVLoader(
-    file_path="./documents/Preguntas-Respuestas - ONLINE.csv",
-    csv_args={
-        "delimiter": ";",
-        "quotechar": '"',
-        "fieldnames": ["Intent", "Ejemplo mensaje usuario", "Respuesta"],
-    })
-documents = loader.load()
+loaders = [
+    document_loaders.CSVLoader(
+        file_path="./documents/Preguntas-Respuestas - ONLINE.csv",
+        csv_args={
+            "delimiter": ";",
+            "quotechar": '"',
+            "fieldnames": ["Intent", "Ejemplo mensaje usuario", "Respuesta"],
+        }),
+    document_loaders.CSVLoader(
+        file_path="./documents/TFGHistorico.csv",
+        csv_args={
+            "delimiter": ",",
+            "quotechar": '"',
+            "fieldnames": ["Titulo", "TituloCorto", "Descripcion", "Tutor1", "Tutor2", "Tutor3", "FechaAsignacion",
+                           "FechaPresentación", "TotalDias", "EnlaceRepositorio", "Videodemo", "Videopresentacion",
+                           "Calidadcodigo", "Despliegue"],
+        })
+
+]
+
+documents = []
+
+for loader in loaders:
+    documents.extend(loader.load())
+
 
 model_name = cfg.embeddings_model_repo
 model_kwargs = {'device': 'cpu'}

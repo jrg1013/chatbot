@@ -42,23 +42,7 @@ def import_vectordb():
     return vectordb
 
 
-def get_prompt():
-    # Get Prompt based in the context and template in config
-    template = cfg.template2
-    prompt = PromptTemplate(template=template, input_variables=[
-                            "context", "question"])
-    return prompt
-
-
-def get_qa_chain(prompt, vectordb):
-    retriever = vectordb.as_retriever()
-    '''
-    retriever = vectordb.as_retriever(
-        search_type='mmr',
-        search_kwargs={'k': 2, 'fetch_k': 4}
-    )
-    '''
-
+def get_llm():
     huggingfacehub_api_token = tokens.huggingfacehub_api_token
 
     llm = HuggingFaceHub(
@@ -73,6 +57,28 @@ def get_qa_chain(prompt, vectordb):
         },
         huggingfacehub_api_token=huggingfacehub_api_token
     )
+
+    return llm
+
+
+def get_prompt():
+    # Get Prompt based in the context and template in config
+    template = cfg.template
+    prompt = PromptTemplate(template=template, input_variables=[
+                            "context", "question"])
+    return prompt
+
+
+def get_qa_chain(prompt, vectordb):
+    retriever = vectordb.as_retriever()
+    '''
+    retriever = vectordb.as_retriever(
+        search_type='mmr',
+        search_kwargs={'k': 2, 'fetch_k': 4}
+    )
+    '''
+    # Get the llm
+    llm = get_llm()
 
     # Setup memory for contextual conversation
     memory = ConversationBufferMemory(
