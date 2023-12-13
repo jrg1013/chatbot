@@ -50,6 +50,7 @@ def get_llm():
         model_kwargs={
             "max_new_tokens": cfg.max_new_tokens,
             "temperature": cfg.temperature,
+            "max_length": cfg.max_length,
             "top_p": cfg.top_p,
             "repetition_penalty": cfg.repetition_penalty,
             "do_sample": cfg.do_sample,
@@ -70,20 +71,22 @@ def get_prompt():
 
 
 def get_qa_chain(prompt, vectordb):
+    '''
     retriever = vectordb.as_retriever()
     '''
     retriever = vectordb.as_retriever(
-        search_type='mmr',
-        search_kwargs={'k': 2, 'fetch_k': 4}
+        search_type="mmr",
+        search_kwargs={"k": 2, "fetch_k": 4}
     )
-    '''
+
     # Get the llm
     llm = get_llm()
 
     # Setup memory for contextual conversation
     memory = ConversationBufferMemory(
-        memory_key='chat_history',
-        return_messages=True
+        memory_key="chat_history",
+        return_messages=True,
+        output_key='answer'
     )
 
     qa_chain = ConversationalRetrievalChain.from_llm(
@@ -91,6 +94,7 @@ def get_qa_chain(prompt, vectordb):
         retriever=retriever,
         combine_docs_chain_kwargs={"prompt": prompt},
         memory=memory,
+        get_chat_history=lambda h: h,
         verbose=True
     )
 

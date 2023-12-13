@@ -15,7 +15,6 @@ from langchain.vectorstores import FAISS
 # Sentence Transformers
 from sentence_transformers import SentenceTransformer
 
-
 # Local embedding model
 embeddings_model_repo = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -38,6 +37,14 @@ loaders = [
         })
 
 ]
+
+'''
+
+loaders = [
+    document_loaders.UnstructuredHTMLLoader(
+        "./documents/Respuestas a preguntas frecuentes (FAQ).html")
+]
+'''
 
 documents = []
 
