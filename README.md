@@ -41,6 +41,11 @@ pip freeze > requirements.txt
 
 python learn.py
 
+# Validación del RAG
+
+python validate.py
+
 # Chatbot
 
+sh run_app.sh
 streamlit run app.py
