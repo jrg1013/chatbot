@@ -2,98 +2,102 @@
 
 En esta sección de la memoria, se presentan las técnicas y las herramientas de desarrollo que han sido empleadas en la ejecución de este proyecto. La elección de la metodología y las herramientas adecuadas desempeña un papel fundamental en el éxito y eficiencia de cualquier proyecto. En consecuencia, se llevará a cabo un análisis de diferentes alternativas, considerando aspectos clave como la metodología de desarrollo, las herramientas de implementación y las bibliotecas utilizadas.
 
-\section{\textit{Retrieval-augmented Generation}}
-
-Los \acrshort{llm} han demostrado su capacidad para comprender el contexto y ofrecer respuestas precisas a diversas tareas de \acrlong{pln}, como la síntesis o las preguntas y respuestas, cuando se les solicita. Aunque son capaces de ofrecer muy buenas respuestas a preguntas sobre información con la que fueron entrenados, tienden a ``alucinar'' cuando el tema trata sobre información que desconocen, es decir, que no estaba incluida en sus datos de entrenamiento.
-
-\acrlong{rag} es una técnica avanzada en el campo del \acrshort{pln} que combina dos enfoques clave: recuperación y generación de texto. Esta técnica se utiliza para mejorar la generación de texto automática y garantizar que las respuestas generadas sean precisas, relevantes y contextualmente adecuadas\cite{Lewis2020}.
-
-En un sistema de \acrshort{rag}, el proceso se divide en dos etapas:
-
-\begin{enumerate}
-    \item Recuperación (\textit{Retrieval}): En esta etapa, el sistema busca información relevante en grandes conjuntos de datos o bases de conocimiento. Utiliza métodos de recuperación de información para encontrar documentos o fragmentos de texto que contienen información relacionada con la consulta o el contexto actual.
-
-    \item Generación (\textit{Generation}): Una vez que se ha recuperado la información relevante, el sistema de generación de texto (a menudo basado en un \acrshort{llm}, como \acrshort{gpt}) utiliza esta información para generar respuestas coherentes y contextualmente apropiadas.
-    
-\end{enumerate}
-
-\imagen{EsquemaRAG}{Secuencia para la creación de un \textit{Retrieval-augmented Generation}.}{1}
-
-La combinación de estas dos etapas permite que la técnica \acrshort{rag} proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
-
-\imagen{rag}{Esquema del funcionamiento de un \textit{Retrieval-augmented Generation}.}{1}
-
-\acrshort{rag} se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
-
-\section{\textit{Embeddings}}
-
-En el \acrfull{pln}, un embedding de palabra es una representación de una palabra que se utiliza en el análisis de texto. Normalmente, la representación es un vector de valores reales que codifica el significado de la palabra de tal manera que se espera que las palabras que están más cercanas en el espacio vectorial sean similares en significado. Los embeddings de palabra se obtienen utilizando técnicas de modelado del lenguaje y aprendizaje de características, donde las palabras o frases del vocabulario se asignan a vectores de números reales.
-
-Existen diversos métodos para generar este mapeo, que incluyen redes neuronales, reducción de dimensionalidad en la matriz de co-ocurrencia de palabras, modelos probabilísticos, métodos basados en bases de conocimiento explicables y representación explícita en términos del contexto en el que aparecen las palabras\cite{mikolov2013distributed}.
-
-Estos embeddings de palabra y frase, cuando se utilizan como representación de entrada subyacente, han demostrado mejorar el rendimiento en tareas de \acrshort{pln} como el análisis sintáctico y el análisis de sentimientos. El desarrollo histórico de este enfoque se remonta a la década de 1950, con la idea de que ``una palabra se caracteriza por la compañía que mantiene''. A lo largo del tiempo, se han desarrollado modelos de espacio semántico para representar el conocimiento basado en la distribución de propiedades en grandes conjuntos de datos lingüísticos.
-
-La popularidad de los embeddings de palabra creció significativamente con los avances en modelos neuronales en la década de 2010, y herramientas como word2vec de Google de la que ya se ha hablado, desempeñaron un papel crucial al acelerar el entrenamiento de modelos de espacio vectorial. A medida que la tecnología y el hardware mejoraron, se realizaron avances teóricos y prácticos, lo que llevó a la aplicación práctica de los embeddings de palabra en diversas áreas de la investigación y la aplicación práctica.
-
-\section{Bases de datos Vectoriales}
-
-Una base de datos vectorial es un tipo de base de datos que almacena datos como vectores de alta dimensionalidad, que son representaciones matemáticas de características o atributos. Cada vector tiene un número específico de dimensiones, que pueden variar desde decenas hasta miles, dependiendo de la complejidad y la granularidad de los datos. Los vectores suelen generarse aplicando algún tipo de función de transformación o incrustación a los datos sin procesar, como texto, imágenes, audio, video y otros. La función de incrustación puede basarse en diversos métodos, como modelos de aprendizaje automático, incrustaciones de palabras o algoritmos de extracción de características\cite{MicrosoftVectorDatabase}.
-
-La principal ventaja de una base de datos vectorial es que permite realizar búsquedas y recuperación de datos rápida y precisa basada en la distancia o similitud de sus vectores. Esto significa que, en lugar de utilizar métodos tradicionales para consultar bases de datos basadas en coincidencias exactas o criterios predefinidos, se puede utilizar una base de datos vectorial para encontrar los datos más similares o relevantes según su significado semántico o contextual.
-
-Por ejemplo, se puede utilizar una base de datos vectorial para:
-
-Encontrar imágenes similares a una imagen dada según su contenido visual y estilo.
-Encontrar documentos similares a un documento dado según su tema y sentimiento.
-Encontrar productos similares a un producto dado según sus características y calificaciones.
-
-Para realizar búsquedas y recuperación de similitudes en una base de datos vectorial, debes utilizar un vector de consulta que represente la información o criterios deseados. El vector de consulta puede derivarse del mismo tipo de datos que los vectores almacenados (por ejemplo, usar una imagen como consulta para una base de datos de imágenes) o de diferentes tipos de datos (por ejemplo, usar texto como consulta para una base de datos de imágenes). Luego, se debe utilizar una medida de similitud que calcule qué tan cercanos o distantes están dos vectores en el espacio vectorial. La medida de similitud puede basarse en diversas métricas, como similitud del coseno, distancia euclidiana, distancia de Hamming, índice de Jaccard.
-
-\imagen{VectorDatabase}{Esquema del funcionamiento de creación de bases de datos vectoriales con Embeddings.}{1}
-
-El resultado de la búsqueda y recuperación de similitudes suele ser una lista clasificada de vectores que tienen las puntuaciones de similitud más altas con el vector de consulta. Luego se puede acceder a los datos sin tratar correspondientes a cada vector desde la fuente u origen original.
-
-Las bases de datos vectoriales tienen muchos casos de uso en diferentes dominios y aplicaciones que involucran \acrlong{pln}, visión por computadora, sistemas de recomendación y otras áreas que requieren comprensión semántica y coincidencia de datos.
-
-Un caso de uso para almacenar información en una base de datos vectorial es potenciar a los \acrlong{llm} para generar texto más relevante y coherente basado en un complemento de \acrlong{ia}. Sin embargo, los \acrshort{llm} a menudo enfrentan desafíos como generar información inexacta o irrelevante, carecer de consistencia o sentido común, repetirse o contradecirse, ser sesgados u ofensivos. Para superar estos desafíos, se puede utilizar una base de datos vectorial para almacenar información sobre diferentes temas, palabras clave, hechos, opiniones y/o fuentes relacionadas con tu dominio o género deseado. Luego, se puede usar un \acrlong{llm} y pasar información desde la base de datos vectorial con tu complemento de \acrlong{ia} para generar contenido más informativo y atractivo que se ajuste a la intención y estilo.
-
 \section{\textit{Conversational Retrieval}}
 
 \section{\textit{Querry Transformation}}
 
-\section{\textit{Prompt Engineering}}
+\section{\textit{Quantization}}
 
-Para obtener información de un \acrshort{llm}, hay que hace una pregunta. Si un \acrshort{llm} es como una base de datos de millones de programas vectoriales, entonces un \textit{prompt} es como una consulta de búsqueda en esa base de datos. Una parte de la consulta puede interpretarse como una ``clave de programa'', el índice del programa que se desea recuperar, y otra como una entrada de programa.
+GGML es una biblioteca Tensor para \textit{machine learning} que se presenta como una biblioteca en C++. Su función principal es permitir la ejecución de modelos de \acrlong{llm} en la CPU o en combinación con la GPU. Un aspecto distintivo de GGML es su definición de un formato binario para la distribución de \acrshort{llm}. Además, GGML emplea una técnica llamada \textit{Quantization} que posibilita la ejecución de modelos de \acrshort{llm} en hardware de consumo\cite{GGML_Gimmi}.
 
-Esta ``base de datos de programas'' es continua e interpolativa, no es un conjunto discreto de programas. Esto significa que una instrucción ligeramente diferente, como ``Reformula este texto en el estilo de x'', aún habría apuntado a una ubicación muy similar en el espacio de programas, dando como resultado un programa que se comportaría de manera bastante cercana pero no idéntica.
+Los pesos de los \acrshort{llm} son números de punto flotante (decimales). Al igual que se necesita más espacio para representar un número entero grande (por ejemplo, 1000) en comparación con un entero pequeño (por ejemplo, 1), se requiere más espacio para representar un número de punto flotante de alta precisión (por ejemplo, 0.0001) en comparación con un número de punto flotante de baja precisión (por ejemplo, 0.1). El proceso de \textit{Quantization} de un modelo de lenguaje grande implica reducir la precisión con la que se representan los pesos para disminuir los recursos necesarios para utilizar el modelo. GGML admite varias estrategias de \textit{Quantization} (por ejemplo, \textit{Quantization} de 4 bits, 5 bits y 8 bits), cada una de las cuales ofrece diferentes compromisos entre eficiencia y rendimiento.
 
-Hay miles de variaciones que se podrían haber utilizado, cada una dando como resultado un programa similar pero ligeramente diferente. Y es por eso que se necesita el \textit{Prompt Engineering}. No hay una razón a priori por la cual una primera instrucción, ingenua, daría como resultado el programa óptimo para la tarea. El \acrshort{llm} no va a entender lo que se quiso decir y luego realizarlo de la mejor manera posible, simplemente recuperará el programa al que apunta la instrucción, entre muchas ubicaciones posibles en las que podrías haber aterrizado.
+Para utilizar eficazmente los modelos, es esencial tener en cuenta los requisitos de memoria y disco. Dado que los modelos se cargan completamente en la memoria, se necesita suficiente espacio en disco para almacenarlos y RAM suficiente para cargarlos durante la ejecución. En el caso del modelo de 65 mil millones de parámetros, incluso después de la \textit{Quantization}, se recomienda tener al menos 40 gigabytes de RAM disponible. Cabe destacar que los requisitos de memoria y disco son actualmente equivalentes.
 
-El \textit{Prompt Engineering} es el proceso de buscar en el espacio de programas para encontrar el programa que empíricamente parece funcionar mejor para una tarea objetivo. No es diferente de probar diferentes palabras clave al hacer una búsqueda en Google de un software.
+\imagen{QuantizedSizeLlama}{Efecto de la \textit{Quantization} en el tamaño de los LLM de LLaMa.}{1}
 
-Si los \acrshort{llm} realmente entendieran lo que se les dice, no habría necesidad de este proceso de búsqueda, ya que la cantidad de información transmitida sobre la tarea objetivo no cambiaría, independientemente de que se use por ejemplo la instrucción con la palabra ``reescribe'' en lugar de ``reformula''. Nunca se debe asumir que el \acrshort{llm} ``lo entiende'' desde el principio. Se debe de tener en cuenta que la instrucción es solo una dirección en un mundo casi infinito de programas, todo capturado como un subproducto de organizar tokens en un espacio vectorial a través de un objetivo de optimización autoregresivo.
+La \textit{Quantization} desempeña un papel crucial en el manejo de estas demandas de recursos. A menos que se disponga de recursos computacionales excepcionales, la \textit{Quantization} permite utilizar los modelos en configuraciones de hardware más modestas al reducir la precisión de los parámetros del modelo y optimizar el uso de la memoria. Esto garantiza que la ejecución de los modelos siga siendo factible y eficiente para una gama más amplia de configuraciones.
 
-\subsection{Chain-of-thought}
+\section{Kaggle}
 
-Existen multitud de técnicas de \textit{Prompt Engineering} pero una de las mas conocidas es \acrfull{cot}. La técnica de \acrlong{cot} \textit{prompting} es una estrategia que permite a los \acrshort{llm} abordar un problema como una serie de pasos intermedios antes de proporcionar una respuesta final. Mejora la capacidad de razonamiento al inducir al modelo a responder un problema de múltiples pasos con pasos de razonamiento que imitan una cadena de pensamiento. Esta técnica permite a los \acrshort{llm} superar dificultades en tareas de razonamiento que requieren pensamiento lógico y múltiples pasos para resolver, como preguntas de aritmética o razonamiento del sentido común.
+Kaggle es una plataforma en línea que aloja competiciones de ciencia de datos. Fundada en 2010, Kaggle proporciona un entorno donde científicos de datos y profesionales del aprendizaje automático pueden encontrar conjuntos de datos, participar en competiciones, colaborar en proyectos y mejorar sus habilidades en análisis de datos y modelado predictivo.
 
-Por ejemplo, ante la pregunta ``Q: La cafetería tenía 23 manzanas. Si usaron 20 para hacer el almuerzo y compraron 6 más, ¿cuántas manzanas tienen?'', un \textit{prompt} \acrshort{cot} podría inducir al \acrshort{llm} a responder ``A: La cafetería tenía originalmente 23 manzanas. Usaron 20 para hacer el almuerzo. Así que tenían 23 - 20 = 3. Compraron 6 manzanas más, así que tienen 3 + 6 = 9. La respuesta es 9''\cite{wei2023chainofthought}.
+Algunas características clave de Kaggle incluyen:
+\begin{enumerate}
+\item \textbf{Competiciones de Ciencia de Datos:} Kaggle organiza competiciones regulares en las que los participantes compiten para resolver problemas de ciencia de datos planteados por empresas o instituciones. Estos desafíos abarcan una amplia gama de temas, desde reconocimiento de imágenes hasta predicción de precios.
 
-\begin{verbatim}
-Q: {question}
-A: Let’s think step by step.
-\end{verbatim}
+\item \textbf{Conjuntos de Datos Públicos:} Kaggle proporciona un repositorio de conjuntos de datos públicos que los usuarios pueden explorar y utilizar para prácticas y proyectos. Estos conjuntos de datos abarcan diversas áreas, desde datos económicos hasta imágenes médicas.
 
-Inicialmente, cada \textit{prompt} \acrshort{cot} incluía algunos ejemplos de preguntas y respuestas (Q\&A). Esto lo convertía en una técnica de \textit{prompting ``few-shot''}. Sin embargo, se ha demostrado que simplemente agregar las palabras ``Pensemos paso a paso'' también es efectivo, lo que convierte a \acrshort{cot} en una técnica de \textit{prompting ``zero-shot''}. Esto permite una mejor escalabilidad, ya que el usuario ya no necesita formular muchos ejemplos de preguntas y respuestas específicos de \acrshort{cot}.
+\item \textbf{Kernels:} Los Kernels son entornos de desarrollo en línea que permiten a los usuarios escribir, ejecutar y compartir código en lenguajes como Python y R. Los Kernels son útiles para la exploración de datos y la creación de modelos.
 
-\section{Kaagle}
+\item \textbf{Foros y Comunidad:} Kaggle cuenta con una comunidad activa de científicos de datos y profesionales del aprendizaje automático. Los foros permiten la discusión de problemas, la obtención de asesoramiento y el intercambio de conocimientos.
+
+\item \textbf{Aprendizaje y Recursos:} Kaggle ofrece tutoriales, cursos y recursos educativos para ayudar a los usuarios a mejorar sus habilidades en ciencia de datos y aprendizaje automático.
+\end{enumerate}
+
+En general, Kaggle ha crecido hasta convertirse en una de las plataformas más importantes para la comunidad de ciencia de datos y el uso d modelos, proporcionando oportunidades para la colaboración, la competencia y el aprendizaje continuo.
 
 \section{LangChain}
 
-\section{Huggingface}
 
-But the Hugging Face platform has the goal of exposing models, datasets, and docs about all ML models to maintain the ecosystem as open-source as possible, with the philosophy that the ML can evolve only with shared and open knowledge. The economic profits are huge, and products like chatGPT+, Bing (with a modified chatGPT), or Google Search (with Bard) don’t share the model to have advantages over the competitors.
+\section{Hugging Face}
+
+Hugging Face es una empresa y plataforma que se especializa en modelos de lenguaje natural y \acrlong{dnn}. Ofrecen una amplia gama de recursos y herramientas destinados a facilitar el desarrollo, entrenamiento y despliegue de modelos de \acrfull{pln}).
+
+Algunos aspectos destacados de Hugging Face incluyen\cite{HuggingFace}:
+\begin{enumerate}
+
+\item \textbf{Modelos preentrenados:} Hugging Face proporciona acceso a una variedad de modelos de lenguaje natural preentrenados de última generación. Esto incluye modelos como BERT, \acrshort{gpt}, Mistral, LLaMa, RoBERTa, y muchos otros, que han demostrado un rendimiento excepcional en diversas tareas de procesamiento del lenguaje natural.
+
+\item \textbf{Transformers Library:} La Transformers Library de Hugging Face es una biblioteca de código abierto que facilita el uso, entrenamiento y ajuste fino de modelos de transformer para tareas específicas. Proporciona una interfaz consistente para varios modelos y se utiliza ampliamente en la comunidad de aprendizaje profundo para \acrshort{pln}.
+
+\item \textbf{Hugging Face Hub:} Es una plataforma en línea que permite a los desarrolladores compartir, explorar y utilizar modelos de lenguaje natural de Hugging Face. Facilita la colaboración y el intercambio de modelos entrenados por la comunidad.
+
+\item \textbf{Pipeline API:} Hugging Face ofrece una \acrshort{api} de canalización (Pipeline API) que simplifica el uso de modelos complejos para tareas específicas. Esto hace que sea fácil utilizar modelos de \acrshort{pln} preentrenados para clasificación de texto, traducción, resumen y más.
+
+\item \textbf{Comunidad de usuarios:} La plataforma fomenta la colaboración y la contribución de la comunidad al código y los modelos. Los usuarios pueden contribuir con modelos, compartir implementaciones y participar en discusiones relacionadas con el procesamiento del lenguaje natural y la \acrlong{ia}.
+\end{enumerate}
+
+En resumen, Hugging Face se ha convertido en un recurso integral para la comunidad de aprendizaje profundo y \acrshort{pln}, proporcionando modelos avanzados, bibliotecas de código abierto y una plataforma para compartir y colaborar en proyectos relacionados con el \acrlong{pln}.
 
 \section{FastAPI}
 
+FastAPI es un \textit{framework} para el desarrollo rápido de \acrshort{api} con Python 3.7 (o superior). Diseñado para ser fácil de usar, rápido y eficiente, FastAPI destaca por su sintaxis declarativa, generación automática de documentación interactiva (compatible con Swagger y ReDoc), y la capacidad de aprovechar al máximo las características de la programación asíncrona. Es una eleccióin muy popular para el desarrollo de RESTful APIs y aplicaciones web.
+
+Una de las principales ventajas de las REST API radica en que el protocolo REST separa el almacenamiento de datos (back-end) y la interfaz de usuario (front-end) del servidor, lo que permite que el cliente y el servidor sean independientes entre sí. Esta separación es fundamental para la arquitectura REST y aporta beneficios significativos al desarrollo de aplicaciones.
+
+La independencia entre el back-end y el front-end facilita la escalabilidad y la flexibilidad del sistema. Al dividir las responsabilidades de manera clara, los equipos de desarrollo pueden trabajar de manera más eficiente y concurrente en las distintas capas de la aplicación. Por ejemplo, el equipo encargado del desarrollo del back-end puede realizar mejoras o modificaciones en la lógica de negocio y en la gestión de datos sin afectar directamente a la interfaz de usuario.
+
+Esta separación también favorece la reutilización de componentes y la portabilidad del software. Dado que el back-end y el front-end operan de manera independiente, es posible implementar cambios o actualizaciones en una capa sin afectar a la otra, siempre y cuando se respeten los contratos definidos por la REST API. Esto simplifica el mantenimiento y permite la integración de nuevas funcionalidades sin perturbar el funcionamiento existente.
+
+Las características clave de FastAPI incluyen:
+
+\begin{itemize}
+
+\item Rápido y Eficiente: Aprovecha las características de Python 3.7+ para proporcionar un rendimiento excepcional.
+
+\item Sintaxis Declarativa: Utiliza anotaciones de tipo estándar de Python para definir los tipos de datos de entrada y salida de las funciones, lo que facilita la validación y la generación automática de documentación.
+
+\item Automatización de Documentación: FastAPI genera automáticamente documentación interactiva basada en las anotaciones de tipo, lo que facilita a los desarrolladores comprender y probar rápidamente la \acrshort{api}.
+
+\item Compatibilidad con Estándares Abiertos: Es compatible con estándares abiertos como OpenAPI (usando Swagger UI y ReDoc) y JSON Schema.
+
+\item Programación Asíncrona: Aprovecha las características de la programación asíncrona para manejar de manera eficiente un gran número de conexiones concurrentes.
+
+\item Seguridad Integrada: Ofrece funciones integradas para manejar la autenticación, autorización y seguridad en general.
+
+\item Interoperabilidad: Puede integrarse fácilmente con otros marcos y bibliotecas de Python.
+
+\end{itemize}
+
+En resumen, FastAPI es una opción robusta y moderna para el desarrollo de \acrshort{api} en Python, destacándose por su enfoque rápido, sintaxis clara y generación automática de documentación.
+
 \section{Streamlit}
+
+Streamlit es una biblioteca de código abierto en Python que se utiliza para crear aplicaciones web interactivas para \textit{data science} y \textit{machine learning} de manera rápida y sencilla. Su objetivo principal es permitir a los usuarios transformar datos en aplicaciones web interactivas con tan solo unas pocas líneas de código.
+
+Con Streamlit, los especialistas de datos y desarrolladores pueden crear fácilmente interfaces de usuario atractivas para sus modelos, visualizaciones y análisis de datos sin necesidad de conocimientos extensos en desarrollo web. La biblioteca se integra bien con bibliotecas populares de Python como Pandas, Matplotlib y Plotly, lo que facilita la creación de aplicaciones web a partir de código existente\cite{Streamlit}.
+
+Streamlit simplifica el proceso de desarrollo de aplicaciones web al manejar automáticamente la actualización de la interfaz de usuario en respuesta a los cambios en los datos subyacentes. Esto permite a los usuarios centrarse más en el análisis de datos y la creación de visualizaciones, sin tener que preocuparse demasiado por los detalles de implementación de la interfaz web.
+
+En resumen, Streamlit es una herramienta valiosa para aquellos que desean hacer una interface para análisis de datos y modelos de aprendizaje automático de manera efectiva a través de aplicaciones web interactivas con una curva de aprendizaje mínima.
