@@ -1,51 +1,65 @@
 \capitulo{4}{Técnicas y herramientas}
 
-En esta sección de la memoria, se presentan las técnicas y las herramientas de desarrollo que han sido empleadas en la ejecución de este proyecto. La elección de la metodología y las herramientas adecuadas desempeña un papel fundamental en el éxito y eficiencia de cualquier proyecto. En consecuencia, se llevará a cabo un análisis de diferentes alternativas, considerando aspectos clave como la metodología de desarrollo, las herramientas de implementación y las bibliotecas utilizadas.
+En esta sección de la memoria, se presentan las técnicas y las herramientas de desarrollo que han sido empleadas en la ejecución de este proyecto. Debido a que el campo de los \acrshort{llm} se encuentra actualmente en una fase de desarrollo temprana y en constante cambio, se han barajado distintas alternativas para la realización de este proyecto. El carácter investigador que se ha seguido, hace que se hayan seguido distintos caminos que se han tenido que desechar al ir encontrando limitaciones o mejores soluciones disponibles.
 
-\section{\textit{Conversational Retrieval}}
+Durante la etapa de prototipado y la fase inicial de investigación, se emplearon herramientas distintas a las utilizadas en la versión definitiva del proyecto. Las herramientas utilizadas más destacadas se describen en los siguientes apartados.
 
-\section{\textit{Querry Transformation}}
+\section{Específicas de los LLM}
 
-\section{\textit{Quantization}}
+A pesar de que la inteligencia artificial generativa es un campo relativamente reciente, la explosión de los \acrshort{llm} ha dado lugar a uno numero considerable de herramientas y técnicas en constante cambio y desarrollo actualmente.
 
-GGML es una biblioteca Tensor para \textit{machine learning} que se presenta como una biblioteca en C++. Su función principal es permitir la ejecución de modelos de \acrlong{llm} en la CPU o en combinación con la GPU. Un aspecto distintivo de GGML es su definición de un formato binario para la distribución de \acrshort{llm}. Además, GGML emplea una técnica llamada \textit{Quantization} que posibilita la ejecución de modelos de \acrshort{llm} en hardware de consumo\cite{GGML_Gimmi}.
+Para la gestión del \acrshort{llm} se han barajado en distintos momentos alternativas y ampliaciones a Langchain como el uso LlamaIndex o GPT4all. Se ha optada finalmente por combinar Langchain con Hugging Face, ambas herramientas se explican mas adelante en detalla, aunque también se explican algunas herramientas para el uso de \acrshort{llm} intalados localmente.
 
-Los pesos de los \acrshort{llm} son números de punto flotante (decimales). Al igual que se necesita más espacio para representar un número entero grande (por ejemplo, 1000) en comparación con un entero pequeño (por ejemplo, 1), se requiere más espacio para representar un número de punto flotante de alta precisión (por ejemplo, 0.0001) en comparación con un número de punto flotante de baja precisión (por ejemplo, 0.1). El proceso de \textit{Quantization} de un modelo de lenguaje grande implica reducir la precisión con la que se representan los pesos para disminuir los recursos necesarios para utilizar el modelo. GGML admite varias estrategias de \textit{Quantization} (por ejemplo, \textit{Quantization} de 4 bits, 5 bits y 8 bits), cada una de las cuales ofrece diferentes compromisos entre eficiencia y rendimiento.
+\subsection{LangChain}
 
-Para utilizar eficazmente los modelos, es esencial tener en cuenta los requisitos de memoria y disco. Dado que los modelos se cargan completamente en la memoria, se necesita suficiente espacio en disco para almacenarlos y RAM suficiente para cargarlos durante la ejecución. En el caso del modelo de 65 mil millones de parámetros, incluso después de la \textit{Quantization}, se recomienda tener al menos 40 gigabytes de RAM disponible. Cabe destacar que los requisitos de memoria y disco son actualmente equivalentes.
+LangChain es un \textit{framework} de código abierto que permite a los desarrolladores de software que trabajan con \acrfull{ia} y su subconjunto de aprendizaje automático combinar \acrlong{llm} con otros componentes externos para desarrollar aplicaciones impulsadas por modelos \acrshort{llm}. El objetivo de LangChain es vincular modelos de \acrshort{llm}, como GPT-3.5 y GPT-4 de OpenAI, con una variedad de fuentes de datos externas para crear y aprovechar los beneficios de las aplicaciones de \acrfull{pln}.
 
-\imagen{QuantizedSizeLlama}{Efecto de la \textit{Quantization} en el tamaño de los LLM de LLaMa.}{1}
+Desarrolladores, ingenieros de software y científicos de datos con experiencia en los lenguajes de programación Python, JavaScript o TypeScript pueden utilizar los paquetes de LangChain ofrecidos en esos idiomas. LangChain se lanzó como un proyecto de código abierto por los cofundadores Harrison Chase y Ankush Gola en 2022; la versión inicial se lanzó ese mismo año\cite{Langchain}.
 
-La \textit{Quantization} desempeña un papel crucial en el manejo de estas demandas de recursos. A menos que se disponga de recursos computacionales excepcionales, la \textit{Quantization} permite utilizar los modelos en configuraciones de hardware más modestas al reducir la precisión de los parámetros del modelo y optimizar el uso de la memoria. Esto garantiza que la ejecución de los modelos siga siendo factible y eficiente para una gama más amplia de configuraciones.
+\subsubsection{¿Por qué es importante LangChain?}
+LangChain es un \textit{framework} que simplifica el proceso de creación de interfaces de aplicaciones de inteligencia artificial generativa. Los desarrolladores que trabajan en este tipo de interfaces utilizan diversas herramientas para crear aplicaciones avanzadas de \acrshort{pln}; LangChain agiliza este proceso. Por ejemplo, los \acrshort{llm} deben acceder a grandes volúmenes de big data, por lo que LangChain organiza estas grandes cantidades de datos para que puedan accederse fácilmente.
 
-\section{Kaggle}
+Además, los modelos \acrfull{gpt} generalmente se entrenan en datos hasta su liberación al público. Por ejemplo, ChatGPT se lanzó al público a finales de 2022, pero su base de conocimientos se limitaba a datos de 2021 y anteriores. LangChain puede conectar modelos de \acrshort{ia} a fuentes de datos para darles conocimiento de datos recientes sin limitaciones.
 
-Kaggle es una plataforma en línea que aloja competiciones de ciencia de datos. Fundada en 2010, Kaggle proporciona un entorno donde científicos de datos y profesionales del aprendizaje automático pueden encontrar conjuntos de datos, participar en competiciones, colaborar en proyectos y mejorar sus habilidades en análisis de datos y modelado predictivo.
-
-Algunas características clave de Kaggle incluyen:
+\subsubsection{¿Cuáles son las características de LangChain?}
+LangChain se compone de los siguientes módulos que aseguran que los múltiples componentes necesarios para crear una aplicación efectiva de \acrshort{pln} puedan funcionar sin problemas:
 \begin{enumerate}
-\item \textbf{Competiciones de Ciencia de Datos:} Kaggle organiza competiciones regulares en las que los participantes compiten para resolver problemas de ciencia de datos planteados por empresas o instituciones. Estos desafíos abarcan una amplia gama de temas, desde reconocimiento de imágenes hasta predicción de precios.
 
-\item \textbf{Conjuntos de Datos Públicos:} Kaggle proporciona un repositorio de conjuntos de datos públicos que los usuarios pueden explorar y utilizar para prácticas y proyectos. Estos conjuntos de datos abarcan diversas áreas, desde datos económicos hasta imágenes médicas.
-
-\item \textbf{Kernels:} Los Kernels son entornos de desarrollo en línea que permiten a los usuarios escribir, ejecutar y compartir código en lenguajes como Python y R. Los Kernels son útiles para la exploración de datos y la creación de modelos.
-
-\item \textbf{Foros y Comunidad:} Kaggle cuenta con una comunidad activa de científicos de datos y profesionales del aprendizaje automático. Los foros permiten la discusión de problemas, la obtención de asesoramiento y el intercambio de conocimientos.
-
-\item \textbf{Aprendizaje y Recursos:} Kaggle ofrece tutoriales, cursos y recursos educativos para ayudar a los usuarios a mejorar sus habilidades en ciencia de datos y aprendizaje automático.
+\item \textbf{Interacción del modelo:} También llamado entrada/salida del modelo, este módulo permite que LangChain interactúe con cualquier modelo de lenguaje y realice tareas como gestionar las entradas al modelo y extraer información de sus salidas.
+Conexión y recuperación de datos. Los datos a los que acceden los \acrshort{llm} pueden transformarse, almacenarse en bases de datos y recuperarse de esas bases de datos mediante consultas con este módulo.
+\item \textbf{Cadenas:} Al construir aplicaciones más complejas con LangChain, se pueden requerir otros componentes o incluso más de un \acrshort{llm}. Este módulo enlaza múltiples \acrshort{llm} con otros componentes o \acrshort{llm}, conocido como una cadena de \acrshort{llm}.
+\item \textbf{Agentes:} El módulo de agentes permite que los \acrshort{llm} decidan los mejores pasos o acciones a tomar para resolver problemas. Lo hace orquestando una serie de comandos complejos a los \acrshort{llm} y otras herramientas para que respondan a solicitudes específicas.
+\item \textbf{Memoria:} El módulo de memoria ayuda a un \acrshort{llm} a recordar el contexto de sus interacciones con los usuarios. Se puede agregar memoria a corto y largo plazo a un modelo, según el uso específico.
 \end{enumerate}
 
-En general, Kaggle ha crecido hasta convertirse en una de las plataformas más importantes para la comunidad de ciencia de datos y el uso d modelos, proporcionando oportunidades para la colaboración, la competencia y el aprendizaje continuo.
+\imagen{langchain}{Esquema del \textit{Framework} de Langchain con los distintos componentes y modulos.}{1}
 
-\section{LangChain}
+\subsubsection{¿Cuáles son las integraciones de LangChain?}
+LangChain generalmente construye aplicaciones utilizando integraciones con proveedores de \acrshort{llm} y fuentes externas donde se pueden encontrar y almacenar datos. Por ejemplo, LangChain puede construir chatbots o sistemas de preguntas y respuestas integrando un \acrshort{llm}, como los de Hugging Face, Cohere y OpenAI, con fuentes o almacenes de datos como Apify Actors, Google Search y Wikipedia. Esto permite que una aplicación tome texto de entrada del usuario, lo procese y recupere las mejores respuestas de cualquiera de estas fuentes. En este sentido, las integraciones de LangChain utilizan la tecnología de \acrlong{pln} más actualizada para construir aplicaciones efectivas.
 
+Otras integraciones potenciales incluyen plataformas de almacenamiento en la nube, como Amazon Web Services, Google Cloud y Microsoft Azure, así como bases de datos de vectores. Una base de datos de vectores puede almacenar grandes volúmenes de datos de alta dimensión, como videos, imágenes y texto extenso, como representaciones matemáticas que facilitan la consulta y búsqueda de esos elementos de datos. Pinecone es un ejemplo de base de datos de vectores que se puede integrar con LangChain.
 
-\section{Hugging Face}
+\subsubsection{¿Cómo crear prompts en LangChain?}
+Los prompts sirven como entrada al \acrshort{llm} que le indica que devuelva una respuesta, que suele ser una respuesta a una consulta. Esta respuesta también se denomina salida. Un prompt debe diseñarse y ejecutarse correctamente para aumentar la probabilidad de obtener una respuesta bien escrita y precisa de un modelo de lenguaje. Es por eso que la ingeniería de prompts es una ciencia emergente que ha recibido más atención en los últimos años.
+
+Los prompts pueden generarse fácilmente en implementaciones de LangChain utilizando una plantilla de prompt, que se utilizará como instrucciones para el \acrshort{llm} subyacente. Las plantillas de prompts pueden variar en especificidad. Pueden diseñarse para plantear preguntas simples a un modelo de lenguaje. También se pueden utilizar para proporcionar un conjunto de instrucciones explícitas a un modelo de lenguaje con suficiente detalle y ejemplos para recuperar una respuesta de alta calidad.
+
+LangChain generalmente requiere al menos una integración. OpenAI es un ejemplo destacado. Para usar las interfaces de programación de aplicaciones \acrshort{llm} de OpenAI, un desarrollador debe crear una cuenta en el sitio web de OpenAI y recuperar la clave de acceso a la \acrshort{api}. Luego, utilizando el siguiente fragmento de código, instale el paquete Python de OpenAI e ingrese la clave para acceder a las \acrshort{api}.
+
+\subsubsection{¿Cómo desarrollar aplicaciones en LangChain?}
+LangChain está diseñado para desarrollar aplicaciones con funcionalidad de modelos de lenguaje. Hay diferentes formas de hacer esto, pero el proceso generalmente implica algunos pasos clave.
+
+El desarrollador debe definir primero un caso de uso específico para la aplicación. Esto también implica determinar su alcance, incluidos los requisitos como cualquier integración, componente y \acrshort{llm} necesario.
+Construir funcionalidad. Los desarrolladores utilizan prompts para construir la funcionalidad o lógica de la aplicación prevista.
+
+LangChain permite a los desarrolladores modificar su código para crear funcionalidades personalizadas que satisfagan las necesidades del caso de uso y den forma al comportamiento de la aplicación. Aunque es cierto que solo se puede modificar hasta un cierto punto. Es importante elegir el \acrshort{llm} adecuado para el trabajo y también ajustarlo finamente para cumplir con las necesidades del caso de uso.
+
+\subsection{Hugging Face}
 
 Hugging Face es una empresa y plataforma que se especializa en modelos de lenguaje natural y \acrlong{dnn}. Ofrecen una amplia gama de recursos y herramientas destinados a facilitar el desarrollo, entrenamiento y despliegue de modelos de \acrfull{pln}).
 
 Algunos aspectos destacados de Hugging Face incluyen\cite{HuggingFace}:
-\begin{enumerate}
+\begin{itemize}
 
 \item \textbf{Modelos preentrenados:} Hugging Face proporciona acceso a una variedad de modelos de lenguaje natural preentrenados de última generación. Esto incluye modelos como BERT, \acrshort{gpt}, Mistral, LLaMa, RoBERTa, y muchos otros, que han demostrado un rendimiento excepcional en diversas tareas de procesamiento del lenguaje natural.
 
@@ -56,19 +70,152 @@ Algunos aspectos destacados de Hugging Face incluyen\cite{HuggingFace}:
 \item \textbf{Pipeline API:} Hugging Face ofrece una \acrshort{api} de canalización (Pipeline API) que simplifica el uso de modelos complejos para tareas específicas. Esto hace que sea fácil utilizar modelos de \acrshort{pln} preentrenados para clasificación de texto, traducción, resumen y más.
 
 \item \textbf{Comunidad de usuarios:} La plataforma fomenta la colaboración y la contribución de la comunidad al código y los modelos. Los usuarios pueden contribuir con modelos, compartir implementaciones y participar en discusiones relacionadas con el procesamiento del lenguaje natural y la \acrlong{ia}.
-\end{enumerate}
+\end{itemize}
 
 En resumen, Hugging Face se ha convertido en un recurso integral para la comunidad de aprendizaje profundo y \acrshort{pln}, proporcionando modelos avanzados, bibliotecas de código abierto y una plataforma para compartir y colaborar en proyectos relacionados con el \acrlong{pln}.
 
-\section{FastAPI}
 
-FastAPI es un \textit{framework} para el desarrollo rápido de \acrshort{api} con Python 3.7 (o superior). Diseñado para ser fácil de usar, rápido y eficiente, FastAPI destaca por su sintaxis declarativa, generación automática de documentación interactiva (compatible con Swagger y ReDoc), y la capacidad de aprovechar al máximo las características de la programación asíncrona. Es una eleccióin muy popular para el desarrollo de RESTful APIs y aplicaciones web.
 
-Una de las principales ventajas de las REST API radica en que el protocolo REST separa el almacenamiento de datos (back-end) y la interfaz de usuario (front-end) del servidor, lo que permite que el cliente y el servidor sean independientes entre sí. Esta separación es fundamental para la arquitectura REST y aporta beneficios significativos al desarrollo de aplicaciones.
+\subsection{\textit{Quantization y modelos locales}}
 
-La independencia entre el back-end y el front-end facilita la escalabilidad y la flexibilidad del sistema. Al dividir las responsabilidades de manera clara, los equipos de desarrollo pueden trabajar de manera más eficiente y concurrente en las distintas capas de la aplicación. Por ejemplo, el equipo encargado del desarrollo del back-end puede realizar mejoras o modificaciones en la lógica de negocio y en la gestión de datos sin afectar directamente a la interfaz de usuario.
+El tener que depender de \acrshort{api} gratuitas de \textit{Open Source} ha sido una constante limitación en el proyecto. Si bien estos modelos y herramientas ofrecen bastantes posibilidades, también tienen grandes limitaciones sobre todo en comparación a la \acrshort{api} de OpenAI.
 
-Esta separación también favorece la reutilización de componentes y la portabilidad del software. Dado que el back-end y el front-end operan de manera independiente, es posible implementar cambios o actualizaciones en una capa sin afectar a la otra, siempre y cuando se respeten los contratos definidos por la REST API. Esto simplifica el mantenimiento y permite la integración de nuevas funcionalidades sin perturbar el funcionamiento existente.
+Por este motivo se ha investigado y probado la instalación local de \acrshort{llm} de Open Source como LLaMa2 ha traves de GPT4all y llama-cpp-python.
+
+\subsubsection{Quantization}
+
+GGML es una biblioteca Tensor para \textit{machine learning} que se presenta como una biblioteca en C++. Su función principal es permitir la ejecución de modelos de \acrlong{llm} en la \acrshort{cpu} o en combinación con la \acrshort{gpu}. Un aspecto distintivo de GGML es su definición de un formato binario para la distribución de \acrshort{llm}. Además, GGML emplea una técnica llamada \textit{Quantization} que posibilita la ejecución de modelos de \acrshort{llm} en hardware de consumo\cite{GGML_Gimmi}.
+
+Los pesos de los \acrshort{llm} son números de punto flotante (decimales). Al igual que se necesita más espacio para representar un número entero grande (por ejemplo, 1000) en comparación con un entero pequeño (por ejemplo, 1), se requiere más espacio para representar un número de punto flotante de alta precisión (por ejemplo, 0.0001) en comparación con un número de punto flotante de baja precisión (por ejemplo, 0.1). El proceso de \textit{Quantization} de un modelo de lenguaje grande implica reducir la precisión con la que se representan los pesos para disminuir los recursos necesarios para utilizar el modelo. GGML admite varias estrategias de \textit{Quantization} (por ejemplo, \textit{Quantization} de 4 bits, 5 bits y 8 bits), cada una de las cuales ofrece diferentes compromisos entre eficiencia y rendimiento.
+
+Para utilizar eficazmente los modelos, es esencial tener en cuenta los requisitos de memoria y disco. Dado que los modelos se cargan completamente en la memoria, se necesita suficiente espacio en disco para almacenarlos y RAM suficiente para cargarlos durante la ejecución. En el caso del modelo de 65 mil millones de parámetros, incluso después de la \textit{Quantization}, se recomienda tener al menos 40 gigabytes de RAM disponible. Cabe destacar que los requisitos de memoria y disco son actualmente equivalentes.
+
+\imagen{QuantizedSizeLlama}{Efecto de la \textit{Quantization} en el tamaño de los LLM de LLaMa.}{1}
+
+La \textit{Quantization} desempeña un papel crucial en el manejo de estas demandas de recursos. A menos que se disponga de recursos computacionales excepcionales, la \textit{Quantization} permite utilizar los modelos en configuraciones de hardware más modestas al reducir la precisión de los parámetros del modelo y optimizar el uso de la memoria. Esto garantiza que la ejecución de los modelos siga siendo factible y eficiente para una gama más amplia de configuraciones.
+
+\subsubsection{Llama-cpp-python}
+
+LLama.cpp fue desarrollado por Georgi Gerganov. Implementa la arquitectura LLaMa de Meta de manera eficiente en C/C++ y es una de las comunidades de código abierto más dinámicas en torno a la inferencia de \acrlong{llm} con más de 390 contribuyentes, 43,000+ estrellas en el repositorio oficial de GitHub y 930+ versiones\cite{llama.cpp}.
+
+El diseño de Llama.cpp como una biblioteca C++ centrada en la \acrshort{cpu} significa menos complejidad y una integración perfecta en otros entornos de programación. Esta amplia compatibilidad aceleró su adopción en diversas plataformas. Actuando como un repositorio para características críticas de bajo nivel, Llama.cpp refleja el enfoque de LangChain para capacidades de alto nivel, simplificando el proceso de desarrollo aunque con posibles desafíos de escalabilidad futura.
+
+Se centra en una única arquitectura de modelo, permitiendo mejoras precisas y efectivas. Su compromiso con los modelos Llama a través de formatos como GGML y GGUF ha llevado a ganancias de eficiencia sustanciales.
+
+El núcleo de LLama.cpp son los modelos Llama originales, que también se basan en la arquitectura de \textit{transformers}. Los autores de Llama aprovechan varias mejoras que posteriormente se propusieron y utilizan diferentes modelos como PaLM.
+
+\subsubsection{GPT4All}
+
+GPT4All es un ecosistema diseñado para entrenar e implementar \acrlong{llm}. Notablemente, estos modelos están destinados a ejecutarse localmente en \acrshort{cpu} de consumo, lo que los hace accesibles y eficientes para una amplia gama de usuarios. El objetivo principal de GPT4All es servir como un modelo de lenguaje ajustado finamente al estilo de un asistente, ofreciendo un alto nivel de personalización. Se alienta a los usuarios, ya sean individuos o empresas, a utilizar, distribuir y construir libremente sobre los modelos de GPT4All\cite{gpt4all}.
+
+Características Clave:
+\begin{itemize}
+
+\item \textbf{Implementación Local:} Los modelos de GPT4All están optimizados para ejecutarse en \acrshort{cpu} de consumo, lo que permite la implementación local sin la necesidad de recursos computacionales extensivos.
+  
+\item \textbf{Personalización:} El ecosistema enfatiza la personalización, permitiendo a los usuarios adaptar los modelos de lenguaje según sus necesidades y preferencias específicas.
+
+\item \textbf{Ecosistema de Código Abierto:} GPT4All está respaldado por un software de ecosistema de código abierto. Este enfoque abierto fomenta la colaboración, la transparencia y las contribuciones de la comunidad.
+
+\item \textbf{Tamaño del Archivo:} Los modelos de GPT4All se distribuyen como archivos descargables que van desde 3 GB hasta 8 GB, lo que facilita su descarga e integración en los sistemas de los usuarios.
+
+\item \textbf{Nomic AI:} El ecosistema de software es respaldado y mantenido por Nomic AI, que desempeña un papel crucial en garantizar la calidad y seguridad de los modelos. Nomic AI también lidera los esfuerzos para simplificar el proceso de entrenamiento e implementación para usuarios que desean crear sus propios modelos de lenguaje amplio.
+\end{itemize}
+
+\subsection{FAISS}
+
+FAISS, que significa \textit{Facebook AI Similarity Search} (Búsqueda de Similitud de Inteligencia Artificial de Facebook)\cite{Faiss}, es una biblioteca desarrollada por Facebook(ahora META) para realizar búsquedas eficientes de similitud en conjuntos grandes de datos. Se utiliza comúnmente para realizar búsquedas de vecinos más cercanos en conjuntos de datos de vectores de alta dimensionalidad, como los que se encuentran en tareas de aprendizaje automático y \acrlong{pln}.
+
+Está optimizado para manejar grandes cantidades de datos y realizar búsquedas de vecinos más cercanos de manera eficiente. Puede trabajar con vectores de diferentes dimensiones y tipos de datos, haciendo que sea versátil para aplicaciones en una variedad de dominios.
+
+También aprovecha técnicas de implementación eficientes y puede aprovechar la capacidad de procesamiento paralelo de hardware, como \acrshort{gpu}, para acelerar las operaciones de búsqueda de similitud. Ofrece métodos eficientes para la indexación de vectores, lo que facilita la búsqueda rápida en grandes conjuntos de datos.
+
+Se utiliza a menudo en conjunto con bibliotecas de aprendizaje profundo, como PyTorch, y puede integrarse fácilmente en flujos de trabajo de aprendizaje automático. También se encuentra disponible en bibliotecas de \acrshort{llm} como por ejemplo Langchain. 
+
+Implementa algoritmos especializados para la búsqueda eficiente de vecinos más cercanos en espacios de alta dimensión, lo que la hace destacar en la creación de bases de datos vectoriales, especialmente si se usan las técnicas \acrshort{rag}.
+
+En resumen, FAISS es una herramienta fundamental para tareas que involucran la búsqueda eficiente de similitud en grandes conjuntos de datos, lo que lo convierte en una opción popular en el campo de la recuperación de información, bases de datos vectoriales y la minería de datos.
+
+
+\section{Prototipado, documentación y gestión}
+
+\subsection{Kaggle}
+
+Para el prototipado se ha hecho uso de Kaggle. Esta elección se ha debido a que los modelos de Mistral y Meta estaban disponibles en la plataforma y existe una amplia comunidad de usuarios.
+
+Kaggle es una plataforma en línea que aloja competiciones de ciencia de datos. Fundada en 2010, Kaggle proporciona un entorno donde científicos de datos y profesionales del aprendizaje automático pueden encontrar conjuntos de datos, participar en competiciones, colaborar en proyectos y mejorar sus habilidades en análisis de datos y modelado predictivo.
+
+Algunas características clave de Kaggle incluyen:
+\begin{itemize}
+\item \textbf{Competiciones de Ciencia de Datos:} Kaggle organiza competiciones regulares en las que los participantes compiten para resolver problemas de ciencia de datos planteados por empresas o instituciones. Estos desafíos abarcan una amplia gama de temas, desde reconocimiento de imágenes hasta predicción de precios.
+
+\item \textbf{Conjuntos de Datos Públicos:} Kaggle proporciona un repositorio de conjuntos de datos públicos que los usuarios pueden explorar y utilizar para prácticas y proyectos. Estos conjuntos de datos abarcan diversas áreas, desde datos económicos hasta imágenes médicas.
+
+\item \textbf{Kernels:} Los Kernels son entornos de desarrollo en línea que permiten a los usuarios escribir, ejecutar y compartir código en lenguajes como Python y R. Los Kernels son útiles para la exploración de datos y la creación de modelos.
+
+\item \textbf{Foros y Comunidad:} Kaggle cuenta con una comunidad activa de científicos de datos y profesionales del aprendizaje automático. Los foros permiten la discusión de problemas, la obtención de asesoramiento y el intercambio de conocimientos.
+
+\item \textbf{Aprendizaje y Recursos:} Kaggle ofrece tutoriales, cursos y recursos educativos para ayudar a los usuarios a mejorar sus habilidades en ciencia de datos y aprendizaje automático.
+\end{itemize}
+
+En general, Kaggle ha crecido hasta convertirse en una de las plataformas más importantes para la comunidad de ciencia de datos y el uso d modelos, proporcionando oportunidades para la colaboración, la competencia y el aprendizaje continuo.
+
+\subsection{Github}
+
+Github ha sido la herramienta de repositorio de versiones para el proyecto. Aunque se han valorado otras opciones como Gitlab, se ha optado por Github al ser una herramienta conocida de amplio uso en el grado de ingeniería informática en la \acrshort{ubu}.
+
+GitHub es una plataforma de desarrollo de software basada en web que utiliza el sistema de control de versiones Git. Lanzada en 2008, se ha convertido en una de las plataformas más populares para el alojamiento de proyectos de desarrollo colaborativo. Algunos aspectos clave de GitHub incluyen:
+
+Permite a los desarrolladores alojar sus proyectos y controlar las versiones de su código utilizando Git. Los repositorios pueden ser públicos (accesibles para todos) o privados (restringidos a un conjunto de colaboradores). Facilita la colaboración entre desarrolladores. Varios colaboradores pueden trabajar en un proyecto, realizar cambios y fusionar sus contribuciones de manera eficiente.
+
+Utiliza Git para el control de versiones, lo que permite realizar un seguimiento de los cambios en el código a lo largo del tiempo. Los desarrolladores pueden revertir a versiones anteriores, ramificar su código para trabajar en nuevas características y fusionar cambios de diferentes ramas.
+
+GitHub proporciona herramientas para realizar un seguimiento de problemas (bugs, mejoras, tareas, etc.) y para proponer cambios en el código mediante solicitudes de extracción. Puede integrarse con servicios de despliegue continuo, lo que facilita la implementación automática de cambios en un entorno de producción después de pasar las pruebas necesarias.
+
+\subsection{Zube.io}
+
+Zube es una potente herramienta de gestión de proyectos y colaboración que ha facilitado mi gestión del proyecto. Al principio se probaron otras posibles alternativas mas integradas en Github, como Zenhub o Proyects, pero al final se opto por Zube.io debido a los siguientes motivos:
+\begin{enumerate}
+
+\item \textbf{Tablero Kanban vs. Tablero Sprint:} Zube admite Kanban y Sprint, lo que permite a los usuarios elegir uno de ellos para la gestión de proyectos, y ambos métodos pueden utilizarse al mismo tiempo. La principal diferencia entre Kanban y Sprint es que Sprint tiene una línea de tiempo predefinida, generalmente de 2 semanas. Durante este periodo, se lleva a cabo una discusión diaria para alinear el estado del proyecto y abordar cualquier caso urgente. Cada 2 semanas se completan algunas características para que se prueben o revisen antes de pasar al siguiente sprint. Kanban no tiene el concepto de línea de tiempo, pero es útil para proyectos a largo plazo.
+
+\imagen{SprintBoard}{\textit{Sprint Board} de Zube.io con los distintos estados de las \textit{Issues}.}{1}
+
+\item \textbf{Conexión con Github:} Una de las mejores características de Zube es que puede conectarse con Github, una popular plataforma de gestión de código. Esta conexión permite que los desarrolladores gestionen su código en Github, y los Project Managers (PM) pueden verificar el estado en Zube, facilitando una estrecha colaboración sin interferir en el trabajo del otro.
+
+\item \textbf{Etiquetas:} Se pueden crear y editar etiquetas tanto en Zube como en Github. Aunque es una función simple, las etiquetas son útiles para verificar el estado de las funciones y las tarjetas. Las etiquetas con colores facilitan su distinción en el montón de tarjetas, brindando una ayuda visual.
+
+\item \textit{\textbf{Issue Manager:}} Es una función que ahorra tiempo al mover varias tarjetas a la vez, especialmente al finalizar un sprint. Permite filtrar según cada componente establecido en las tarjetas, actualizar sus parámetros o moverlas directamente a secciones o sprints específicos.
+
+\end{enumerate}
+
+En resumen, Zube simplifica la gestión de proyectos Agile o Scrum al ofrecer opciones flexibles de Kanban, conexión con Github, etiquetas visuales y un eficiente \textit{Issue Manager}.
+
+\subsection{Overleaf}
+
+Para la realización de la documentación de la memoria, se ha optado por usar Overleaf y la plantilla LaTeX del \acrshort{tfg}.
+
+Overleaf es una plataforma en línea diseñada para simplificar la creación, edición y colaboración en documentos científicos y técnicos, especialmente aquellos redactados en LaTeX. Su entorno de escritura colaborativa permite a varios usuarios editar simultáneamente un mismo documento, facilitando la colaboración en proyectos de investigación, artículos científicos, tesis, entre otros. Al utilizar una interfaz basada en web, Overleaf elimina la necesidad de instalar software adicional, permitiendo la edición directa de documentos LaTeX sin requerir una instalación local.
+
+La plataforma ofrece diversas plantillas predefinidas para diferentes tipos de documentos académicos y científicos, junto con herramientas integradas para el formato automático según las convenciones de estilo de LaTeX. Además, proporciona un entorno de compilación en línea que genera el documento final en formato PDF, sin requerir la instalación de compiladores LaTeX en las máquinas locales de los usuarios.
+
+Overleaf facilita la organización de documentos en proyectos, lo que simplifica la gestión de múltiples archivos y carpetas relacionadas. Además, incorpora un sistema de control de versiones que permite realizar un seguimiento de los cambios realizados en el documento a lo largo del tiempo. En resumen, Overleaf se presenta como una herramienta integral para la redacción colaborativa y la creación eficiente de documentos científicos y técnicos.
+
+Para la realización de textos largos, como el del \acrshort{tfg}, el tiempo de compilación de la versión gratuita no es suficiente. Por ello se ha recurrido a la colaboración con las cuentas de pago, que tiene mas funciones, aparte del tiempo de compilación extendido.
+
+\section{Frontend}
+
+Para la creación de la \acrshort{ui} se ha optado por separar en la medida de lo posible el \textit{backend} y \textit{frontend}. Para ello se ha investigado el uso de FastAPI y de una biblioteca de Python llamada Streamlit.
+
+\subsection{FastAPI}
+
+FastAPI es un \textit{framework} para el desarrollo rápido de \acrshort{api} con Python 3.7 (o superior). Diseñado para ser fácil de usar, rápido y eficiente, FastAPI destaca por su sintaxis declarativa, generación automática de documentación interactiva (compatible con Swagger y ReDoc), y la capacidad de aprovechar al máximo las características de la programación asíncrona. Es una elección muy popular para el desarrollo de RESTful APIs y aplicaciones web.
+
+Una de las principales ventajas de las REST API radica en que el protocolo REST separa el almacenamiento de datos (backend) y la interfaz de usuario (frontend) del servidor, lo que permite que el cliente y el servidor sean independientes entre sí. Esta separación es fundamental para la arquitectura REST y aporta beneficios significativos al desarrollo de aplicaciones.
+
+La independencia entre el backend y el frontend facilita la escalabilidad y la flexibilidad del sistema. Al dividir las responsabilidades de manera clara, los equipos de desarrollo pueden trabajar de manera más eficiente y concurrente en las distintas capas de la aplicación. Por ejemplo, el equipo encargado del desarrollo del backend puede realizar mejoras o modificaciones en la lógica de negocio y en la gestión de datos sin afectar directamente a la interfaz de usuario.
+
+Esta separación también favorece la reutilización de componentes y la portabilidad del software. Dado que el backend y el frontend operan de manera independiente, es posible implementar cambios o actualizaciones en una capa sin afectar a la otra, siempre y cuando se respeten los contratos definidos por la REST API. Esto simplifica el mantenimiento y permite la integración de nuevas funcionalidades sin perturbar el funcionamiento existente.
 
 Las características clave de FastAPI incluyen:
 
@@ -92,7 +239,7 @@ Las características clave de FastAPI incluyen:
 
 En resumen, FastAPI es una opción robusta y moderna para el desarrollo de \acrshort{api} en Python, destacándose por su enfoque rápido, sintaxis clara y generación automática de documentación.
 
-\section{Streamlit}
+\subsection{Streamlit}
 
 Streamlit es una biblioteca de código abierto en Python que se utiliza para crear aplicaciones web interactivas para \textit{data science} y \textit{machine learning} de manera rápida y sencilla. Su objetivo principal es permitir a los usuarios transformar datos en aplicaciones web interactivas con tan solo unas pocas líneas de código.
 
@@ -100,4 +247,4 @@ Con Streamlit, los especialistas de datos y desarrolladores pueden crear fácilm
 
 Streamlit simplifica el proceso de desarrollo de aplicaciones web al manejar automáticamente la actualización de la interfaz de usuario en respuesta a los cambios en los datos subyacentes. Esto permite a los usuarios centrarse más en el análisis de datos y la creación de visualizaciones, sin tener que preocuparse demasiado por los detalles de implementación de la interfaz web.
 
-En resumen, Streamlit es una herramienta valiosa para aquellos que desean hacer una interface para análisis de datos y modelos de aprendizaje automático de manera efectiva a través de aplicaciones web interactivas con una curva de aprendizaje mínima.
+En resumen, Streamlit es una herramienta valiosa para aquellos que desean hacer una \textit{interface} para análisis de datos y modelos de aprendizaje automático de manera efectiva a través de aplicaciones web interactivas con una curva de aprendizaje mínima.
