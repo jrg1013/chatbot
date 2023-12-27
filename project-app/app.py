@@ -1,13 +1,6 @@
 # app.py
 import utils
-import os
 import streamlit as st
-
-
-from typing import List, Union
-
-from dotenv import load_dotenv, find_dotenv
-from langchain.schema import (SystemMessage, HumanMessage, AIMessage)
 
 st.set_page_config(page_title="Chatbot-TFG-UBU", page_icon="💬")
 st.header('💬 Resuelve tus dudas sobre el TFG')
