@@ -1,0 +1,184 @@
+Number of correct answers:13
+
+
+###############
+#    cfg.py   #
+###############
+
+model_name : mistralai/Mistral-7B-Instruct-v0.1
+temperature : 0.5
+top_p = 0.95
+repetition_penalty = 1.15
+do_sample = True
+max_new_tokens = 1024
+num_return_sequences = 1
+split_chunk_size : 1000
+split_overlap : 50
+embeddings_model_repo : sentence-transformers/all-MiniLM-L6-v2
+template : <s> [INST] You are an chatbot assistant for question-answering involving the Trabajo fin de Grado(TFG), Grado de Ingeniería Informática at Universidad de Burgos(UBU). Use the following pieces of retrieved context to answer the question. 
+Be polite. If you are not sure about the answer, just say that you don't know and use general knowledge. Use three sentences maximum and keep the answer concise and return only the response as answer. Lenguage of the answer: Español[/INST] </s> 
+[INST] Question: {question} 
+Context: {context} 
+
+Answer: [/INST]
+
+
+###############
+#   Examples  #
+###############
+
+Example 0:Question: Adiós
+Real Answer: Espero haber sido de utilidad. Un saludo :)
+Predicted Answer: Adiós
+Predicted Grade:  INcorrect
+
+Example 1:Question: ¿Cómo elijo un tema?
+Real Answer: •Antes de comenzar la convocatoria los tutores/estudiantes/empresas (consulta modalidades A, B, C de ofertas de TFG) recogen las propuestas de TFG. •El tribunal publica la lista con la oferta de trabajos en las primeras semanas del semestre. . •El tribunal publica la lista con la oferta de trabajos en las primeras semanas del semestre. •Los alumnos sin TFG de ese semestre se ponen en contacto con los tutores de los TFG de su interés.. •El tutor confirma a un alumno que le asigna un trabajo. •El alumno notifica la asignación en el foro. •El tribunal publica la asignación. •Si pasado un mes del inicio del semestre un alumno no ha notificado la asignación, se le asignará uno de los trabajos disponibles
+Predicted Answer: "¿Cómo puedo elegir un tema para mi TFG?"
+
+Elige tu tema según tus intereses y habilidades, y consulta con tu tutor o coordinador académico si necesitas ayuda. Los temas suelen ser elegidos en colaboración con tu tutor y pueden estar relacionados con los cursos de grado o con áreas de investigación relevantes. Es importante elegir un tema que te motiven y te desafíen, ya que es el núcleo de tu trabajo final de grado.
+Predicted Grade:  INCorrect
+
+Example 2:Question: ¿Se puede convalidar el TFG?
+Real Answer:  No, el TFG no se puede reconocer.
+Predicted Answer: La validación de un TFG depende de la asignatura y del proyecto específico que se trabaja en. En general, una vez terminada la tarea, el profesor responsable de la asignatura revisa su calificación y la entrega al director del departamento. Si el TFG cumplie con los requisitos exigidos por el reglamento, se le otorga el título de Tesis de Fin de Grado (TFG). Si no lo cumple, el TFG no será reconocido y no se podrá obtener el título. Es importante consultar con el profesor responsable de cada asignatura para saber los detalles específicos de la validación de cada TFG.
+Predicted Grade:  INcorrect
+
+Example 3:Question: ¿Cuándo son las convocatorias?
+Real Answer: Por defecto la asignatura TFG está asignada al segundo cuatrimestre y las convocatorias de evaluación son en mayo y junio. Aunque también se puede adelantar a septiembre, enero o febrero.
+Predicted Answer: Por favor, proporciona un ejemplo de mensaje de usuario para cada intención.
+Predicted Grade:  INCORRECT
+
+Example 4:Question: ¿Cuántos créditos otorga el TFG?
+Real Answer: El TFG supone un total de 12 créditos ECTS.
+Predicted Answer: El TFG supone un total de 12 créditos ECTS.
+Las tasas son las habituales en función del número de créditos del TFG. La información está disponible en el siguiente enlace: <https://www.ubu.es/acceso-admision-y-matricula/matricula/matricula-de-grado/precios-publicos/escuela-politecnica-superior/grado-en-ingenieria-informatica>
+Ponte en contacto con la Secretaría Administrativa del Campus Vena. <https://www.ubu.es/escuela-politecnica-superior/escuela-politecnica-superior/escuela-politecnica-superior-campus-rio-vena/escuela-politecnica-superior-campus-rio-vena-secretaria-administrativa>
+Predicted Grade:  CORRECT
+
+Example 5:Question: ¿A partir de qué fecha lo puedo entregar?
+Real Answer: Se puede entregar desde el momento que las tareas estén abiertas en UBUVirtual, en la convocatoria correspondiente. El tribunal anunciará con varios días de antelación a la fecha límite de entrega la apertura del plazo.
+Predicted Answer: "Se puede entregar desde el momento que las tareas estén abiertas en UBUVirtual, en la convocatoria correspondiente."
+Predicted Grade:  CORRECT
+
+Example 6:Question: ¿Eres un robot?
+Real Answer: Soy un robot, y estoy aquí para ayudarte :)
+Predicted Answer: * I am a robot, and I'm here to help you. How can I assist you with your TFG project at UBU?
+Predicted Grade:  CORRECT
+
+Example 7:Question: ¿Cuántas horas cuesta hacerlo?
+Real Answer: Al corresponderse con 12 créditos de la titulación, la carga de trabajo estimada es de 300 horas. El tiempo real depende mucho de los conocimientos del concretos del TFG y de las habilidades del estudiante para relacionarlos.
+Predicted Answer: "Al corresponderse con 12 créditos de la titulación, la carga de trabajo estimada es de 300 horas. El tiempo real depende mucho de los conocimientos del concreto del TFG y de las habilidades del estudiante para relacionarlos."
+Predicted Grade:  CORRECT
+
+Example 8:Question: ¿Hay alguna medida sanitaria a tener en cuenta?
+Real Answer: Al ser una presentación online, cada asistente tendrá que guardar las reglas sanitarias correspondientes en función de las condiciones particulares de la ubicación en la que se encuentre.
+Predicted Answer: La respuesta al usuario es: "Al ser una presentación online, cada asistente tendrá que guardar las reglas sanitarias correspondientes en función de las condiciones particulares de la ubicación en la que se encuentra."
+Predicted Grade:  CORRECT
+
+Example 9:Question: Quiero hacerlo en septiembre.
+Real Answer: https://www.ubu.es/grado-oficial-online-en-ingenieria-informatica/informacion-basica/trabajo-fin-de-grado/
+Predicted Answer: If you want to do your TFG in September, please check the official website of UBU for more information on how to proceed: <https://www.ubu.es/grado-oficial-online-en-ingenieria-informatica/informacion-basica/trabajo-fin-de-grado/>
+
+Unfortunately, it is not possible to complete the TFG with a companion according to the ministerial normative (more information can be found at <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2009-12977>).
+
+To present yourself in September, you must have completed all other subjects beforehand.
+
+If you would like to advance the convocation from January to September, having previously selected the mobility option for the first quarter, you will need to submit an instance to the director of the Secretaria Administrativa del Campus Vena de la EPS.
+Predicted Grade:  INcorrect.
+
+Example 10:Question: *PREGUNTAS SOBRE TFM/OTRAS ASIGNATURAS/ETC*
+Real Answer: No se responden cuestiones generales que no sean relativas al TFG.
+Predicted Answer: Intencion: Otros_temas
+Ejemplo mensaje usuario: PREGUNTAS SOBRE TFM/OTRAS ASIGNATURAS/ETC
+Response: No se responden cuestiones generales que no sean relativas al TFG.
+
+Intencion: Dificultad
+Ejemplo mensaje usuario: ¿Es difícil aprobar?
+Response: La asignatura tiene una alta tasa de aprobados sobre presentados, pero también existe una alta tasa de no presentados, al no llegar a completarse en plazos todos los requisitos necesarios en la entrega. Consulta con alumnos egresados sobre su opinión personal sobre la dificultad o no de la asignatura. Se puede consultar un histórico de las calificaciones medias nes medias por cursos en <https://clopezno.github.io/tfg_gii_online/HistoricoSist.html>
+
+Intencion: Otros\_temas
+Ejemplo mensaje usuario: ¿Donde se asigna el TFG?
+Response: La asignación del TFG es hecha por el profesor de la materia y se comunica directamente con los estudiantes de la materia. En algunos casos, se utiliza un sistema web específico para facilitar el proceso de asignación. Es recomendable contactar al profesor de la materia para obtener más información sobre la asignación del TFG.
+Predicted Grade:  CORRECT
+
+Example 11:Question: ¿En qué cuatrimestre se hace el TFG?
+Real Answer: Por defecto la asignatura TFG está asignada al segundo cuatrimestre y las convocatorias de evaluación son en mayo y junio.
+Predicted Answer: Puedes hacer un TFG en el segundo cuatrimestre y se realizan las convocatorias de evaluación en mayo y junio por defecto. El TFG se realiza en el 4º curso del grado de informática. Una aplicación autónoma e integral de los conceptos aprendidos en las diferentes asignaturas del grado, donde el estudiante actúa como gestor del proceso de resolución de los problemas planteados en el TFG. Todo TFG tiene un tutor o tutora del grado asignado.
+Predicted Grade:  CORRECT
+
+Example 12:Question: ¿Qué es un anexo?
+Real Answer: Un anexo es un documento explicativo de las características técnicas del TFG a definir por consenso con el tutor/a. Se recomienda seguir la estructura disponible en el siguiente enlace: Formato de las referencias. Puedes utilizar las siguientes herramientas:. EndNote. Mendeley. Zotero. JabRef. https://github.com/ubutfgm/plantillaLatex
+Predicted Answer: * What is an annex? An annex is a technical description of the TFG to be defined by consensus with the tutor/a. It is recommended to follow the available structure in the link: Reference format. You can use the following tools: EndNote, Mendeley, Zotero, JabRef. <https://github.com/ubutfgm/plantillaLatex>
+* When are notes published? This depends on the number of defenses but, as a rule, it does not usually exceed 48 hours after the last defense of TFG from the same call.
+* Can I do it with my partner? No. The ministerial regulation requires that they be individual (more information in <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2009-12977>)
+* Where is the TFG assigned?
+Predicted Grade:  INCorrect
+
+Example 13:Question: ¿Puedo superar el máximo de créditos?
+Real Answer: Ponte en contacto con la Secretaría Administrativa del Campus Vena. https://www.ubu.es/escuela-politecnica-superior/escuela-politecnica-superior/escuela-politecnica-superior-campus-rio-vena/escuela-politecnica-superior-campus-rio-vena-secretaria-administrativa
+Predicted Answer: If you want to find out if it is possible to exceed the maximum number of credits, please contact the Secretariat Administration of the Rio Vega Campus. The link to their website is: <https://www.ubu.es/escuela-politecnica-superior/escuela-politecnica-superior/escuela-politecnica-superior-campus-rio-vena/escuela-politecnica-superior-campus-rio-vena-secretaria-administrativa>
+
+The second matriculation fee for the TFG degree is the same as the fees for the other subjects in the second year. Please check the current price on the following link: <https://www.ubu.es/acceso-admision-y-matricula/matricula/matricula-de-grado/precios-publicos/escuela-politecnica-superior/grado-en-ingenieria-informatica>.
+
+To be eligible for the TFG degree, you must have completed a minimum of 156 credits and have all the remaining credits required to complete your study plan.
+
+The TFG degree is worth a total of 12 ECTS credits.
+Predicted Grade:  INCRECT
+
+Example 14:Question: Tengo una pregunta
+Real Answer: Pregúntame, estoy aquí para ayudarte :)
+Predicted Answer: I am ready to help with your questions! Please specify what you need assistance with regarding the TFG in UBU.
+Predicted Grade:  INCorrect
+
+Example 15:Question: **Después de 2 insultos**
+Real Answer: Las faltas de respeto no están permitidas. Prueba a utilizar el Chatbot en otro momento.
+Predicted Answer: Please provide more information on what the user is asking so I can assist them better.
+Predicted Grade:  INCorrect
+
+Example 16:Question: ¿Puedo realizar TFG sin tutor?
+Real Answer: No, no se puede realizar el TFG sin tutor.
+Predicted Answer: 1. No, it is not possible to complete a TFG without a tutor.
+2. The TFG must be completed under the supervision of one or more academic advisors, where at least one of them is a professor who teaches at least one subject in the common curriculum of the degree or specific technologies. In the case of online titles, at least one of the tutors should have taught online courses in at least one subject of the title. It is recommended to have a tutor who belongs to the board to help manage the specificities of the online process.
+3. There are various modalities of TFG offering. Modality B allows proposals from TFGs offered by companies with prior agreement with a tutor from the degree.
+4. Your primary support for helping with your TFG will be your tutor or tutor. In case you have any specific problems that require consultation with other professors, they will indicate this to you.
+Predicted Grade:  INcorrect.
+
+Example 17:Question: Histórico trabajos
+Real Answer: Puedes consultar el histórico de trabajos presentados en: https://clopezno.github.io/tfg_gii_online/HistoricoSist.html 
+Predicted Answer: You can find the history of works presented in: <https://clopezno.github.io/tfg_gii_online/HistoricoSist.html>
+
+The estimated workload is approximately 300 hours, depending on the student's understanding of the specific requirements and their ability to relate them. The actual time may vary.
+
+The difficulty level of this assignment has a high approval rate among those who have completed it, but also a high number of non-presentations due to not meeting all necessary deadlines in submission. It's recommended to consult with graduates of the program for their personal opinions on the difficulty or not of the assignment. You can check the historical average grades per course in <https://clopezno.github.io/tfg_gii_online/HistoricoSist.html>
+
+If you want to do it in September, please refer to the official website of the University of Burgos: <https://www.ubu.es/grado-oficial-online-en-ingenieria-informatica/>
+Predicted Grade:  CORRECT
+
+Example 18:Question: ¿Cuántos tutores puedo tener?
+Real Answer: Normalmente uno o dos tutores, salvo proyectos cotutorizados con empresas, en el que el número puede ser mayor.
+Predicted Answer: ¿Cuántos tutores puedo tener?
+Normalmente uno o dos tutores, salvo proyectos cotutorizados con empresas, en el que el número puede ser mayor.
+
+¿Puedo realizar TFG sin tutor?
+No, no se puede realizar el TFG sin tutor.
+
+¡Hola! Soy el chatbot para la asignatura de Trabajo de Fin de Grado. ¿Cómo te puedo ayudar?
+Pregúntame, estoy aquí para ayudarte :)
+Predicted Grade:  CORRECT
+
+Example 19:Question: ¿Qué es Sigma?
+Real Answer: Es el sistema de gestión de la información  de la Universidad de Burgos
+Predicted Answer: Es el sistema de gestión de la información de la Universidad de Burgos
+Predicted Grade:  CORRECT
+
+Example 20:Question: ¿Se graba la defensa?
+Real Answer: Sí.
+Predicted Answer: La defensa se realiza oralmente durante un periodo de tiempo de 10 a 15 minutos. Los medios audiovisuales y las demostraciones prácticas son importantes para ayudar al tribunal a evaluar tu trabajo. Después de la defensa, se realiza un turno de preguntas por parte del tribunal a responder por el alumnado. Las faltas de respeto no están permitidas. Las notas se publican dentro de 48 horas después de la última defensa de TFG de la convocatoria.
+Predicted Grade:  CORRECT
+
+Example 21:Question: Rúbrica
+Real Answer: No existe una rúbrica como tal, dada la diversidad de TFGs, sino un procedimiento de evaluación general indicado en la guía docente de la asignatura.
+Predicted Answer: La respuesta depende de la intención específica del usuario. Si se refiere a la "Rúbrica", no hay una rúbrica como tal para los TFGs, pero se proporciona un procedimiento de evaluación general indicado en la guía docente de la asignatura. Para obtener más información sobre cómo superar los créditos máximos, se recomienda ponerse en contacto con la Secretaría Administrativa del Campus Vega. Para obtener el enlace de la instancia al director, se puede visitar el siguiente enlace: <https://www.ubu.es/escuela-politecnica-superior/informacion-general/impresos-solicitudes-peticiones/modelos-de-solicitudes-para-dirigirse-organos-de-gobierno-de-la-eps-y-de-la-ubu/>. Para matricularse cuando quiera, se puede poner en contacto con la administración de estudiantes de EPS Edf Vega.
+Predicted Grade:  CORRECT
+

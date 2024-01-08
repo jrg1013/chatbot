@@ -72,15 +72,8 @@ def get_prompt():
 
 def get_qa_chain(prompt, vectordb):
 
-    # retriever = vectordb.as_retriever()
-    '''
     retriever = vectordb.as_retriever(
-        search_type="mmr",
-        search_kwargs={"k": 2, "fetch_k": 4}
-    )
-    '''
-    retriever = vectordb.as_retriever(
-        search_type="similarity_score_threshold", search_kwargs={"k": 2, "score_threshold": .5})
+        search_type="similarity_score_threshold", search_kwargs={"k": 1, "score_threshold": .0})
 
     # Get the llm
     llm = get_llm()
