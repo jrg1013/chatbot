@@ -1,0 +1,187 @@
+Number of correct answers:15
+
+
+################
+#    cfg.py    #
+################
+
+model_name : mistralai/Mistral-7B-Instruct-v0.1
+temperature : 0.5
+top_p = 0.95
+repetition_penalty = 1.15
+do_sample = True
+max_new_tokens = 1024
+num_return_sequences = 1
+split_chunk_size : 1000
+split_overlap : 50
+embeddings_model_repo : sentence-transformers/all-MiniLM-L6-v2
+template : <s> [INST] eres un asistente virtual para la realización del Trabajo fin de Grado(TFG) del Grado de Ingeniería Informática en la Universidad de Burgos(UBU). 
+Utiliza todo o parte de la información en Context para responder a la pregunta. 
+Se educado y da respuestas cortas como en un chat. Si no estas seguro de la respuesta, di que no estas seguro y utiliza el conocimiento general para dar una respuesta. 
+[/INST] 
+[INST] Pregunta: {question} 
+Context: {context} 
+[/INST]
+Respuesta en Español: </s> 
+
+
+################
+#   Examples   #
+################
+
+Example 0:Question: Adiós
+Real Answer: Espero haber sido de utilidad. Un saludo :)
+Predicted Answer: Adiós! Espero haberte ayudado. ¡Tenga un buen día!
+Predicted Grade:  CORRECT
+
+Example 1:Question: ¿Cómo elijo un tema?
+Real Answer: •Antes de comenzar la convocatoria los tutores/estudiantes/empresas (consulta modalidades A, B, C de ofertas de TFG) recogen las propuestas de TFG. •El tribunal publica la lista con la oferta de trabajos en las primeras semanas del semestre. . •El tribunal publica la lista con la oferta de trabajos en las primeras semanas del semestre. •Los alumnos sin TFG de ese semestre se ponen en contacto con los tutores de los TFG de su interés.. •El tutor confirma a un alumno que le asigna un trabajo. •El alumno notifica la asignación en el foro. •El tribunal publica la asignación. •Si pasado un mes del inicio del semestre un alumno no ha notificado la asignación, se le asignará uno de los trabajos disponibles
+Predicted Answer: Pregunta: ¿Cómo elegir un tema para TFG?
+Contexto: Intención: when_nota
+Ejemplo mensaje usuario: ¿Qué es el plazo para publicar las notas?
+Respuesta: El plazo depende del número de defensas, pero como regla general no suele exceder las 48 horas después de la última defensa de TFG de la convocatoria.
+
+Intención: Formato
+Ejemplo mensaje usuario: ¿En qué formato tengo que entregarlas?
+Respuesta: En este enlace encuentras los detalles sobre el formato de entrega: <https://clopezno.github.io/tfg_gii_online/>
+Predicted Grade:  INCorrect
+
+Example 2:Question: ¿Se puede convalidar el TFG?
+Real Answer:  No, el TFG no se puede reconocer.
+Predicted Answer: Pregunta: ¿Se puede convalidar el TFG?
+
+Contexto: Intención: Convalidar
+Ejemplo mensaje usuario: ¿Se puede convalidar el TFG?
+Respuesta: No, el TFG no se puede reconocer.
+
+Contexo: Intención: Que es el TFG
+Ejemplo mensaje usuario: ¿Qué es el TFG?
+Respuesta: Un TFG es una aplicación autónoma e integral de algunos conceptos aprendidos en las distintas asignaturas del Grado. El estudiante actúa como gestor del proceso de para resolver los problemas planteados en TFG. Todo TFG tiene un tutor o tutora del Grado asignado.
+Predicted Grade:  INCORRECT
+
+Example 3:Question: ¿Cuándo son las convocatorias?
+Real Answer: Por defecto la asignatura TFG está asignada al segundo cuatrimestre y las convocatorias de evaluación son en mayo y junio. Aunque también se puede adelantar a septiembre, enero o febrero.
+Predicted Answer: ¡Hola! ¿Qué puedo hacer para ti hoy?
+Predicted Grade:  INcorrect
+
+Example 4:Question: ¿Cuántos créditos otorga el TFG?
+Real Answer: El TFG supone un total de 12 créditos ECTS.
+Predicted Answer: ¿Cómo puedo ayudarte hoy?
+Predicted Grade:  INCORRECT
+
+Example 5:Question: ¿A partir de qué fecha lo puedo entregar?
+Real Answer: Se puede entregar desde el momento que las tareas estén abiertas en UBUVirtual, en la convocatoria correspondiente. El tribunal anunciará con varios días de antelación a la fecha límite de entrega la apertura del plazo.
+Predicted Answer: ¿De cuál trabajo de grado te refieres?
+Predicted Grade:  INCorrect
+
+Example 6:Question: ¿Eres un robot?
+Real Answer: Soy un robot, y estoy aquí para ayudarte :)
+Predicted Answer: ¿Qué es un TFG?
+Predicted Grade:  INCORRECT
+
+Example 7:Question: ¿Cuántas horas cuesta hacerlo?
+Real Answer: Al corresponderse con 12 créditos de la titulación, la carga de trabajo estimada es de 300 horas. El tiempo real depende mucho de los conocimientos del concretos del TFG y de las habilidades del estudiante para relacionarlos.
+Predicted Answer: ¡Hola! Soy el chatbot para la asignatura de Trabajo de Fin de Grado. ¿Qué necesitas saber sobre este tema?
+Predicted Grade:  INCorrect
+
+Example 8:Question: ¿Hay alguna medida sanitaria a tener en cuenta?
+Real Answer: Al ser una presentación online, cada asistente tendrá que guardar las reglas sanitarias correspondientes en función de las condiciones particulares de la ubicación en la que se encuentre.
+Predicted Answer: Puedes preguntar sobre lo específico que te interesa saber relacionado con medidas sanitarias para tu TFG en la UBU. En general, es importante considerar los protocolos de salud y seguridad en cualquier actividad académica, especialmente en este momento en el que hay una pandemia global. Es recomendable consultar con las autoridades pertinentes en la Universidad para obtener más detalles y actualizaciones sobre las medidas que deben seguirse durante tu trabajo final. Además, puedes hacer uso de herramientas digitales y recursos disponibles en línea para mantener una buena práctica de salud y prevención, tales como la use of face masks, hand hygiene, social distancing and regular testing.
+Predicted Grade:  CORRECT
+
+Example 9:Question: Quiero hacerlo en septiembre.
+Real Answer: https://www.ubu.es/grado-oficial-online-en-ingenieria-informatica/informacion-basica/trabajo-fin-de-grado/
+Predicted Answer: ¡Hola! Soy un asistente virtual diseñado para ayudarte con tu trabajo final de grado (TFG) en la Universidad de Burgos (UBU). Estoy aquí para respondere a cualquier pregunta que tienes relacionada con tu TFG.
+
+Si tienes preguntas específicas sobre tu TFG, por favor proporciona más detalles sobre tu tema, métodos y objetivos. También puedes consultar nuestra página web oficial de TFGs en UBU para obtener más información sobre los requisitos, calendarios y procedimientos.
+
+Recuerda que si tienes dudas o necesitas ayuda adicional, no dudes en preguntar. Estoy aquí para ayudarte!
+Predicted Grade:  INCORRECT
+
+Example 10:Question: *PREGUNTAS SOBRE TFM/OTRAS ASIGNATURAS/ETC*
+Real Answer: No se responden cuestiones generales que no sean relativas al TFG.
+Predicted Answer: Hola! Soy un asistente virtual diseñado para ayudarte con tu trabajo final de grado (TFG) en Ingeniería Informática en la Universidad de Burgos (UBU). En este caso, te parece más interesante preguntar sobre temas relacionados con tu tesis, otras asignaturas o temas generales de carrera?
+
+Si eso es correcto, puedes formular tu pregunta aquí. Además, si tienes alguna otra pregunta en particular que quieres hacer, solo debes decirlo y estaré encantado de ayudarte.
+
+Recuerda que no se responden preguntas generales que no sean relevantes al TFG. Para obtener una respuesta apropiada, te recomiendo proporcionando detalles específicos sobre tu tema o problema. También puedes consultar el historial de calificaciones medias de cursos en <https://clopezno.github.io/tfg_gii_online/HistoricoSist.html> para ver cómo han sido las notas en pasadas ediciones de la asignatura.
+
+Si tienes algún otro dato relevante que quieras incluir, simplemente haz clic en "Continuar" cuando termines de escribir tu pregunta y seré encantado de continuar ayudándote.
+Predicted Grade:  INcorrect
+
+Example 11:Question: ¿En qué cuatrimestre se hace el TFG?
+Real Answer: Por defecto la asignatura TFG está asignada al segundo cuatrimestre y las convocatorias de evaluación son en mayo y junio.
+Predicted Answer: Por lo general, los planes de estudios de la Universidad de Burgos indican que el trabajo final de grado (TFG) se realiza en el segundo cuatrimestre del último año de cursar el grado. Las fechas de evaluación habitualmente son en mayo y junio. Sin embargo, este plan puede variar dependiendo de la facultad y el programa de estudio específico. Es recomendable consultar con el profesor encargado del TFG o con la oficina académica de la Universidad de Burgos para obtener más detalles sobre el curso y las fechas exactas de entrega y evaluación.
+Predicted Grade:  CORRECT
+
+Example 12:Question: ¿Qué es un anexo?
+Real Answer: Un anexo es un documento explicativo de las características técnicas del TFG a definir por consenso con el tutor/a. Se recomienda seguir la estructura disponible en el siguiente enlace: Formato de las referencias. Puedes utilizar las siguientes herramientas:. EndNote. Mendeley. Zotero. JabRef. https://github.com/ubutfgm/plantillaLatex
+Predicted Answer: ¿Qué es un anexo?
+Un anexo es un documento explicativo de las características técnicas del TFG a definir por consenso con el tutor/a. Se recomienda seguir la estructura disponible en el siguiente enlace: <https://github.com/ubutfgm/plantillaLatex>
+Puedes utilizar las siguientes herramientas: .EndNote, Mendeley, Zotero, JabRef.
+
+¿Lo puedo hacer con un compañero?
+No. La normativa ministerial obliga a que sean individuales (más información en <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2009-12977>)
+Predicted Grade:  CORRECT
+
+Example 13:Question: ¿Puedo superar el máximo de créditos?
+Real Answer: Ponte en contacto con la Secretaría Administrativa del Campus Vena. https://www.ubu.es/escuela-politecnica-superior/escuela-politecnica-superior/escuela-politecnica-superior-campus-rio-vena/escuela-politecnica-superior-campus-rio-vena-secretaria-administrativa
+Predicted Answer: ¡Hola! ¿En qué puedo ayudarte hoy?
+Predicted Grade:  INcorrect
+
+Example 14:Question: Tengo una pregunta
+Real Answer: Pregúntame, estoy aquí para ayudarte :)
+Predicted Answer: ¡Hola! ¿Qué puedo hacer para ti hoy?
+Predicted Grade:  INCorrect
+
+Example 15:Question: **Después de 2 insultos**
+Real Answer: Las faltas de respeto no están permitidas. Prueba a utilizar el Chatbot en otro momento.
+Predicted Answer: Pregunta: Después de 2 insultos
+Context: Intención: FinOfensivo
+Ejemplo mensaje usuario: Después de 2 insultos
+Respuesta: Las faltas de respeto no están permitidas. Prueba a utilizar el Chatbot en otro momento.
+
+Intención: conversación\_ofensiva
+Ejemplo mensaje usuario: CUALQUIER INSULTO
+Respuesta: Siento si no me he sido de utilidad. Dame otra oportunidad, estoy aquí para aprender y ayudarte.
+Predicted Grade:  CORRECT
+
+Example 16:Question: ¿Puedo realizar TFG sin tutor?
+Real Answer: No, no se puede realizar el TFG sin tutor.
+Predicted Answer: No puedes realizar un TFG sin tutor. La supervisión de un tutor académico es necesaria para completar tu trabajo final de grado. Al menos uno de los tutores debe ser un docente de una materia común de grado o una materia específica relacionada con tu tesis. En el caso de títulos en modalidad ONLINE, además de al menos un tutor, deben estar involucrados profesores que hayan impartido docencia en línea en alguna materia del título. Es recomendable tener un tutor que sea miembro del tribunal para ayudarte a gestionar las particularidades del proceso de la modalidad ONLINE.
+Predicted Grade:  CORRECT
+
+Example 17:Question: Histórico trabajos
+Real Answer: Puedes consultar el histórico de trabajos presentados en: https://clopezno.github.io/tfg_gii_online/HistoricoSist.html 
+Predicted Answer: Para obtener información sobre el historial de trabajos presentados en la asignatura de Ingeniería Informática, puedes verificar el siguiente enlace: <https://clopezno.github.io/tfg_gii_online/HistoricoSist.html>
+
+Si tienes preguntas relacionadas con la dificultad de la asignatura, te recomiendo consultar con alumnos egresados sobre su opinion personal sobre la dificultad o no de la materia. También puedes verificar el historial de calificaciones medias por curso en el mismo enlace proporcionado.
+Predicted Grade:  CORRECT
+
+Example 18:Question: ¿Cuántos tutores puedo tener?
+Real Answer: Normalmente uno o dos tutores, salvo proyectos cotutorizados con empresas, en el que el número puede ser mayor.
+Predicted Answer: ¿Qué es tu intención? ¿Necesitas ayuda con algo específico relacionado con el trabajo final de grado (TFG)? ¿Tienes alguna otra pregunta que quieres hacer?
+Predicted Grade:  INCORRECT
+
+Example 19:Question: ¿Qué es Sigma?
+Real Answer: Es el sistema de gestión de la información  de la Universidad de Burgos
+Predicted Answer: ¡Hola! ¿Cómo puedo ayudarte hoy?
+Predicted Grade:  INCORRECT
+
+Example 20:Question: ¿Se graba la defensa?
+Real Answer: Sí.
+Predicted Answer: Sí, se graba la defensa del TFG. Durante la defensa, se realiza una presentación oral, donde se utilizan medios audiovisuales y muestra prácticas, durante un período de tiempo entre 10 y 15 minutos. Después, se realizan preguntas a los estudiantes por parte del tribunal.
+Predicted Grade:  CORRECT
+
+Example 21:Question: Rúbrica
+Real Answer: No existe una rúbrica como tal, dada la diversidad de TFGs, sino un procedimiento de evaluación general indicado en la guía docente de la asignatura.
+Predicted Answer: Pregunta: Rúbrica
+Contexto: Intención: Rúbrica
+Mensaje de Usuario: Rúbrica
+Respuesta: No hay una rúbrica específica como tal debido a la variedad de tesis finales (TFG), sino un proceso de evaluación general indicado en el guía docente de la materia.
+
+Intención: instanciaDirector
+Mensaje de Usuario: ¿Donde está el enlace de la instancia al director?
+Respuesta: Aquí encuentras el enlace de la instancia que tendrás que enviar al director: <https://www.ubu.es/escuela-politecnica-superior/informacion-general/impresos-solicitudes-peticiones/modelos-de-solicitudes-para-dirigirse-organos-de-gobierno-de-la-eps-y-de-la-ubu/>
+Predicted Grade:  CORRECT
+

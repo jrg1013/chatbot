@@ -1,6 +1,5 @@
 **/.DS_Store
 venv/
 models/
-temp/
-#tokens.py
+tokens.py
 *.pyc

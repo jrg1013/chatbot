@@ -19,32 +19,28 @@ from sentence_transformers import SentenceTransformer
 embeddings_model_repo = SentenceTransformer('all-MiniLM-L6-v2')
 
 loaders = [
+
     document_loaders.CSVLoader(
         file_path="./documents/Preguntas-Respuestas - ONLINE.csv",
+        encoding="utf-8",
         csv_args={
             "delimiter": ";",
             "quotechar": '"',
             "fieldnames": ["Intencion", "Ejemplo mensaje usuario", "Respuesta"],
         }),
+
     document_loaders.CSVLoader(
         file_path="./documents/TFGHistorico.csv",
+        encoding="utf-8",
         csv_args={
-            "delimiter": ",",
+            "delimiter": ";",
             "quotechar": '"',
-            "fieldnames": ["Titulo", "TituloCorto", "Descripcion", "Tutor1", "Tutor2", "Tutor3", "FechaAsignacion",
-                           "FechaPresentación", "TotalDias", "EnlaceRepositorio", "Videodemo", "Videopresentacion",
-                           "Calidadcodigo", "Despliegue"],
-        })
+            "fieldnames": ["Titulo del TFG", "Tutor", "Enlace a el Repositorio"],
+        }),
 
+    document_loaders.PyPDFLoader(
+        file_path="./documents/reglamentp_tfg-tfm_aprob._08-06-2022.pdf")
 ]
-
-'''
-
-loaders = [
-    document_loaders.UnstructuredHTMLLoader(
-        "./documents/Respuestas a preguntas frecuentes (FAQ).html")
-]
-'''
 
 documents = []
 

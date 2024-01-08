@@ -17,35 +17,38 @@ https://github.com/aav0038/UBU-CHATBOT
 https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/
 https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/
 
-## Instalación entorno
-
-sh setup_env.sh
-
 ## Setup envioroment
 
-# Activate venev
+### Activate venev
 
 source venv/bin/activate
 
-# Install
+### Instalación
+
+sh setup_env.sh
+
+### Instalación manual
 
 pip install -r path/to/requirements.txt
 
-# Export
+### Export configuration
 
 pip freeze > requirements.txt
 
 ## Run de la APP
 
-# Vectorización de información
+### Vectorización de información
 
 python learn.py
 
-# Validación del RAG
+### Validación del RAG
 
 python validate.py
 
-# Chatbot
+## Ejecutar el Chatbot
 
 sh run_app.sh
+
+## Ejecutar manualmente el Chatbot
+
 streamlit run app.py
