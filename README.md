@@ -35,7 +35,11 @@ pip install -r path/to/requirements.txt
 
 pip freeze > requirements.txt
 
-## Run de la APP
+## Entrenamiento y validación del Chatbot
+
+### Ejecutar el Chatbot
+
+sh run_app.sh
 
 ### Vectorización de información
 
@@ -45,10 +49,6 @@ python learn.py
 
 python validate.py
 
-## Ejecutar el Chatbot
-
-sh run_app.sh
-
-## Ejecutar manualmente el Chatbot
+### Ejecutar manualmente el Chatbot
 
 streamlit run app.py
