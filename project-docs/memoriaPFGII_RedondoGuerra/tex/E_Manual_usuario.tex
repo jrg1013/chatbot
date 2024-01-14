@@ -2,10 +2,40 @@
 
 \section{Introducción}
 
+En esta sección, se proporciona un detalle exhaustivo de los requisitos esenciales para la ejecución exitosa de la aplicación. Dada la naturaleza innovadora de la tecnología empleada en el proyecto, este presenta un marcado componente de investigación. En consecuencia, los usuarios interesados en utilizar la aplicación deben contar con acceso a herramientas específicas y poseer ciertos conocimientos clave para aprovechar plenamente sus capacidades.
+
 \section{Requisitos de usuarios}
+
+La mayor parte de los requisitos se han incluido en el archivo \textit{requirements.txt} que se usará durante el proceso de instalación y configuración. Los únicos requisitos que se deben de cumplir antes de comenzar con la instalación es tener Python instalado y disponer de un Token de HuggingFace.
+
+Para aaceder a las herraminetas necesarias y conseguir un token para el uso de la aplicación se puede seguir el manual de la sección~\ref{ManualProgramador}. Por parte del usuario final solo sería necesario un \textit{browser} que abrirá una pestaña nueva.
 
 \section{Instalación}
 
-\section{Manual del usuario}
+La clonación del repositorio e instalación del entorno virtual de la aplicación se detallan en el apartado correspondiente del manual del programador, ver~\ref{Instalación}.
 
+\subsection{Ejecutar la aplicación}
 
+Para ejecutar la aplicación se ha creado un \textit{script} que simplifica el proceso y permite modificaciones futuras sin necesidad de que el usuario se vea afectado.
+
+\begin{enumerate}
+\item Abre tu terminal o línea de comandos en tu entorno de desarrollo y ve hasta la carpeta \textit{project-app}.
+
+\item Para ejecutar la aplicación solo es necesario ejecutar el \textit{script} que se ha creado para tal efecto como se indica a continuación. Es necesario estar en el entorno virtual que se ha configurado anteriormente.
+
+\begin{lstlisting}[language=Python, caption=Ejecutar la aplicación.]
+    sh run-app.sh
+\end{lstlisting}
+
+\item Automáticamente se abrirá una pestaña nueva en el navegador por defecto. Ver figura~\ref{fig:chatbot}
+
+\item No se debe cerrar el terminal ya que se está ejecutando el servidor de Streamlit y las llamadas a la \acrshort{api} de HuggingFace desde él.
+
+\item Cuando se desee finalizar la aplicación basta con cerrar la pestaña del navegador y cancelar la ejecución del terminal.  
+\end{enumerate}
+
+\imagen{chatbot}{Estado inicial del chatbot tras su apertura.}
+
+\subsection{Entrenar al chatbot con nuevos datos}
+
+La operación de carga y actualización de documentos en la base de datos se detalla en el apartado correspondiente del manual del programador, ver~\ref{Instalación}.

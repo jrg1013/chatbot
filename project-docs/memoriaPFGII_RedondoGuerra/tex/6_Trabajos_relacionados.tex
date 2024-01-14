@@ -1,3 +1,122 @@
 \capitulo{6}{Trabajos relacionados}
 
-Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
+\section{Anteriores TFG de Chatbots}
+
+\subsection{UBUAssistant}
+
+Proyecto de Daniel Santidrián Alonso continuado por Carlos González Calatrava en 2018 tutorizado por Pedro Renedo Fernández.
+
+Se trata de un asistente virtual para Android que cuenta con asistente de voz. El objetivo es facilitar las búsquedas en la web de la \acrshort{ubu} al realizarlas desde un smartphone.
+
+La aplicación está alojada en un servidor de Azure que ofrece una suscripción gratuita para estudiantes, aunque con ciertas limitaciones. Utiliza el algoritmo de Razonamiento Basado en Casos~\cite{UBUAssistant}. 
+
+\subsection{Chatbot for Tourist Recommendations}
+
+Proyecto de Jasmin Wellnitz en 2017 tutorizado por el Dr. Bruno Baruque Zanon. 
+
+Chatbot implementado en Telegram actualmente fuera de servicio cuya finalidad era dar recomendaciones turísticas en inglés.
+Utilizó la misma tecnología que este proyecto, en aquel entonces se llamaba API.AI y era el mismo \acrshort{pln} que es ahora Dialogflow tras ser comprado en 2016 por Google que optó al año siguiente por cambiarle el nombre.
+
+El proyecto esta alojado en la \textit{Platform as a Service} Heroku. Utiliza la versión de prueba gratuita pero tiene limitaciones en cuanto al uso mensual~\cite{ChatbotTourist}. 
+
+\subsection{UBUVoiceAssistant}
+
+Proyecto de Álvaro Delgado Pascual tutorizado por el Dr. Raúl Marticorena Sanchez.
+
+Se trata de una aplicación que por medio de un asistente de voz permite al usuario obtener información sobre una plataforma de Moodle. Está desarrollado en Python y utiliza el asistente de voz Mycroft~\cite{UBUVoiceAssistant}. 
+
+\subsection{UBU-Chatbot}
+
+Proyecto de Alfredo Asensio Vázquez en 2021 tutorizado por Dr. Raúl Marticorena Sanchez.
+
+Se trata de un Bot conversacional (chatbot) cuyo objetivo es dar respuesta a todas las dudas que los alumnos puedan tener sobre el funcionamiento de la asignatura \acrlong{tfg}. Basado en Dialogflow de Google, estructura las preguntas y respuestas según su intención y hace una recuperación por similitud. Dispone de una versión para la modalidad \textit{online} y otra para presencial. UBU-Chatbot está integrado en la plataforma Moodle de la Universidad y en Slack~\cite{UBU-Chatbot}. 
+
+Este trabajo realizado en 2021 es el precursor de este \acrshort{tfg}. Por ello se usará para realizar una comparativa que sirva para evaluar la nueva solución basada en una tecnología completamente diferente.
+
+\section{Estado del arte de los Chatbots basados en LLMs}
+
+Teachbot
+\subsection{Teachbot}
+
+Proyecto de Miguel Collado en 2023 tutorizado por Carlos López Nozal, Ismael Ramos Pérez y Dr. Raúl Marticorena Sanchez.
+
+Un chatbot cuyo objetivo es ayudar a los estudiantes del Prácticum de Formación de Profesores de Lenguas Extranjeras de la \acrlong{ubu}, en el desarrollo del mismo. Se parte de un documento guía que indica a los estudiantes como realizar su Practicum y su implementación en una plantilla Trello. Este chatbot será implementado en diferentes plataformas. El lenguaje conversacional de modelado era en inglés.~\cite{Teachbot}. 
+
+Este trabajo realizado en 2023 ya usa la \acrshort{api} de OpenAI para enriquecer las respuestas del Chatbot de DialogFlow.
+
+\section{Estado del arte de los Chatbots basados en LLMs}
+
+\begin{itemize}
+    \item \textbf{ChatGPT de OpenAI:} OpenAI ha liderado el desarrollo de modelos de lenguaje avanzados, como ChatGPT basado en GPT-3. Este chatbot demostró una comprensión contextual impresionante y una capacidad para generar respuestas coherente en diversas situaciones. La implementación de modelos como ChatGPT marcó un hito en la creación de chatbot conversacionales más sofisticados.
+
+    \item \textbf{BlenderBot 2.0 de Facebook AI:} Facebook AI desarrolló BlenderBot 2.0, un chatbot que utiliza una combinación de \acrshort{llm} y enfoques de aprendizaje por refuerzo. Este proyecto destacó por su capacidad para sostener conversaciones más largas y coherentes, mostrando avances en la comprensión contextual.
+
+    \item \textbf{DALL-E de OpenAI:} Aunque no es un chatbot en el sentido tradicional, DALL-E es un modelo generativo de imágenes desarrollado por OpenAI utilizando una arquitectura similar a la de los \acrshort{llm}. Este proyecto ilustra la versatilidad de los modelos generativos en la creación de contenido multimedia.
+
+    \item \textbf{\acrshort{rag} for Conversational AI de Facebook AI:} Facebook AI introdujo \acrshort{rag} para mejorar la recuperación de respuestas en chatbots, integrando conocimientos de documentos externos. La implementación de \acrshort{rag} aborda la mejora de la relevancia y diversidad de las respuestas en entornos conversacionales.
+
+    \item \textbf{Conversaciones Más Naturales con \acrshort{llm} de Google Research:} Proyectos de Google Research han explorado cómo los \acrshort{llm}, como BERT, mejoran la naturalidad y relevancia de las respuestas en chatbots. Este trabajo destaca la importancia de la comprensión contextual para lograr conversaciones más fluidas y significativas.
+
+\end{itemize}
+
+\section{Comparativa con UBU-Chatbot}
+
+Esta comparativa busca proporcionar una evaluación de los chatbots, permitiendo una toma de decisiones sobre la idoneidad o no adopción de esta nueva tecnología. Para comparar y validar de las respuestas se pueden agrupar las preguntas en tres dimensiones:
+
+\begin{itemize}
+
+\item Preguntas de tutoría administrativas: \acrshort{faq} recurso de información estable y particular de \acrshort{tfg} en la \acrshort{ubu}.
+
+\item Preguntas de tutoría generales: conceptos de planificación de proyectos~\cite{digit}.
+
+\item Preguntas de tutoría específicas de un \acrshort{tfg}: Por ejemplo, ¿cómo documentar el funcionamiento del chatbot en una memoria de \acrshort{tfg}?.
+
+\end{itemize}
+
+\subsection{Preguntas de tutoría administrativas}
+
+Para poder comparar ambos chatbots se han realizado las mismas preguntas en ambos chatbots y se han comprobado los resultados.
+
+Primero se comprueban la respuesta de chatbot basado en DialogFlow. Después de un saludo, el chatbot repite el mensaje genérico de inicio y no lo adapta al saludo, ver figura~\ref{fig:ubu-chatbot1}.
+
+\imagen{ubu-chatbot1}{Ejemplo de pregunta de tutoría administrativa, saludo, del chatbot de DialogFlow.}{0.5}
+
+Se ve una clara mejora en el chatbot que se ha realizado en este \acrshort{tfg}. El chatbot adapta el mensaje de respuesta al saludo del usuario. Así se responde dando los buenos días, o las buenas tardes o simplemente hola, dependiendo de como haya saludado el usuario, ver figura~\ref{fig:chatbot1}.
+
+\imagen{chatbot1}{Ejemplo de pregunta de tutoría administrativa, saludo, del chatbot basado en LLM y RAG.}{1}
+
+Otra pregunta administrativa básica es la composición del tribunal del \acrshort{tfg}. El chatbot existente responde correctamente a las preguntas sobre la composición del tribunal, ver figura~\ref{fig:ubu-chatbot2}.
+
+\imagen{ubu-chatbot2}{Ejemplo de pregunta de tutoría administrativa, profesores del tribunal, del chatbot de DialogFlow.}{0.5}
+
+De igual manera este chatbot basado en \acrshort{llm}, responde a las preguntas sobre la composición del tribunal, ver figura~\ref{fig:chatbot2}.
+
+\imagen{chatbot2}{Ejemplo de pregunta de tutoría administrativa, profesores del tribunal, del chatbot basado en LLM y RAG.}{1}
+
+Sin embargo, el chatbot anterior no gestiona bien la formulaciones complejas de la pregunta, como se ve en la figura~\ref{fig:ubu-chatbot2a}.
+
+\imagen{ubu-chatbot2a}{Ejemplo de pregunta de tutoría administrativa, profesores del tribunal pregunta compleja, del chatbot de DialogFlow.}{0.5}
+
+Como era de esperar el chatbot realizado en este \acrshort{tfg} gestiona mejor este tipo de preguntas. Los \acrshort{llm} son \acrlong{pln} y son capaces de interpretar mejor la semántica de las preguntas, ver figura~\ref{fig:chatbot2a}.
+
+\imagen{chatbot2a}{Ejemplo de pregunta de tutoría administrativa, profesores del tribunal pregunta compleja, del chatbot basado en LLM y RAG.}{1}
+
+\subsection{Preguntas de tutoría generales e históricos}
+
+El chatbot basado en DialogFlow no incluía información relativa a los históricos del \acrshort{tfg}. Ver figura~\ref{fig:ubu-chatbot3}.
+
+\imagen{ubu-chatbot3}{Ejemplo de pregunta de tutoría general del chatbot basado en LLM y RAG.}{0.5}
+
+Esta mejora ha sido una de las mas importantes de este chatbot, en el que se ha incluido mas información en el entrenamiento del \acrshort{rag}. Se puede ver en la figura~\ref{fig:chatbot3}, que se puede proporcionar información relativa al histórico de \acrshort{tfg}.
+
+\imagen{chatbot3}{Ejemplo de pregunta de tutoría general del chatbot basado en LLM y RAG.}{1}
+
+\subsection{Preguntas de tutoría específicas de un TFG}
+
+Este tipo de preguntas son las mas difíciles de responder para un chatbot. Se requiere un procesamiento semántico mas complejo y están ligados a una tarea muy especifica. Como se ve en la figura~\ref{fig:ubu-chatbot4}, el chatbot basado en DialogFlow ni siquiera entiende la pregunta y responde algo más genérico.
+
+\imagen{ubu-chatbot4}{Ejemplo de pregunta de tutoría general del chatbot basado en LLM y RAG.}{0.5}
+
+Sin embargo este chatbot hace uso del \acrshort{llm} para dar una respuesta coherente. En este caso la respuesta sería perfectamente válida, ver figura~\ref{fig:chatbot4}. Aunque le falte algo de profundidad a la respuesta, sea un poco genérica y no pueda sustituir la labor de un tutor, es un muy buen comienzo.
+
+\imagen{chatbot4}{Ejemplo de pregunta de tutoría especificas del chatbot basado en LLM y RAG.}{1}

@@ -1,18 +1,18 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
-En este apartado se mustran los aspectos mas relevantes de este \acrshort{tfg}. Se hace especial hincapié en los decisiones y apartados que mayor influencia han tenido en el proyecto. Por el carácter de investigación del trabajo y por lo temprano del desarrollo de esta tecnología, parte de este apartado está dedicado a la problemática que surge al emplear técnicas y herramientas que en constante cambio.
+En este apartado se muestran los aspectos mas relevantes de este \acrshort{tfg}. Se hace especial hincapié en los decisiones y apartados que mayor influencia han tenido en el proyecto. Por el carácter de investigación del trabajo y por lo temprano del desarrollo de esta tecnología, parte de este apartado está dedicado a la problemática que surge al emplear técnicas y herramientas que en constante cambio.
 
 \section{Selección de un LLM}
 
 Los \acrfull{llm} evolucionan con rapidez y continuamente aparecen nuevos modelos. Esto supone un reto: ¿Cómo seleccionar el \acrshort{llm} más adecuado para este proyecto? En este apartado se analizan las consideraciones prácticas que han guiado el proceso de toma de decisiones.
 
 \subsection{Licencias y uso comercial}
-Una consideración crucial a la hora de elegir un \acrshort{llm} es la concesión de licencias. Posiblemente el mas conocido y evolucionado es el \acrshort{gpt} de OpenAI, pero es un modelo que puede tener un coste considerable. En cada \textit{query} se ha de pagar una pequeña cantidad  por token. Para el objeto de este proyecto es mas adecuado el uso de un \acrshort{llm} de \textit{open-source} o por lo menos con una licencia comunitaria para investigación y educación.
+Una consideración crucial a la hora de elegir un \acrshort{llm} es la concesión de licencias. Posiblemente el mas conocido y evolucionado es el \acrshort{gpt} de OpenAI, pero es un modelo que puede tener un coste considerable. En cada \textit{query} se ha de pagar una pequeña cantidad  por token. Para el objeto de este proyecto es más adecuado el uso de un \acrshort{llm} de \textit{open-source} o por lo menos con una licencia comunitaria para investigación y educación.
 
-Aunque muchos modelos abiertos tienen restricciones de uso comercial, existen modelos disponibles para aplicaciones comerciales. Por ejemplo, la familia de modelos MPT de MosaicML se publica bajo licencias que permiten su uso comercial. Se puede obtener más información sobre las distintas licencias en la \textit{Open Source Initiative} y a traves de la plataforma HugginFace.
+Aunque muchos modelos abiertos tienen restricciones de uso comercial, existen modelos disponibles para aplicaciones comerciales. Por ejemplo, la familia de modelos MPT de MosaicML se publica bajo licencias que permiten su uso comercial. Se puede obtener más información sobre las distintas licencias en la \textit{Open Source Initiative} y a través de la plataforma HugginFace.
 
 \subsection{Factores prácticos para la velocidad de inferencia y la precisión}
-Los factores prácticos desempeñan un papel crucial a la hora de determinar la idoneidad de un \acrshort{llm} para el proyecto. Evaluar la velocidad de inferencia (el tiempo que tarda un \acrshort{llm} en procesar y generar resultados) es esencial, sobre todo cuando se trata de grandes cantidades de datos no estructurados. Una inferencia lenta puede dificultar la extracción de información de nuestro chatbot. Optar por modelos optimizados para una inferencia más rápida o capaces de manejar volúmenes de entrada sustanciales puede resultar ventajoso peor también será un modelo mas pesado. Además, si se requiere una gran precisión en el análisis de sentimientos, la selección de un \acrshort{llm} con precisión y análisis de grano fino resulta crucial, y la velocidad de inferencia pasa a ser una consideración secundaria.
+Los factores prácticos desempeñan un papel crucial a la hora de determinar la idoneidad de un \acrshort{llm} para el proyecto. Evaluar la velocidad de inferencia (el tiempo que tarda un \acrshort{llm} en procesar y generar resultados) es esencial, sobre todo cuando se trata de grandes cantidades de datos no estructurados. Una inferencia lenta puede dificultar la extracción de información de nuestro chatbot. Optar por modelos optimizados para una inferencia más rápida o capaces de manejar volúmenes de entrada sustanciales puede resultar ventajoso pero también será un modelo más pesado. Además, si se requiere una gran precisión en el análisis de sentimientos, la selección de un \acrshort{llm} con precisión y análisis de grano fino resulta crucial, y la velocidad de inferencia pasa a ser una consideración secundaria.
 
 \subsection{El impacto de la longitud del contexto y el tamaño del modelo}
 Tener en cuenta la longitud del contexto y el tamaño del modelo es crucial a la hora de evaluar los \acrshort{llm}. Mientras que muchos \acrshort{llm} tienen limitaciones en la longitud de entrada, los modelos abiertos más recientes como Salesforce X-Gen admiten longitudes de contexto más largas, lo que permite entradas más completas y resultados deseados. El tamaño del modelo también influye en los requisitos de infraestructura, ya que los modelos más pequeños (menos de siete mil millones de parámetros) son más fáciles de implementar en hardware básico, lo que agiliza la implementación práctica. Por el contrario, algunos \acrshort{llm} ofrecen flexibilidad en el procesamiento de entradas más cortas, pero compensan con parámetros más grandes, atendiendo a casos de uso en los que la precisión dentro de un contexto restringido es primordial. Los \acrshort{llm} con contextos más largos y modelos de mayor tamaño tienden a ser más potentes, pero también tienen mayores exigencias computacionales.
@@ -20,29 +20,29 @@ Tener en cuenta la longitud del contexto y el tamaño del modelo es crucial a la
 \subsection{Específicos para una tarea o de uso general}
 Cuando se trata de \acrfull{llm}, a menudo está la disyuntiva de elegir entre \acrshort{llm} específicos para una tarea o \acrshort{llm} multitarea de propósito general que utilizan \textit{prompts}. Mientras que estos últimos ofrecen versatilidad, los \acrshort{llm} para tareas específicas suelen ser más prácticos y eficientes para caso concretos de uso. Estos modelos especializados se entrenan y ajustan específicamente para una tarea concreta, lo que mejora el rendimiento y la precisión. 
 
-Otro aspecto relacionado es el idioma de entremetimiento del \acrshort{llm}. Los modelos mas extendidos como LLaMa, OpenAI O Mistral, son modelos entrenados principalmente con grandes volúmenes de datos en ingles. Algunos modelos están específicamente entrenados y diseñados para responder en otros idiomas, como Ǎguila\cite{Ǎguila} para español, o multilenguaje como PolyLM\cite{wei2023polylm}.
+Otro aspecto relacionado es el idioma de entremetimiento del \acrshort{llm}. Los modelos mas extendidos como LLaMa, OpenAI O Mistral, son modelos entrenados principalmente con grandes volúmenes de datos en inglés. Algunos modelos están específicamente entrenados y diseñados para responder en otros idiomas, como Ǎguila~\cite{Ǎguila} para español, o multilenguaje como PolyLM~\cite{wei2023polylm}.
 
 \subsection{Pruebas y evaluación}
 Las pruebas y evaluaciones exhaustivas son cruciales para determinar la fiabilidad de los \acrshort{llm}. Un método eficaz consiste en crear un conjunto de pruebas con ejemplos etiquetados manualmente. Una anotación fiable garantiza mediciones precisas. La comparación de los resultados de los modelos \acrshort{llm} con las referencias etiquetadas ayuda a calcular las métricas de precisión. 
 
-Se hablará mas acerca de este aspecto en una sección posterior, ya que la solución de validación del chatbot dependerá mas del framework de acceso, Langcgain, que del \acrshort{llm} elegido.
+Se hablará mas acerca de este aspecto en una sección posterior, ya que la solución de validación del chatbot dependerá mas del framework de acceso, LangChain, que del \acrshort{llm} elegido.
 
 \subsection{La revolución de los modelos abiertos}
-Recientemente, la adopción de modelos abiertos ha ido en aumento debido a factores como la preocupación por la privacidad de los datos y la rentabilidad. Los modelos abiertos, formados a partir de datos públicos, resuelven los problemas de privacidad asociados a los modelos cerrados. Además, a menudo ofrecen opciones más asequibles. Puede explorar recursos de \acrshort{llm} abiertos en Huggingface y consultar la tabla de clasificación de \acrshort{llm} de \textit{LlamaIndex}\cite{LlamaIndex}.
+Recientemente, la adopción de modelos abiertos ha ido en aumento debido a factores como la preocupación por la privacidad de los datos y la rentabilidad. Los modelos abiertos, formados a partir de datos públicos, resuelven los problemas de privacidad asociados a los modelos cerrados. Además, a menudo ofrecen opciones más asequibles. Puede explorar recursos de \acrshort{llm} abiertos en Huggingface y consultar la tabla de clasificación de \acrshort{llm} de \textit{LlamaIndex}~\cite{LlamaIndex}.
 
 \subsection{Consideraciones sobre los costes de implementación}
 Al seleccionar un \acrshort{llm}, el coste de implementación es también importante, no solo el coste por uso. El tamaño del modelo, los requisitos informáticos y la configuración de la infraestructura influyen en el coste total. Para la escalabilidad, se pueden considerar técnicas de optimización de modelos como la cuantificación(\textit{quantification}), la aceleración de hardware o los servicios cloud para reducir costes. Lograr un equilibrio entre el rendimiento y la asequibilidad de la plataforma es esencial.
 
-Tras realizar algunas pruebas con modelos locales y cuantificación, se optó por usar mejor la \acrshort{api} de HuggingFace. Aunque se tengan algunos retrasos en el establecimiento de la conexión y en momentos puntuales el tiempo de respuesta sea mas lento de lo deseado, se considera que es la mejor opción. La \acrshort{api} permite usar el Chatbot por terceros de forma mas sencilla, sin tener que instalar modelos locales y depender de las características de la \acrshort{cpu} del equipo local.
+Tras realizar algunas pruebas con modelos locales y cuantificación, se optó por usar mejor la \acrshort{api} de HuggingFace. Aunque se tengan algunos retrasos en el establecimiento de la conexión y en momentos puntuales el tiempo de respuesta sea más lento de lo deseado, se considera que es la mejor opción. La \acrshort{api} permite usar el Chatbot por terceros de forma más sencilla, sin tener que instalar modelos locales y depender de las características de la \acrshort{cpu} del equipo local.
 
 \subsection{La necesidad de adaptarse al rápido ritmo del cambio}
 Casi cada semana se producen cambios en los \acrshort{llm}. Es un momento apasionante pero igualmente supone un reto para desarrollar versiones estables del chatbot. Se seleccionará un \acrshort{llm} que se adapte al caso de uso, y se usarán interfaces de acceso como LangChain que permitan reemplazar el \acrshort{llm} en caso de ser necesario, sin tener que rehacer el chatbot completamente.
 
-Se hablará mas acerca de este aspecto y como ha influido, no solo en la elección del \acrshort{llm} sino también en el resto de aspectos del proyecto.
+Se hablará mas acerca de este aspecto y cómo ha influido, no solo en la elección del \acrshort{llm} sino también en el resto de aspectos del proyecto.
 
 \subsection{Comparativa de LLMs}
 
-Se han valorado distintos aspectos, y se han probado en mayor o menor medida varios \acrshort{llm}. Los aspectos que se han valorado en mayor profundidad se han recogido en la  tabla \ref{tabla:comparativallm}\cite{Hostinger}\cite{MindsDB}\cite{LlamaIndex}.
+Se han valorado distintos aspectos, y se han probado en mayor o menor medida varios \acrshort{llm}. Los aspectos que se han valorado en mayor profundidad se han recogido en la  tabla \ref{tabla:comparativallm}~\cite{Hostinger, MindsDB,LlamaIndex}.
 
 \tablaSmall{Comparativa entre distintos \acrlong{llm}}{l c c c c}{comparativallm}
 { \multicolumn{1}{l}{Modelo} & Multilenguaje & API & Open Source & Privacidad \\}{ 
@@ -58,7 +58,7 @@ OpenOrca &  & / & X & /\\
 
 Como ya se ha mencionado anteriormente, Mistral es una Startup Francesa que en solo unos meses ha conseguido una gran repercusión en el mundo de los \acrshort{llm} y del \acrshort{pln}. En comparación con otros modelos como LLaMa 2, Mistral 7B ofrece capacidades similares o mejores pero con menos carga computacional. Mientras que modelos fundacionales como GPT-4 pueden tener un mejor desempeño, Mistral ofrece una \acrshort{api} gratuita a través de HuggingFace. 
 
-El modelo tiene 7B de parámetros y aunque modelos de mas parámetros podrían dar mejores resultados, para la investigación que se desarrolla en este \acrshort{tfg} resulta mas interesante poder realizar las pruebas sin incurrir en costes y tecnología propietaria como la de OpenAI.
+El modelo tiene 7B de parámetros y aunque modelos de más parámetros podrían dar mejores resultados, para la investigación que se desarrolla en este \acrshort{tfg}, resulta más interesante poder realizar las pruebas sin incurrir en costes y tecnología propietaria como la de OpenAI.
 
 Como alternativa a Mistral se ha desarrollado también en la fase de prototipado una segunda versión del Chatbot usando LLaMa 2 de Meta. En general ambos modelos en sus versiones de 7B de parámetros dan resultados similares, pero LLaMa 2 requiere solicitar acceso a la \acrshort{api} para usos en investigación y no se encuentra en la Unión Europea, por lo que no tiene las mismas medidas para la protección de datos.
 
@@ -66,11 +66,11 @@ Como alternativa a Mistral se ha desarrollado también en la fase de prototipado
 
 El inicio de la inteligencia artificial generativa marcó un hito significativo en el campo de la tecnología. Se refiere a la capacidad de las máquinas para generar contenido, especialmente en forma de texto, imágenes y otros tipos de datos. Un momento crucial en este avance fue la introducción de modelos de lenguaje generativos, como \acrfull{gpt}, que son capaces de entender, interpretar y generar texto de manera coherente y contextual.
 
-Este desarrollo ha llevado a avances notables en diversas aplicaciones, como chatbots más inteligentes, asistentes virtuales más avanzados y generación automática de contenido creativo. Desde que OpenAI lanzara ChatGPT el 30 de noviembre de 2022, los avances y mejoras en este campo ha sufrido un avance vertiginoso. 
+Este desarrollo ha llevado a avances notables en diversas aplicaciones, como chatbots más inteligentes, asistentes virtuales más avanzados y generación automática de contenido creativo. Desde que OpenAI lanzara ChatGPT el 30 de noviembre de 2022, los avances y mejoras en este campo han sufrido un avance vertiginoso, ver figura~\ref{fig:TimelineGAI}. 
 
 \imagen{TimelineGAI}{Avances en el campo de la Inteligencia Artificial Generativa en los últimos meses.}{1}
 
-Uno de los factores clave en este rápido desarrollo es el enfoque de preentrenamiento de estos modelos, lo que significa que son entrenados en grandes cantidades de datos antes de ser afinados para tareas específicas. Esto les permite capturar patrones complejos y contextos, lo que resulta en un rendimiento más sofisticado. 
+Uno de los factores clave en este rápido desarrollo es el enfoque de preentrenamiento de estos modelos, lo que significa que son entrenados en grandes cantidades de datos antes de ser afinados para tareas específicas. Esto les permite capturar patrones complejos y contextos, lo que resulta en un mejor rendimiento.
 
 Sin embargo, este avance también ha planteado desafíos éticos y preocupaciones sobre el uso responsable de la inteligencia artificial generativa. La capacidad de crear contenido realista y convincente ha llevado a debates sobre la desinformación, la manipulación de información y la necesidad de salvaguardias para garantizar un uso ético y beneficioso de estas tecnologías.
 
@@ -84,7 +84,7 @@ Algunas razones para esta brecha entre la investigación y la implementación am
 
 \begin{itemize}
 
-\item \textbf{Multitples vias de desarrollo:} A pesar de su corta historia, existen multitud de herramientas, técnicas y estrategias relacionadas con los \acrshort{llm}. En esta fase temprana no se ha consolidado una dirección como paradigma ha seguir por lo que existen muchos caminos de investigación que meses después se abandonan para proseguir por otros mas prometedores.
+\item \textbf{Múltiples vías de desarrollo:} A pesar de su corta historia, existen multitud de herramientas, técnicas y estrategias relacionadas con los \acrshort{llm}. En esta fase temprana no se ha consolidado una dirección como paradigma ha seguir por lo que existen muchos caminos de investigación que meses después se abandonan para proseguir por otros mas prometedores.
 
 \item \textbf{Complejidad de Tareas del Mundo Real:} Muchas tareas del mundo real son complejas y requieren un entendimiento profundo del contexto. Aunque los modelos de \acrshort{ia} han progresado, aún pueden enfrentar dificultades para manejar situaciones impredecibles o interpretar información de manera sutil.
 
@@ -98,67 +98,75 @@ Algunas razones para esta brecha entre la investigación y la implementación am
 
 A pesar de estos desafíos, es importante destacar que la \acrshort{ia} se está utilizando en diversos sectores, desde asistentes virtuales hasta diagnóstico médico asistido por máquina. A medida que la investigación continúa y se abordan los desafíos actuales, es probable que veamos una mayor aplicación de la \acrshort{ia} en productos y servicios en el futuro.
 
-\subsection{Langchain como \textit{framework} de gestión en un momento de cambio constante}
+\subsection{LangChain como \textit{framework} de gestión en un momento de cambio constante}
 
-Por lo anteriormente expuesto, se ha optado por usar Langchain como capa de intermedia para el acceso y gestión de los \acrshort{llm}. Existen ventajas he inconvenientes en su uso y no es seguro de que este \textit{framework} sea la estrategia que se imponga al resto de las posibles vías. A continuación se enumeran algunos de los factores que han determinado esta decisión y también algunos de los inconvenientes que ha traído consigo.
+Por lo anteriormente expuesto, se ha optado por usar LangChain como capa de intermedia para el acceso y gestión de los \acrshort{llm}. Existen ventajas e inconvenientes en su uso y no es seguro de que este \textit{framework} sea la estrategia que se imponga al resto de las posibles vías. A continuación se enumeran algunos de los factores que han determinado esta decisión y también algunos de los inconvenientes que ha traído consigo.
 
-Langchain permite, al menos parcialmente, modificar secciones de la aplicación sin tener que modificar completamente la arquitectura del software. Esto es especialmente interesante en un momento en el que se lanzan nuevos \acrshort{llm} y herramientas casi semanalmente. Como se ha indicado anteriormente, la tecnología está actualmente en un momento de cambio constante y de rápido desarrollo, es una fase interesantisima pero también compleja para el desarrollador. 
+LangChain permite, al menos parcialmente, modificar secciones de la aplicación sin tener que modificar completamente la arquitectura del software. Esto es especialmente interesante en un momento en el que se lanzan nuevos \acrshort{llm} y herramientas casi semanalmente. Como se ha indicado anteriormente, la tecnología está actualmente en un momento de cambio constante y de rápido desarrollo, es una fase interesantísima pero también compleja para el desarrollador. 
 
-El uso de esta capa intermedia permite abstraer parte de la implementación, y que cambios de estrategia supongan solo un cambio en una linea de código. Esto funciona bien parcialmente pero no es siempre posible. Por ejemplo la selección del \acrshort{llm} conlleva mas que un simple cambio de argumentos en muchos casos, y no todos los \acrshort{llm} soportan las mismas características o el mismo \textit{prompt}.
+El uso de esta capa intermedia permite abstraer parte de la implementación, y que cambios de estrategia supongan solo un cambio en una línea de código. Esto funciona bien parcialmente pero no es siempre posible. Por ejemplo la selección del \acrshort{llm} conlleva más que un simple cambio de argumentos en muchos casos, y no todos los \acrshort{llm} soportan las mismas características o el mismo \textit{prompt}.
 
-Cabe destacar que Langchain se lanzó en Octubre de 2022, por lo que es un \textit{framework} en constante cambio. Muchas funciones se renuevan y son reemplazadas por otras estrategias, haciendo el mantenimiento de código una tarea compleja. Durante la fase de desarrollo, partes del código han tenido que ser reescritas ya que accesos o funciones recomendadas un mes antes, ya no estaban disponibles.
+Cabe destacar que LangChain se lanzó en Octubre de 2022, por lo que es un \textit{framework} en constante cambio. Muchas funciones se renuevan y son reemplazadas por otras estrategias, haciendo el mantenimiento de código una tarea compleja. Durante la fase de desarrollo, partes del código han tenido que ser reescritas ya que accesos o funciones recomendadas un mes antes, ya no estaban disponibles.
 
-Un aspecto negativo de la elección de esta capa intermedia es la limitación en si misma que este acceso supone. No se tiene control sobre la implementación de las funciones y esto hace que no se pueda optimizar la aplicación fácilmente. A mayores, Langchain está centrada en el uso de la \acrshort{api} de OpenAI, por lo que no todos los \acrshort{llm} reciben el mismo soporte. En el caso de este proyecto usando Mistral 7B, esto supone que parte de las funciones u opciones no esten soportadas.
+Un aspecto negativo de la elección de esta capa intermedia es la limitación en sí misma que este acceso supone. No se tiene control sobre la implementación de las funciones y esto hace que no se pueda optimizar la aplicación fácilmente. A mayores, LangChain está centrada en el uso de la \acrshort{api} de OpenAI, por lo que no todos los \acrshort{llm} reciben el mismo soporte. En el caso de este proyecto usando Mistral 7B, esto supone que parte de las funciones u opciones no estén soportadas.
 
-\section{Preprocesamiento de datos}
+\subsection{Alucinaciones en los LLMs}
 
-El preprocesamiento de datos es una parte fundamental del desarrollo de \acrlong{llm} y \acrlong{rag}. Aunque los detalles específicos del preprocesamiento pueden variar según la tarea y la arquitectura del modelo, algunos pasos comunes incluyen:
+Los \acrlong{llm} no poseen conciencia ni capacidad para experimentar alucinaciones en el sentido humano. Estos modelos generan texto basándose en patrones aprendidos de datos de entrenamiento, pero no tienen una comprensión real del mundo ni experiencias subjetivas.
 
-\begin{itemize}
+Las ``alucinaciones'' a menudo se refieren a generaciones de texto que parecen creativas o inesperadas, y esto puede deberse a la diversidad y complejidad de los datos de entrenamiento y a la configuración. Los \acrshort{llm} pueden producir respuestas que parecen imaginativas porque han sido entrenados en grandes cantidades de texto que contienen una amplia variedad de información.
 
-\item \textbf{Tokenización:} Los modelos de lenguaje trabajan con unidades más pequeñas llamadas tokens. Tokenizar un texto implica dividirlo en estas unidades, que podrían ser palabras, subpalabras o incluso caracteres.
+Es importante tener en cuenta que, aunque estos modelos son potentes en la generación de texto, no tienen comprensión real ni conocimiento. No pueden tener experiencias subjetivas ni acceder a información no presente en sus datos de entrenamiento, pero si pueden generar texto usando combinaciones existentes en sus datos de entrenamiento.
 
-\item \textbf{Normalización:} Esto implica convertir el texto a un formato estándar, como convertir todas las letras a minúsculas. Esto ayuda a que el modelo no trate las mismas palabras en diferentes formas como entidades separadas.
- 
-\item \textbf{Eliminación de \textit{Stopwords}:} Para algunos modelos, puede ser beneficioso eliminar palabras comunes que no aportan mucha información (como "y", "o", "el", etc.) para reducir el ruido en los datos.
+En el caso de este trabajo se ha comprobado que en ocasiones las respuestas dadas eran el resultado de interpolaciones de información que daban como resultado información no existente en los datos de entrenamiento. Por ejemplo en respuestas que incluyen una \acrshort{url} no es raro que el \acrshort{llm} genere direcciones no existentes pero que parecen plausibles. 
 
-\item \textbf{Lidiar con Datos No Estructurados:} Si los datos contienen elementos no textuales, como imágenes o tablas, se debe tener un proceso para manejarlos o convertirlos en un formato que el modelo pueda entender.
+Para mitigar este efecto negativo de los \acrshort{llm} se han realizado múltiples pruebas variando la configuración de la temperatura del modelo seleccionado. 
 
-\item \textbf{Segmentación de Texto:} Para tareas específicas, como la recuperación de respuesta, puede ser útil dividir el texto en segmentos más pequeños para facilitar la búsqueda y la recuperación de información relevante.
+En el contexto de los \acrshort{llm}, la ``temperatura'' es un parámetro que se utiliza durante la generación de texto para controlar la aleatoriedad de las predicciones del modelo. Se ajusta la temperatura para influir en la diversidad y la imprevisibilidad de las respuestas generadas.
 
-\item \textbf{Manejo de Datos Desbalanceados:} Si los datos están desbalanceados (por ejemplo, se tienen muchas más instancias de una clase que de otra), es posible que se desean aplicar técnicas para abordar este desequilibrio.
+Cuando la temperatura es baja (por ejemplo, cerca de 0), el modelo tiende a producir predicciones más deterministas y coherentes. Esto significa que es más probable que elija las palabras o secuencias de palabras más probables según su entrenamiento, dando respuestas más conservadoras y predecibles.
 
-\end{itemize}
+Por otro lado, cuando la temperatura es alta (por ejemplo, 1 o más), se introduce más aleatoriedad en las predicciones. Esto puede llevar a respuestas más creativas y diversas, ya que el modelo considera opciones menos probables y se vuelve menos restrictivo en su elección de palabras. Como referencia Chat-GPT tiene una temperatura de 0,7.
 
-El preprocesamiento puede variar según la tarea y el modelo específico que se está utilizando. Algunos modelos, como \acrfull{gpt}, han demostrado ser bastante robustos y pueden manejar datos en bruto con un preprocesamiento mínimo, mientras que otros modelos pueden requerir una preparación más cuidadosa de los datos. 
+Ajustar la temperatura es una forma de personalizar la salida del modelo según las necesidades del usuario. Si se busca variedad en las respuestas, se puede aumentar la temperatura, mientras que si se prefiere coherencia y previsibilidad, se puede reducir la temperatura.
 
-Además, para \acrshort{rag}, también hay un enfoque importante en la creación de conjuntos de datos que vinculen preguntas con respuestas relevantes para el entrenamiento efectivo del modelo. 
+En este caso se ha optado por valores pequeños de temperatura, entre 0,3 y 0,5, para minimizar las alucinaciones y ceñirse a los datos provistos en el \acrshort{rag}.
 
-Los datos que se disponen del \acrshort{faq} para \acrshort{tfg}, la información está en una estructura poco ventajosa para el Chatbot basado en \acrshort{llm}. Se disponen de distintas fuentes de datos que se han de incorporar al \acrshort{rag}.
+\section{Preprocesamiento de los documentos del TFG}\label{Preprocesamiento}
 
-\subsection{\textit{Document Loaders}}
+Se han realizado unas pruebas con los datos sin preprocesar y los resultados no han sido buenos. La información se encuentra en distintos formatos \textit{.docx}, \textit{.csv} y \textit{.pdf} y contiene  comentarios, tablas, pies de página y texto en párrafos. 
 
-Los \textit{document loaders} en el contexto de \acrlong{llm} como LLaMa.cpp o Langchain se refieren a componentes o módulos diseñados para cargar documentos o datos en la memoria del modelo. Estos documentos actúan como contexto o información de referencia que el modelo puede utilizar durante el proceso de inferencia para comprender y responder de manera más precisa a las consultas o preguntas que se le presentan. Basicamente es la función que se describe en el método \acrshort{rag}.
+Para usar técnicas \acrshort{rag} y en general \acrshort{pln}, se deben usar datos mas similares al lenguaje natural o con una estructura definida. El \acrshort{llm} está pensado para gestionar el lenguaje natural pero no puede gestionar datos desestructurados, tablas o imágenes todo mezclado.
 
-En términos generales, la carga de documentos es esencial para proporcionar contexto y conocimiento al modelo, mejorando así su capacidad para generar respuestas significativas. El proceso de carga de documentos implica tomar información desde diversas fuentes, como bases de datos, páginas web, archivos de texto, etc., y convertirla en un formato que el modelo pueda entender y utilizar.
+\subsection{FAQ Online}
 
-\imagen{DocumentLoaders}{Matriz de representación de los multiples \textit{Document Loaders} disponibles en LangChain.}{1}
+Este documento estaba creado para el Chatbot que usaba DialogFlow para la creación de la aplicación~\cite{UBU-Chatbot}. El documento original era un DOCX que contenía tanto texto, como tablas y comentarios. Se puede encontrar en el siguiente enlace: \url{https://github.com/jrg1013/chatbot/blob/main/datasets/ListadoPreguntas-Respuestas%20-%20ONLINE.docx}.
 
-En resumen, los \textit{document loaders} son parte fundamental del proceso de preparación de datos para \acrlong{llm}, asegurando que tengan acceso a la información relevante que les permita realizar tareas específicas de manera efectiva.
+Esta información esta segmentada y en el proceso de creación de los \textit{Embeddings}, al no tener una estructura definida los \textit{chunks} no mantenían la estructura semántica. Es cierto que el Chatbot respondía algunas preguntas correctamente al exportar el documento original a TXT de forma automática, pero parte de las preguntas y respuestas se mezclaban al no separarse correctamente.
 
-\subsection{Datos disponibles}
+Se han exportado los datos a formato CSV y se han estructurado mejor. Se puede encontrar el nuevo archivo ya pretratado en el siguiente enlace: \url{https://github.com/jrg1013/chatbot/blob/main/project-app/documents/Preguntas-Respuestas%20-%20ONLINE.csv}.
 
-Se han realizado unas pruebas con los datos sin preprocesar y los resultados no han sido buenos. La información se encuentra en formato .docx y contiene tanto comentarios, como tablas como texto en párrafos. Está formato de información estaba creado para el Chatbot que usaba DialogFlow para la creación de la aplicación. 
+Al usar el \textit{Data Loader} de LangChain para CSV. se ha especificado como fragmentar la información correctamente y cómo interpretar cada columna. Esto ha supuesto una mejora considerable en los resultados del Chatbot y en general la información se recupera adecuadamente de la base de datos vectorial.
 
-Esta información es segmentada en el proceso de creación de los \textit{Embeddings} y sin una estructura definida los segmentos no mantenían la estructura semántica. Es cierto que el Chatbot respondía algunas preguntas correctamente al exportar los datos a .txt de forma automática, pero parte de las preguntas y respuestas se mezclaban al no separarse correctamente.
+\subsection{Histórico de TFGs}
 
-Se han exportado los datos a formato .csv y al usar el \textit{Data Loader} de Langchain se ha especificado como fragmentar la información correctamente y como interpretar cada columna. Esto ha supuesto un salto considerable los resultados del Chatbot y en general la información se recupera adecuadamente de la base de datos vectorial.
+Este documento no es usado en el chatbot anterior y se encuentra en formato CSV. Contiene una lista de los \acrshort{tfg} realizados en la modalidad \textit{online} en los últimos años e información sobre cada uno de esos proyectos como es el nombre de los tutores o el enlace al repositorio. Se puede encontrar en el siguiente enlace: \url{https://github.com/jrg1013/chatbot/blob/main/datasets/TFGHistorico.csv}.
 
-Para usar técnicas \acrshort{rag} y en general \acrshort{pln}, se deben usar datos mas similares al lenguaje natural o con una estructura definida. El \acrshort{llm} funciona muy bien en gestionar el lenguaje pero no puede gestionar datos desestructurados, tablas o imágenes.
+Se ha mantenido el formato CSV, pero tras varias pruebas, ha sido necesario organizar la información en las celdas de forma adecuada y eliminar algunas columnas para evitar problemas. Se puede encontrar el nuevo archivo ya pretratado en el siguiente enlace: \url{https://github.com/jrg1013/chatbot/blob/main/project-app/documents/TFGHistorico.csv}.
+
+Principalmente los problemas han venido con el \textit{Data Loader} de LangChain para CSVs. Al leer los datos estos deben estar bien estructurados o los \textit{chunks} de información carecerán de sentido y no se recuperará información del \acrshort{rag}. Tras varios intentos se ha logrado realizar recuperación de información reduciendo el tamaño de los \textit{chunks} de los \textit{embeddings} y reduciendo el valor de similitud mínimo.
+
+\subsection{Reglamento para TFG y TFM de la UBU}
+
+El último documento usado para el entrenamiento del chatbot ha sido el PDF que contiene el reglamento para \acrshort{tfg} de la \acrshort{ubu}. Se puede encontrar en el siguiente enlace: \url{https://github.com/jrg1013/chatbot/blob/main/datasets/reglamentp_tfg-tfm_aprob._08-06-2022.pdf}.
+
+Este documento presenta dificultades a la hora de importar la información en la base de datos vectorial. Principalmente tiene el problema de la estructura de la información con pies de página y encabezados en cada hoja que dificultan la creación de trozos de información coherentes. 
+
+El segundo problema es que estamos combinando distintos tipos de \textit{embeddings}. Uno más estructurado proveniente de CSVs y otro con lenguaje natural desde un PDF. No es una situación ideal que se intentará manejar en el proceso de recuperación de la información y la parte generativa a traves del \textit{prompt}. Este documento no ha sido tratado y se usa el \textit{Data Loader} PyPDFLoader.
 
 \section{Validación y pruebas en el procesamiento del lenguaje natural}
 
-La validación de \acrshort{llm} y \acrshort{rag} sigue principios generales de evaluación de modelos de aprendizaje automático. Algunas estrategias comunes son:
+La validación de \acrshort{llm} y \acrshort{rag} sigue principios generales de evaluación de modelos de aprendizaje automático. Algunas estrategias comunes son~\cite{schäfer2023empirical}:
 
 \begin{itemize}
 
@@ -182,13 +190,13 @@ De las métricas nombradas anteriormente se ha optado por hacer una mezcla de Ev
 
 En una primera etapa se ha realizado una validación genérica basada en la evaluación humana. Es relativamente fácil descartar algunas configuraciones que dan respuestas alejadas de lo que se busca.
 
-Un vez que se tiene una estrategia general, se ha realizado un proceso de \textit{Benchmarking} usando una lista de preguntas y respuestas y comparando los resultado con las respuestas previstas. Esto permite realizar un ranking de que configuración da mejores resultados en el \acrshort{rag}. Para ello se han usado 22 preguntas del set de preguntas del que se dispone y se ha generado para cada variación un reporte.
+Un vez que se tiene una estrategia general, se ha realizado un proceso de \textit{Benchmarking} usando una lista de preguntas y respuestas y comparando los resultado con las respuestas previstas. Esto permite realizar un ranking de que configuración da mejores resultados en el \acrshort{rag}. Para ello se han usado 22 preguntas del set de preguntas del que se dispone y se ha generado para cada variación un reporte. Ver figura~\ref{fig:Validacion1}.
 
 \imagen{Validacion1}{Ejemplo de reporte de testeo de una posible configuración del RAG.}{1}
 
 \subsection{Usar un LLM para validar un LLM}
 
-Un interesante aspecto que se plantea al validar respuestas del chatbot es determinar que es una respuesta correcta. Los \acrshort{llm} son por naturaleza no deterministas y en el lenguaje natural a diferencia de en problemas matematicos, dos respuestas pueden ser distintas y a la vez correctas. 
+Un interesante aspecto que se plantea al validar respuestas del chatbot es determinar que es una respuesta correcta. Los \acrshort{llm} son por naturaleza no deterministas y en el lenguaje natural a diferencia de en problemas matemáticos, dos respuestas pueden ser distintas y a la vez correctas. 
 
 Para ello se utiliza una interesante estrategia que consiste en usar un \acrshort{llm} para valorar si la respuesta generada por el Chatbot (que ha sido generada por un \acrshort{llm}) contiene la misma información que la respuesta esperada.
 
@@ -200,6 +208,8 @@ son equivalentes. La información en {respuesta generada}
 es equivalente a la que contiene {respuesta esperada}.
 \end{verbatim}
 
-La respuesta de esta consulta será una boleana que nos dirá si es correcto o incorrecto. En teoría esto se puede aplicar usando Langchain pero lamentablemente no está exento de fallos. Esta validación automática es rápida pero tiene un tasa de fallo significativa. Vale como indicación general de lo bueno o malo que es una solución pero se debe comprobar de forma manual.
+La respuesta de esta consulta será una booleana que nos dirá si es correcto o incorrecto. En teoría esto se puede aplicar usando LangChain pero lamentablemente no está exento de fallos. Esta validación automática es rápida pero tiene un tasa de fallo significativa. Vale como indicación general de lo bueno o malo que es una solución pero se debe comprobar de forma manual. Ver ejemplo en la figura~\ref{fig:Validacion2}.
+
+Se puede consultar el histórico de las pruebas realizadas en el siguiente enlace: \url{https://github.com/jrg1013/chatbot/tree/main/project-app/temp}.
 
 \imagen{Validacion2}{Ejemplo de la validación de Preguntas y Respuestas del chatbot y su respuesta generada.}{1}

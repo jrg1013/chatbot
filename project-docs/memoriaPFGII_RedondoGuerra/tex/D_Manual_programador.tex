@@ -2,10 +2,269 @@
 
 \section{Introducción}
 
+En este sección se abarcan tanto el despliegue del chatbot como los procesos de entrenamiento y validación. Se proporcionan instrucciones detalladas sobre el proceso de instalación y ejecución. Además, en esta documentación técnica de programación, se ofrecen las pautas necesarias para utilizar la aplicación de manera efectiva y correcta.
+
 \section{Estructura de directorios}
 
-\section{Manual del programador}
+La estructura de directorios del proyecto es la siguiente:
 
-\section{Compilación, instalación y ejecución del proyecto}
+\begin{itemize}
+
+    \item \textbf{/}: fichero de la licencia, .gitignore y el documento \textit{Readme} con información del proyecto.
+    
+    \item \textbf{/datasets/}: colección de documentos originales relacionados con el \acrshort{tfg}.
+    
+    \item \textbf{/project-docs/}: documentación del proyecto que contiene los ficheros \LaTeX, las imágenes y los diagramas creados.
+    
+    \item \textbf{/project-prototype/}: prototipos creados durante la fase de investigación.
+    
+    \item \textbf{/project-app/}: fichero de la aplicación del chatbot en su versión de explotación.
+    
+    \item \textbf{/project-app/documents/}: documentos preprocesados de los datasets que serán usados en el entrenamiento del chatbot.
+    
+    \item \textbf{/project-app/faiss-index-hp/}: base de datos vectorial con los datos propios para realizar el \acrshort{rag}.
+    
+\end{itemize}
+
+\section{Manual del programador}\label{ManualProgramador}
+
+La herramienta principal usada en este proyecto ha sido \textit{Visual Studio Code} y el lenguaje ha sido Python. Ambos están ampliamente extendidos y son de código abierto por lo que no es necesario comprar licencias ni aprender un nuevo lenguaje de programación. 
+
+\subsection{Python} 
+
+Antes de comenzar a utilizar el chatbot, se debe de tener Python instalado en el sistema. Se recomienda utilizar una versión igual o superior a Python 3.6, aunque se aconseja la versión 3.9 para garantizar la compatibilidad total con las dependencias del proyecto.
+
+Si aún no se tiene Python instalado, se pueden seguir estos pasos para descargarlo e instalarlo:
+
+\subsubsection{Windows}
+
+\begin{enumerate}
+     \item Visita el sitio web oficial de Python en \url{https://www.python.org/}.
+     
+     \item Descarga la última versión estable de Python 3.
+     
+     \item Ejecuta el instalador y asegúrate de marcar la casilla ``Add Python to PATH'' durante la instalación.
+\end{enumerate}
+
+\subsubsection{Linux}
+
+\begin{enumerate}
+     \item Abre la terminal.
+     
+     \item Ejecuta el siguiente comando para actualizar tu sistema.
+\begin{lstlisting}[language=Python, caption=Instalaciónde Python en Linux.]
+    sudo apt-get update
+    sudo apt-get install python3
+    
+\end{lstlisting}
+     
+     \item Con esto ya estaría instalado Python y configurado el PATH.
+\end{enumerate}
+
+\subsubsection{macOS}
+
+\begin{enumerate}
+     \item Instala Homebrew si aún no lo tienes. Puedes seguir las instrucciones en \url{https://www.brew.sh/}.
+     
+     \item Abre la terminal y ejecuta el siguiente comando para instalar Python 3.
+\begin{lstlisting}[language=Python, caption=Instalaciónde Python en macOS.]
+    brew install python3
+    
+\end{lstlisting}
+     
+     \item Con esto ya estaría instalado Python y configurado el PATH.
+\end{enumerate}
+
+\subsection{HuggingFace Token}
+
+Primero es necesario crear una cuenta en HuggingFace. El proceso es sencillo, tan solo hay que seguir las indicaciones del siguiente enlace \url{https://huggingface.co/join}.
+
+Para crear un token de acceso, ve a la configuración de la cuenta y luego haz clic en la pestaña \textit{Access Tokens}. Haz clic en el botón \textit{New token} para crear un nuevo \textit{User Access Token}.
+
+Selecciona un rol y un nombre para tu token y con eso ya dispondrías de un token para acceder, ver figura~\ref{fig:new-token} . Puedes eliminar y actualizar los \textit{User Access Tokens} haciendo clic en el botón \textit{Manage}.
+
+\imagen{new-token}{Ejemplo de creación de un nuevo token en HugginFace.}
+
+Con ese token se creará un archivo con nombre \textit{tokens.py}, que contendrá el token como se muestra en el ejemplo continuación. Este fichero se ha de guardar en la carpeta \textbf{/project-app/}.
+
+\begin{lstlisting}[language=Python, caption=Configuración del fichero tokens.py.]
+    huggingfacehub_api_token = 
+        "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"
+\end{lstlisting}
+
+\section{Compilación, instalación y ejecución del proyecto}\label{Instalación}
+
+\subsection{Clonar repositorio}
+
+Para acceder y utilizar el código fuente de este proyecto, sigue los pasos a continuación para clonar el repositorio desde GitHub:
+
+\begin{enumerate}
+\item Abre tu terminal o línea de comandos en tu entorno de desarrollo.
+
+\item Ejecuta el siguiente comando para clonar el repositorio desde la \acrshort{url}.
+
+\begin{lstlisting}[language=Python, caption=Clonar repositorio de GitHub. ]
+    git clone https://GitHub.com/jrg1013/chatbot.git
+\end{lstlisting}
+
+\item Una vez completada la clonación, se puede acceder al directorio del proyecto utilizando.
+
+\begin{lstlisting}[language=Python, caption=Acceso a la carpeta del proyecto.]
+    cd chatbot
+\end{lstlisting}     
+\end{enumerate}
+
+\subsection{Configuración del entorno de desarrollo}
+
+Una vez que se tiene el repositorio clonado el siguiente paso es instalar las librerías y componentes necesarios para que se pueda ejecutar la aplicación. Se incluye un entorno virtual de desarrollo para simplificar este proceso que puede resultar complejo al haber potenciales conflictos entre las versiones de los componentes. 
+
+Para configurar el entorno de desarrollo se ha de seguir los siguientes pasos:
+
+\begin{enumerate}
+\item Abre tu terminal o línea de comandos en tu entorno de desarrollo y ve hasta la carpeta \textit{project-app}.
+
+\item Comienza por la creación de un entorno virtual de Python. Este paso solo se ha de realizar la primera vez.
+
+\begin{lstlisting}[language=Python, caption=Creación de un entorno virtual.]
+    python3 -m venv ./venv
+\end{lstlisting}
+
+\item Ahora se debe activar el entorno virtual de Python.
+
+\begin{lstlisting}[language=Python, caption=Activación del entorno virtual.]
+    source venv/bin/activate
+\end{lstlisting}
+
+\item Ejecuta el siguiente comando para ejecutar el proceso de configuración del entorno de desarrollo que instalará todos los paquetes necesarios en ese entorno virtual.
+
+\begin{lstlisting}[language=Python, caption=Configuración del entorno de desarrollo.]
+    sh setup_env.sh
+\end{lstlisting}
+
+\item Una vez completado este proceso ya se puede ejecutar el proyecto.  
+\end{enumerate}
+
+\subsection{Actualizar entorno de desarrollo}
+
+En las siguientes versiones del chatbot será necesario añadir o modificar componentes usados en el desarrollo. Para ello es suficiente con instalar los componentes en el entorno virtual que se está utilizando y posteriormente actualizar los requisitos que se encuentran en \textit{requirements.txt}.
+
+\begin{enumerate}
+\item Abre tu terminal o línea de comandos en tu entorno de desarrollo y ve hasta la carpeta \textit{project-app}.
+
+\item Una vez que estemos en el entorno virtual de Python, se ejecuta el siguiente comando.
+
+\begin{lstlisting}[language=Python, caption=actualización de \textit{requirements.txt}.]
+    pip freeze > requirements.txt
+\end{lstlisting}
+
+\item Una vez completado este proceso el archivo ha sido actualizado y se puede usar para recuperar el entorno virtual de trabajo.  
+\end{enumerate}
+
+\subsection{Entrenar al chatbot con nuevos datos}
+
+Para poder actualizar los datos de entrenamiento del chatbot se ha creado un \textit{script} que permite automatizar este proceso sin tener que modificar el código.
+
+\begin{enumerate}
+\item Abre tu terminal o línea de comandos en tu entorno de desarrollo y ve hasta la carpeta \textit{project-app}.
+
+\item Ejecuta el \textit{script} para actualizar la base de datos vectorial.
+
+\begin{lstlisting}[language=Python, caption=Ejecutar \textit{script} para la creación de la base de datos vectorial.]
+    python learn.py
+\end{lstlisting}
+
+\item Los archivos que se encuentran en la carpeta /faiss-index-hp se han actualizado.
+
+\end{enumerate}
+
+En caso de necesitar documentos distintos para el entrenamiento del chatbot, se pueden modificar la siguiente parte del código del archivo \textit{learn.py}, incluyendo nuevos archivos o modificando los \textit{data loaders} actuales.
+
+\begin{lstlisting}[language=Python, caption=Data loaders para la creación de la base de datos vectorial.]
+   loaders = [
+    document_loaders.CSVLoader(
+        file_path="./documents/Preguntas-Respuestas - ONLINE.csv",
+        csv_args={
+            "delimiter": ";",
+            "quotechar": '"',
+            "fieldnames": ["Intencion", "Ejemplo mensaje usuario", "Respuesta"],
+        }),
+    document_loaders.CSVLoader(
+        file_path="./documents/TFGHistorico.csv",
+        csv_args={
+            "delimiter": ",",
+            "quotechar": '"',
+            "fieldnames": ["Titulo", "TituloCorto", "Descripcion", "Tutor1", "Tutor2", "Tutor3"],
+        }),
+        ,
+    document_loaders.PyPDFLoader(
+        file_path="./documents/reglamentp_tfg-tfm_aprob._08-06-2022.pdf")
+    ]
+\end{lstlisting}
+
+\subsection{Ejecutar la aplicación}
+
+Para ejecutar la aplicación se ha creado un \textit{script} que simplifica el proceso y permite modificaciones futuras sin necesidad de que el usuario se vea afectado.
+
+\begin{enumerate}
+\item Abre tu terminal o línea de comandos en tu entorno de desarrollo y ve hasta la carpeta \textit{project-app}.
+
+\item Para ejecutar la aplicación solo es necesario ejecutar el \textit{script} que se ha creado para tal efecto como se indica a continuación. Es necesario estar en el entorno virtual que se ha configurado anteriormente.
+
+\begin{lstlisting}[language=Python, caption=Ejecutar la aplicación.]
+    sh run-app.sh
+\end{lstlisting}
+
+\item Automáticamente se abrirá una pestaña nueva en el navegador por defecto. Ver figura~\ref{fig:chatbot}
+
+\item No se debe cerrar el terminal ya que se está ejecutando el servidor de Streamlit y las llamadas a la \acrshort{api} de HuggingFace desde él.
+
+\item Cuando se desee finalizar la aplicación basta con cerrar la pestaña del navegador y cancelar la ejecución del terminal.  
+\end{enumerate}
+
+\imagen{chatbot}{Estado inicial del chatbot tras su apertura.}
 
 \section{Pruebas del sistema}
+
+La validación de \acrshort{llm} y \acrshort{rag} sigue principios generales de evaluación de modelos de aprendizaje automático~\cite{schäfer2023empirical}.
+
+Es importante recordar que no hay una métrica única que capture completamente la calidad de un modelo de lenguaje o de respuesta generativa. La combinación de varias métricas y evaluaciones humanas a menudo brinda una visión más completa del rendimiento del modelo. Además, la elección de la estrategia de evaluación puede depender de la tarea específica y de los objetivos del modelo.
+
+\subsection{Ejecución de las pruebas}
+
+Se ha optado por hacer una mezcla de Evaluación Humana, Conjunto de Datos de Pregunta/Respuesta y \textit{Benchmark}. En una primera etapa se ha realizado una validación genérica basada en la evaluación humana. Es relativamente fácil descartar algunas configuraciones que dan respuestas alejadas de lo que se busca.
+
+Un vez que se tiene una estrategia general, se ha realizado un proceso de \textit{Benchmarking} usando una lista de preguntas y respuestas y comparando los resultado con las respuestas previstas. Esto permite realizar un ranking de que configuración da mejores resultados en el \acrshort{rag}. Para ello se han usado 22 preguntas del conjunto de preguntas del que se dispone y se ha generado para cada variación un reporte. Ver figura~\ref{fig:Validacion1}.
+
+\imagen{Validacion1}{Ejemplo de reporte de testeo de una posible configuración del RAG, donde se indican el número de respuestas correctas 13 sobre 22 y los parámetros de configuración.}
+
+Para ello se ha creado un script que contiene todos los pasos necesarios para ejecutar la validación y guardar los resultados en un archivo.
+
+\begin{enumerate}
+\item Abre tu terminal o línea de comandos en tu entorno de desarrollo y ve hasta la carpeta \textit{project-app}.
+
+\item Comienza por la creación de un entorno virtual de Python. Este paso solo se ha de realizar la primera vez.
+
+\begin{lstlisting}[language=Python, caption=actualización de \textit{requirements.txt}.]
+    python validate.py
+\end{lstlisting}
+
+\item Como resultado de esta validación se crea un archivo \textit{.txt} con los resultados en la carpeta \textit{temp}.
+\end{enumerate}
+
+\subsection{Usar un LLM para validar un LLM}
+
+Un interesante aspecto que se plantea al validar respuestas del chatbot es determinar que es una respuesta correcta. Los \acrshort{llm} son por naturaleza no deterministas y en el lenguaje natural a diferencia de en problemas matemáticos, dos respuestas pueden ser distintas y a la vez correctas. 
+
+Para ello se utiliza una interesante estrategia que consiste en usar un \acrshort{llm} para valorar si la respuesta generada por el Chatbot (que ha sido generada por un \acrshort{llm}) contiene la misma información que la respuesta esperada.
+
+Explicado de una forma simplificada, es una llamada a un modelo de generación que incluye un \textit{Prompt} del tipo:
+
+\begin{verbatim}
+Prompt: Tienes que valorar si dos respuestas de dadas 
+son equivalentes. La información en {respuesta generada} 
+es equivalente a la que contiene {respuesta esperada}.
+\end{verbatim}
+
+La respuesta de esta consulta será una booleana que nos dirá si es correcto o incorrecto. En teoría esto se puede aplicar usando LangChain pero lamentablemente no está exento de fallos. Esta validación automática es rápida pero tiene un tasa de fallo significativa. Vale como indicación general de lo bueno o malo que es una solución pero se debe comprobar de forma manual. Ver ejemplo en la figura~\ref{fig:Validacion2}.
+
+\imagen{Validacion2}{Ejemplo de la validación de Preguntas y Respuestas del chatbot y su respuesta generada.}

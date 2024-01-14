@@ -33,6 +33,10 @@
 \newacronym{gpu}{GPU}{\textit{Graphics Processing Unit}}
 \newacronym{ui}{UI}{\textit{User Interface}}
 \newacronym{faq}{FAQ}{\textit{Frequently Asked Questions}}
+\newacronym{url}{URL}{\textit{Uniform Resource Locator}}
+\newacronym{ue}{UE}{Unión Europea}
+\newacronym{irpf}{IRPF}{Impuesto sobre la Renta de las Personas Físicas}
+\newacronym{ide}{IDE}{Entorno de desarrollo integrado}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
@@ -446,18 +450,21 @@ D. Carlos López Nozal co-tutor
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
 
-Este proyecto se centra en el desarrollo de un chatbot avanzado diseñado para proporcionar asistencia a estudiantes de Ingeniería Informática que se encuentran inmersos en la realización de sus \acrfull{tfg}. El chatbot se basa en \acrfull{llm}, como ChatGPT, y emplea técnicas de \acrfull{rag} para enriquecer su capacidad de respuesta y acceso a información relevante.
+Este proyecto desarrolla un chatbot avanzado diseñado para proporcionar asistencia a estudiantes de Ingeniería Informática que se encuentran inmersos en la realización de sus \acrfull{tfg}. El chatbot se basa en \acrfull{llm}, como ChatGPT, y emplea técnicas de \acrfull{rag} para enriquecer su capacidad de respuesta y acceso a información relevante.
 
-Este proyecto se caracteriza por su doble enfoque: en primer lugar, un análisis tecnológico exhaustivo de las distintas soluciones de implementación del chatbot utilizando LLM basados en \acrfull{ia} generativa; en segundo lugar, su aplicación en un entorno específico, en este caso, la asistencia a estudiantes en la realización de sus \acrshort{tfg} en la Universidad de Burgos. Se prioriza la evaluación tecnológica y el análisis crítico de las soluciones de implementación del chatbot, junto con la comparación de su desempeño con chatbots preexistentes.
+Este proyecto se caracteriza por su doble enfoque: en primer lugar, un análisis tecnológico exhaustivo de las distintas soluciones de implementación del chatbot utilizando LLM basados en \acrfull{ia} generativa; en segundo lugar, su aplicación en un entorno específico, en este caso, la asistencia a estudiantes en la realización de sus \acrshort{tfg} en la Universidad de Burgos. Se ha realizado la investigación y evaluación de soluciones tecnológicas probando tanto distintos modelos como la forma de acceder a los mismos.
 
-El proyecto busca no solo explorar las capacidades de los \acrshort{llm} y las técnicas de \acrshort{rag}, sino también evaluar cómo estas tecnologías pueden tener un impacto significativo en un contexto concreto.
+Entre los modelos que fueron objeto de estudio, se optó por Mistral debido a su destacado rendimiento, la disponibilidad de una interfaz de programación de aplicaciones \acrshort{api}, y su condición como empresa europea, lo que implica su sujeción a las leyes de protección de datos necesarias para este tipo de productos. Para la interacción con el Modelo de Lenguaje Grande \acrshort{llm} y la creación del \acrshort{rag}, se empleó LangChain, una elección que facilitó una implementación bastante sencilla, aunque se evidenciaron algunas limitaciones en su funcionamiento.
+
+Esta solución tecnológica emergente exhibe resultados superiores en comparación con el chatbot basado en DialogFlow, incluso en sus etapas iniciales. Se anticipa que esta tecnología podría dominar el sector de los chatbots a medida que se perfeccionen aspectos como las alucinaciones, la validación de los \acrshort{llm} y las consideraciones relacionadas con la sostenibilidad ética y energética.
+
 
 
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-\textit{Chatbot}, \textit{Large Language Models(LLM)}, \textit{Retrieval-augmented Generation(RAG)}, Procesamiento de lenguaje natural(NLP), Inteligencia artificial, Aprendizaje automático, \textit{Embeddings}, Base de datos vectorial,\ldots
+\textit{Chatbot}, \textit{Large Language Models(LLM)}, \textit{Retrieval-augmented Generation(RAG)}, Procesamiento de lenguaje natural(NLP), Inteligencia artificial, Aprendizaje automático, \textit{Embeddings}, Base de datos vectorial.
 \end{abstract}
 
 \clearpage
@@ -467,14 +474,17 @@ El proyecto busca no solo explorar las capacidades de los \acrshort{llm} y las t
 \begin{abstract}
 This project focuses on the development of an advanced chatbot designed to provide assistance to Computer Engineering students who are immersed in the completion of their ``Final Thesis'' (\acrshort{tfg}). The chatbot is based on \acrfull{llm}, such as ChatGPT, and uses \acrfull{rag} techniques to improve its responsiveness and access to relevant information.
 
-This project is characterized by its twofold approach: first, an exhaustive technological analysis of the different chatbot implementation solutions using \acrshort{llm} based on ``Generative Artificial Intelligence'' (AI); second, its application in a specific environment, in this case, the assistance to students in the realization of their \acrshort{tfg} at the University of Burgos. Priority is given to the technological evaluation and critical analysis of the chatbot implementation solutions, together with the comparison of its performance with pre-existing chatbots.
+This project is characterized by its twofold approach: first, an exhaustive technological analysis of the different chatbot implementation solutions using \acrshort{llm} based on ``Generative Artificial Intelligence'' (AI); second, its application in a specific environment, in this case, the assistance to students in the realization of their \acrshort{tfg} at the University of Burgos. Research and evaluation of technological solutions has been carried out by testing different models and the way to access them.
 
-The project seeks not only to explore the capabilities of \acrshort{llm} and \acrshort{rag} techniques, but also to evaluate how these technologies can have a significant impact in a specific context.
+Among the models under study, Mistral was chosen because of its outstanding performance, the availability of an \acrshort{api}, and its status as a European company, which means that it is subject to the data protection laws required for this type of product. For the interaction with the \acrshort{llm} and the creation of the \acrshort{rag}, LangChain was used, a choice that facilitated a fairly straightforward implementation, although some limitations in its operation were evident.
+
+This emerging technology solution exhibits superior results compared to the DialogFlow-based chatbot, even in its initial stages. It is anticipated that this technology could dominate the chatbot industry as aspects such as hallucinations, \acrshort{llm} validation, and ethical and energy sustainability considerations are refined.
+
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-Chatbot, Large Language Models(LLM), Retrieval-augmented Generation(RAG), Natural Language Processing(NLP), Artificial Intelligence, Machine Learning, Embeddings, Vector Database,\ldots
+Chatbot, Large Language Models(LLM), Retrieval-augmented Generation(RAG), Natural Language Processing(NLP), Artificial Intelligence, Machine Learning, Embeddings, Vector Database.
 \end{abstract}
 
 \clearpage

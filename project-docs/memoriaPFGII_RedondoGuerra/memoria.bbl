@@ -1,0 +1,230 @@
+\begin{thebibliography}{10}
+
+\bibitem{UBUAssistant}
+Daniel~Santidrián Alonso.
+\newblock Ubuassistant, 2018.
+\newblock [Online; Accedido 19-junio-2021].
+
+\bibitem{Anthropic}
+Anthropic.
+\newblock Introducing claude.
+
+\bibitem{bowman2023eight}
+Samuel~R Bowman.
+\newblock Eight things to know about large language models.
+\newblock {\em arXiv preprint arXiv:2304.00612}, 2023.
+
+\bibitem{Low-shot}
+Jason Brownlee.
+\newblock Prompt engineering for effective interaction with chatgpt.
+
+\bibitem{chen-etal-2017-reading}
+Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes.
+\newblock Reading {W}ikipedia to answer open-domain questions.
+\newblock In {\em Proceedings of the 55th Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)}, pages 1870--1879,
+  Vancouver, Canada, July 2017. Association for Computational Linguistics.
+
+\bibitem{Chollet}
+Francois Chollet.
+\newblock How i think about llm prompt engineering.
+
+\bibitem{digit}
+DIGIT~Grupo de~innovación docente de la Universidad~de Burgos.
+\newblock Consultando a chatgpt sobre trabajos fin de grado.
+
+\bibitem{HuggingFace}
+Hugging Face.
+\newblock About hugging face.
+
+\bibitem{fan-etal-2019-eli5}
+Angela Fan, Yacine Jernite, Ethan Perez, David Grangier, Jason Weston, and
+  Michael Auli.
+\newblock {ELI}5: Long form question answering.
+\newblock In {\em Proceedings of the 57th Annual Meeting of the Association for
+  Computational Linguistics}, pages 3558--3567, Florence, Italy, July 2019.
+  Association for Computational Linguistics.
+
+\bibitem{Gage_Compresion}
+Philip Gage.
+\newblock A new algorithm for data compression.
+
+\bibitem{llama.cpp}
+Georgi Gerganov.
+\newblock llama.cpp.
+
+\bibitem{GGML_Gimmi}
+Phillip Gimmi.
+\newblock What is gguf and ggml?
+
+\bibitem{Faiss}
+Jeff~Johnson Hervé~Jegou, Matthijs~Douze.
+\newblock Faiss: A library for efficient similarity search.
+
+\bibitem{hossain-etal-2020-simple}
+Nabil Hossain, Marjan Ghazvininejad, and Luke Zettlemoyer.
+\newblock Simple and effective retrieve-edit-rerank text generation.
+\newblock In {\em Proceedings of the 58th Annual Meeting of the Association for
+  Computational Linguistics}, pages 2532--2538, Online, July 2020. Association
+  for Computational Linguistics.
+
+\bibitem{Langchain}
+Introduction.
+\newblock Introduction to langchain.
+
+\bibitem{Hostinger}
+Akshay K.
+\newblock Best large language models for 2023 and how to choose the right one
+  for your site.
+
+\bibitem{Murtuza}
+Murtuza Kazmi.
+\newblock Using llama 2.0, faiss and langchain for question-answering on your
+  own data.
+
+\bibitem{Techtarget_LLM}
+Sean~Michael Kerner.
+\newblock Large language models (llms).
+
+\bibitem{Lewis2020}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+  Karpukhin, Naman Goyal, Heinrich K\"{u}ttler, Mike Lewis, Wen-tau Yih, Tim
+  Rockt\"{a}schel, Sebastian Riedel, and Douwe Kiela.
+\newblock Retrieval-augmented generation for knowledge-intensive nlp tasks.
+\newblock In H.~Larochelle, M.~Ranzato, R.~Hadsell, M.F. Balcan, and H.~Lin,
+  editors, {\em Advances in Neural Information Processing Systems}, volume~33,
+  pages 9459--9474. Curran Associates, Inc., 2020.
+
+\bibitem{LlamaIndex}
+LlamaIndex.
+\newblock Using llms.
+
+\bibitem{lopez2010final}
+Carlos López, David~H Martín, Andrés Bustillo, and Raúl Marticorena.
+\newblock Final year project management process.
+\newblock In {\em Proceedings 2nd International Conference on Computer
+  Supported Education}, volume~2, pages 5--12, 2010.
+
+\bibitem{lopez2009proceso}
+Carlos López~Nozal, Raúl Marticorena~Sánchez, Juan~José Rodríguez, and
+  Andrés Bustillo~Iglesias.
+\newblock Proceso de gestión de trabajos fin de carrera.
+\newblock In {\em Jornadas de Enseñanza Universitaria de la Informática},
+  pages 413--420. Jornadas de Enseñanza Universitaria de la Informática,
+  2009.
+
+\bibitem{Ǎguila}
+Mapama247.
+\newblock Introducing Ǎguila, a new open-source llm for spanish and catalan.
+
+\bibitem{Nvidia_Transformers}
+Rick Merritt.
+\newblock What is a transformer model?
+
+\bibitem{MicrosoftVectorDatabase}
+Microsoft.
+\newblock What is a vector database?
+
+\bibitem{Mikolov2013Word2Vec}
+Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Efficient estimation of word representations in vector space.
+\newblock {\em CoRR}, abs/1301.3781, 2013.
+
+\bibitem{mikolov2013distributed}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality, 2013.
+
+\bibitem{MindsDB}
+MindsDB.
+\newblock Navigating the llm landscape: A comparative analysis of leading large
+  language models.
+
+\bibitem{MiitaMistral}
+Aayush Mitta.
+\newblock Mistral ai: Setting new benchmarks beyond llama2 in the open-source
+  space.
+
+\bibitem{gpt4all}
+Nomic.
+\newblock gpt4all.
+
+\bibitem{OpenAI_Tokenizer}
+OpenAI.
+\newblock Tokenizer.
+
+\bibitem{radford_language_2019}
+Alec Radford, Jeff Wu, Rewon Child, D.~Luan, Dario Amodei, and Ilya Sutskever.
+\newblock Language models are unsupervised multitask learners, 2019.
+
+\bibitem{LangChainNot}
+Alden~Do Rosario.
+\newblock Langchain is not for production use. here is why ..
+
+\bibitem{schäfer2023empirical}
+Max Schäfer, Sarah Nadi, Aryaz Eghbali, and Frank Tip.
+\newblock An empirical evaluation of using large language models for automated
+  unit test generation, 2023.
+
+\bibitem{scribbleData}
+ScribbleData.
+\newblock Large language models 101: History, evolution and future.
+
+\bibitem{Streamlit}
+Streamlit.
+\newblock Get started.
+
+\bibitem{Tolaka}
+Toloka Team.
+\newblock The history, timeline, and future of llms.
+
+\bibitem{turner2023introduction}
+Richard~E. Turner.
+\newblock An introduction to transformers, 2023.
+
+\bibitem{ubu-tfg}
+UBU.
+\newblock Reglamento sobre trabajo fin de grado y trabajo fin de master.
+
+\bibitem{UBU-Chatbot}
+Alfredo~Asensio Vázquez.
+\newblock Desarrollo y explotación de un chatbot de faqs sobre una asignatura
+  de trabajo fin de grado.
+
+\bibitem{wei2023chainofthought}
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia,
+  Ed~Chi, Quoc Le, and Denny Zhou.
+\newblock Chain-of-thought prompting elicits reasoning in large language
+  models, 2023.
+
+\bibitem{wei2023polylm}
+Xiangpeng Wei, Haoran Wei, Huan Lin, Tianhao Li, Pei Zhang, Xingzhang Ren, Mei
+  Li, Yu~Wan, Zhiwei Cao, Binbin Xie, Tianxiang Hu, Shangjie Li, Binyuan Hui,
+  Bowen Yu, Dayiheng Liu, Baosong Yang, Fei Huang, and Jun Xie.
+\newblock Polylm: An open source polyglot large language model, 2023.
+
+\bibitem{ChatbotTourist}
+Jasmin Wellnitz.
+\newblock Development of a chatbot for tourist recommendations, 2017.
+\newblock [Online; Accedido 19-junio-2021].
+
+\bibitem{zhao2023survey}
+Wayne~Xin Zhao, Kun Zhou, Junyi Li, Tianyi Tang, Xiaolei Wang, Yupeng Hou,
+  Yingqian Min, Beichen Zhang, Junjie Zhang, Zican Dong, Yifan Du, Chen Yang,
+  Yushuo Chen, Zhipeng Chen, Jinhao Jiang, Ruiyang Ren, Yifan Li, Xinyu Tang,
+  Zikang Liu, Peiyu Liu, Jian-Yun Nie, and Ji-Rong Wen.
+\newblock A survey of large language models, 2023.
+\newblock cite arxiv:2303.18223Comment: ongoing work; 85 pages, 610 citations.
+
+\bibitem{Zhong2023AGIEvalAH}
+Wanjun Zhong, Ruixiang Cui, Yiduo Guo, Yaobo Liang, Shuai Lu, Yanlin Wang, Amin
+  Saied~Sanosi Saied, Weizhu Chen, and Nan Duan.
+\newblock Agieval: A human-centric benchmark for evaluating foundation models.
+\newblock {\em ArXiv}, abs/2304.06364, 2023.
+
+\bibitem{UBUVoiceAssistant}
+Álvaro Delgado~Pascual.
+\newblock Ubuvoiceassistant, 2020.
+\newblock [Online; Accedido 19-junio-2021].
+
+\end{thebibliography}

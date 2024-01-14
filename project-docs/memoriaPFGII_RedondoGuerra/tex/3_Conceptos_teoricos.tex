@@ -2,7 +2,7 @@
 
 Este apartado de conceptos teóricos desempeña un papel importante al condensar los fundamentos esenciales de principios, teorías y términos subyacentes en el dominio de conocimiento relacionado con el proyecto. En este contexto, su propósito principal es brindar una visión panorámica de los conceptos teóricos cruciales que servirán como cimiento para la comprensión y avance de este \acrlong{tfg}. A través de una exposición minuciosa de estos conceptos, se proporciona una base conceptual que permite una comprensión más profunda de su aplicación práctica en el proyecto. Asimismo, se busca definir una serie de términos y establecer una base de conocimiento compartida para las secciones subsiguientes.
 
-En este contexto, este apartado tiene como objetivo ofrecer una visión general de los conceptos teóricos esenciales, con un énfasis particular en los \acrfull{llm} y las técnicas de \acrfull{rag}. Estos conceptos, son muy actuales y están en constante evolución en el ámbito del procesamiento de lenguaje natural y la inteligencia artificial, desempeñan un papel fundamental en la comprensión y avance del proyecto en consideración.
+Especialmente importante son los conceptos de los \acrfull{llm} y las técnicas de \acrfull{rag}. Estas nociones son muy actuales y están en constante evolución en el ámbito del procesamiento de lenguaje natural y la inteligencia artificial, desempeñan un papel fundamental en la comprensión y avance del proyecto en consideración.
 
 Los \acrshort{llm} representan un hito significativo en el campo de la generación de texto y la comprensión del lenguaje. Modelos como GPT-3 han demostrado una capacidad sin precedentes para comprender y generar texto de manera coherente y relevante, convirtiéndose en herramientas poderosas con diversas aplicaciones.
 
@@ -12,11 +12,11 @@ En el núcleo de los \acrshort{llm} y las técnicas de \acrshort{rag}, se encuen
 
 \section{\textit{Large Language Models}}
 
-\subsection{¿Que es un \textit{Large Language Models}?}
+\subsection{¿Qué es un \textit{Large Language Models}?}
 
-En esencia, un modelo lingüístico de gran escala es un tipo de modelo de aprendizaje automático que puede comprender y generar lenguaje humano mediante redes neuronales profundas (\acrlong{dnn}). La principal tarea de un modelo lingüístico es calcular la probabilidad de que una palabra siga a una entrada dada en una frase: por ejemplo, ``El cielo es ....'', siendo la respuesta más probable ``azul''. El modelo es capaz de predecir la siguiente palabra de una frase tras recibir un amplio conjunto de datos de texto (o \textit{corpus}). Básicamente, aprende a reconocer distintos patrones en las palabras. De este proceso se obtiene un modelo lingüístico preentrenado.
+En esencia, un modelo lingüístico de gran escala es un tipo de modelo de aprendizaje automático que puede comprender y generar lenguaje humano mediante redes neuronales profundas (\acrlong{dnn}). La principal tarea de un modelo lingüístico es calcular la probabilidad de que una palabra siga a una entrada dada en una frase: por ejemplo, ``El cielo es ....'', siendo la respuesta más probable ``azul''. El modelo es capaz de predecir la siguiente palabra de una frase tras ser entrenado con un amplio conjunto de datos de texto (o \textit{corpus}). Básicamente, aprende a reconocer distintos patrones en las palabras. De este proceso se obtiene un modelo lingüístico preentrenado.
 
-Si se ajustan un poco, estos modelos pueden tener diversos usos prácticos, como la traducción o la adquisición de conocimientos especializados en un campo concreto, como el Derecho o la Medicina. Este proceso se conoce como aprendizaje por transferencia, que permite a un modelo aplicar los conocimientos adquiridos de una tarea a otra.
+Mediante la afinación del modelo (reentrenamiento con nuevos datos) se mejora la capacidad de hacer tareas muy diversas, como la traducción o la adquisición de conocimientos especializados en un campo concreto, como el Derecho o la Medicina. Este proceso se conoce como aprendizaje por transferencia, que permite a un modelo aplicar los conocimientos adquiridos de una tarea a otra.
 
 Lo que hace que un modelo lingüístico sea ``grande'' es el tamaño de su arquitectura. Ésta, a su vez, se basa en la inteligencia artificial de las redes neuronales, muy parecidas al cerebro humano, donde las neuronas trabajan juntas para aprender de la información y procesarla. Además, los \acrshort{llm} constan de un gran número de parámetros (por ejemplo, \acrshort{gpt} tiene más de 100.000 millones) entrenados en grandes cantidades de datos de texto sin etiquetar mediante aprendizaje autosupervisado o semisupervisado. Con el primero, los modelos son capaces de aprender a partir de texto no anotado, lo que supone una gran ventaja si se tienen en cuenta los costosos inconvenientes de tener que depender de datos etiquetados manualmente.
 
@@ -26,7 +26,7 @@ Aunque los \acrshort{llm}  se han entrenado principalmente para tareas sencillas
 
 \subsubsection{Historia y desarrollo de los LLM}
 
-La historia y evolución de los \acrshort{llm} se remontan a varias décadas de investigación y desarrollo en el campo del procesamiento de lenguaje natural y la \acrlong{ia}. A continuación, se proporciona un resumen de los hitos más significativos en la historia de los \acrshort{llm}\cite{zhao2023survey,scribbleData,Tolaka}.
+La historia y evolución de los \acrshort{llm} se remontan a varias décadas de investigación y desarrollo en el campo del procesamiento de lenguaje natural y la \acrlong{ia}, como se ve en la figura~\ref{fig:LLL_Evolution}. A continuación, se proporciona un resumen de los hitos más significativos en la historia de los \acrshort{llm}~\cite{zhao2023survey,scribbleData,Tolaka}.
 
 \imagen{LLL_Evolution}{Cronología de la evolución de los LLM}{1}
 
@@ -40,7 +40,7 @@ La idea de los \acrshort{llm} surgió con la creación de \textit{Eliza} en los 
 
 \item[Década de 2000-2010]: Otro momento crucial fue la suite CoreNLP de Stanford, introducida en 2010. Esta suite ofrecía un conjunto de herramientas y algoritmos que ayudaban a los investigadores a abordar tareas de \acrshort{pln} complejas, como el análisis de sentimientos y el reconocimiento de entidades con nombre. Surgieron también modelos estadísticos más avanzados, como los modelos de lenguaje basados en \acrfull{svm} y las \acrfull{crf}. Estos modelos mejoraron la capacidad de procesar y generar texto de manera más efectiva.
 
-\item[Década de 2010-2020]: Esta década marcó un hito significativo con la llegada de modelos basados en redes neuronales, especialmente modelos de lenguaje recurrente (RNN) y modelos de lenguaje basados en \textit{Transformers}. En 2011, Google Brain hizo su debut, proporcionando a los investigadores un acceso invaluable a recursos informáticos de gran potencia y conjuntos de datos enriquecidos, además de ofrecer características avanzadas, como la incrustación de palabras. Esta innovación permitió a los sistemas de \acrlong{pln} comprender el contexto de las palabras de manera más efectiva. 
+\item[Década de 2010-2020]: Esta década marcó un hito significativo con la llegada de modelos basados en redes neuronales, especialmente modelos de lenguaje recurrente (RNN) y modelos de lenguaje basados en \textit{Transformers}. En 2011, Google Brain hizo su debut, proporcionando a los investigadores un acceso invalorable a recursos informáticos de gran potencia y conjuntos de datos enriquecidos, además de ofrecer características avanzadas, como la incrustación de palabras. Esta innovación permitió a los sistemas de \acrlong{pln} comprender el contexto de las palabras de manera más efectiva. 
 
 El trabajo pionero de Google Brain sentó las bases para avances significativos en el campo, incluyendo la aparición de los modelos \textit{Transformer} en 2017. La arquitectura de los \textit{Transformers} revolucionó la creación de \acrfull{llm} más grandes y sofisticados, ejemplificados por el \acrfull{gpt} de OpenAI. Uno de los modelos más influyentes es el GPT-1 desarrollado por OpenAI en 2018.
 
@@ -60,13 +60,13 @@ Y lo que es más, el último avance es la \textit{steerability} (direccionabilid
 
 \imagen{Timeline_LLM2}{Cronología de los modelos lingüísticos de gran tamaño (superior a 10B) de los últimos años}{1}
 
-Es importante destacar que la evolución de los \acrshort{llm} ha sido impulsada en gran medida por el aumento en la disponibilidad de datos de entrenamiento, el desarrollo de arquitecturas de redes neuronales más avanzadas y la mejora en el hardware de cómputo. Estos avances han permitido a los \acrshort{llm} alcanzar un nivel de comprensión y generación de texto que antes era impensable.
+Es importante destacar que la evolución de los \acrshort{llm} ha sido impulsada en gran medida por el aumento en la disponibilidad de datos de entrenamiento, el desarrollo de arquitecturas de redes neuronales más avanzadas y la mejora en el hardware de cómputo. Estos avances han permitido a los \acrshort{llm} alcanzar un nivel de comprensión y generación de texto que antes era impensable. Esto ha causado que en los últimos años se hayan lanzado multitud de productos y modelos como se ve en la figura~\ref{fig:Timeline_LLM2}.
 
 \subsubsection{Word2Vec}
 
-Un precursor de los actuales \acrlong{llm} que merece la pena destacar es Word2Vec. Word2Vec fue un algoritmo revolucionario en el \acrfull{pln} que se emplea para aprender representaciones vectoriales densas de palabras a partir de grandes cantidades de texto. Desarrollado por un equipo de investigadores de Google en 2013\cite{Mikolov2013Word2Vec}, este enfoque no supervisado ha tenido un impacto significativo en el campo del \acrshort{pln}. Construyeron un modelo para incrustar palabras en un espacio vectorial, un problema que ya contaba con una larga historia académica en aquel momento, que comenzaba en la década de 1980. Su modelo utilizaba un objetivo de optimización diseñado para convertir las relaciones de correlación entre palabras en relaciones de distancia en el espacio de incrustación: se asociaba un vector a cada palabra de un vocabulario, y los vectores se optimizaban para que el producto punto (proximidad del coseno) entre vectores que representaban palabras que coincidían con frecuencia estuviera más cerca de 1, mientras que el producto punto entre vectores que representaban palabras que rara vez coincidían estuviera más cerca de 0. Descubrieron que el espacio de incrustación resultante era un espacio vectorial. 
+Un precursor de los actuales \acrlong{llm} que merece la pena destacar es Word2Vec. Word2Vec fue un algoritmo revolucionario en el \acrfull{pln} que se emplea para aprender representaciones vectoriales densas de palabras a partir de grandes cantidades de texto. Desarrollado por un equipo de investigadores de Google en 2013~\cite{Mikolov2013Word2Vec}, este enfoque no supervisado ha tenido un impacto significativo en el campo del \acrshort{pln}. Construyeron un modelo para incrustar palabras en un espacio vectorial, un problema que ya contaba con una larga historia académica en aquel momento, que comenzaba en la década de 1980. Su modelo utilizaba un objetivo de optimización diseñado para convertir las relaciones de correlación entre palabras en relaciones de distancia en el espacio de incrustación: se asociaba un vector a cada palabra de un vocabulario, y los vectores se optimizaban para que el producto punto (proximidad del coseno) entre vectores que representaban palabras que coincidían con frecuencia estuviera más cerca de 1, mientras que el producto punto entre vectores que representaban palabras que rara vez coincidían estuviera más cerca de 0. Descubrieron que el espacio de incrustación resultante era un espacio vectorial. 
 
-El espacio de incrustación resultante hacía mucho más que captar la similitud semántica. Presentaba alguna forma de aprendizaje emergente: era capaz de realizar ``aritmética de palabras'', algo para lo que no había sido entrenado. Existía un vector en el espacio que podía añadirse a cualquier sustantivo masculino para obtener un punto cercano a su equivalente femenino. Por ejemplo, V(rey) - V(hombre) + V(mujer) = V(reina). Un ``vector de género". Esta capacidad de realizar operaciones matemáticas en el espacio de incrustación reveló una comprensión subyacente de las relaciones semánticas. Parecía haber docenas de vectores mágicos de este tipo: un vector plural, un vector para pasar de nombres de animales salvajes a su equivalente más cercano en mascotas, y muchos otros. Estos descubrimientos abrieron nuevas perspectivas en el campo del procesamiento de lenguaje natural y subrayaron la potencia de Word2Vec en la representación de palabras\cite{Chollet}.
+El espacio de incrustación resultante hacía mucho más que captar la similitud semántica. Presentaba alguna forma de aprendizaje emergente: era capaz de realizar ``aritmética de palabras'', algo para lo que no había sido entrenado, como se ve en la figura~\ref{fig:Word2Vec}. Existía un vector en el espacio que podía añadirse a cualquier sustantivo masculino para obtener un punto cercano a su equivalente femenino. Por ejemplo, V(rey) - V(hombre) + V(mujer) = V(reina). Un ``vector de género''. Esta capacidad de realizar operaciones matemáticas en el espacio de incrustación reveló una comprensión subyacente de las relaciones semánticas. Parecía haber docenas de vectores mágicos de este tipo: un vector plural, un vector para pasar de nombres de animales salvajes a su equivalente más cercano en mascotas, y muchos otros. Estos descubrimientos abrieron nuevas perspectivas en el campo del procesamiento de lenguaje natural y subrayaron la potencia de Word2Vec en la representación de palabras~\cite{Chollet}.
 
 \imagen{Word2Vec}{Ilustración de un espacio de incrustación 2D tal que el vector que une ``lobo'' con ``perro'' es el mismo que el vector que une ``tigre'' con ``gato''.}{0.5}
 
@@ -74,17 +74,17 @@ Word2Vec se implementa en dos arquitecturas principales: \acrfull{cbow} y \texti
 
 Las representaciones de palabras aprendidas con Word2Vec se han convertido en una pieza fundamental en tareas de transferencia de conocimiento en \acrshort{pln}, lo que ha impulsado su amplia adopción en la comunidad de investigación y desarrollo. A través de su capacidad para reducir la dimensionalidad y su habilidad para mejorar el rendimiento en tareas de procesamiento de lenguaje, Word2Vec ha dejado una huella perdurable en la forma en que las computadoras comprenden y utilizan el lenguaje natural en una variedad de aplicaciones.
 
-\subsection{Como funciona un LLM}
+\subsection{Cómo funciona un LLM}
 
-Un \acrfull{llm} es un tipo de modelo lingüístico que destaca por su capacidad de comprensión y generación de lenguaje de propósito general. Los \acrshort{llm} adquieren estas capacidades utilizando cantidades masivas de datos, llamados \textit{corpus}, para aprender miles de millones de parámetros durante el entrenamiento y consumiendo grandes recursos computacionales durante su formación y funcionamiento\cite{radford_language_2019}. Los \acrshort{llm} son redes neuronales artificiales,principalmente \textit{transformers}\cite{Nvidia_Transformers}, y se preentrenan utilizando aprendizaje autosupervisado y aprendizaje semisupervisado.
+Un \acrfull{llm} es un tipo de modelo lingüístico que destaca por su capacidad de comprensión y generación de lenguaje de propósito general. Los \acrshort{llm} adquieren estas capacidades utilizando cantidades masivas de datos, llamados \textit{corpus}, para ajustar miles de millones de parámetros durante el entrenamiento y consumiendo grandes recursos computacionales durante su formación y funcionamiento~\cite{radford_language_2019}. Los \acrshort{llm} son redes neuronales artificiales, principalmente \textit{transformers}~\cite{Nvidia_Transformers}, y se preentrenan utilizando aprendizaje autosupervisado y aprendizaje semisupervisado.
 
-Como modelos autorregresivos del lenguaje, funcionan tomando un texto de entrada y prediciendo repetidamente el siguiente token o palabra\cite{bowman2023eight}. Hasta 2020, el \textit{fine-tuning} era la única forma de adaptar un modelo para que pudiera realizar tareas específicas. Sin embargo, los modelos de mayor tamaño, como el GPT-3, pueden diseñarse con \textit{prompt-engineering} para lograr resultados similares. Se cree que adquieren conocimientos incorporados sobre sintaxis, semántica y "ontología" inherentes a los del lenguaje humano, pero también imprecisiones y sesgos presentes en los en el mismo.
+Como modelos autorregresivos del lenguaje, funcionan tomando un texto de entrada y prediciendo repetidamente el siguiente token o palabra~\cite{bowman2023eight}. Hasta 2020, el \textit{fine-tuning} era la única forma de adaptar un modelo para que pudiera realizar tareas específicas. Sin embargo, los modelos de mayor tamaño, como el GPT-3, pueden diseñarse con \textit{prompt-engineering} para lograr resultados similares. Se cree que adquieren conocimientos incorporados sobre sintaxis, semántica y ``ontología'' inherentes a los del lenguaje humano, pero también imprecisiones y sesgos presentes en los en el mismo.
 
 \subsubsection{\textit{Transformers}}
 
-Los \textit{Transformers} son una arquitectura de \acrfull{dnn} que ha revolucionado el campo del \acrfull{pln} y ha impulsado el desarrollo de los \acrfull{llm}. Estas arquitecturas se destacan por su capacidad para modelar relaciones y dependencias de largo alcance en datos secuenciales, como texto, de manera altamente eficiente\cite{Nvidia_Transformers, turner2023introduction}.
+Los \textit{Transformers} son una arquitectura de \acrfull{dnn} que ha revolucionado el campo del \acrfull{pln} y ha impulsado el desarrollo de los \acrfull{llm}. Estas arquitecturas se destacan por su capacidad para modelar relaciones y dependencias de largo alcance en datos secuenciales, como texto, de manera altamente eficiente~\cite{Nvidia_Transformers, turner2023introduction}.
 
-La clave de los \textit{Transformers} radica en su estructura de auto-atención, que permite que el modelo procese secuencias de entrada de manera paralela y capture relaciones entre palabras en diferentes posiciones de la secuencia\cite{Techtarget_LLM}. A continuación, se describe cómo funcionan los \textit{Transformers} aplicados a los \acrshort{llm}:
+La clave de los \textit{Transformers} radica en su estructura de auto-atención, que permite que el modelo procese secuencias de entrada de manera paralela y capture relaciones entre palabras en diferentes posiciones de la secuencia~\cite{Techtarget_LLM} como se puede ver en la figura~\ref{fig:transformer_model_architecture-f}. A continuación, se describe cómo funcionan los \textit{Transformers} aplicados a los \acrshort{llm}:
 
 \begin{enumerate}
     
@@ -102,12 +102,12 @@ La clave de los \textit{Transformers} radica en su estructura de auto-atención,
 
 \end{enumerate}
 
-\imagen{transformer_model_architecture-f}{Arqitectura de los modelos de redes neuronales 
+\imagen{transformer_model_architecture-f}{Arquitectura de los modelos de redes neuronales 
  profundas \textit{Transformers}.}{1}
 
 \subsubsection{Procesamiento de datos de entrenamiento - tokenización}
 
-Los \acrlong{llm} procesan el texto utilizando tokens, que son secuencias comunes de caracteres que se encuentran en un conjunto de texto. Los modelos aprenden a entender las relaciones estadísticas entre estos tokens y destacan a la hora de producir el siguiente token en una secuencia de tokens\cite{OpenAI_Tokenizer}.
+Los \acrlong{llm} procesan el texto utilizando tokens, que son secuencias comunes de caracteres que se encuentran en un conjunto de texto. Los modelos aprenden a entender las relaciones estadísticas entre estos tokens y destacan a la hora de producir el siguiente token en una secuencia de tokens~\cite{OpenAI_Tokenizer}. Un ejemplo se puede ver en la figura~\ref{fig:OpenAI_Tokenizer}.
 
 \imagen{OpenAI_Tokenizer}{Muestra de un texto y su equivalente en tokens usando el tokenizador de OpenAI para GPT-3.5 y GPT-4.}{1}
 
@@ -115,11 +115,11 @@ Existen dos conceptos que están en la base de la tokenización de los \acrshort
 
 N-grama es una serie de n letras adyacentes (incluidos los signos de puntuación y los espacios en blanco), sílabas o, rara vez, palabras enteras que se encuentran en un conjunto de datos lingüísticos; o fonemas adyacentes extraídos de un conjunto de datos de grabación del habla, o pares de bases adyacentes extraídos de un genoma. Se recogen de un \textit{corpus} de texto o de habla. Si se utilizan prefijos numéricos latinos, el n-grama de tamaño 1 se denomina ``unigrama'', el de tamaño 2 ``bigrama'', etc. Si, en lugar de los latinos, se utilizan además los números cardinales ingleses, entonces se denominan ``four-gram'', ``five-gram'', etc. 
 
-La codificación de pares de bytes(también conocida como codificación de digramas) es un algoritmo, descrito por primera vez en 1994 por Philip Gage\cite{Gage_Compresion}. Su modificación destaca por ser el tokenizador de modelos de lenguaje de gran tamaño con capacidad para combinar tanto tokens que codifican caracteres únicos (incluidos dígitos únicos o signos de puntuación únicos) como aquellos que codifican palabras completas (incluso las palabras compuestas más largas). Esta modificación, en el primer paso, supone que todos los caracteres únicos son un conjunto inicial de n-gramas de 1 carácter de longitud (es decir, tokens iniciales). A continuación, el par más frecuente de caracteres adyacentes se fusiona sucesivamente en un nuevo n-grama de 2 caracteres de longitud y todas las instancias del par se sustituyen por este nuevo token. Esto se repite hasta obtener un vocabulario del tamaño prescrito. Tenga en cuenta que siempre se pueden construir palabras nuevas a partir de los tokens del vocabulario final y de los caracteres del conjunto inicial.
+La codificación de pares de bytes (también conocida como codificación de diagramas) es un algoritmo, descrito por primera vez en 1994 por Philip Gage~\cite{Gage_Compresion}. Su modificación destaca por ser el tokenizador de modelos de lenguaje de gran tamaño con capacidad para combinar tanto tokens que codifican caracteres únicos (incluidos dígitos únicos o signos de puntuación únicos) como aquellos que codifican palabras completas (incluso las palabras compuestas más largas). Esta modificación, en el primer paso, supone que todos los caracteres únicos son un conjunto inicial de n-gramas de 1 carácter de longitud (es decir, tokens iniciales). A continuación, el par más frecuente de caracteres adyacentes se fusiona sucesivamente en un nuevo n-grama de 2 caracteres de longitud y todas las instancias del par se sustituyen por este nuevo token. Esto se repite hasta obtener un vocabulario del tamaño prescrito. Tenga en cuenta que siempre se pueden construir palabras nuevas a partir de los tokens del vocabulario final y de los caracteres del conjunto inicial.
 
 Todos los tokens únicos encontrados en un \textit{corpus} se enumeran en un vocabulario de tokens cuyo tamaño, en el caso de GPT-3, es de 50257.
 
-La diferencia entre el algoritmo modificado y el original es que el algoritmo original no fusiona el par más frecuente de bytes de datos, sino que los sustituye por un nuevo byte que no estaba contenido en el conjunto de datos inicial. Para reconstruir el conjunto de datos inicial se necesita una tabla de búsqueda de las sustituciones. El algoritmo es eficaz para la tokenización porque no requiere grandes gastos de cálculo y sigue siendo coherente y fiable.
+La diferencia entre el algoritmo modificado y el original es que el algoritmo original no fusiona el par más frecuente de bytes de datos, sino que los sustituye por un nuevo byte que no estaba contenido en el conjunto de datos inicial. Véase el ejemplo de la figura~\ref{fig:Byte-pair_Encoding}. Para reconstruir el conjunto de datos inicial se necesita una tabla de búsqueda de las sustituciones. El algoritmo es eficaz para la tokenización porque no requiere grandes gastos de cálculo y sigue siendo coherente y fiable.
 
 \imagen{Byte-pair_Encoding}{Ejemplo de codificación de pares de bytes aplicado a una secuencia de caracteres.}{0.75}
 
@@ -143,7 +143,7 @@ Con el tiempo, este proceso conduce a la creación de un espacio en el cual las 
 
 \end{description}
 
-Esta dinámica no difiere mucho del proceso de aprendizaje en el cerebro, donde las relaciones de correlación entre eventos de disparo neuronal se convierten en relaciones de proximidad en la red cerebral, siguiendo el principio clave del aprendizaje Hebbiano:``neuronas que disparan juntas, conectan junta''. Tanto \textit{Transformers} como Word2Vec son, de alguna manera, mapas de un espacio de información, buscando representar de manera eficiente y semánticamente significativa las relaciones entre los elementos del lenguaje.
+Esta dinámica no difiere mucho del proceso de aprendizaje en el cerebro, donde las relaciones de correlación entre eventos de disparo neuronal se convierten en relaciones de proximidad en la red cerebral, siguiendo el principio clave del aprendizaje Hebbiano:``neuronas que disparan juntas, conectan junta''. Tanto \textit{Transformers} como Word2Vec son, de alguna manera, mapas de un espacio de información, buscando representar de manera eficiente y semánticamente significativa las relaciones entre los elementos del lenguaje. Se puede ver una representación gráfica de este proceso en la figura~\ref{fig:self-attention}.
 
 \imagen{self-attention}{Cómo funciona self-attention: se calculan las puntuaciones de atención entre ``estación'' y cualquier otra palabra de la secuencia, y luego se utilizan para ponderar una suma de vectores de palabras que se convierte en el nuevo vector ``estación''.}{1}
 
@@ -159,7 +159,7 @@ Estos programas en un \acrshort{llm} no se asemejan exactamente a los programas 
 
 \subsection{Tipos de LLM}
 
-Los \acrlong{llm} pueden clasificarse a grandes rasgos en tres tipos: modelos de preentrenamiento, modelos de \textit{Fine-tuning} y modelos multimodales\cite{scribbleData}.
+Los \acrlong{llm} pueden clasificarse a grandes rasgos en tres tipos: modelos de preentrenamiento, modelos de \textit{Fine-tuning} y modelos multimodales~\cite{scribbleData}, ver figura~\ref{fig:TiposLLM}.
 
 \begin{description}
 
@@ -177,9 +177,9 @@ Cada tipo de \acrshort{llm} tiene sus puntos fuertes y débiles, y la elección 
 
 \subsection{LLM más extendidos}
 
-\subsubsection{OpenAI - ChatGPT}
+\subsubsection{OpenAI - ChatGPT} \label{openai}
 
-OpenAI es pionera en el campo de la \acrlong{ia}, es una de las empresas mas influyentes en el avance de los límites del procesamiento del lenguaje similar al humano. OpenAI ha lanzado numerosos modelos lingüísticos, incluida toda la familia \acrshort{gpt}, como GPT-3 y GPT-4, que impulsan su producto ChatGPT, y que han revolucionado la forma de trabajar de desarrolladores, investigadores y entusiastas de todo el mundo. En el area de los grandes modelos lingüísticos, es imposible pasar por alto el significativo impacto y el espíritu pionero de OpenAI, que sigue a día de hoy marcando el futuro de la inteligencia artificial.
+OpenAI es pionera en el campo de la \acrlong{ia}, es una de las empresas mas influyentes en el avance de los límites del procesamiento del lenguaje similar al humano. OpenAI ha lanzado numerosos modelos lingüísticos, figura~\ref{fig:OpenAI}, incluida toda la familia \acrshort{gpt}, como GPT-3 y GPT-4, que impulsan su producto ChatGPT, y que han revolucionado la forma de trabajar de desarrolladores, investigadores y entusiastas de todo el mundo. En el área de los grandes modelos lingüísticos, es imposible pasar por alto el significativo impacto y el espíritu pionero de OpenAI, que sigue a día de hoy marcando el futuro de la inteligencia artificial.
 
 Los modelos OpenAI han acaparado una gran atención por sus impresionantes características y su rendimiento de vanguardia. Estos modelos poseen notables capacidades de comprensión y generación de lenguaje natural. Destacan en una amplia gama de tareas relacionadas con el lenguaje, como completar textos, traducir o responder preguntas, entre otras.
 
@@ -195,11 +195,11 @@ Meta AI avanza significativamente en la promoción de la ciencia abierta con el 
 
 Los modelos más pequeños pero de alto rendimiento de LLaMA ofrecen accesibilidad a la comunidad de investigación, permitiendo a los investigadores sin recursos extensos explorar y estudiar estos modelos, democratizando así el acceso en este campo de rápido desarrollo. Estos modelos base, entrenados con grandes cantidades de datos no etiquetados, requieren menos potencia informática y recursos, lo que los hace ideales para el ajuste fino y la experimentación en diversas tareas.
 
-LLaMA es una colección de modelos de lenguaje grandes que abarcan un amplio rango de parámetros, desde 7B hasta 65B. A través de un entrenamiento meticuloso con trillones de tokens extraídos exclusivamente de conjuntos de datos públicamente disponibles, los desarrolladores de LLaMA demuestran la posibilidad de lograr un rendimiento de vanguardia sin necesidad de fuentes de datos propietarias o inaccesibles. Especialmente, LLaMA-13B muestra un rendimiento superior en comparación con el renombrado GPT-3 (175B) en varios puntos de referencia, mientras que LLaMA-65B compite de manera impresionante con modelos de primer nivel como PaLM-540B\cite{Murtuza}.
+LLaMA es una colección de modelos de lenguaje grandes que abarcan un amplio rango de parámetros, desde 7B hasta 65B. A través de un entrenamiento meticuloso con trillones de tokens extraídos exclusivamente de conjuntos de datos públicamente disponibles, los desarrolladores de LLaMA demuestran la posibilidad de lograr un rendimiento de vanguardia sin necesidad de fuentes de datos propietarias o inaccesibles. Especialmente, LLaMA-13B muestra un rendimiento superior en comparación con el renombrado GPT-3 (175B) en varios puntos de referencia, mientras que LLaMA-65B compite de manera impresionante con modelos de primer nivel como PaLM-540B~\cite{Murtuza}.
 
 \imagen{LLaMa}{Gráfico de la evolución de los modelos LLaMa}{1}
 
-Los modelos LLaMA aprovechan la arquitectura de \textit{transformers}, que se ha convertido en el estándar de la industria para la modelización del lenguaje desde 2018. En lugar de aumentar únicamente el número de parámetros, los desarrolladores de LLaMA priorizaron escalar el rendimiento del modelo al expandir significativamente el volumen de datos de entrenamiento. Su razonamiento se basa en la comprensión de que el costo principal de los grandes modelos de lenguaje radica en la inferencia durante el uso del modelo, más que en los gastos computacionales de entrenamiento. En consecuencia, LLaMA se entrenó con impresionantes 1.4 billones de tokens, obtenidos minuciosamente de datos públicamente disponibles. Este extenso conjunto de datos de entrenamiento capacita a LLaMA para destacar en la comprensión de patrones de lenguaje complejos y generar respuestas contextualmente apropiadas.
+Los modelos LLaMA aprovechan la arquitectura de \textit{transformers}, que se ha convertido en el estándar de la industria para la modelización del lenguaje desde 2018, ver figura~\ref{fig:LLaMa}. En lugar de aumentar únicamente el número de parámetros, los desarrolladores de LLaMA priorizaron escalar el rendimiento del modelo al expandir significativamente el volumen de datos de entrenamiento. Su razonamiento se basa en la comprensión de que el costo principal de los grandes modelos de lenguaje radica en la inferencia durante el uso del modelo, más que en los gastos computacionales de entrenamiento. En consecuencia, LLaMA se entrenó con impresionantes 1.4 billones de tokens, obtenidos minuciosamente de datos públicamente disponibles. Este extenso conjunto de datos de entrenamiento capacita a LLaMA para destacar en la comprensión de patrones de lenguaje complejos y generar respuestas contextualmente apropiadas.
 
 \subsubsection{Google - Bard}
 
@@ -223,7 +223,7 @@ La familia de modelos de Anthropic, que incluye a Claude y Claude-instant, ha si
 
 Además del procesamiento de texto, Claude puede participar en conversaciones naturales, asumiendo diversos roles en un diálogo. Al especificar el rol y proporcionar una sección de preguntas frecuentes, los usuarios pueden tener interacciones fluidas y contextualmente relevantes con Claude. Ya sea un diálogo en busca de información o un escenario de juego de roles, Claude puede adaptarse y responder de manera naturalista.
 
-Anthropic destaca algunas de las características sobresalientes de Claude, como "un extenso conocimiento general perfeccionado a partir de su vasto corpus de entrenamiento, con antecedentes detallados en conocimientos técnicos, científicos y culturales. Claude puede hablar una variedad de idiomas comunes, así como lenguajes de programación"\cite{Anthropic}.
+Anthropic destaca algunas de las características sobresalientes de Claude, como ``un extenso conocimiento general perfeccionado a partir de su vasto corpus de entrenamiento, con antecedentes detallados en conocimientos técnicos, científicos y culturales. Claude puede hablar una variedad de idiomas comunes, así como lenguajes de programación''~\cite{Anthropic}.
 
 Además, Claude ofrece capacidades de automatización, lo que permite a los usuarios optimizar sus flujos de trabajo. El modelo puede ejecutar varias instrucciones y escenarios lógicos, incluido el formateo de salidas según requisitos específicos, siguiendo instrucciones condicionales y realizando una serie de evaluaciones lógicas. Esto permite a los usuarios automatizar tareas repetitivas y aprovechar la eficiencia de Claude para mejorar la productividad. Recientemente, se introdujo una nueva versión de Claude, que ofrece un impresionante límite de 100,000 tokens de contexto. Con esta capacidad ampliada, ahora se pueden incorporar sin esfuerzo libros completos o documentos extensos, abriendo emocionantes posibilidades para usuarios que buscan información integral o detalladas sugerencias creativas.
 
@@ -231,7 +231,7 @@ El modelo Claude de Anthropic introduce una función conocida como ``inteligenci
 
 \subsubsection{Mistral}
 
-Mistral AI, con sede en París y cofundada por extrabajadores de Google DeepMind y Meta, anunció su primer modelo de lenguaje grande, Mistral 7B, recientemente. Esta startup logró asegurar una financiación inicial récord incluso antes de lanzar un producto. El primer modelo de Mistral AI con 7 mil millones de parámetros supera el rendimiento de Llama 2 13B en todas las pruebas y supera a Llama 1 34B en muchos aspectos métricos\cite{Zhong2023AGIEvalAH}.
+Mistral AI, con sede en París y cofundada por extrabajadores de Google DeepMind y Meta, anunció su primer modelo de lenguaje grande, Mistral 7B, recientemente. Esta startup logró asegurar una financiación inicial récord incluso antes de lanzar un producto. El primer modelo de Mistral AI con 7 mil millones de parámetros supera el rendimiento de Llama 2 13B en todas las pruebas y supera a Llama 1 34B en muchos aspectos métricos~\cite{Zhong2023AGIEvalAH}, ver figura~\ref{fig:Mistral_Comparacion}.
 
 \imagen{Mistral_Comparacion}{Resultados en MMLU, Razonamiento de sentido común, Conocimiento del mundo y Comprensión lectora para Mistral 7B y Llama 2 (7B/13/70B).}{1}
 
@@ -241,7 +241,7 @@ En lo que respecta a las tareas de codificación, Mistral 7B compite eficazmente
 
 Además, Mistral 7B Instruct, ajustado específicamente para conjuntos de datos instructivos en Hugging Face, ha mostrado un gran rendimiento. Supera a otros modelos de 7B en MT-Bench y se destaca junto a los modelos de chat de 13B.
 
-El nacimiento de \acrlong{llm} de código abierto como Mistral 7B señala un cambio fundamental en la industria de la \acrlong{ia}, haciendo que modelos de lenguaje de alta calidad sean accesibles para un público más amplio. Enfoques innovadores como el de Mistral AI, como \textit{Grouped-query attention} y \textit{Sliding Window Attention}, prometen un rendimiento eficiente sin comprometer la calidad\cite{MiitaMistral}.
+El nacimiento de \acrlong{llm} de código abierto como Mistral 7B señala un cambio fundamental en la industria de la \acrlong{ia}, haciendo que modelos de lenguaje de alta calidad sean accesibles para un público más amplio. Enfoques innovadores como el de Mistral AI, como \textit{Grouped-query attention} y \textit{Sliding Window Attention}, prometen un rendimiento eficiente sin comprometer la calidad~\cite{MiitaMistral}.
 
 Aunque la naturaleza descentralizada de Mistral presenta ciertos desafíos, su flexibilidad y licencia de código abierto subrayan el potencial de democratizar la \acrlong{ia}. A medida que el panorama evoluciona, el enfoque inevitablemente se centrará en equilibrar el poder de estos modelos con consideraciones éticas y mecanismos de seguridad.
 
@@ -259,7 +259,7 @@ Cohere es un modelo de lenguaje grande desarrollado por una startup canadiense d
 
 \subsection{Limitaciones de los LLM}
 
-Junto con los increíbles avances en \acrlong{ia}, modelos de aprendizaje automático y, en general, modelos de lenguaje, todavía existen numerosos desafíos por superar. La desinformación, el \textit{malware}, el contenido discriminatorio, el plagio y la información simplemente falsa pueden conducir a resultados no deseados o peligrosos; esto ponen en cuestión como de confiables son estos modelos.
+Junto con los increíbles avances en \acrlong{ia}, modelos de aprendizaje automático y, en general, modelos de lenguaje, todavía existen numerosos desafíos por superar. La desinformación, el \textit{malware}, el contenido discriminatorio, el plagio y la información simplemente falsa pueden conducir a resultados no deseados o peligrosos; esto pone en cuestión como de confiables son estos modelos.
 
 Además, cuando se introducen inadvertidamente sesgos en productos basados en \acrshort{llm}, como GPT-4, pueden dar la impresión de estar ``seguros pero incorrectos'' en algunos temas. Es un poco como escuchar hablar a alguien sobre algo que no sabe. Superar estas limitaciones es clave para construir la confianza pública en esta nueva tecnología. Aquí es donde entra en juego \acrshort{rlhf}, del que se hablará mas adelante, para ayudar a controlar o dirigir sistemas de \acrlong{ia} a gran escala.
 
@@ -278,9 +278,9 @@ Para contrarrestar estos efectos potencialmente dañinos, los investigadores se 
 
 \subsection{\textit{Reinforcement Learning from Human Feedback}}
 
-\acrfull{rlhf} puede hacer frente a de los retos mencionados anteriormente, lo que  lleva a preguntarse: ¿puede una máquina aprender valores humanos?
+\acrfull{rlhf} puede hacer frente a los retos mencionados anteriormente, lo que  lleva a preguntarse: ¿puede una máquina aprender valores humanos?
 
-En el fondo, \acrshort{rlhf} implementa la opinión humana para generar un conjunto de datos de preferencias humanas que determina la función de recompensa para un resultado deseado. La opinión humana puede obtenerse de varias maneras\cite{Tolaka}:
+En el fondo, \acrshort{rlhf} implementa la opinión humana para generar un conjunto de datos de preferencias humanas que determina la función de recompensa para un resultado deseado. La opinión humana puede obtenerse de varias maneras~\cite{Tolaka}:
 
 \begin{description}    
 
@@ -300,9 +300,9 @@ En el fondo, \acrshort{rlhf} implementa la opinión humana para generar un conju
 
 Los \acrshort{llm} han demostrado su capacidad para comprender el contexto y ofrecer respuestas precisas a diversas tareas de \acrlong{pln}, como la síntesis o las preguntas y respuestas, cuando se les solicita. Aunque son capaces de ofrecer muy buenas respuestas a preguntas sobre información con la que fueron entrenados, tienden a ``alucinar'' cuando el tema trata sobre información que desconocen, es decir, que no estaba incluida en sus datos de entrenamiento.
 
-\acrlong{rag} es una técnica avanzada en el campo del \acrshort{pln} que combina dos enfoques clave: recuperación y generación de texto. Esta técnica se utiliza para mejorar la generación de texto automática y garantizar que las respuestas generadas sean precisas, relevantes y contextualmente adecuadas\cite{Lewis2020}.
+\acrlong{rag} es una técnica avanzada en el campo del \acrshort{pln} que combina dos enfoques clave: recuperación y generación de texto. Esta técnica se utiliza para mejorar la generación de texto automática y garantizar que las respuestas generadas sean precisas, relevantes y contextualmente adecuadas~\cite{Lewis2020}.
 
-En un sistema de \acrshort{rag}, el proceso se divide en dos etapas:
+En un sistema de \acrshort{rag}, el proceso se divide en dos etapas, ver figura~\ref{fig:EsquemaRAG}:
 
 \begin{enumerate}
     \item Recuperación (\textit{Retrieval}): En esta etapa, el sistema busca información relevante en grandes conjuntos de datos o bases de conocimiento. Utiliza métodos de recuperación de información para encontrar documentos o fragmentos de texto que contienen información relacionada con la consulta o el contexto actual.
@@ -313,17 +313,43 @@ En un sistema de \acrshort{rag}, el proceso se divide en dos etapas:
 
 \imagen{EsquemaRAG}{Secuencia para la creación de un \textit{Retrieval-augmented Generation}.}{1}
 
-La combinación de estas dos etapas permite que la técnica \acrshort{rag} proporcione respuestas que no solo se basen en el conocimiento preexistente\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
+La combinación de estas dos etapas, como se muestra en la figura~\ref{fig:rag} permite que la técnica \acrshort{rag} proporcione respuestas que no solo se basen en el conocimiento preexistente~\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos~\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
 
 \imagen{rag}{Esquema del funcionamiento de un \textit{Retrieval-augmented Generation}.}{1}
 
 \acrshort{rag} se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
 
+\subsection{Preprocesamiento de datos}
+
+El preprocesamiento de datos es una parte fundamental del desarrollo de \acrlong{llm} y \acrlong{rag}. Aunque los detalles específicos del preprocesamiento pueden variar según la tarea y la arquitectura del modelo, algunos pasos comunes incluyen:
+
+\begin{itemize}
+
+\item \textbf{Tokenización:} Los modelos de lenguaje trabajan con unidades más pequeñas llamadas tokens. Tokenizar un texto implica dividirlo en estas unidades, que podrían ser palabras, subpalabras o incluso caracteres.
+
+\item \textbf{Normalización:} Esto implica convertir el texto a un formato estándar, como convertir todas las letras a minúsculas. Esto ayuda a que el modelo no trate las mismas palabras en diferentes formas como entidades separadas.
+ 
+\item \textbf{Eliminación de \textit{stopwords}:} Para algunos modelos, puede ser beneficioso eliminar palabras comunes que no aportan mucha información (como ``y'', ``o'', ``el'', etc.) para reducir el ruido en los datos.
+
+\item \textbf{Lidiar con datos no estructurados:} Si los datos contienen elementos no textuales, como imágenes o tablas, se debe tener un proceso para manejarlos o convertirlos en un formato que el modelo pueda entender.
+
+\item \textbf{Segmentación de texto:} Para tareas específicas, como la recuperación de respuesta, puede ser útil dividir el texto en segmentos más pequeños para facilitar la búsqueda y la recuperación de información relevante.
+
+\item \textbf{Manejo de datos desbalanceados:} Si los datos están desbalanceados (por ejemplo, se tienen muchas más instancias de una clase que de otra), es posible que se desean aplicar técnicas para abordar este desequilibrio.
+
+\end{itemize}
+
+El preprocesamiento puede variar según la tarea y el modelo específico que se está utilizando. Algunos modelos, como \acrfull{gpt}, han demostrado ser bastante robustos y pueden manejar datos en bruto con un preprocesamiento mínimo, mientras que otros modelos pueden requerir una preparación más cuidadosa de los datos. 
+
+Además, para \acrshort{rag}, también hay un enfoque importante en la creación de conjuntos de datos que vinculen preguntas con respuestas relevantes para el entrenamiento efectivo del modelo. 
+
+La información contenida en los datos del \acrshort{faq} para el \acrshort{tfg} presenta una estructura que no es óptima para el Chatbot basado en \acrshort{llm}. Se cuenta con diversas fuentes de datos que deben ser integradas en el \acrshort{rag}. Esta problemática se abordará con mas profundidad en la sección~\ref{Preprocesamiento}.
+
 \subsection{\textit{Embeddings}}
 
 En el \acrfull{pln}, un embedding de palabra es una representación de una palabra que se utiliza en el análisis de texto. Normalmente, la representación es un vector de valores reales que codifica el significado de la palabra de tal manera que se espera que las palabras que están más cercanas en el espacio vectorial sean similares en significado. Los embeddings de palabra se obtienen utilizando técnicas de modelado del lenguaje y aprendizaje de características, donde las palabras o frases del vocabulario se asignan a vectores de números reales.
 
-Existen diversos métodos para generar este mapeo, que incluyen redes neuronales, reducción de dimensionalidad en la matriz de co-ocurrencia de palabras, modelos probabilísticos, métodos basados en bases de conocimiento explicables y representación explícita en términos del contexto en el que aparecen las palabras\cite{mikolov2013distributed}.
+Existen diversos métodos para generar este mapeo, que incluyen redes neuronales, reducción de dimensionalidad en la matriz de co-ocurrencia de palabras, modelos probabilísticos, métodos basados en bases de conocimiento explicables y representación explícita en términos del contexto en el que aparecen las palabras~\cite{mikolov2013distributed}.
 
 Estos embeddings de palabra y frase, cuando se utilizan como representación de entrada subyacente, han demostrado mejorar el rendimiento en tareas de \acrshort{pln} como el análisis sintáctico y el análisis de sentimientos. El desarrollo histórico de este enfoque se remonta a la década de 1950, con la idea de que ``una palabra se caracteriza por la compañía que mantiene''. A lo largo del tiempo, se han desarrollado modelos de espacio semántico para representar el conocimiento basado en la distribución de propiedades en grandes conjuntos de datos lingüísticos.
 
@@ -331,29 +357,30 @@ La popularidad de los embeddings de palabra creció significativamente con los a
 
 \subsection{Bases de datos Vectoriales}
 
-Una base de datos vectorial es un tipo de base de datos que almacena datos como vectores de alta dimensionalidad, que son representaciones matemáticas de características o atributos. Cada vector tiene un número específico de dimensiones, que pueden variar desde decenas hasta miles, dependiendo de la complejidad y la granularidad de los datos. Los vectores suelen generarse aplicando algún tipo de función de transformación o incrustación a los datos sin procesar, como texto, imágenes, audio, video y otros. La función de incrustación puede basarse en diversos métodos, como modelos de aprendizaje automático, incrustaciones de palabras o algoritmos de extracción de características\cite{MicrosoftVectorDatabase}.
+Una base de datos vectorial es un tipo de base de datos que almacena datos como vectores de alta dimensionalidad, que son representaciones matemáticas de características o atributos. Cada vector tiene un número específico de dimensiones, que pueden variar desde decenas hasta miles, dependiendo de la complejidad y la granularidad de los datos. Los vectores suelen generarse aplicando algún tipo de función de transformación o incrustación a los datos sin procesar, como texto, imágenes, audio, vídeo y otros. La función de incrustación puede basarse en diversos métodos, como modelos de aprendizaje automático, incrustaciones de palabras o algoritmos de extracción de características~\cite{MicrosoftVectorDatabase}.
 
 La principal ventaja de una base de datos vectorial es que permite realizar búsquedas y recuperación de datos rápida y precisa basada en la distancia o similitud de sus vectores. Esto significa que, en lugar de utilizar métodos tradicionales para consultar bases de datos basadas en coincidencias exactas o criterios predefinidos, se puede utilizar una base de datos vectorial para encontrar los datos más similares o relevantes según su significado semántico o contextual.
 
 Por ejemplo, se puede utilizar una base de datos vectorial para:
+\begin{itemize}
+    \item Encontrar imágenes similares a una imagen dada según su contenido visual y estilo.
+    \item Encontrar documentos similares a un documento dado según su tema y sentimiento.
+    \item Encontrar productos similares a un producto dado según sus características y calificaciones.
+\end{itemize}
 
-Encontrar imágenes similares a una imagen dada según su contenido visual y estilo.
-Encontrar documentos similares a un documento dado según su tema y sentimiento.
-Encontrar productos similares a un producto dado según sus características y calificaciones.
-
-Para realizar búsquedas y recuperación de similitudes en una base de datos vectorial, debes utilizar un vector de consulta que represente la información o criterios deseados. El vector de consulta puede derivarse del mismo tipo de datos que los vectores almacenados (por ejemplo, usar una imagen como consulta para una base de datos de imágenes) o de diferentes tipos de datos (por ejemplo, usar texto como consulta para una base de datos de imágenes). Luego, se debe utilizar una medida de similitud que calcule qué tan cercanos o distantes están dos vectores en el espacio vectorial. La medida de similitud puede basarse en diversas métricas, como similitud del coseno, distancia euclidiana, distancia de Hamming, índice de Jaccard.
+Para realizar búsquedas y recuperación de similitudes en una base de datos vectorial, se debe utilizar un vector de consulta que represente la información o criterios deseados. El vector de consulta puede derivarse del mismo tipo de datos que los vectores almacenados (por ejemplo, usar una imagen como consulta para una base de datos de imágenes) o de diferentes tipos de datos (por ejemplo, usar texto como consulta para una base de datos de imágenes). Luego, se debe utilizar una medida de similitud que calcule qué tan cercanos o distantes están dos vectores en el espacio vectorial, ver figura~\ref{fig:VectorDatabase}. La medida de similitud puede basarse en diversas métricas, como similitud del coseno, distancia euclidiana, distancia de Hamming, índice de Jaccard.
 
 \imagen{VectorDatabase}{Esquema del funcionamiento de creación de bases de datos vectoriales con Embeddings.}{1}
 
-El resultado de la búsqueda y recuperación de similitudes suele ser una lista clasificada de vectores que tienen las puntuaciones de similitud más altas con el vector de consulta. Luego se puede acceder a los datos sin tratar correspondientes a cada vector desde la fuente u origen original.
+El resultado de la búsqueda y recuperación de similitudes suele ser una lista clasificada de vectores que tienen las puntuaciones de similitud más altas con el vector de consulta. Luego se puede acceder a los datos originales, sin tratar, de cada vector.
 
 Las bases de datos vectoriales tienen muchos casos de uso en diferentes dominios y aplicaciones que involucran \acrlong{pln}, visión por computadora, sistemas de recomendación y otras áreas que requieren comprensión semántica y coincidencia de datos.
 
-Un caso de uso para almacenar información en una base de datos vectorial es potenciar a los \acrlong{llm} para generar texto más relevante y coherente basado en un complemento de \acrlong{ia}. Sin embargo, los \acrshort{llm} a menudo enfrentan desafíos como generar información inexacta o irrelevante, carecer de consistencia o sentido común, repetirse o contradecirse, ser sesgados u ofensivos. Para superar estos desafíos, se puede utilizar una base de datos vectorial para almacenar información sobre diferentes temas, palabras clave, hechos, opiniones y/o fuentes relacionadas con tu dominio o género deseado. Luego, se puede usar un \acrlong{llm} y pasar información desde la base de datos vectorial con tu complemento de \acrlong{ia} para generar contenido más informativo y atractivo que se ajuste a la intención y estilo.
+Un caso de uso para almacenar información en una base de datos vectorial es potenciar a los \acrlong{llm} para generar texto más relevante y coherente basado en un complemento de \acrlong{ia}. Sin embargo, los \acrshort{llm} a menudo enfrentan desafíos como generar información inexacta o irrelevante, carecer de consistencia o sentido común, repetirse o contradecirse, ser sesgados u ofensivos. Para superar estos desafíos, se puede utilizar una base de datos vectorial que almacene información sobre diferentes temas, palabras clave, hechos, opiniones y/o fuentes relacionadas con el dominio o género deseado. Luego, se puede usar un \acrlong{llm} y pasar información desde la base de datos vectorial con el complemento de \acrlong{ia} para generar contenido más informativo y atractivo que se ajuste a la intención y estilo.
 
 \section{\textit{Prompt Engineering}}
 
-Para obtener información de un \acrshort{llm}, hay que hace una pregunta. Si un \acrshort{llm} es como una base de datos de millones de programas vectoriales, entonces un \textit{prompt} es como una consulta de búsqueda en esa base de datos. Una parte de la consulta puede interpretarse como una ``clave de programa'', el índice del programa que se desea recuperar, y otra como una entrada de programa.
+Para obtener información de un \acrshort{llm}, hay que hacer una pregunta. Si un \acrshort{llm} es como una base de datos de millones de programas vectoriales, entonces un \textit{prompt} es como una consulta de búsqueda en esa base de datos. Una parte de la consulta puede interpretarse como una ``clave de programa'', el índice del programa que se desea recuperar, y otra como una entrada de programa.
 
 Esta ``base de datos de programas'' es continua e interpolativa, no es un conjunto discreto de programas. Esto significa que una instrucción ligeramente diferente, como ``Reformula este texto en el estilo de x'', aún habría apuntado a una ubicación muy similar en el espacio de programas, dando como resultado un programa que se comportaría de manera bastante cercana pero no idéntica.
 
@@ -363,11 +390,11 @@ El \textit{Prompt Engineering} es el proceso de buscar en el espacio de programa
 
 Si los \acrshort{llm} realmente entendieran lo que se les dice, no habría necesidad de este proceso de búsqueda, ya que la cantidad de información transmitida sobre la tarea objetivo no cambiaría, independientemente de que se use por ejemplo la instrucción con la palabra ``reescribe'' en lugar de ``reformula''. Nunca se debe asumir que el \acrshort{llm} ``lo entiende'' desde el principio. Se debe de tener en cuenta que la instrucción es solo una dirección en un mundo casi infinito de programas, todo capturado como un subproducto de organizar tokens en un espacio vectorial a través de un objetivo de optimización autoregresivo.
 
-\subsection{Chain-of-thought}
+\subsection{\textit{Chain-of-thought}}
 
 Existen multitud de técnicas de \textit{Prompt Engineering} pero una de las mas conocidas es \acrfull{cot}. La técnica de \acrlong{cot} \textit{prompting} es una estrategia que permite a los \acrshort{llm} abordar un problema como una serie de pasos intermedios antes de proporcionar una respuesta final. Mejora la capacidad de razonamiento al inducir al modelo a responder un problema de múltiples pasos con pasos de razonamiento que imitan una cadena de pensamiento. Esta técnica permite a los \acrshort{llm} superar dificultades en tareas de razonamiento que requieren pensamiento lógico y múltiples pasos para resolver, como preguntas de aritmética o razonamiento del sentido común.
 
-Por ejemplo, ante la pregunta ``Q: La cafetería tenía 23 manzanas. Si usaron 20 para hacer el almuerzo y compraron 6 más, ¿cuántas manzanas tienen?'', un \textit{prompt} \acrshort{cot} podría inducir al \acrshort{llm} a responder ``A: La cafetería tenía originalmente 23 manzanas. Usaron 20 para hacer el almuerzo. Así que tenían 23 - 20 = 3. Compraron 6 manzanas más, así que tienen 3 + 6 = 9. La respuesta es 9''\cite{wei2023chainofthought}.
+Por ejemplo, ante la pregunta ``Q: La cafetería tenía 23 manzanas. Si usaron 20 para hacer el almuerzo y compraron 6 más, ¿cuántas manzanas tienen?'', un \textit{prompt} \acrshort{cot} podría inducir al \acrshort{llm} a responder ``A: La cafetería tenía originalmente 23 manzanas. Usaron 20 para hacer el almuerzo. Así que tenían 23 - 20 = 3. Compraron 6 manzanas más, así que tienen 3 + 6 = 9. La respuesta es 9''~\cite{wei2023chainofthought}.
 
 \begin{verbatim}
 Q: {question}
@@ -376,31 +403,37 @@ A: Let’s think step by step.
 
 Inicialmente, cada \textit{prompt} \acrshort{cot} incluía algunos ejemplos de preguntas y respuestas (Q\&A). Esto lo convertía en una técnica de \textit{prompting ``few-shot''}. Sin embargo, se ha demostrado que simplemente agregar las palabras ``Pensemos paso a paso'' también es efectivo, lo que convierte a \acrshort{cot} en una técnica de \textit{prompting ``zero-shot''}. Esto permite una mejor escalabilidad, ya que el usuario ya no necesita formular muchos ejemplos de preguntas y respuestas específicos de \acrshort{cot}.
 
+\subsection{\textit{Few-shot-prompting vs Zero-shot-prompting}}
+
+El \textit{few-shot-prompting} y \textit{zero-shot-prompting} son enfoques específicos en el ámbito de la generación de lenguaje natural y el aprendizaje con modelos de lenguaje, especialmente en contextos como \acrshort{gpt} u otros modelos similares. Aquí hay una breve descripción de ambos~\cite{Low-shot}.
+
+\begin{itemize}
+    \item \textbf{\textit{Few-shot-prompting}:} El \textit{few-shot-prompting} implica proporcionar al modelo solo un pequeño número de ejemplos de entrada, llamados ``pocas muestras'' (few-shot), junto con un \textit{prompt} o indicación específica que guía al modelo sobre la tarea que debe realizar.
+
+    Este enfoque es útil cuando se quiere dirigir el modelo para realizar una tarea particular, pero no se dispone de grandes conjuntos de datos etiquetados. Las pocas muestras y el \textit{prompt} juntos actúan como una guía para la generación de respuestas o contenido coherente.
+
+    \item \textbf{\textit{Zero-shot-prompting}:} El \textit{zero-shot-prompting} va un paso más allá al permitir que el modelo realice tareas sin haber visto ejemplos específicos de esa tarea durante el entrenamiento. Se basa en la capacidad del modelo para generalizar y comprender tareas sin información previa. 
+
+    Es beneficioso en escenarios donde se necesitan respuestas o generación de texto para tareas no vistas anteriormente. La capacidad de realizar tareas \textit{zero-shot} amplía la aplicabilidad del modelo a una variedad más amplia de situaciones.
+\end{itemize}
+
+Ambos enfoques son parte de la búsqueda continua de mejorar la flexibilidad y la aplicabilidad de los \acrshort{llm}, permitiéndoles realizar tareas específicas con una entrada mínima o nula para esas tareas durante el entrenamiento.
+
 \section{TFG y Chatbot actual}
 
 \subsection{Trabajo Fin de Grado}
 
-Un \acrfull{tfg} en el contexto de un grado de Ingeniería Informática en España se refiere a un proyecto académico que los estudiantes deben completar al finalizar su carrera universitaria. El \acrshort{tfg} es un componente obligatorio y esencial para obtener el título de Grado en Ingeniería Informática.
+Un \acrfull{tfg} en el contexto de un grado de Ingeniería Informática en España se refiere a un proyecto académico que los estudiantes deben completar al finalizar su carrera universitaria. El \acrshort{tfg} es un componente obligatorio y esencial para obtener el título de Grado en Ingeniería Informática~\cite{ubu-tfg}. Un esquema del proceso seguido durante el \acrshort{tfg} en la \acrshort{ubu} se puede ver en la figura~\ref{fig:ModeloGestionTFGTFM}.
 
-Características del \acrshort{tfg} en Ingeniería Informática:
-\begin{description}
+\imagen{ModeloGestionTFGTFM}{Proceso de gestión de TFG en la UBU.}{1}
 
-\item \textbf{Requisito de Graduación}: El \acrshort{tfg} es un requisito necesario para obtener el grado de Ingeniería Informática. Los estudiantes deben completarlo con éxito para cumplir con los requisitos de graduación.
+El \acrfull{tfg} constituye un requisito para obtener el grado de Ingeniería Informática, y su finalización es necesaria para cumplir con los requisitos de graduación. En la \acrfull{ubu}, el \acrshort{tfg} se aborda como un proyecto individual, proporcionando a los estudiantes la oportunidad de aplicar de forma práctica los conocimientos adquiridos durante su carrera.
 
-\item \textbf{Proyecto Individual o en Grupo}: Dependiendo de la institución educativa y sus políticas, el \acrshort{tfg} puede ser un proyecto individual o realizado en grupo. En muchos casos, implica la aplicación práctica de los conocimientos adquiridos durante la carrera.
+Los temas del \acrshort{tfg} son diversos y pueden abarcar una amplia gama de áreas dentro de la Ingeniería Informática, como desarrollo de software, diseño de sistemas, análisis de algoritmos, \acrlong{ia}, ciberseguridad y redes, entre otros. Los estudiantes suelen contar con la orientación de uno o mas tutores académicos, con experiencia en el área del proyecto.
 
-\item \textbf{Temas Variados}: Los temas del \acrshort{tfg} pueden abarcar una amplia gama de áreas dentro de la Ingeniería Informática. Pueden incluir desarrollo de software, diseño de sistemas, análisis de algoritmos, inteligencia artificial, ciberseguridad, redes, entre otros.
+En la documentación y presentación del \acrshort{tfg}, donde los estudiantes deben elaborar informes detallados sobre el proceso de desarrollo, los resultados y las conclusiones. Además, se espera que realicen una presentación oral para defender y explicar su trabajo ante un tribunal académico.
 
-\item \textbf{Orientación Académica}: Los estudiantes suelen contar con un tutor académico que les brinda orientación y supervisión durante el desarrollo del proyecto. Este tutor puede ser un profesor de la universidad con experiencia en el área del proyecto.
-
-\item \textbf{Documentación y Presentación}: Los estudiantes deben documentar su trabajo de manera exhaustiva, presentando informes escritos que detallen el proceso de desarrollo, los resultados obtenidos y las conclusiones. Además, suelen realizar una presentación oral para defender y explicar su trabajo ante un tribunal académico.
-
-\item \textbf{Evaluación}: La evaluación del \acrshort{tfg} se realiza considerando diversos aspectos, como la calidad técnica del proyecto, la claridad de la documentación, la presentación oral y la capacidad del estudiante para aplicar los conocimientos adquiridos.
-
-\item \textbf{Contribución Original}: En algunos casos, se espera que el \acrshort{tfg} aporte alguna forma de contribución original al campo de la Ingeniería Informática, ya sea a través de la implementación de una solución innovadora o de la investigación en un área específica.
-\end{description}
-
-El \acrshort{tfg} es una oportunidad para que los estudiantes demuestren su capacidad para aplicar los conocimientos teóricos adquiridos a lo largo de su carrera en un proyecto práctico y significativo.
+La evaluación del \acrshort{tfg} se realiza considerando diversos aspectos, como la calidad técnica del proyecto, la claridad de la documentación, la presentación oral y la capacidad del estudiante para aplicar los conocimientos adquiridos. En algunos casos, se espera que el \acrshort{tfg} aporte alguna forma de contribución original al campo de la Ingeniería Informática, ya sea a través de la implementación de una solución innovadora o de la investigación en un área específica.
 
 \subsection{Chatbots}
 
@@ -524,16 +557,16 @@ En la tabla \ref{tabla:comparativaplataformas} se muestra la comparativa entre l
 
 \subsection{Chatbot actual}
 
-El chatbot para la resolución de dudas que actualmente está disponible en la plataforma UBUVirtual es el resultado del \acrshort{tfg} realizado por Alfredo Asensio Vázquez en 2021 y titulado ``Desarrollo y explotación de un chatbot de FAQs sobre una asignatura de Trabajo Fin de Grado''\cite{UBU-Chatbot}.
+El chatbot para la resolución de dudas que actualmente está disponible en la plataforma UBUVirtual es el resultado del \acrshort{tfg} realizado por Alfredo Asensio Vázquez en 2021 y titulado ``Desarrollo y explotación de un chatbot de FAQs sobre una asignatura de Trabajo Fin de Grado''~\cite{UBU-Chatbot}, ver figura~\ref{fig:UBU-Chatbot}.
 
 El chatbot actual logra resolver eficazmente más del 50\% de las preguntas formuladas por los alumnos, lo que resultó en una notable reducción de consultas al personal docente de la asignatura a través de otros medios. Es destacable que este logro se alcanzó sin incurrir en ningún coste adicional.
 
 \imagen{UBU-Chatbot}{UI del UBU-CHATBOT actual.}{0.5}
 
-Se realizó la integración del chatbot con una plataforma diferente al portal de UBUVirtual, eligiendo Slack como plataforma, aunque opciones como Whatsapp, Facebook Messenger o Telegram también eran viables, aunque no de manera gratuita. En la versión actual esta integración no aporta un valor sustancial, se planteó como una perspectiva relevante para futuras versiones del chatbot que podrían implementar nuevas funcionalidades.
-
 La herramienta elegida para la realización del chatbot fue Dialogflow. Dialogflow ha demostrado ser una solución óptima para el proyecto, proporcionando un \acrfull{pln} potente, gratuito y con una curva de aprendizaje mínima. La efectividad de las conversaciones depende en gran medida del correcto planteamiento de preguntas por parte de los estudiantes. Aquellos que formulen preguntas precisas y concisas obtendrán mejores resultados, y gracias a que los usuarios son estudiantes de Ingeniería Informática con conocimientos sobre las limitaciones de la \acrlong{ia}, este problema no se consideró crítico.
 
 \imagen{UBU-Chatbot2}{Limitaciones del UBU-CHATBOT actual relativas a la formulación de preguntas por parte de los estudiantes.}{0.5}
 
-La adición de indicaciones sobre cómo formular preguntas en caso de mensajes no reconocidos  mejoró la experiencia del usuario, pero sigue siendo una limitación para el uso del chatbot. Los chatbots son una herramienta en crecimiento, impulsados por la potencia creciente de los \acrlong{llm}. En los últimos meses se ha mejorado enormemente las posibilidades y las herramientas disponibles.
+La adición de indicaciones sobre cómo formular preguntas en caso de mensajes no reconocidos  mejoró la experiencia del usuario, pero sigue siendo una limitación para el uso del chatbot, ver figura~\ref{fig:UBU-Chatbot2}. Los chatbots son una herramienta en crecimiento, impulsados por la potencia creciente de los \acrlong{llm}. En los últimos meses se ha mejorado enormemente las posibilidades y las herramientas disponibles.
+
+Otra carencia del chatbot actual es que en su base de datos de preguntas y respuestas no utiliza el histórico de datos de los \acrshort{tfg} de otros cursos. Solo se disponen de un reducido grupo de ejemplos que están embebidos en las preguntas y respuestas generales.
