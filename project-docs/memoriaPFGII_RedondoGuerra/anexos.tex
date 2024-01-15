@@ -8,18 +8,57 @@
 \usepackage{lmodern} % scalable font
 \usepackage{microtype}
 \usepackage{placeins}
+\usepackage{listings}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{gray!15},
+  commentstyle=\color{green},
+  keywordstyle=\color{magenta},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  %numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=10
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
 
 % Acrónimos
 \usepackage[acronym]{glossaries}
 \makenoidxglossaries
 
 % Acrónimos
-\newacronym{tfg}{TFG}{Trabajo de ``Fin de Grado''}
-\newacronym{llm}{LLM}{``\textit{Large Language Models}''}
-\newacronym{rag}{RAG}{``\textit{Retrieval-augmented Generation}''}
+\newacronym{tfg}{TFG}{Trabajo de Fin de Grado}
+\newacronym{llm}{LLM}{\textit{Large Language Models}}
+\newacronym{rag}{RAG}{\textit{Retrieval-augmented Generation}}
 \newacronym{ia}{IA}{Inteligencia Artificial}
 \newacronym{ubu}{UBU}{Universidad de Burgos}
-
+\newacronym{dnn}{DNN}{\textit{Deep Neural Networks}}
+\newacronym{gpt}{GPT}{\textit{Generative Pre-trained Transformer}}
+\newacronym{pln}{PLN}{Procesamiento del Lenguaje Natural}
+\newacronym{mit}{MIT}{\textit{Massachusetts Institute of Technology}}
+\newacronym{svm}{SVM}{Máquinas de soporte vectorial}
+\newacronym{crf}{CRF}{Cadenas de Markov Condicionales}
+\newacronym{cbow}{CBOW}{\textit{Continuous Bag of Words}}
+\newacronym{api}{API}{\textit{Application Programming Interface}}
+\newacronym{rlhf}{RLHF}{\textit{Reinforcement Learning from Human Feedback}}
+\newacronym{cot}{CoT}{\textit{Chain-of-thought}}
+\newacronym{cpu}{CPU}{\textit{Central Processing Unit}}
+\newacronym{gpu}{GPU}{\textit{Graphics Processing Unit}}
+\newacronym{ui}{UI}{\textit{User Interface}}
+\newacronym{faq}{FAQ}{\textit{Frequently Asked Questions}}
+\newacronym{url}{URL}{\textit{Uniform Resource Locator}}
+\newacronym{ue}{UE}{Unión Europea}
+\newacronym{irpf}{IRPF}{Impuesto sobre la Renta de las Personas Físicas}
+\newacronym{ide}{IDE}{Entorno de desarrollo integrado}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
@@ -355,7 +394,7 @@
     \noindent\LARGE
     Presentado por \@author{}\\ 
     en Universidad de Burgos --- \@date{}\\
-    Tutor: \@tutor{}\\
+    Tutores: \@tutor{}\\
   }%
   \end{center}%
   \null
@@ -365,7 +404,7 @@
 
 
 % Datos de portada
-\title{Desarrollo de un chatbot basado en  'Large Language Models' (LLM) y técnicas de 'Retrieval-augmented Generation' (RAG) para asistente de dudas sobre la realización del TFG. \\Documentación Técnica}
+\title{Chatbot basado en \textit{Large Language Models} y técnicas de \textit{Retrieval-augmented Generation} para asistente de dudas sobre la realización del Trabajo Fin de Grado\\Documentación Técnica.}
 \author{José María Redondo Guerra}
 \tutor{José Ignacio Santos Martín, Carlos López Nozal}
 \date{\today}
@@ -399,6 +438,10 @@
 \clearpage
 
 \listoftables
+
+\clearpage
+
+\lstlistoflistings
 
 \clearpage
 

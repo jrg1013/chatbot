@@ -2,12 +2,252 @@
 
 \section{Introducción}
 
+La planificación del proyecto de software para el desarrollo del chatbot representa una fase crucial dentro del ámbito de este \acrlong{tfg}. En esta sección, se abordará la estructuración y programación detallada de todas las actividades que llevaron a cabo la creación del chatbot, desde su concepción hasta su implementación efectiva.
+
+Se llevará a cabo una evaluación minuciosa de la viabilidad de la solución propuesta, considerando aspectos económicos y legales. Se detallará cómo se establecieron plazos y etapas con el objetivo de garantizar un desarrollo eficiente del proyecto dentro del tiempo previsto. Este plan de proyecto, dividido en secciones clave, no solo trazará temporalmente la ejecución de las fases, sino que también realizará un análisis crítico de la viabilidad económica y legal del proyecto, asegurando así su coherencia y conformidad con los requisitos establecidos.
+
 \section{Planificación temporal}
+
+Para el desarrollo de este proyecto se ha seguido mayoritariamente una metodología \textit{Agile} o ágil. La metodología \textit{Agile} es un enfoque de desarrollo de software que se centra en la flexibilidad, la adaptabilidad y la entrega incremental. A diferencia de los enfoques tradicionales de desarrollo de software, que suelen seguir un modelo de \textit{waterfall} o cascada, donde cada fase del proyecto se completa antes de pasar a la siguiente, la metodología ágil aboga por la colaboración continua entre equipos multifuncionales y la entrega iterativa de software funcional.
+
+Algunos de los marcos de trabajo ágiles más conocidos incluyen \textit{Scrum}, \textit{Kanban} y \textit{Extreme Programming} (XP). Estos marcos proporcionan prácticas específicas y roles que ayudan a implementar los principios ágiles en proyectos concretos. En este caso no se dispone de un equipo de desarrolladores por lo que se ha optado por usar parcialmente el \textit{framework} \textit{Kanban} para el trabajo entre alumno y tutores.
+
+\subsection{Gestión del Proyecto}
+
+Kanban es una metodología ágil que se originó en el sistema de producción de Toyota y se ha aplicado exitosamente en el desarrollo de software y la gestión de proyectos. Se basa en el principio de visualizar el trabajo, limitar el trabajo en curso y maximizar el flujo de trabajo~\cite{Kanban}.
+
+La metodología Kanban se ha vuelto popular en entornos donde la demanda de cambio es constante y la capacidad de respuesta rápida es crucial, ya que permite una gestión más ágil y adaptable del trabajo. Y este es precisamente el motivo por el que está muy extendida en proyectos de Software como este \acrshort{tfg}.
+
+Para visualizar las tareas se han creado \textit{Issues} en GitHub/Zube.io. Estas \textit{Issues} contienen una descripción del objetivo, las tareas a realizar para conseguir ese objetivo y como validar que se ha conseguido ese objetivo(\textit{Definition of Done}). Se puede ver un ejemplo de una \textit{Issue} en la figura~\ref{fig:IssueGitHub}.
+
+\imagen{IssueGitHub}{Descripción de una \textit{Issue} en GitHub que contiene Objetivo, tareas y criterios de éxito.}
+
+Para ayudar en la gestión del proyecto con la metodología \textit{Kanban}, se ha usado la herramienta Zube.io, explicada en el apartado 4 de la memoria. Se disponen de distintas fases en Zube para mostrar los distintos estados en los que se puede encontrar una \textit{Issue}. Ver figura~\ref{fig:SprintBoard}.
+
+El proceso seguido después de la creación de un \textit{Issue} ha sido el siguiente:
+
+\begin{enumerate}
+    \item \textbf{Refinamiento y estimación:} Se define el objetivo, se estima una puntuación de tiempo basado en la complejidad del trabajo a realizar y por último se pasa al \textit{Backlog}.
+
+    \item \textbf{Planificación en el \textit{Sprint}:} En la reunión quincenal con los tutores se planifica el siguiente \textit{Sprint} y con ello se mueven las \textit{Issues} al \textit{Backlog} del \textit{Sprint} en curso.
+
+    \item \textbf{\textit{Issues} en proceso:} Siguiendo la metodología \textit{Kanban}, no se han tenido mas de 2-3 \textit{Issues} en proceso al mismo tiempo. Una vez que están acabadas se han pasado a la siguiente fase para ser validadas.
+
+    \item \textbf{Validación:} Cuando las \textit{Issues} están completas, se ha comprobado que el resultado era el deseado. De no ser satisfactorio se ha devuelto a una fase anterior o se han reformulado los objetivos.
+
+    \item \textbf{\textit{Review} del \textit{Sprint}:} En la reunión quincenal con los tutores se ha repasado el trabajo realizado en el Sprint anterior y se han archivado las \textit{Issues} ya finalizadas y revisadas.
+\end{enumerate}
+
+\imagen{SprintBoard}{\textit{Sprint Board} de Zube.io con los distintos estados de las \textit{Issues}.}
+
+\subsection{\textit{Milestones}}
+
+Las \textit{milestones} o hitos en los proyectos de software son eventos o logros significativos que marcan el progreso y el éxito en el desarrollo del proyecto. Estos hitos son puntos clave en el cronograma del proyecto y sirven como indicadores importantes para evaluar el avance hacia los objetivos establecidos. Cada milestone contribuye al logro del objetivo final del \acrshort{tfg} y ayuda a mantener el enfoque y la dirección.
+
+\begin{itemize}
+
+    \item \textbf{Kick-off y configuración inicial del proyecto:} Puesta en marcha del \acrshort{tfg}. Partiendo de las reuniones iniciales con los tutores se deberá crear la estructura necesaria para el desarrollo del proyecto.
+    
+    \item \textbf{Prototipo en Jupyter Notebook de \acrshort{llm} usando datos propios con LangChain:} Creacion de un Notebook de Jupyter que usando LangChain cree un Chatbot usando datos propios a traves de un \acrshort{rag} sobre un \acrshort{llm}.
+
+    \item \textbf{Creación de una interface para el chatbot:} Creación de una \acrshort{ui} para que se puede interactuar con el Chatbot desde un entorno mas agradable para el usuario.
+
+    \item \textbf{Borrador de la memoria del proyecto para revisión de los tutores}: Creación de la primera versión de la memoria y los anexos para que los tutores puedan revisar y dar \textit{Feedback}.
+
+    \item \textbf{Material para la entrega final del \acrshort{tfg}:} Preparación del material para la entrega del proyecto fin de Grado(memoria final, anexos, presentaciones, vídeos,...).
+\end{itemize}
+
+\subsection{Organización en \textit{Sprints}}
+
+Se han realizado Sprint quincenales que se han planificado y revisado en la reunión quincenal con los tutores del \acrshort{tfg}. Las reuniones han servido para, siguiendo la metodología \textit{Agile}, revisar el Sprint anterior, planificar el siguiente y hacer una pequeña retrospectiva para mejorar el trabajo conjunto.
+
+
+\begin{itemize}
+    \item \textbf{Sprint 1(6/10/2023 - 17/10/2023):} El inicio de este sprint lo marcó la primera reunión con los tutores, en la que se dieron las indicaciones de lo que se buscaba con el proyecto y se establecieron los primeros objetivos. Se estableció LaTeX como herramienta para la documentación y GitHub como repositorio.
+    Documentación del \textit{abstract}, Introdución y objetivos.
+
+    \item \textbf{Sprint 2(18/10/2023 - 30/10/2023):} El principal objetivo de este Sprint es tener un prototipo para validar el uso de \acrshort{llm} en Jupyter. En la parte relativa a documentación se pone el foco en el apartado de conceptos generales.
+
+    \item \textbf{Sprint 3(1/11/2023 - 15/11/2023):} Con un prototipo rudimentario pero suficiente para validar los riesgos tecnológicos del proyecto, se pasa a mejorar el cuaderno de Jupyter de Kaggle para que también incluya las técnicas \acrshort{rag}. Se finalizarán lo conceptos generales completando los apartados que faltan.
+
+    \item \textbf{Sprint 4(16/11/2023 - 29/11/2023):} Migración de la versión de Kaggle  basada en cuadernos de Jupyter a ficheros en local. Se comienza a desarrollar una metodología para validar los resultados del chatbot a la par que se investigan posibles vías para crear una \acrshort{ui}. En la parte de documentación se comienza con el apartado relativo a técnicas y herramientas usadas en el \acrshort{tfg}.
+
+    \item \textbf{Sprint 5(30/11/2023 - 14/12/2023):} Se extienden los \textit{Issues} relativos a validación y pruebas. Este apartado lleva más tiempo del esperado y es necesario a mayores estabilizar la versión del Chatbot existente. Por último se crea una \acrshort{ui} basada en Streamlit.
+
+    \item \textbf{Sprint 6(15/12/2023 - 7/1/2024):} Con la versión del Chatbot estable, el foco de este Sprint es avanzar en la documentación de la memoria. Se deben completar los apartados Aspectos relevantes y los anexos de la memoria. En el aspecto técnico son necesarias algunas mejoras en los datos de entrada y en la temperatura del \acrshort{llm}. 
+
+    \item \textbf{Sprint 7(8/1/2024 - 16/1/2024):} En este último \textit{Sprint} el foco es preparar el material de la entrega. Se efectúan las correcciones en la memoria y Anexos basados en los comentarios de los tutores.
+\end{itemize}
+
+\subsection{Métricas Ágiles}
+
+La herramienta Zube permite de forma sencilla generar gráficas para el seguimiento de las métricas \textit{Agile} mas comunes~\cite{metricas}.
+
+Las gráficas \textit{Burnup} son herramientas visuales utilizadas en la gestión de proyectos para mostrar el progreso del trabajo realizado en comparación con las metas y el alcance planificado, ver figura~\ref{fig:Burnup}.
+
+\imagen{Burnup}{Gráfica \textit{Burnup} del Sprint 3.}
+
+A diferencia las gráficas \textit{Burndown} muestran el trabajo restante, ver figura~\ref{fig:Burndown}.
+
+\imagen{Burndown}{Gráfica \textit{Burndown} del Sprint 3.}
+
+También se puedo visualizar la velocidad de los distintos \textit{Sprints}, ver figura~\ref{fig:Velocity}. Entendiendo por velocidad el número total de puntos de \textit{issues} que se han completado en el \textit{Sprint}.
+
+\imagen{Velocity}{Velocidad de los primeros 5 \textit{Sprints} basada en los puntos de los \textit{Issues}.}
 
 \section{Estudio de viabilidad}
 
+En esta sección, se llevará a cabo un análisis exhaustivo de los costes asociados y los potenciales beneficios del proyecto desde una perspectiva empresarial. Se prestará especial atención a la gestión de recursos, considerando no solo los costes directos, sino también cualquier otro gasto derivado que pueda surgir en el contexto de una operación empresarial real. 
+
+Este enfoque integral tiene como objetivo proporcionar una evaluación completa de la inversión requerida para la implementación exitosa del proyecto, así como identificar las oportunidades de retorno y beneficios que puede ofrecer a la organización.
+
 \subsection{Viabilidad económica}
+
+Este apartado va a analizar los costes y posibles beneficios del proyecto vistos desde una perspectiva empresarial; se tendrán en cuenta los recursos humanos, así como todos los gastos derivados que se generarían en una empresa real.
+
+\subsubsection{Licencias}
+
+En la Tabla \ref{tabla:licenciasSoftware} se recoge la información relativa a las licencias software de los programas utilizados en el proyecto. 
+
+\tablaSmall{Licencias software.}{l l l}{licenciasSoftware}
+{ Software & Licencia & Fuente \\}{ 
+	Python & GPL-compatible & ~\cite{Python} \\ 
+	Misual Studio Code & MIT License & ~\cite{VisualStudioCode} \\ 
+	Streamlit Linbrary & Apache 2.0 license & ~\cite{StreamlitLicense} \\ 
+	LangChain & MIT License & ~\cite{LangchainLicense} \\
+        Mistral B7 & Apache 2.0 license & ~\cite{MistralLicense} \\ 
+        HuggingFace API & Apache 2.0 license & ~\cite{HuggingFaceLicense} \\
+        Pandas Library & BSD 3-Clause License & ~\cite{PandasLicense} \\
+        GitHub & MIT License & ~\cite{GitHubLicense} \\
+        Zube & MIT License & ~\cite{ZubeLicense} \\
+        
+} 
+
+En el caso de Zube y GitHub la licencia usada es la versión básica que es gratuita y para pequeñas organizaciones es suficiente.
+
+La licencia Apache es libre, simple, sin \textit{copyleft} y permisiva. GNU es libre, abierta y con \textit{copyleft}. MIT License es abierta, son \textit{copyleft} y permisiva.
+
+Como resumen las licencias usadas en estos momento no suponen ni costes ni problemas legales para la explotación del chatbot.
+
+\subsubsection{Gastos}
+
+En la fase actual de desarrollo de los \acrshort{llm} es difícil de calcular los gastos reales que este chatbot tendría en la fase de explotación. Como se ha indicado anteriormente, la tecnología está lejos de poder ser usada como si fuera un producto estándar y es previsible que se necesite mejorar el desarrollo y actualizar partes del chatbot en la fase de mantenimiento. 
+
+El salario mensual bruto de un Ingeniero Informático junior se sitúa en torno a los 24.000€ brutos anuales, por lo que se va a suponer un sueldo mensual de 2.000€ brutos.
+
+Los costes de la Seguridad Social para la empresa son los siguientes: 23,6\% costes comunes, 0,2\% fogasa, 0.6\% formación profesional y una cotización de entre el 5,5-6,7\%, que vamos a suponer del 5,6\% para redondear, sumando en total un 30\%. Para el trabajador la Seguridad Social supone un 4,7\% y el \acrshort{irpf} es de un 12\% para este tramo.
+
+La empresa paga un 30\% de estos 2.000€ a la Seguridad Social.
+De estos 2.000€ el trabajador paga a la seguridad social un 4,7\% y el \acrshort{irpf} lo que supone 334€ (94€ + 240€). 
+Por lo que el sueldo neto será de 1.666€.
+
+En la Tabla \ref{tabla:costesHumanos} se calcula el coste humano total.
+
+\tablaSmallSinColores{Costes humanos.}
+{l l}{costesHumanos}
+{\textbf{Concepto} & \textbf{Coste}\\}
+{Salario mensual bruto 			& 1.500€	\\ 
+	Cotización seguridad social 			& 600€	\\ 
+	\midrule
+	Total mensual					& 2.100€	 \\
+}
+
+En la Tabla \ref{tabla:costesHardware} se muestra el gasto total en componentes físicos. Se asume un periodo de amortización para el hardware de 3 años (36 meses) y que han sido utilizados 12 meses. 
+
+\tablaSmallSinColores{Costes hardware.}
+{l l l}{costesHardware}
+{\textbf{Concepto} & \textbf{Coste}  & \textbf{Coste amortizado}\\}
+{Ordenador portátil 	& 1.000€	& 333,3€\\
+	Smartphone 	& 300€ & 100€\\
+	Ratón 	& 40€ & 13,3€ \\
+	Monitor 	& 150€ & 50€\\
+	Teclado 	& 15€ & 5€\\
+	\midrule
+	Total					& 1.505€	& 501,6€ \\
+}
+
+La Tabla \ref{tabla:costesRedes} recoge el coste total de la conexión a Internet.
+
+\tablaSmallSinColores{Costes de redes y comunicación.}
+{l l}{costesRedes}
+{\textbf{Concepto} & \textbf{Coste}\\}
+{Internet & 30€ /mes \\
+	\midrule
+	Total					& 360€	\\
+}
+
+\subsubsection{Costes infraestructura}
+
+La Tabla \ref{tabla:costeInfraestructura} recoge el coste de alquiler aproximado de una oficina pequeña en Burgos. El precio de alquiler del metro cuadrado en Burgos es en el momento de redactar este documento de 10€.
+
+\tablaSmallSinColores{Costes infraestructura.}
+{l l}{costeInfraestructura}
+{\textbf{Concepto} & \textbf{Coste}\\}
+{Alquiler oficina & 500€ /mes \\
+	\midrule
+	Total					& 6000€	\\
+}
+
+En la Tabla \ref{tabla:costesTotales} se muestra el coste total del proyecto.
+
+\tablaSmallSinColores{Costes totales.}
+{l l}{costesTotales}
+{\textbf{Tipo coste} & \textbf{Coste}\\}
+{Humano 				& 25.600€\\
+	Hardware 				& 501,6€ \\
+	Redes y comunicación 	& 360€ \\
+	Infraestructura 		& 6000€ \\ 
+	\midrule
+	Total					& 32.461,6€	\\
+}
+
+\subsubsection{Beneficios}
+
+El cálculo de los beneficios de este proyecto desde un punto de vista de producto es complejo. No es fácil calcular el valor que se podría dar a este chatbot en sí mismo y es más conveniente plantearlo desde el punto de vista de la realización de un proyecto bajo demanda.
+
+Es decir, se plantea el beneficio, no desde el punto de vista de la \acrshort{ubu} sino de un empresa de desarrollo de software que sería la encargada de realizar el proyecto y mantenerlo durante los primeros 12 meses.
+
+En la Tabla \ref{tabla:facturacion} se muestra el coste total del proyecto.
+
+\tablaSmallSinColores{Facturación.}
+{l l}{facturacion}
+{\textbf{Concepto} & \textbf{Precio}\\}
+{Desarrollo 				& 35.000€\\
+	Mantenimiento 				& 500€ /mes \\
+	Gastos asociados 	& 2.500€ \\
+	\midrule
+	Total					& 49.500€	\\
+}
+
+Todos los importes se han considerado sin IVA y en total se obtiene un beneficio antes de impuestos de unos 17.000€.
 
 \subsection{Viabilidad legal}
 
+Los productos basado en \acrshort{ia} y en concreto en \acrshort{llm} son muy recientes y el marco regulatorio está siendo definido en estos momentos. En diciembre de 2023 la \acrlong{ue} aprobó la primera ley para regular el uso de \acrshort{ia}~\cite{EUAIAct}.
 
+La regulación de la \acrlong{ia} en la \acrlong{ue} mediante el \textit{AI Act}, es la primera legislación integral sobre \acrshort{ia} a nivel mundial. Esta ley tiene como objetivo establecer condiciones óptimas para el desarrollo y uso de esta innovadora tecnología, considerando aspectos que van desde la seguridad hasta la sostenibilidad ambiental.
+
+La Comisión Europea propuso en abril de 2021 el primer marco regulatorio de la \acrshort{ue} para la \acrshort{ia}. Este marco clasifica los sistemas según el riesgo que representan para los usuarios y establece niveles de regulación correspondientes.
+
+El Parlamento Europeo busca garantizar que los sistemas de \acrshort{ia} utilizados en la \acrshort{ue} sean seguros, transparentes, rastreables, no discriminatorios y respetuosos con el medio ambiente. Se aboga por la supervisión humana de los sistemas de \acrshort{ia} para prevenir resultados perjudiciales.
+
+El Acta de \acrshort{ia} introduce diferentes reglas según los niveles de riesgo:
+
+\begin{enumerate}
+
+ \item \textbf{Riesgo Inaceptable:} Se prohíben los sistemas de \acrshort{ia} que representen una amenaza para las personas, como la manipulación cognitivo-conductual y la clasificación social basada en comportamientos o características personales.
+
+ \item \textbf{Riesgo Elevado:} Los sistemas de \acrshort{ia} que afecten negativamente la seguridad o los derechos fundamentales se consideran de alto riesgo y se dividen en dos categorías, incluyendo aquellos utilizados en productos regulados por la legislación de seguridad de la \acrshort{ue} y aquellos en áreas específicas que deben registrarse en una base de datos de la \acrshort{ue}.
+
+ \item \textbf{Riesgo Limitado:} Los sistemas de \acrshort{ia} de bajo riesgo deben cumplir con requisitos mínimos de transparencia que permitan a los usuarios tomar decisiones informadas.
+
+\end{enumerate}
+
+La inteligencia artificial generativa, como ChatGPT, estará obligada a cumplir con los requisitos de transparencia, que incluyen:
+\begin{itemize}
+\item Revelar que el contenido fue generado por \acrlong{ia}.
+\item Diseñar el modelo para evitar la generación de contenido ilegal.
+\item Publicar resúmenes de datos con derechos de autor utilizados para el entrenamiento.
+\end{itemize}
+
+Mientras que este chatbot cumpla con esos aspectos, no debería ser un problema usar esta tecnología en producción desde un punto de vista legal. Parte de estos aspectos deben ser implementados por nuestro chatbot y otra parte deben ser provistos por Mistral como empresa propietaria del \acrshort{llm}. Al ser Mistral una empresa europea con sede en Paris, este aspecto será mas viable que si se hubiese elegido un modelo de una empresa americana.

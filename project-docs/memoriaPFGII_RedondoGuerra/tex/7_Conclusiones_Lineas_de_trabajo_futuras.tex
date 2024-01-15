@@ -1,11 +1,8 @@
 \capitulo{7}{Conclusiones y Líneas de trabajo futuras}
 
-Todo proyecto debe incluir las conclusiones que se derivan de su desarrollo. Éstas pueden ser de diferente índole, dependiendo de la tipología del proyecto, pero normalmente van a estar presentes un conjunto de conclusiones relacionadas con los resultados del proyecto y un conjunto de conclusiones técnicas. 
-Además, resulta muy útil realizar un informe crítico indicando cómo se puede mejorar el proyecto, o cómo se puede continuar trabajando en la línea del proyecto realizado. 
+\section{El futuro de los LLM}
 
-\section{El futuro de los LLM }
-
-Aunque ChatGPT es la última novedad, no es más que un pequeño paso hacia lo que está por venir en el ámbito de los \acrshort{llm}. Aunque no se puede predecir el futuro, hay algunas tendencias que marcarán el camino de la innovación en los próximos anos\cite{Tolaka}.
+Aunque ChatGPT es la última novedad, no es más que un pequeño paso hacia lo que está por venir en el ámbito de los \acrshort{llm}. Aunque no se puede predecir el futuro, hay algunas tendencias que marcarán el camino de la innovación en los próximos anos~\cite{Tolaka}.
 
 \begin{enumerate}
     
@@ -13,6 +10,38 @@ Aunque ChatGPT es la última novedad, no es más que un pequeño paso hacia lo q
 
 \item Modelos capaces de verificar sus propios resultados: Los \acrshort{llm} que pueden proporcionar fuentes para la información que generan pueden dar mayor credibilidad a la tecnología en su conjunto. Por ejemplo, WebGPT de OpenAI es capaz de generar respuestas precisas y detalladas con fuentes de respaldo.
 
-\item El desarrollo de modelos expertos dispersos: Los \acrshort{llm} más reconocidos de la actualidad tienen varias características en común: son modelos densos, autosupervisados y preentrenados basados en la arquitectura de \textit{transformaers}. Sin embargo, los modelos expertos dispersos están llevando la tecnología en otra dirección. Con estos modelos sólo es necesario activar los parámetros relevantes, lo que los hace más grandes y complejos. Al mismo tiempo, requieren menos recursos y consumo de energía para el entrenamiento del modelo.
+\item El desarrollo de modelos expertos dispersos: Los \acrshort{llm} más reconocidos de la actualidad tienen varias características en común: son modelos densos, autosupervisados y preentrenados basados en la arquitectura de \textit{transformers}. Sin embargo, los modelos expertos dispersos están llevando la tecnología en otra dirección. Con estos modelos sólo es necesario activar los parámetros relevantes, lo que los hace más grandes y complejos. Al mismo tiempo, requieren menos recursos y consumo de energía para el entrenamiento del modelo.
 
 \end{enumerate}
+
+\section{Líneas de trabajo futuras}
+
+El sector de la \acrlong{ia} y de los \acrlong{llm} está actualmente en constante evolución y ofrece enormes posibilidades. Existen multitud de posibles variaciones y evoluciones de \acrshort{tfg} para trabajar sobre con los \acrshort{llm}.
+
+\begin{itemize}
+    \item \textbf{Chatbot sin LangChain:} Existen multitud de artículos que apuntan a la falta de idoneidad de utilizar LangChain en producción~\cite{LangChainNot}. Como se ha mencionado anteriormente, LangChain está muy centrado en OpenAI, por lo que además no es el mejor \textit{framework} para \textit{Open Source} \acrshort{llm}. Se puede implementar una librería propia o probar alternativas con una capa de interacción distinta. Ambas opciones pueden ser interesantes y mostrarían mejor el funcionamiento de los \acrshort{llm} al tener que actuar con ellos directamente.
+
+    \item \textbf{\acrshort{rag} on-demand:} Aunque ya existe este concepto y OpenAI lo ha mostrado como parte de su última presentación, sería interesante poder crear chatbots basados en datos que acabamos de proporcionar. Sería sencillamente, optimizar el proceso que se ha seguido en este \acrshort{tfg} para que se pueda realizar una base de datos vectorial en tiempo real y luego hacer preguntas con recuperación de datos de los documentos que se acaban de proveer.
+
+    \item \textbf{Sistema de validación de \acrshort{llm}:} Otra  línea puede ser avanzar en los sistemas de validación para chatbots basados en \acrshort{llm}. Se pueden crear múltiples conjuntos de entrenamiento, en vez de solo 22 preguntas fijas, ampliando las posibles configuraciones para crear el \acrshort{rag}.
+
+    \item \textbf{Inclusión de fuentes de información adicionales:} una línea de trabajo futura que puede ayudar en preguntas de tutoría puede ser incluir información de memorias y resúmenes de \acrshort{tfg}, información de \textit{README}, \textit{issues} de GitHub, etc. Esta información es accesible pero como incluirla de forma efectiva en el \acrshort{rag} puede resultar compleja ya que los datos no serán fáciles de recuperar de forma óptima.      
+
+    \item \textbf{Tracking de requisitos:} Un aspecto que cada vez tiene mas importancia en lo proyectos de desarrollo de software es la gestión de la calidad. Esto hace que se invierta mucho tiempo en determinar los requisitos y hacer pruebas que garanticen que estos requisitos han sido implementados de forma satisfactoria. Sin embargo esto conlleva que una parte nada despreciable de tiempo sea dedicada a una labor casi administrativa de comparación de documentos y seguimiento de los casos de prueba y sus resultados. Está gestión de requisitos a través de un \acrshort{llm} podría ayudar a automatizar la búsqueda de requisitos duplicados o inconsistentes, por ejemplo.
+
+    \item \textbf{Miniaturización de \acrshort{llm}:} Uno de los grandes problemas encontrados en este \acrshort{tfg} ha sido los recursos que necesitan los \acrshort{llm} para ejecutarse. Esto hace que sea necesario muchas veces usar una \acrshort{api} para no tener un proceso demasiado lento o una instalación compleja. Probar Miniaturización de modelos para tareas muy especificas puede ser una aplicación fascinante que combine el poder los \acrshort{llm} aplicado a pequeños dispositivos.
+\end{itemize}
+
+\section{Reflexiones y conclusiones}
+
+El desarrollo de este proyecto ha permitido aprender sobre las aplicaciones y el funcionamiento de los modelos avanzados de lenguaje natural, específicamente los \acrshort{llm}, especialmente para su empleo en \textit{bots}. La investigación de diversas soluciones tecnológicas ha destacado la importancia de seleccionar modelos que no solo ofrezcan rendimiento con requisitos de hardware accesibles, sino que también cumplan con requisitos legales y éticos, como la protección de datos.
+
+La elección de Mistral y LangChain como componentes clave del chatbot se basó en criterios más allá del rendimiento técnico, considerando aspectos como la accesibilidad a través de una \acrshort{api}, la flexibilidad para realizar ajustes y la jurisdicción legal. Sin embargo, la implementación no estuvo exenta de desafíos, y la evaluación de estas herramientas proporcionó valiosas lecciones sobre las limitaciones y oportunidades en el desarrollo de soluciones basadas en \acrshort{llm}. 
+
+Una de las limitaciones mas significativas ha sido la gestión efectiva del almacenamiento de \textit{embeddings} y la recuperación de información de la base de datos. Aunque \acrshort{rag} ofreció resultados prometedores, se evidenciaron desafíos al enfrentarse a una cantidad limitada de datos, planteando posibles obstáculos en casos de conjuntos de datos más grandes y diversos. Éstas y otras posibles limitaciones de la recuperación de la información con \acrshort{rag} son discutidas en el artículo de Barnet~\cite{barnett2024seven}.
+
+Otro desafío importante fue la rápida evolución de la tecnología, con bibliotecas y herramientas volviéndose obsoletas en cortos períodos de tiempo. Esta dinámica, común en el sector de la \acrshort{ia}, hace que la implementación en entornos de producción sea particularmente compleja. Sin embargo, se espera que, con el tiempo, la consolidación y la estabilización permitan aprovechar plenamente el potencial de los \acrshort{llm} de manera más estable.
+
+El proyecto culminó con la creación de un chatbot avanzado, mostrando resultados iniciales prometedores en comparación con el chatbot existente basado en DialogFlow. La adopción de tecnologías emergentes, como \acrshort{llm} y \acrshort{rag}, ha demostrado mejorar significativamente la capacidad de respuesta y relevancia del chatbot.
+
+La proyección hacia el futuro destaca la posibilidad de que esta tecnología se convierta en dominante en el sector de los chatbots, y posiblemente en otros también, siempre y cuando se aborden aspectos críticos como las alucinaciones, la validación de modelos de lenguaje y consideraciones éticas y energéticas. Ha sido un proyecto fascinante, no solo en el aspecto tecnológico, sino también a la reflexión continua sobre la implementación ética y eficaz de herramientas de \acrshort{ia}.

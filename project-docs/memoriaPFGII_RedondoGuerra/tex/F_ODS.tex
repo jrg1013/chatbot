@@ -1,9 +1,33 @@
 \apendice{Anexo de sostenibilización curricular}
 
 \section{Introducción}
-Este anexo incluirá una reflexión personal del alumnado sobre los aspectos de la sostenibilidad que se abordan en el trabajo.
-Se pueden incluir tantas subsecciones como sean necesarias con la intención de explicar las competencias de sostenibilidad adquiridas durante el alumnado y aplicadas al Trabajo de Fin de Grado.
+La creación de un chatbot basado en \acrlong{llm} y \acrlong{rag} no solo implica un avance en las tecnologías de \acrlong{pln}, sino que también presenta una oportunidad para reflexionar sobre los aspectos de la sostenibilidad asociados. A continuación, se presentan las competencias de sostenibilidad adquiridas durante este \acrlong{tfg}.
 
-Más información en el documento de la CRUE \url{https://www.crue.org/wp-content/uploads/2020/02/Directrices_Sosteniblidad_Crue2012.pdf}.
+\subsection{Impacto Ambiental y Eficiencia Energética}
 
-Este anexo tendrá una extensión comprendida entre 600 y 800 palabras.
+La implementación de un chatbot basado en \acrshort{llm} plantea interrogantes sobre el impacto ambiental y la eficiencia energética. La capacidad de evaluar y minimizar el consumo de recursos computacionales se ha vuelto esencial. 
+
+Durante el desarrollo del proyecto, se ha comprobado la problemática que supone ejecutar modelos locales, debido a los recursos de computación necesarios. Se ha aprendido a optimizar el rendimiento del chatbot, considerando el equilibrio entre la eficiencia y la calidad del modelo.
+
+Sin embargo el principal consumo de energía de los \acrshort{llm} no es durante su ejecución sino durante su entrenamiento. Como ejemplo, OpenAI GPT-3, que tiene 175 billones de parámetros, consume 284,000 kWh de energía durante el entrenamiento~\cite{PowerLLM}. Esto es el equivalente al consumo de un hogar durante 9 años. Este gasto es enorme solo para el entrenamiento y es mucho mayor que para otros productos \acrshort{ia}. Se está trabajando mucho en reducir el consumo de los modelos y este es una de las principales vías de desarrollo de los \acrshort{llm} actualmente. Hay mucho camino por recorrer pero soy optimista de que en unos anos, no solo será una tecnología muy potente sino sostenible energéticamente.
+
+\subsection{Ética en la Inteligencia Artificial}
+
+La ética en la \acrlong{ia} constituye un pilar fundamental de la sostenibilidad. Al trabajar con modelos de lenguaje avanzados, se han enfrentado y abordado diversas preocupaciones éticas, destacando la generación de contenido potencialmente inapropiado o sesgado. Esta dimensión ética no solo implica considerar los resultados finales del modelo, sino también examinar críticamente cada etapa del proceso de desarrollo.
+
+En la elección de datos de entrenamiento, se ha prestado especial atención para evitar sesgos y discriminaciones. La selección de conjuntos de datos inclusivos y representativos es esencial para mitigar posibles sesgos inherentes en los modelos. Además, la conciencia sobre cómo los algoritmos pueden amplificar prejuicios existentes en los datos de entrenamiento debe ser tenida en cuenta~\cite{Etzioni2017-ETZIEI}.
+
+La consideración ética se extiende también a la definición de los \textit{prompts} utilizados para la interacción con el modelo. La formulación de \textit{prompts} no sesgados es esencial para obtener respuestas equitativas y objetivas del modelo. Se ha prestado atención a evitar \textit{prompts} que puedan inducir respuestas tendenciosas o discriminatorias, asegurando así un comportamiento ético en las interacciones con el chatbot.
+
+La transparencia en la toma de decisiones éticas y la documentación adecuada de las consideraciones éticas son prácticas que se deben incluir en el proceso de desarrollo de este tipo de proyectos. Esto no solo promueve la responsabilidad en el diseño, sino que también facilita la comprensión de las decisiones éticas tomadas durante el proyecto.
+
+En resumen, la ética en la \acrlong{ia} no solo es un componente crítico de sostenibilidad, sino que también representa un compromiso constante con la integridad, la equidad y la responsabilidad en cada fase del desarrollo de chatbots basados en \acrshort{llm} y \acrshort{rag}.
+
+\subsection{Accesibilidad y Diversidad}
+
+La creación de un chatbot también brinda la oportunidad de abordar la accesibilidad y la diversidad. Se han de incorporar principios de diseño inclusivo para garantizar que el chatbot sea accesible para personas con diversas discapacidades y antecedentes. Considerar la diversidad de usuarios en el desarrollo mejora la usabilidad y la adopción del sistema.
+
+\subsection{Ciclo de Vida del Software}
+
+En el ciclo de vida del software se ha de gestionar las fases de desarrollo, implementación y mantenimiento del proyecto, considerando la posibilidad de actualizaciones. Sin embargo en este tipo de proyectos con un fuerte componente de investigación es difícil centrarse en aspectos de mantenimiento o reutilización. Por eso se ha puesto mas énfasis en reducir la necesidad de mantenimiento realizando prototipos para validar riesgos. A mayores se ha separado el código en distintos módulos atendiendo, para mejorar la compresión y posible continuidad del proyecto.
+
