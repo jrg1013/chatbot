@@ -8,7 +8,7 @@ Los \acrshort{llm} representan un hito significativo en el campo de la generaci�
 
 Las técnicas de \acrshort{rag} amplían aún más el potencial de los \acrshort{llm} al permitir el acceso a información específica en documentos o bases de conocimiento existentes. Esta capacidad de recuperación y generación mejorada se traduce en respuestas más precisas y contextualmente relevantes, lo que resulta particularmente valioso en situaciones que requieren asistencia y generación de contenido.
 
-En el núcleo de los \acrshort{llm} y las técnicas de \acrshort{rag}, se encuentran otros conceptos fundamentales de embeddings y bases de datos vectoriales. Estos conceptos son la columna vertebral que impulsa la capacidad de estos modelos para entender y generar texto de manera efectiva. Los embeddings, representaciones vectoriales de palabras y frases, permiten a los \acrshort{llm} comprender y procesar el lenguaje natural, capturando la semántica y relaciones entre palabras. Por otro lado, las bases de datos vectoriales almacenan información en un espacio vectorial, lo que habilita la recuperación eficiente de información relevante. La interacción sinérgica de estos conceptos permite a los \acrshort{llm} y las técnicas \acrshort{rag} acceder a conocimiento específico y generar respuestas contextualmente enriquecidas, mejorando la precisión y relevancia en la comunicación y generación de contenido.
+En el núcleo de los \acrshort{llm} y las técnicas de \acrshort{rag}, se encuentran otros conceptos fundamentales de \textit{embeddings} y bases de datos vectoriales. Estos conceptos son la columna vertebral que impulsa la capacidad de estos modelos para entender y generar texto de manera efectiva. Los \textit{embeddings}, representaciones vectoriales de palabras y frases, permiten a los \acrshort{llm} comprender y procesar el lenguaje natural, capturando la semántica y relaciones entre palabras. Por otro lado, las bases de datos vectoriales almacenan información en un espacio vectorial, lo que habilita la recuperación eficiente de información relevante. La interacción sinérgica de estos conceptos permite a los \acrshort{llm} y las técnicas \acrshort{rag} acceder a conocimiento específico y generar respuestas contextualmente enriquecidas, mejorando la precisión y relevancia en la comunicación y generación de contenido.
 
 \section{\textit{Large Language Models}}
 
@@ -28,9 +28,9 @@ Aunque los \acrshort{llm}  se han entrenado principalmente para tareas sencillas
 
 La historia y evolución de los \acrshort{llm} se remontan a varias décadas de investigación y desarrollo en el campo del procesamiento de lenguaje natural y la \acrlong{ia}, como se ve en la figura~\ref{fig:LLL_Evolution}. A continuación, se proporciona un resumen de los hitos más significativos en la historia de los \acrshort{llm}~\cite{zhao2023survey,scribbleData,Tolaka}.
 
-\imagen{LLL_Evolution}{Cronología de la evolución de los LLM}{1}
+\imagen{LLL_Evolution}{Cronología de la evolución de los LLM.~\cite{Tolaka}}{1}
 
-\begin{description}
+\begin{itemize}
 
 \item[Década de 1950-1960]: Los primeros pasos en la creación de modelos de lenguaje se remonta a los experimentos pioneros con redes neuronales y sistemas de procesamiento de información neuronal realizados en la década de 1950 con el propósito de permitir a las computadoras comprender y procesar el lenguaje natural. Colaboraciones entre investigadores de IBM y la Universidad de Georgetown dieron lugar a la creación de un sistema capaz de traducir automáticamente frases del ruso al inglés, lo que marcó un hito notable en la traducción automática. A partir de ese punto, la investigación en este campo experimentó un auge significativo. Durante esta misma época, se dieron los primeros pasos en el desarrollo de modelos de lenguaje, con investigadores dedicados a la creación de reglas gramaticales y algoritmos para analizar y generar texto. Sin embargo, estos enfoques iniciales se basaban en reglas manuales y presentaban limitaciones significativas en cuanto a su efectividad.
 
@@ -56,9 +56,9 @@ La versión más reciente hasta la fecha es GPT-4, que presenta mejoras signific
 
 Y lo que es más, el último avance es la \textit{steerability} (direccionabilidad), que permite a los usuarios de \acrshort{gpt} personalizar la estructura de su salida para satisfacer sus necesidades específicas. Básicamente, la direccionabilidad alude a la capacidad de controlar o modificar el comportamiento de un modelo lingüístico, lo que implica hacer que el \acrshort{llm} adopte distintos roles, siga instrucciones del usuario o hable con un tono determinado. La direccionabilidad permite al usuario cambiar el comportamiento de un \acrshort{llm} a voluntad y ordenarle que escriba con un estilo o una voz diferentes. Las posibilidades son infinitas.
 
-\end{description}
+\end{itemize}
 
-\imagen{Timeline_LLM2}{Cronología de los modelos lingüísticos de gran tamaño (superior a 10B) de los últimos años}{1}
+\imagen{Timeline_LLM2}{Cronología de los modelos lingüísticos de gran tamaño (superior a 10B) de los últimos años.~\cite{zhao2023survey}}{1}
 
 Es importante destacar que la evolución de los \acrshort{llm} ha sido impulsada en gran medida por el aumento en la disponibilidad de datos de entrenamiento, el desarrollo de arquitecturas de redes neuronales más avanzadas y la mejora en el hardware de cómputo. Estos avances han permitido a los \acrshort{llm} alcanzar un nivel de comprensión y generación de texto que antes era impensable. Esto ha causado que en los últimos años se hayan lanzado multitud de productos y modelos como se ve en la figura~\ref{fig:Timeline_LLM2}.
 
@@ -68,7 +68,7 @@ Un precursor de los actuales \acrlong{llm} que merece la pena destacar es Word2V
 
 El espacio de incrustación resultante hacía mucho más que captar la similitud semántica. Presentaba alguna forma de aprendizaje emergente: era capaz de realizar ``aritmética de palabras'', algo para lo que no había sido entrenado, como se ve en la figura~\ref{fig:Word2Vec}. Existía un vector en el espacio que podía añadirse a cualquier sustantivo masculino para obtener un punto cercano a su equivalente femenino. Por ejemplo, V(rey) - V(hombre) + V(mujer) = V(reina). Un ``vector de género''. Esta capacidad de realizar operaciones matemáticas en el espacio de incrustación reveló una comprensión subyacente de las relaciones semánticas. Parecía haber docenas de vectores mágicos de este tipo: un vector plural, un vector para pasar de nombres de animales salvajes a su equivalente más cercano en mascotas, y muchos otros. Estos descubrimientos abrieron nuevas perspectivas en el campo del procesamiento de lenguaje natural y subrayaron la potencia de Word2Vec en la representación de palabras~\cite{Chollet}.
 
-\imagen{Word2Vec}{Ilustración de un espacio de incrustación 2D tal que el vector que une ``lobo'' con ``perro'' es el mismo que el vector que une ``tigre'' con ``gato''.}{0.5}
+\imagen{Word2Vec}{Ilustración de un espacio de incrustación 2D tal que el vector que une ``lobo'' con ``perro'' es el mismo que el vector que une ``tigre'' con ``gato''.~\cite{Chollet}}{0.5}
 
 Word2Vec se implementa en dos arquitecturas principales: \acrfull{cbow} y \textit{Skip-gram}. El modelo \acrshort{cbow} se utiliza para predecir una palabra objetivo basada en un contexto circundante, mientras que el modelo \textit{Skip-gram} realiza predicciones inversas, es decir, predice palabras de contexto a partir de una palabra dada. Estas arquitecturas han demostrado ser altamente efectivas en la generación de representaciones vectoriales de palabras que capturan significados y relaciones con precisión.
 
@@ -103,13 +103,13 @@ La clave de los \textit{Transformers} radica en su estructura de auto-atención,
 \end{enumerate}
 
 \imagen{transformer_model_architecture-f}{Arquitectura de los modelos de redes neuronales 
- profundas \textit{Transformers}.}{1}
+ profundas \textit{Transformers}.~\cite{Nvidia_Transformers}}{1}
 
 \subsubsection{Procesamiento de datos de entrenamiento - tokenización}
 
 Los \acrlong{llm} procesan el texto utilizando tokens, que son secuencias comunes de caracteres que se encuentran en un conjunto de texto. Los modelos aprenden a entender las relaciones estadísticas entre estos tokens y destacan a la hora de producir el siguiente token en una secuencia de tokens~\cite{OpenAI_Tokenizer}. Un ejemplo se puede ver en la figura~\ref{fig:OpenAI_Tokenizer}.
 
-\imagen{OpenAI_Tokenizer}{Muestra de un texto y su equivalente en tokens usando el tokenizador de OpenAI para GPT-3.5 y GPT-4.}{1}
+\imagen{OpenAI_Tokenizer}{Muestra de un texto y su equivalente en tokens usando el tokenizador de OpenAI para GPT-3.5 y GPT-4.~\cite{OpenAI_Tokenizer}}{1}
 
 Existen dos conceptos que están en la base de la tokenización de los \acrshort{llm}: y los N-grama y la Codificación de pares de bytes.
 
@@ -121,7 +121,7 @@ Todos los tokens únicos encontrados en un \textit{corpus} se enumeran en un voc
 
 La diferencia entre el algoritmo modificado y el original es que el algoritmo original no fusiona el par más frecuente de bytes de datos, sino que los sustituye por un nuevo byte que no estaba contenido en el conjunto de datos inicial. Véase el ejemplo de la figura~\ref{fig:Byte-pair_Encoding}. Para reconstruir el conjunto de datos inicial se necesita una tabla de búsqueda de las sustituciones. El algoritmo es eficaz para la tokenización porque no requiere grandes gastos de cálculo y sigue siendo coherente y fiable.
 
-\imagen{Byte-pair_Encoding}{Ejemplo de codificación de pares de bytes aplicado a una secuencia de caracteres.}{0.75}
+\imagen{Byte-pair_Encoding}{Ejemplo de codificación de pares de bytes aplicado a una secuencia de caracteres.~\cite{Gage_Compresion}}{0.75}
 
 Un vocabulario de tokens basado en las frecuencias extraídas principalmente del ingles, utiliza el menor número posible de tokens para una palabra media en ingles. Sin embargo, una palabra media en otro idioma codificada por un tokenizador optimizado para el inglés se divide en una cantidad subóptima de tokens. Como regla general, un token suele corresponder a unos 4 caracteres de texto en inglés común. Esto equivale aproximadamente a tres cuartas partes de una palabra (por tanto, 100 tokens ~= 75 palabras).
 
@@ -135,17 +135,17 @@ La conexión entre estos dos enfoques se establece a través del componente fund
 
 Con el tiempo, este proceso conduce a la creación de un espacio en el cual las relaciones de correlación entre los tokens se convierten en relaciones de proximidad de incrustación, medida en términos de distancia coseno. Los Transformers, al aprender una serie de espacios de incrustación cada vez más refinados, logran dos propiedades cruciales:
 
-\begin{description}
+\begin{itemize}
 
 \item \textbf{Continuidad Semántica}: Los espacios de incrustación son semánticamente continuos, lo que significa que un pequeño cambio en el espacio de incrustación apenas afecta el significado humano de los tokens correspondientes. Esta propiedad también se verifica en el espacio de Word2Vec.
 
 \item \textbf{Interpolación Semántica}: Los espacios de incrustación son semánticamente interpolativos. Tomar el punto intermedio entre dos puntos de un espacio de incrustación da como resultado un punto que representa el ``significado intermedio'' entre los tokens correspondientes. Esto se logra al construir cada nuevo espacio de incrustación interpolando entre vectores del espacio anterior.
 
-\end{description}
+\end{itemize}
 
 Esta dinámica no difiere mucho del proceso de aprendizaje en el cerebro, donde las relaciones de correlación entre eventos de disparo neuronal se convierten en relaciones de proximidad en la red cerebral, siguiendo el principio clave del aprendizaje Hebbiano:``neuronas que disparan juntas, conectan junta''. Tanto \textit{Transformers} como Word2Vec son, de alguna manera, mapas de un espacio de información, buscando representar de manera eficiente y semánticamente significativa las relaciones entre los elementos del lenguaje. Se puede ver una representación gráfica de este proceso en la figura~\ref{fig:self-attention}.
 
-\imagen{self-attention}{Cómo funciona self-attention: se calculan las puntuaciones de atención entre ``estación'' y cualquier otra palabra de la secuencia, y luego se utilizan para ponderar una suma de vectores de palabras que se convierte en el nuevo vector ``estación''.}{1}
+\imagen{self-attention}{Cómo funciona self-attention: se calculan las puntuaciones de atención entre ``estación'' y cualquier otra palabra de la secuencia, y luego se utilizan para ponderar una suma de vectores de palabras que se convierte en el nuevo vector ``estación''.~\cite{DeepLearning}}{1}
 
 \subsubsection{Los \acrshort{llm} como bases de datos de programas}
 
@@ -161,7 +161,7 @@ Estos programas en un \acrshort{llm} no se asemejan exactamente a los programas 
 
 Los \acrlong{llm} pueden clasificarse a grandes rasgos en tres tipos: modelos de preentrenamiento, modelos de \textit{Fine-tuning} y modelos multimodales~\cite{scribbleData}, ver figura~\ref{fig:TiposLLM}.
 
-\begin{description}
+\begin{itemize}
 
 \item[Los modelos de preentrenamiento], como GPT-3/GPT-3.5, T5 y XLNet, se entrenan con grandes cantidades de datos, lo que les permite aprender una amplia gama de patrones y estructuras lingüísticas. Estos modelos destacan en la generación de textos coherentes y gramaticalmente correctos sobre una gran variedad de temas. Se utilizan como punto de partida para seguir entrenándolos y perfeccionándolos para tareas específicas.
 
@@ -169,11 +169,11 @@ Los \acrlong{llm} pueden clasificarse a grandes rasgos en tres tipos: modelos de
 
 \item[Los modelos multimodales] como CLIP y DALL-E combinan texto con otras modalidades como imágenes o vídeo para crear modelos lingüísticos más robustos. Estos modelos pueden entender las relaciones entre imágenes y texto, lo que les permite generar descripciones textuales de imágenes o incluso generar imágenes a partir de descripciones textuales.
 
-\end{description}
+\end{itemize}
 
 Cada tipo de \acrshort{llm} tiene sus puntos fuertes y débiles, y la elección de cuál utilizar depende del caso de uso específico.
 
-\imagen{TiposLLM}{Clasificación de los LLM en tres categorías}{1}
+\imagen{TiposLLM}{Clasificación de los LLM en tres categorías.~\cite{scribbleData}}{1}
 
 \subsection{LLM más extendidos}
 
@@ -185,7 +185,7 @@ Los modelos OpenAI han acaparado una gran atención por sus impresionantes carac
 
 La familia de modelos \acrshort{gpt}, incluidos gpt-4 y gpt-3.5-turbo, se ha entrenado con datos de Internet, códigos, instrucciones y comentarios humanos, con más de cien mil millones de parámetros, lo que garantiza la calidad de los modelos. Los modelos de OpenAI están diseñados para ser versátiles y atender a una amplia gama de casos de uso, incluida la generación de imágenes. Se puede acceder a ellos a través de una \acrshort{api}, lo que permite a los desarrolladores integrar los modelos en sus aplicaciones. OpenAI ofrece distintas opciones de uso, entre ellas el ajuste fino, que permite a los usuarios adaptar los modelos a tareas o dominios específicos aportando datos de entrenamiento personalizados.
 
-\imagen{OpenAI}{Evolución tecnológica de los modelos GPT a lo largo de los años.}{1}
+\imagen{OpenAI}{Evolución tecnológica de los modelos GPT a lo largo de los años.~\cite{zhao2023survey}}{1}
 
 OpenAI ha estado a la vanguardia del avance de los modelos de \acrfull{pln}, siendo pionera en el desarrollo del \acrfull{rlhf} como una poderosa técnica para moldear el comportamiento de sus modelos en contextos de chat. El \acrshort{rlhf} consiste en entrenar los modelos de \acrshort{ia} combinando la retroalimentación generada por humanos con métodos de aprendizaje por refuerzo. De este modo, los modelos de OpenAI aprenden de las interacciones con los humanos para mejorar sus respuestas. Gracias al \acrshort{rlhf}, OpenAI ha logrado avances significativos en la mejora de la fiabilidad, utilidad y seguridad de sus modelos, proporcionando en última instancia a los usuarios respuestas más precisas y adecuadas al contexto.
 
@@ -197,7 +197,7 @@ Los modelos más pequeños pero de alto rendimiento de LLaMA ofrecen accesibilid
 
 LLaMA es una colección de modelos de lenguaje grandes que abarcan un amplio rango de parámetros, desde 7B hasta 65B. A través de un entrenamiento meticuloso con trillones de tokens extraídos exclusivamente de conjuntos de datos públicamente disponibles, los desarrolladores de LLaMA demuestran la posibilidad de lograr un rendimiento de vanguardia sin necesidad de fuentes de datos propietarias o inaccesibles. Especialmente, LLaMA-13B muestra un rendimiento superior en comparación con el renombrado GPT-3 (175B) en varios puntos de referencia, mientras que LLaMA-65B compite de manera impresionante con modelos de primer nivel como PaLM-540B~\cite{Murtuza}.
 
-\imagen{LLaMa}{Gráfico de la evolución de los modelos LLaMa}{1}
+\imagen{LLaMa}{Gráfico de la evolución de los modelos LLaMa.~\cite{zhao2023survey}}{1}
 
 Los modelos LLaMA aprovechan la arquitectura de \textit{transformers}, que se ha convertido en el estándar de la industria para la modelización del lenguaje desde 2018, ver figura~\ref{fig:LLaMa}. En lugar de aumentar únicamente el número de parámetros, los desarrolladores de LLaMA priorizaron escalar el rendimiento del modelo al expandir significativamente el volumen de datos de entrenamiento. Su razonamiento se basa en la comprensión de que el costo principal de los grandes modelos de lenguaje radica en la inferencia durante el uso del modelo, más que en los gastos computacionales de entrenamiento. En consecuencia, LLaMA se entrenó con impresionantes 1.4 billones de tokens, obtenidos minuciosamente de datos públicamente disponibles. Este extenso conjunto de datos de entrenamiento capacita a LLaMA para destacar en la comprensión de patrones de lenguaje complejos y generar respuestas contextualmente apropiadas.
 
@@ -233,7 +233,7 @@ El modelo Claude de Anthropic introduce una función conocida como ``inteligenci
 
 Mistral AI, con sede en París y cofundada por extrabajadores de Google DeepMind y Meta, anunció su primer modelo de lenguaje grande, Mistral 7B, recientemente. Esta startup logró asegurar una financiación inicial récord incluso antes de lanzar un producto. El primer modelo de Mistral AI con 7 mil millones de parámetros supera el rendimiento de Llama 2 13B en todas las pruebas y supera a Llama 1 34B en muchos aspectos métricos~\cite{Zhong2023AGIEvalAH}, ver figura~\ref{fig:Mistral_Comparacion}.
 
-\imagen{Mistral_Comparacion}{Resultados en MMLU, Razonamiento de sentido común, Conocimiento del mundo y Comprensión lectora para Mistral 7B y Llama 2 (7B/13/70B).}{1}
+\imagen{Mistral_Comparacion}{Resultados en MMLU, Razonamiento de sentido común, Conocimiento del mundo y Comprensión lectora para Mistral 7B y Llama 2 (7B/13/70B).~\cite{MiitaMistral}}{1}
 
 En comparación con otros modelos como Llama 2, Mistral 7B ofrece capacidades similares o mejores pero con menos carga computacional. Mientras que modelos fundacionales como GPT-4 pueden lograr más, pero teniendo un costo más alto.
 
@@ -265,14 +265,14 @@ Además, cuando se introducen inadvertidamente sesgos en productos basados en \a
 
 Los principales problemas que deben abordarse son:
 
-\begin{description}  
+\begin{itemize}  
 
 \item \textbf{Preocupaciones éticas y de privacidad}: Actualmente, no existen muchas leyes o salvaguardas que regulen el uso de \acrshort{llm} y, dado que los grandes conjuntos de datos contienen mucha información confidencial o sensible (robo de datos personales, infracciones de derechos de autor y propiedad intelectual, entre otros), esto plantea la cuestión de problemas éticos, de privacidad e incluso psicológicos entre los usuarios que buscan respuestas en foros generados por \acrlong{ia}.
 
 \item \textbf{Sesgo y prejuicio}: Dado que los \acrshort{llm} se entrenan en diferentes fuentes, pueden devolver inconscientemente el sesgo presente en esas fuentes. Los sesgos, incluidos los culturales, raciales, de género, y otros, están presentes en los datos de entrenamiento. Estos prejuicios pueden tener consecuencias reales, como decisiones de contratación de personal, atención médica o resultados financieros.
 
 \item \textbf{Costos ambientales y computacionales}: Entrenar un \acrlong{llm} requiere una enorme cantidad de calculo informático, lo que afecta el consumo de energía y las emisiones de carbono. Además, es costoso. Muchas empresas, especialmente las más pequeñas, simplemente no pueden permitírselo.
-\end{description}
+\end{itemize}
 
 Para contrarrestar estos efectos potencialmente dañinos, los investigadores se centran en diseñar \acrshort{llm} en torno a tres pilares principales: utilidad, veracidad e inocuidad. Si un \acrshort{llm} puede mantener los tres principios, se considera ``alineado'' (\textit{aligned}), un término que tiene elementos de subjetividad.
 
@@ -282,7 +282,7 @@ Para contrarrestar estos efectos potencialmente dañinos, los investigadores se 
 
 En el fondo, \acrshort{rlhf} implementa la opinión humana para generar un conjunto de datos de preferencias humanas que determina la función de recompensa para un resultado deseado. La opinión humana puede obtenerse de varias maneras~\cite{Tolaka}:
 
-\begin{description}    
+\begin{itemize}    
 
 \item \textbf{Orden de preferencia}: Las personas clasifican los productos por orden de preferencia.
 
@@ -292,7 +292,7 @@ En el fondo, \acrshort{rlhf} implementa la opinión humana para generar un conju
 
 \item \textbf{Entradas en lenguaje natural}: Los humanos proporcionan descripciones o críticas de los resultados en lenguaje. Una vez creado un modelo de recompensa, se utiliza para entrenar un modelo de referencia con la ayuda del aprendizaje por refuerzo, que aprovecha el modelo de recompensa para construir una política de valores humanos que el \acrlong{llm} utiliza a continuación para producir respuestas. ChatGPT es un buen ejemplo de cómo un gran modelo lingüístico utiliza \acrshort{rlhf} para producir respuestas mejores, más seguras y más atractivas.
 
-\end{description}
+\end{itemize}
 
 \acrshort{rlhf} constituye un gran avance en el ámbito de los modelos lingüísticos, ya que proporciona una experiencia de usuario más controlada y fiable. Pero hay una contrapartida: \acrshort{rlhf} introduce los sesgos de quienes han contribuido al conjunto de datos de preferencias utilizados para entrenar el modelo de recompensa. Así, aunque ChatGPT está orientado hacia respuestas útiles, honestas y seguras, sigue estando sujeto a las interpretaciones de los anotadores de estas respuestas. Aunque \acrshort{rlhf} mejora la coherencia (lo que es estupendo para el uso de \acrshort{llm} en los motores de búsqueda), lo hace a expensas de la creatividad y la diversidad de ideas.
 
@@ -311,11 +311,11 @@ En un sistema de \acrshort{rag}, el proceso se divide en dos etapas, ver figura~
     
 \end{enumerate}
 
-\imagen{EsquemaRAG}{Secuencia para la creación de un \textit{Retrieval-augmented Generation}.}{1}
+\imagen{EsquemaRAG}{Secuencia para la creación de un \textit{Retrieval-augmented Generation}.~\cite{DeepLearning}}{1}
 
 La combinación de estas dos etapas, como se muestra en la figura~\ref{fig:rag} permite que la técnica \acrshort{rag} proporcione respuestas que no solo se basen en el conocimiento preexistente~\cite{chen-etal-2017-reading}, sino que también sean sensibles al contexto específico de la consulta o la tarea. Esto propicia respuestas más precisas y relevantes en comparación con enfoques puramente generativos~\cite{fan-etal-2019-eli5,hossain-etal-2020-simple}.
 
-\imagen{rag}{Esquema del funcionamiento de un \textit{Retrieval-augmented Generation}.}{1}
+\imagen{rag}{Esquema del funcionamiento de un \textit{Retrieval-augmented Generation}.~\cite{LangchainRAG}}{1}
 
 \acrshort{rag} se utiliza en una variedad de aplicaciones, incluyendo chatbots, sistemas de respuesta automática, motores de búsqueda mejorados y generación de contenido automático, donde la capacidad de acceder y utilizar información específica es esencial para brindar respuestas mas precisas.
 
@@ -343,7 +343,7 @@ El preprocesamiento puede variar según la tarea y el modelo específico que se 
 
 Además, para \acrshort{rag}, también hay un enfoque importante en la creación de conjuntos de datos que vinculen preguntas con respuestas relevantes para el entrenamiento efectivo del modelo. 
 
-La información contenida en los datos del \acrshort{faq} para el \acrshort{tfg} presenta una estructura que no es óptima para el Chatbot basado en \acrshort{llm}. Se cuenta con diversas fuentes de datos que deben ser integradas en el \acrshort{rag}. Esta problemática se abordará con mas profundidad en la sección~\ref{Preprocesamiento}.
+La información contenida en los datos del \acrshort{faq} para el \acrshort{tfg} presenta una estructura que no es óptima para el chatbot basado en \acrshort{llm}. Se cuenta con diversas fuentes de datos que deben ser integradas en el \acrshort{rag}. Esta problemática se abordará con mas profundidad en secciones posteriores.
 
 \subsection{\textit{Embeddings}}
 
@@ -370,7 +370,7 @@ Por ejemplo, se puede utilizar una base de datos vectorial para:
 
 Para realizar búsquedas y recuperación de similitudes en una base de datos vectorial, se debe utilizar un vector de consulta que represente la información o criterios deseados. El vector de consulta puede derivarse del mismo tipo de datos que los vectores almacenados (por ejemplo, usar una imagen como consulta para una base de datos de imágenes) o de diferentes tipos de datos (por ejemplo, usar texto como consulta para una base de datos de imágenes). Luego, se debe utilizar una medida de similitud que calcule qué tan cercanos o distantes están dos vectores en el espacio vectorial, ver figura~\ref{fig:VectorDatabase}. La medida de similitud puede basarse en diversas métricas, como similitud del coseno, distancia euclidiana, distancia de Hamming, índice de Jaccard.
 
-\imagen{VectorDatabase}{Esquema del funcionamiento de creación de bases de datos vectoriales con Embeddings.}{1}
+\imagen{VectorDatabase}{Esquema del funcionamiento de creación de bases de datos vectoriales con Embeddings.~\cite{DeepLearning}}{1}
 
 El resultado de la búsqueda y recuperación de similitudes suele ser una lista clasificada de vectores que tienen las puntuaciones de similitud más altas con el vector de consulta. Luego se puede acceder a los datos originales, sin tratar, de cada vector.
 
@@ -425,7 +425,7 @@ Ambos enfoques son parte de la búsqueda continua de mejorar la flexibilidad y l
 
 Un \acrfull{tfg} en el contexto de un grado de Ingeniería Informática en España se refiere a un proyecto académico que los estudiantes deben completar al finalizar su carrera universitaria. El \acrshort{tfg} es un componente obligatorio y esencial para obtener el título de Grado en Ingeniería Informática~\cite{ubu-tfg}. Un esquema del proceso seguido durante el \acrshort{tfg} en la \acrshort{ubu} se puede ver en la figura~\ref{fig:ModeloGestionTFGTFM}.
 
-\imagen{ModeloGestionTFGTFM}{Proceso de gestión de TFG en la UBU.}{1}
+\imagen{ModeloGestionTFGTFM}{Proceso de gestión de TFG en la UBU.~\cite{ubu-tfg}}{1}
 
 El \acrfull{tfg} constituye un requisito para obtener el grado de Ingeniería Informática, y su finalización es necesaria para cumplir con los requisitos de graduación. En la \acrfull{ubu}, el \acrshort{tfg} se aborda como un proyecto individual, proporcionando a los estudiantes la oportunidad de aplicar de forma práctica los conocimientos adquiridos durante su carrera.
 
@@ -561,11 +561,11 @@ El chatbot para la resolución de dudas que actualmente está disponible en la p
 
 El chatbot actual logra resolver eficazmente más del 50\% de las preguntas formuladas por los alumnos, lo que resultó en una notable reducción de consultas al personal docente de la asignatura a través de otros medios. Es destacable que este logro se alcanzó sin incurrir en ningún coste adicional.
 
-\imagen{UBU-Chatbot}{UI del UBU-CHATBOT actual.}{0.5}
+\imagen{UBU-Chatbot}{UI del UBU-CHATBOT actual.~\cite{UBU-Chatbot}}{0.5}
 
 La herramienta elegida para la realización del chatbot fue Dialogflow. Dialogflow ha demostrado ser una solución óptima para el proyecto, proporcionando un \acrfull{pln} potente, gratuito y con una curva de aprendizaje mínima. La efectividad de las conversaciones depende en gran medida del correcto planteamiento de preguntas por parte de los estudiantes. Aquellos que formulen preguntas precisas y concisas obtendrán mejores resultados, y gracias a que los usuarios son estudiantes de Ingeniería Informática con conocimientos sobre las limitaciones de la \acrlong{ia}, este problema no se consideró crítico.
 
-\imagen{UBU-Chatbot2}{Limitaciones del UBU-CHATBOT actual relativas a la formulación de preguntas por parte de los estudiantes.}{0.5}
+\imagen{UBU-Chatbot2}{Limitaciones del UBU-CHATBOT actual relativas a la formulación de preguntas por parte de los estudiantes.~\cite{UBU-Chatbot}}{0.5}
 
 La adición de indicaciones sobre cómo formular preguntas en caso de mensajes no reconocidos  mejoró la experiencia del usuario, pero sigue siendo una limitación para el uso del chatbot, ver figura~\ref{fig:UBU-Chatbot2}. Los chatbots son una herramienta en crecimiento, impulsados por la potencia creciente de los \acrlong{llm}. En los últimos meses se ha mejorado enormemente las posibilidades y las herramientas disponibles.
 

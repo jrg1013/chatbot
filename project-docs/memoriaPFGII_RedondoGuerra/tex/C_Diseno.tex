@@ -36,6 +36,7 @@ El documento del reglamento de la \acrshort{ubu} presenta dificultades a la hora
 
 El segundo problema es que estamos combinando distintos tipos de \textit{embeddings}. Uno más estructurado proveniente de CSV y otro con lenguaje natural desde un PDF. No es una situación ideal que se intentará manejar en el proceso de recuperación de la información y la parte generativa a través del \textit{prompt}. Este documento no ha sido tratado y se usa el \textit{Data Loader} PyPDFLoader.
 
+\newpage
 \section{Diseño procedimental}
 
 \subsection{CU-01: Generación de respuestas}
@@ -52,19 +53,37 @@ Todo este proceso se puede ver en el diagrama de secuencia en la figura~\ref{fig
 
 \imagen{diagramaSecuencia}{Diagrama de secuencia CU-01: Generación de respuestas.}
 
+\newpage
 \subsection{CU-02: Actualizar datos del bot}
+
+El administrador es el que realiza la actualización de la base de datos vectorial que usa el chatbot para dar respuestas relativas al \acrshort{tfg} en la \acrshort{ubu}. El proceso comienza con la ejecución del \textit{script learn.py}.
+
+Lo primero que se hace es cargar los archivos de datos con los \textit{data loaders} de LangChain. Una vez que estos datos están en la lógica de negocio, se realiza el corte de la información en \textit{chunks} que se pasan al \acrshort{llm} para que este cree los \textit{embeddings}.
+
+Una vez creados los \textit{embeddings} de la base de datos vectorial se guarda esta base de datos para poder ser usada por el chatbot. Todo este proceso se puede ver en el diagrama de secuencia en la figura~\ref{fig:diagramaSecuencia2}.
 
 \imagen{diagramaSecuencia2}{Diagrama de secuencia CU-02: Actualizar datos del bot.}
 
+
+\newpage
 \subsection{CU-03: Validación del chatbot}
+
+Para realizar la validación del chatbot el administrador ejecuta el \textit{script} preparado para comenzar la secuencia de validación.
+
+Se comienza cargando desde un fichero las preguntas y las respuestas esperadas de dichas preguntas. Se realizan estas preguntas al chatbot y se compara las respuestas dadas con las respuestas esperadas. Para poder comprobar si semánticamente son respuestas equivalentes, se realiza una llamada a un \acrshort{llm} que devolverá una valoración(correcta o incorrecta).
+
+Se guarda la pregunta, las respuestas (tanto la esperada como la generada por el chatbot) y la valoración del \acrshort{llm} se guardan en un fichero de texto para poder comparar distintas configuraciones. Este proceso se puede ver en el diagrama de secuencia en la figura~\ref{fig:diagramaSecuencia3}.
 
 \imagen{diagramaSecuencia3}{Diagrama de secuencia CU-03: Validación del chatbot.}
 
+\newpage
 \section{Diseño arquitectónico}
 
 Comparado con versiones anteriores del chatbot, este tiene una arquitectura más compleja, ya que no se utiliza un producto disponible, sino que se utilizan distintos recursos y servicios.
 
-Como se puede ver en la figura~\ref{fig:Architecture}, existen principalmente cuatro bloques en la arquitectura y la validación.
+\imagen{diagramaComponentes}{Diagrama UML de componentes del chatbot.}
+
+Como se puede ver en la figura~\ref{fig:Architecture} y en la n la figura~\ref{fig:diagramaComponentes}, existen principalmente cinco bloques.
 
 \begin{itemize}
     \item \textbf{Base de datos vectorial:} Para la creación de la base de datos se usará LangChain y FAISS, ambos se han explicado en detalle en las secciones correspondientes de la memoria. La principal ventaja de una base de datos vectorial es que permite realizar búsquedas y recuperación de datos rápida y precisa basada en la distancia o similitud de sus vectores. Esto significa que, en lugar de utilizar métodos tradicionales para consultar bases de datos basadas en coincidencias exactas o criterios predefinidos, se puede utilizar una base de datos vectorial para encontrar los datos más similares o relevantes según su significado semántico o contextual.
@@ -73,11 +92,11 @@ Como se puede ver en la figura~\ref{fig:Architecture}, existen principalmente cu
 
     Este sección se ha separado en un módulo independiente de Python para no tener que crear una base de datos cada vez que se ejecuta el chatbot si no se han añadido datos nuevos. De esta manera el proceso de ``entrenamiento'' del chatbot y el de ejecución son independientes el uno del otro, lo que mejora el rendimiento y la mantenibilidad del código.
 
-    \item \textbf{HuggingFace \acrshort{api}:} HuggingFace ofrece una \acrshort{api} de canalización (\textit{Pipeline API}) que simplifica el uso de modelos complejos para tareas específicas. Esto hace que sea fácil utilizar modelos de \acrshort{pln} preentrenados para clasificación de texto, traducción, resumen y más. En concreto en este \acrshort{tfg} se ha optado por el \acrshort{llm} de Mistral.
+    \item \textbf{HuggingFace \acrshort{api} y Mistral:} HuggingFace ofrece una \acrshort{api} de canalización (\textit{Pipeline API}) que simplifica el uso de modelos complejos para tareas específicas. Esto hace que sea fácil utilizar modelos de \acrshort{pln} preentrenados para clasificación de texto, traducción, resumen y más. En concreto en este \acrshort{tfg} se ha optado por el \acrshort{llm} de Mistral.
 
-    Para usar la \acrshort{api} es necesario disponer de un \textit{Token} de acceso a HuggingFace. Este Token es gratuito para Mistral, pero no es así para otros modelos. Una vez iniciado el acceso a la \acrshort{api} el resto de la gestión del \acrshort{llm} se realiza a través de LangChain de forma muy sencilla.
+    Para usar la \acrshort{api} al modelo Mistral es necesario disponer de un \textit{Token} de acceso a HuggingFace. Este Token es gratuito para Mistral, pero no es así para otros modelos. Una vez iniciado el acceso a la \acrshort{api} el resto de la gestión del \acrshort{llm} se realiza a través de LangChain de forma muy sencilla.
 
-    \item \textbf{\acrshort{rag} en LangChain:} Como se ha indicado en la memoria se ha optado por el framework LangChain para la gestión del \acrshort{llm}. LangChain es un \textit{framework} que simplifica el proceso de creación de interfaces de aplicaciones de inteligencia artificial generativa. Los desarrolladores que trabajan en este tipo de interfaces utilizan diversas herramientas para crear aplicaciones avanzadas de \acrshort{pln}; LangChain agiliza este proceso.
+    \item \textbf{Chatbot con \acrshort{rag} en LangChain:} Como se ha indicado en la memoria se ha optado por el framework LangChain para la gestión del \acrshort{llm}. LangChain es un \textit{framework} que simplifica el proceso de creación de interfaces de aplicaciones de inteligencia artificial generativa. Los desarrolladores que trabajan en este tipo de interfaces utilizan diversas herramientas para crear aplicaciones avanzadas de \acrshort{pln}; LangChain agiliza este proceso.
 
     Este módulo es el principal del chatbot y es el que realiza la recuperación de la base de datos vectorial de la información relevante y luego la envía a la \acrshort{api}. Esta gestión se realiza con LangChain y se completa con la configuración adaptada a nuestras necesidades. Tiene una gran importancia no solo los parámetros seleccionados sino también el \textit{prompt} seleccionado.
 
@@ -89,5 +108,5 @@ Como se puede ver en la figura~\ref{fig:Architecture}, existen principalmente cu
  
 \end{itemize}
 
-\imagen{Architecture}{Arquitectura de software del chatbot donde se describen los componentes y sus interfaz.}
+\imagen{Architecture}{Arquitectura de software del chatbot donde se describen las herramientas usadas en los componentes.}
 

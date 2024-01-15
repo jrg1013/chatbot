@@ -32,7 +32,7 @@ Conexión y recuperación de datos. Los datos a los que acceden los \acrshort{ll
 \item \textbf{Memoria:} El módulo de memoria ayuda a un \acrshort{llm} a recordar el contexto de sus interacciones con los usuarios. Se puede agregar memoria a corto y largo plazo a un modelo, según el uso específico.
 \end{enumerate}
 
-\imagen{langchain}{Esquema del \textit{Framework} de Langchain con los distintos componentes y módulos.}{1}
+\imagen{langchain}{Esquema del \textit{Framework} de Langchain con los distintos componentes y módulos.~\cite{Langchain}}{1}
 
 \subsubsection{¿Cuáles son las integraciones de LangChain?}
 LangChain generalmente construye aplicaciones utilizando integraciones con proveedores de \acrshort{llm} y fuentes externas donde se pueden encontrar y almacenar datos. Por ejemplo, LangChain puede construir chatbots o sistemas de preguntas y respuestas integrando un \acrshort{llm}, como los de Hugging Face, Cohere y OpenAI, con fuentes o almacenes de datos como Apify Actors, Google Search y Wikipedia. Esto permite que una aplicación tome texto de entrada del usuario, lo procese y recupere las mejores respuestas de cualquiera de estas fuentes. En este sentido, las integraciones de LangChain utilizan la tecnología de \acrlong{pln} más actualizada para construir aplicaciones efectivas.
@@ -59,7 +59,7 @@ Los \textit{document loaders} en el contexto de \acrlong{llm} como LLaMa.cpp o L
 
 En términos generales, la carga de documentos es esencial para proporcionar contexto y conocimiento al modelo, mejorando así su capacidad para generar respuestas significativas. El proceso de carga de documentos implica tomar información desde diversas fuentes, como bases de datos, páginas web, archivos de texto, etc., y convertirla en un formato que el modelo pueda entender y utilizar. En la figura~\ref{fig:DocumentLoaders} se pueden ver algunos de los \textit{document loaders} que existen en LangChain.
 
-\imagen{DocumentLoaders}{Matriz de representación de los múltiples \textit{Document Loaders} disponibles en LangChain.}{1}
+\imagen{DocumentLoaders}{Matriz de representación de los múltiples \textit{Document Loaders} disponibles en LangChain.~\cite{LangchainRAG}}{1}
 
 En resumen, los \textit{document loaders} son parte fundamental del proceso de preparación de datos para \acrlong{llm}, asegurando que tengan acceso a la información relevante que les permita realizar tareas específicas de manera efectiva.
 
@@ -105,7 +105,7 @@ Los pesos de los \acrshort{llm} son números de punto flotante (decimales). Al i
 
 Para utilizar eficazmente los modelos, es esencial tener en cuenta los requisitos de memoria y disco. Dado que los modelos se cargan completamente en la memoria, se necesita suficiente espacio en disco para almacenarlos y RAM suficiente para cargarlos durante la ejecución. En el caso del modelo de 65 mil millones de parámetros, incluso después de la \textit{Quantization}, se recomienda tener al menos 40 gigabytes de RAM disponible. Cabe destacar que los requisitos de memoria y disco son actualmente equivalentes.
 
-\imagen{QuantizedSizeLlama}{Efecto de la \textit{Quantization} en el tamaño de los LLM de LLaMa.}{1}
+\imagen{QuantizedSizeLlama}{Efecto de la \textit{Quantization} en el tamaño de los LLM de LLaMa.~\cite{GGML_Gimmi}}{1}
 
 La \textit{Quantization} desempeña un papel crucial en el manejo de estas demandas de recursos. A menos que se disponga de recursos computacionales excepcionales, la \textit{Quantization} permite utilizar los modelos en configuraciones de hardware más modestas al reducir la precisión de los parámetros del modelo y optimizar el uso de la memoria. Esto garantiza que la ejecución de los modelos siga siendo factible y eficiente para una gama más amplia de configuraciones. Se puede ver en la figura~\ref{fig:QuantizedSizeLlama}, como se reduce el tamaño original de los modelos al ser utilizada esta técnica.
 
